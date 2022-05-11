@@ -22,6 +22,7 @@
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "aos": "^3.0.0-beta.6",
     "framer-motion": "^6.3.1",
     "next": "^12.1.5",
     "next-pwa": "^5.5.2",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^16.2.1",
     "@commitlint/cz-commitlint": "^16.2.3",
+    "@types/aos": "^3.0.4",
     "@types/react": "^18.0.6",
     "commitizen": "^4.2.4",
     "commitlint": "^16.2.3",
