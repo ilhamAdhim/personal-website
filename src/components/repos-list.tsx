@@ -5,7 +5,7 @@ export default function repositoriesList() {
     {
       title: "SQLearn",
       description:
-        "Help students to practice their understanding of SQL Syntax with drag-and-drop features. With instructor's help",
+        "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
       cover: "/images/projects/lp-sqlearn.png",
       techStack: ["Next JS", "Ant Design", "react-dnd"],
       url: "https://github.com/ilhamAdhim",

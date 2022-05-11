@@ -1,5 +1,6 @@
 import {
   Link,
+  PlacementWithLogical,
   Text,
   Tooltip,
   useClipboard,
@@ -10,8 +11,9 @@ import { useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import {
   ISocialIconsProps,
+  ITooltipPlacementProps,
   ITooltipSocialContentProps,
-} from "types/SocialList";
+} from "types/SocialListProps";
 
 export const iconStyles = (colorMode: string) => {
   return {
@@ -60,7 +62,7 @@ export const TooltipContent = (param: ITooltipSocialContentProps) => {
   );
 };
 
-const SocialList = () => {
+const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
   const { colorMode } = useColorMode();
   const toast = useToast();
   const [value] = useState("ilhamm179@gmail.com");
@@ -84,7 +86,7 @@ const SocialList = () => {
           hasArrow
           key={id}
           label={<TooltipContent {...icon} />}
-          placement="top"
+          placement={placementCaption}
         >
           {icon?.name === "Email" ? (
             <Text as="span" {...iconStyles(colorMode)} onClick={handleCopy}>

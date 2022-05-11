@@ -85,24 +85,8 @@ const HeroSection = () => {
           </Flex>
           <LinksAlt />
         </Stack>
-        <Box
-          ml={{ base: 0, md: 5 }}
-          display={["none", "block"]}
-          position="relative"
-        >
-          <MotionBox
-            animate={{ x: 10 }}
-            transition={{
-              from: 0,
-              duration: 2,
-              ease: "easeIn",
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            <DottedBox />
-          </MotionBox>
-        </Box>
+
+        <DottedBox />
       </Stack>
     </Box>
   );

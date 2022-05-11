@@ -9,23 +9,15 @@ import {
   Divider,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Here we have used framer-motion package for animations
 import { motion } from "framer-motion";
 import SocialList from "./SocialList";
 
-import {
-  SiAntdesign,
-  SiChakraui,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiReact,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import TechStackList from "./TechStackList";
 
 const PortfolioAbout = () => {
   return (
     <VStack
+      bgColor={useColorModeValue("white", "#1a202c")}
       p="10"
       top="40"
       spacing={5}
@@ -43,51 +35,26 @@ const PortfolioAbout = () => {
           />
         </Box>
       </motion.div>
-      <Heading
-        noOfLines={2}
-        fontSize="xl"
-        fontFamily="body"
-        textTransform="capitalize"
-      >
-        Muhammad Ilham Adhim
-      </Heading>
-      <Text
-        noOfLines={{ base: 3, md: 4 }}
-        color="gray.500"
-        fontSize="lg"
-        _groupHover={{ display: "none" }}
-        display="block"
-      >
+      <Heading fontSize={["lg", "xl"]}>Muhammad Ilham Adhim</Heading>
+      <Text color="gray.500" fontSize="lg" display="block">
         Front-End Developer
       </Text>
 
       <Divider />
 
       <Box>
-        <Text align="center"> Current Favorite Tech Stack </Text>
-        <Flex
-          mt="4"
-          alignItems="center"
-          justify="center"
-          w="100%"
-          gap="4"
-          fontSize="2em"
-        >
-          <SiNextdotjs />
-          <SiNodedotjs />
-          <SiReact />
-          <SiChakraui />
-          <SiAntdesign />
-          <SiTypescript />
-        </Flex>
+        <Text align="center"> Current Favorite Tech Stack ⚡</Text>
+        <TechStackList />
       </Box>
+
       <Divider />
+
       <Text fontSize="1.2em" align="center">
         {" "}
-        Let's Collaborate !{" "}
+        Let's Collaborate ! 🙌{" "}
       </Text>
       <Flex alignItems="center" justify="center" w="100%" gap="4">
-        <SocialList />
+        <SocialList placementCaption="bottom" />
       </Flex>
     </VStack>
   );

@@ -13,6 +13,7 @@ import { FaTools } from "react-icons/fa";
 // Here we have used react-icons package for the icons
 import { FiPackage, FiHome, FiUsers, FiBarChart2 } from "react-icons/fi";
 import TimelineItem from "./TimelineItem";
+import { ITimelineProps } from "types/TimelineProps";
 
 interface ExternalLinkProps extends LinkProps {
   url: string;
@@ -43,17 +44,17 @@ export const PageSlideFade = ({ children }: Props) => {
   return <SlideFade in>{children}</SlideFade>;
 };
 
-const TimelineSection = () => {
+const TimelineSection = ({ title }: ITimelineProps) => {
   const linkColor = "blue.400";
   const linkHoverColor = "blue.600";
 
   return (
-    <Box w="full">
+    <Box>
       <PageSlideFade>
         <VStack textAlign="start" align="start" mb={5}>
           <Box>
             <Heading fontSize="2xl" fontWeight="600" my={5}>
-              2021
+              {title}
             </Heading>
             <Box>
               <TimelineItem icon={FaTools}>

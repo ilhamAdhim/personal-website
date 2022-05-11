@@ -114,14 +114,14 @@ const RepositoryCard = (props: RepositoryCardProps) => {
             </Box>
           </Flex>
           <Flex justifyContent="space-between" width="100%" pt="4">
-            <Tooltip hasArrow label="Preview Demo">
+            <Tooltip hasArrow label="Preview Demo" placement="right">
               <Link href={live} isExternal>
                 <Button>
                   <FiEye />
                 </Button>
               </Link>
             </Tooltip>
-            <Tooltip hasArrow label="Preview Source Code">
+            <Tooltip hasArrow label="Preview Source Code" placement="left">
               <Link href={url} isExternal>
                 <Button>
                   <FiGithub />
