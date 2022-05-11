@@ -1,4 +1,11 @@
-import { Box, Flex, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Spacer,
+  chakra,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -27,30 +34,36 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <Flex as="header" width="full" align="flex-start">
+    <Flex
+      p={["1em", "1em 10em"]}
+      top="0"
+      zIndex="1"
+      as="header"
+      align="flex-start"
+      position="sticky"
+      bgColor={useColorModeValue("gray.100", "gray.900")}
+    >
       <Flex gap={[2, 8]}>
-        {navList.map((nav) => (
-          <>
+        {navList.map((nav, id) => (
+          <chakra.div key={id}>
             <Box verticalAlign="middle">
-              <span
-                style={{
-                  textDecoration:
-                    router?.pathname === nav.link ? "underline" : "none",
-                  fontWeight: router?.pathname === nav.link ? "bold" : "normal",
-                }}
+              <chakra.div
+                color={router.pathname === nav.link ? "teal.600" : "unset"}
+                fontWeight={router?.pathname === nav.link ? "bold" : "normal"}
+                mt="2"
               >
                 <Link href={nav.link} passHref>
                   {nav.text}
                 </Link>
-              </span>
+              </chakra.div>
             </Box>
             <Spacer />
-          </>
+          </chakra.div>
         ))}
       </Flex>
 
-      <Box marginLeft="auto">
-        <Flex align="center" />
+      <Spacer />
+      <Box>
         <ThemeToggle />
       </Box>
     </Flex>

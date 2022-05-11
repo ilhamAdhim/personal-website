@@ -1,8 +1,8 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "nextarter-chakra",
-  titleTemplate: "%s | nextarter-chakra",
-  defaultTitle: "nextarter-chakra",
+  title: "Ilham Adhim",
+  titleTemplate: "%s | Ilham Adhim",
+  defaultTitle: "Ilham Adhim",
   description: "Next.js + chakra-ui + TypeScript template",
   canonical: "https://nextarter-chakra.sznm.dev",
   openGraph: {
@@ -15,7 +15,7 @@ const defaultSEOConfig = {
         alt: "nextarter-chakra.sznm.dev og-image",
       },
     ],
-    site_name: "nextarter-chakra",
+    site_name: "Ilham Adhim",
   },
   twitter: {
     handle: "@sozonome",
