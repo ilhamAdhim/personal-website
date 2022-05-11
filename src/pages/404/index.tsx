@@ -16,7 +16,7 @@ const Page404 = () => {
   const { colorMode } = useColorMode();
 
   return (
-    <Flex minHeight="70vh" direction="column" justifyContent="center">
+    <Flex direction="column" justifyContent="center">
       <MotionBox
         animate={{ y: 20 }}
         transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}

@@ -1,17 +1,15 @@
-import {
-  Box,
-  Flex,
-  Spacer,
-  chakra,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Spacer, chakra, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 import ThemeToggle from "./ThemeToggle";
 
-const navList = [
+interface IHeaderProps {
+  text: string;
+  link: string;
+}
+
+const navList: IHeaderProps[] = [
   {
     text: "Home",
     link: "/",
@@ -35,7 +33,7 @@ const Header = () => {
 
   return (
     <Flex
-      p={["1em", "1em 10em"]}
+      p={["1em", "1em", "1em 10em"]}
       top="0"
       zIndex="1"
       as="header"
@@ -45,7 +43,14 @@ const Header = () => {
     >
       <Flex gap={[2, 8]}>
         {navList.map((nav, id) => (
-          <chakra.div key={id}>
+          <chakra.div
+            key={id}
+            className="nav-links"
+            _after={{
+              backgroundColor:
+                router.pathname === nav.link ? "gray.300" : "teal.600",
+            }}
+          >
             <Box verticalAlign="middle">
               <chakra.div
                 color={router.pathname === nav.link ? "teal.600" : "unset"}

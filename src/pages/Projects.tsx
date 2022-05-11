@@ -1,5 +1,66 @@
-const ProjectPage = () => {
-  return <>Ini halaman projects</>;
+import * as React from "react";
+import {
+  SimpleGrid,
+  chakra,
+  Text,
+  useMediaQuery,
+  Box,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import repositoriesList from "components/repos-list";
+import RepositoryCard from "components/RepositoryCard";
+import DottedBox from "components/SVGVectors/DottedBox";
+
+const ProjectList = () => {
+  const [isSmallViewport] = useMediaQuery("(max-width: 768px)");
+
+  return (
+    <Box w="full" p="5" mx="auto">
+      <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
+        {" "}
+        Projects{" "}
+      </chakra.h1>
+      <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
+        {" "}
+        Showcase of projects i've done as{" "}
+        <chakra.span
+          p="1"
+          bgColor={useColorModeValue("teal.200", "transparent")}
+          color={useColorModeValue("black.200", "teal.400")}
+        >
+          {" "}
+          Frontend Developer 🧑‍💻{" "}
+        </chakra.span>
+      </Text>
+
+      <DottedBox />
+
+      <SimpleGrid
+        columns={[1, 2, 3]}
+        spacing={6}
+        mt={8}
+        data-aos="fade-down"
+        data-aos-delay={500}
+      >
+        {repositoriesList().map((repo, index) => (
+          <chakra.div
+            key={index}
+            data-aos="fade-down"
+            data-aos-delay={isSmallViewport ? 0 : index * 150}
+          >
+            <RepositoryCard
+              title={repo.title}
+              description={repo.description}
+              cover={repo.cover}
+              techStack={repo.techStack}
+              url={repo.url}
+              live={repo.live}
+            />
+          </chakra.div>
+        ))}
+      </SimpleGrid>
+    </Box>
+  );
 };
 
-export default ProjectPage;
+export default ProjectList;

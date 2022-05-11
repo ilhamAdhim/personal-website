@@ -1,6 +1,7 @@
 import { chakra, Box, Flex, Text } from "@chakra-ui/react";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
+import SkillSection from "components/SkillSection";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 
@@ -17,7 +18,7 @@ const Home = () => {
       >
         <Box>
           <HeroSection />
-          <Flex justifyContent="center" marginTop={"8em"}>
+          <Flex justifyContent="center" marginTop={["3em", "8em"]}>
             <MotionBox
               animate={{
                 y: 10,
@@ -30,7 +31,7 @@ const Home = () => {
                 repeatType: "reverse",
               }}
             >
-              <Link href="#woi">
+              <Link href="#nextpart">
                 <Text
                   fontSize="2em"
                   fontWeight="bold"
@@ -46,7 +47,9 @@ const Home = () => {
         </Box>
       </Box>
 
-      <chakra.div id="woi">Ini woi</chakra.div>
+      <chakra.div>
+        <SkillSection />
+      </chakra.div>
 
       <chakra.div h="70vh">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem

@@ -1,5 +1,11 @@
+import WIPComponent from "components/WIP";
+
 const BlogPage = () => {
-  return <>Ini halaman blog</>;
+  return (
+    <>
+      <WIPComponent />
+    </>
+  );
 };
 
 export default BlogPage;

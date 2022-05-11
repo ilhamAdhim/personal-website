@@ -6,11 +6,17 @@ import Head from "next/head";
 
 import defaultSEOConfig from "../../next-seo.config";
 import Layout from "layout";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
+import AOS from "aos";
 import "lib/styles/globals.css";
 import customTheme from "lib/styles/customTheme";
+import { useEffect } from "react";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <ChakraProvider theme={customTheme}>
       <Head>
