@@ -28,14 +28,21 @@ const WIPComponent = () => {
         </MotionBox>
       </Box>
       <Box mt={14}>
-        <Heading textAlign="center"> Work in Progress</Heading>
+        <Text fontSize="xl" textAlign="center">
+          {" "}
+          So eager aren't we ?
+        </Text>
+        <Text fontSize="md" opacity="0.6" textAlign="center">
+          {" "}
+          🚧 The work you wanted to see is still under development 🚧
+        </Text>
 
         <Box textAlign="center" mt={4}>
           <Link href="/" passHref>
             <Button
               backgroundColor={colorMode === "light" ? "gray.300" : "teal.500"}
             >
-              Let&apos;s Head Back
+              Cool ! Let&apos;s Head Back
             </Button>
           </Link>
         </Box>
