@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   SimpleGrid,
   chakra,
@@ -10,9 +9,25 @@ import {
 import repositoriesList from "components/repos-list";
 import RepositoryCard from "components/RepositoryCard";
 import DottedBox from "components/SVGVectors/DottedBox";
+import { useEffect, useState } from "react";
+
+interface IDataProjectsProps {
+  title: string;
+  description: string;
+  cover: string;
+  techStack: string[];
+  url: string;
+  live: string;
+  inProgress: boolean;
+}
 
 const ProjectList = () => {
   const [isSmallViewport] = useMediaQuery("(max-width: 768px)");
+  const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
+
+  useEffect(() => {
+    setDataProjects(repositoriesList());
+  }, []);
 
   return (
     <Box w="full" p="5" mx="auto">
@@ -42,7 +57,7 @@ const ProjectList = () => {
         data-aos="fade-down"
         data-aos-delay={500}
       >
-        {repositoriesList().map((repo, index) => (
+        {dataProjects.map((repo, index) => (
           <chakra.div
             key={index}
             data-aos="fade-down"
