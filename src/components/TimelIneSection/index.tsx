@@ -58,7 +58,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
                   url="https://www.typescriptlang.org"
-                  text="Typescript"
+                  text={` Typescript `}
                   target="_blank"
                 />
                 and
@@ -66,7 +66,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
                   url="https://nextjs.org"
-                  text="Next.js"
+                  text=" Next.js "
                   target="_blank"
                 />
               </TimelineItem>

@@ -65,9 +65,7 @@ const HeaderSmallScreen = () => {
         {navList.map((nav) => (
           <chakra.div key={nav.id}>
             <Link href={nav.link} passHref>
-              <MenuItem icon={nav.icon} command="⌘T">
-                {nav.text}
-              </MenuItem>
+              <MenuItem icon={nav.icon}>{nav.text}</MenuItem>
             </Link>
           </chakra.div>
         ))}

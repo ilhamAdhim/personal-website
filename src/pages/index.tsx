@@ -1,4 +1,5 @@
 import { Box, Flex, Text, chakra } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
 
@@ -9,6 +10,10 @@ import SkillSection from "components/SkillSection";
 const Home = () => {
   return (
     <>
+      <NextSeo
+        title="Home"
+        description="Frontend Developer from Indonesia. Uses React, Typescript, and Next JS as my main tech stack. Read more..."
+      />
       <Box
         display={{ md: "flex" }}
         alignItems="center"

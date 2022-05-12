@@ -35,7 +35,7 @@ const HeroSection = () => {
             <chakra.div mt="8" data-aos="fade-down" data-aos-delay="2000">
               I'm
               <chakra.span color={useColorModeValue("teal.600", "teal.400")}>
-                Ilham Adhim
+                {` Ilham Adhim`}
               </chakra.span>
             </chakra.div>
           </chakra.h2>

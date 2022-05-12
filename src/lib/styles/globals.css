@@ -3,11 +3,6 @@
   scroll-behavior: smooth;
 }
 
-.nav-links {
-  display: inline-block;
-  position: relative;
-}
-
 /* Aktifkan ini untuk memberi border bottom gradient di navbar */
 .header {
   border: 0px;
@@ -19,23 +14,25 @@
   text-decoration: none;
 }
 
-/* AKitfkan ini untuk beri animasi ketika dihover tiap linkn ya */
+/* AKitfkan ini untuk beri animasi ketika link di hover */
 
-/*   
-  .nav-links:after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 5px;
-    top: 2em;
-    bottom: 0;
-    left: 0;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  } */
+.link-external {
+  position: relative;
+}
 
-/* .nav-links:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  } */
+.link-external:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-external:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
