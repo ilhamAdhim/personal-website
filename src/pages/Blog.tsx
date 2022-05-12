@@ -1,11 +1,7 @@
 import WIPComponent from "components/WIP";
 
 const BlogPage = () => {
-  return (
-    <>
-      <WIPComponent />
-    </>
-  );
+  return <WIPComponent />;
 };
 
 export default BlogPage;

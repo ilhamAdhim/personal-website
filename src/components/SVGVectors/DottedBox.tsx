@@ -1,10 +1,11 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
+
 import MotionBox from "components/motion/Box";
 
 function DottedBox() {
   return (
     <Box
-      ml={{ base: 0, md: 5 }}
+      // ml={{ base: 0, md: 5 }}
       display={["none", "block"]}
       zIndex="-10"
       position="relative"
@@ -45,20 +46,14 @@ function DottedBox() {
                 height="20"
                 patternUnits="userSpaceOnUse"
               >
-                <rect
-                  x="0"
-                  y="0"
-                  width="4"
-                  height="4"
-                  fill="currentColor"
-                ></rect>
+                <rect x="0" y="0" width="4" height="4" fill="currentColor" />
               </pattern>
             </defs>
             <rect
               width="404"
               height="404"
               fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"
-            ></rect>
+            />
           </svg>
         </Box>
       </MotionBox>

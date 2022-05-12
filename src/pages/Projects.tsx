@@ -1,17 +1,19 @@
 import {
-  SimpleGrid,
-  chakra,
-  Text,
-  useMediaQuery,
   Box,
+  SimpleGrid,
+  Text,
+  chakra,
   useColorModeValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
 import repositoriesList from "components/repos-list";
 import RepositoryCard from "components/RepositoryCard";
 import DottedBox from "components/SVGVectors/DottedBox";
-import { useEffect, useState } from "react";
 
 interface IDataProjectsProps {
+  id: number;
   title: string;
   description: string;
   cover: string;
@@ -32,19 +34,16 @@ const ProjectList = () => {
   return (
     <Box w="full" p="5" mx="auto">
       <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
-        {" "}
-        Projects{" "}
+        Projects
       </chakra.h1>
       <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
-        {" "}
-        Showcase of projects i've done as{" "}
+        Showcase of projects i've done as
         <chakra.span
           p="1"
           bgColor={useColorModeValue("teal.200", "transparent")}
           color={useColorModeValue("black.200", "teal.400")}
         >
-          {" "}
-          Frontend Developer 🧑‍💻{" "}
+          Frontend Developer 🧑‍💻
         </chakra.span>
       </Text>
 
@@ -57,13 +56,14 @@ const ProjectList = () => {
         data-aos="fade-down"
         data-aos-delay={500}
       >
-        {dataProjects.map((repo, index) => (
+        {dataProjects.map((repo) => (
           <chakra.div
-            key={index}
+            key={repo.id}
             data-aos="fade-down"
-            data-aos-delay={isSmallViewport ? 0 : index * 150}
+            data-aos-delay={isSmallViewport ? 0 : repo.id * 150}
           >
             <RepositoryCard
+              id={repo.id}
               title={repo.title}
               description={repo.description}
               cover={repo.cover}

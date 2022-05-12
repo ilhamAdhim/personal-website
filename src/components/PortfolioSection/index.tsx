@@ -1,17 +1,16 @@
-import * as React from "react";
 import {
-  Box,
-  Text,
-  Heading,
-  Flex,
   Avatar,
-  VStack,
+  Box,
   Divider,
+  Flex,
+  Heading,
+  Text,
+  VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import SocialList from "./SocialList";
 
+import SocialList from "./SocialList";
 import TechStackList from "./TechStackList";
 
 const PortfolioAbout = () => {
@@ -21,7 +20,7 @@ const PortfolioAbout = () => {
       p="10"
       top="40"
       spacing={5}
-      rounded={"lg"}
+      rounded="lg"
       position="sticky"
       borderColor={useColorModeValue("gray.700", "blue.200")}
       boxShadow={useColorModeValue("1px 1px 8px gray", "1px 1px 8px skyblue")}
@@ -50,8 +49,7 @@ const PortfolioAbout = () => {
       <Divider />
 
       <Text fontSize="1.2em" align="center">
-        {" "}
-        Let's Collaborate ! 🙌{" "}
+        Let's Collaborate ! 🙌
       </Text>
       <Flex alignItems="center" justify="center" w="100%" gap="4">
         <SocialList placementCaption="bottom" />

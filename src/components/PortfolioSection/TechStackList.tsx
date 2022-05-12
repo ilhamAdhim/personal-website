@@ -2,16 +2,15 @@
 
 import {
   Flex,
-  chakra,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverBody,
-  PopoverArrow,
-  Text,
-  useColorMode,
-  useColorModeValue,
   Link,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+  Text,
+  chakra,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import {
   SiChakraui,
@@ -22,10 +21,12 @@ import {
   SiTypescript,
   SiWebpack,
 } from "react-icons/si";
-import { ITechStackProps } from "types/TechStackListProps";
+
+import type { ITechStackProps } from "types/TechStackListProps";
 
 const techStack: ITechStackProps[] = [
   {
+    id: 1,
     icon: <SiNextdotjs />,
     color: "teal",
     link: "https://nextjs.org/docs/getting-started",
@@ -36,6 +37,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 2,
     icon: <SiReact />,
     color: "cyan",
     link: "https://reactjs.org/docs/hooks-intro.html",
@@ -46,6 +48,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 3,
     icon: <SiJavascript />,
     color: "#F0DB4F",
     link: "https://github.com/ilhamAdhim/restopedia",
@@ -57,6 +60,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 4,
     icon: <SiChakraui />,
     color: "cyan",
     link: "https://chakra-ui.com/",
@@ -67,6 +71,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 5,
     icon: <SiWebpack />,
     color: "#1C78C0",
     link: "https://webpack.js.org/",
@@ -77,6 +82,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 6,
     icon: <SiSass />,
     color: "pink",
     link: "https://sass-lang.com/documentation",
@@ -87,6 +93,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
+    id: 7,
     icon: <SiTypescript />,
     color: "#007acc",
     link: "https://www.typescriptlang.org/docs/",
@@ -99,6 +106,8 @@ const techStack: ITechStackProps[] = [
 ];
 
 const TechStackList = () => {
+  const colorLink = useColorModeValue("teal", "teal.200");
+
   return (
     <Flex
       mt="4"
@@ -108,8 +117,8 @@ const TechStackList = () => {
       alignItems="center"
       flexWrap={["wrap", "nowrap"]}
     >
-      {techStack.map((item, index) => (
-        <Popover key={index} trigger={"hover"}>
+      {techStack.map((item) => (
+        <Popover key={item.id} trigger="hover">
           <PopoverTrigger>
             <chakra.a
               fontSize="2em"
@@ -125,10 +134,7 @@ const TechStackList = () => {
             <PopoverBody>
               <Text align="justify" fontSize=".8em">
                 <chakra.span>{item.description}</chakra.span>
-                <chakra.span
-                  padding="2"
-                  color={useColorModeValue("teal", "teal.200")}
-                >
+                <chakra.span padding="2" color={colorLink}>
                   <Link isExternal href={item?.link}>
                     {item?.descWithLink}
                   </Link>

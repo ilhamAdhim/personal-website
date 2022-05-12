@@ -1,9 +1,10 @@
-import { chakra, Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, chakra } from "@chakra-ui/react";
+import Link from "next/link";
+import { FaArrowDown } from "react-icons/fa";
+
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import SkillSection from "components/SkillSection";
-import Link from "next/link";
-import { FaArrowDown } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -31,7 +32,7 @@ const Home = () => {
                 repeatType: "reverse",
               }}
             >
-              <Link href="#nextpart">
+              <Link href="#nextpart" passHref>
                 <Text
                   fontSize="2em"
                   fontWeight="bold"

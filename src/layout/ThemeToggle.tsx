@@ -7,18 +7,14 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     if (
-      localStorage.getItem("chakra-ui-color-mode") === "light" &&
-      colorMode === "dark"
-    ) {
-      setTimeout(() => toggleColorMode(), 500);
-    } else if (
-      localStorage.getItem("chakra-ui-color-mode") === "dark" &&
-      colorMode === "light"
+      (localStorage.getItem("chakra-ui-color-mode") === "light" &&
+        colorMode === "dark") ||
+      (localStorage.getItem("chakra-ui-color-mode") === "dark" &&
+        colorMode === "light")
     ) {
       setTimeout(() => toggleColorMode(), 500);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [colorMode, toggleColorMode]);
 
   return (
     <IconButton

@@ -1,8 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+
 import PortfolioAbout from "components/PortfolioSection";
 import DottedBox from "components/SVGVectors/DottedBox";
 import TimelineSection from "components/TimelIneSection";
-import WIPComponent from "components/WIP";
 
 const AboutPage = () => {
   return (

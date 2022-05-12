@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Text,
-  Link as ChakraLink,
-  useColorMode,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useColorMode } from "@chakra-ui/react";
 import Link from "next/link";
 
 import MotionBox from "components/motion/Box";
@@ -29,11 +20,9 @@ const WIPComponent = () => {
       </Box>
       <Box mt={14}>
         <Text fontSize="xl" textAlign="center">
-          {" "}
           So eager aren't we ?
         </Text>
         <Text fontSize="md" opacity="0.6" textAlign="center">
-          {" "}
           🚧 The work you wanted to see is still under development 🚧
         </Text>
 

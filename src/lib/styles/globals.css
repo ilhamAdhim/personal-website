@@ -1,28 +1,27 @@
 /* Global Styling here */
-*{
-    scroll-behavior: smooth;
+* {
+  scroll-behavior: smooth;
 }
 
 .nav-links {
-    display: inline-block;
-    position: relative;
-  }
+  display: inline-block;
+  position: relative;
+}
 
-
-  /* Aktifkan ini untuk memberi border bottom gradient di navbar */
-  .header{
-    border: 0px;
+/* Aktifkan ini untuk memberi border bottom gradient di navbar */
+.header {
+  border: 0px;
   border-bottom: 4px solid;
   border-image: linear-gradient(to right, rgb(0, 210, 255), rgb(58, 123, 213));
   border-image-slice: 1;
   color: white;
   margin: auto;
   text-decoration: none;
-  }
-  
-  /* AKitfkan ini untuk beri animasi ketika dihover tiap linkn ya */
-  
-  /*   
+}
+
+/* AKitfkan ini untuk beri animasi ketika dihover tiap linkn ya */
+
+/*   
   .nav-links:after{
     content: "";
     position: absolute;
@@ -35,8 +34,8 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   } */
-  
-  /* .nav-links:hover:after {
+
+/* .nav-links:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   } */

@@ -1,30 +1,31 @@
-import * as React from "react";
 import {
-  chakra,
-  Box,
-  Image,
-  useColorModeValue,
-  VStack,
-  Text,
   AspectRatio,
-  HStack,
-  Tag,
-  Icon,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
+  Box,
+  Button,
   Center,
   Flex,
-  Tooltip,
+  HStack,
+  Icon,
+  Image,
   Link,
-  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalOverlay,
+  Tag,
+  Text,
+  Tooltip,
+  VStack,
+  chakra,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
+
 import LazyImage from "./LazyImage";
 
 interface RepositoryCardProps {
+  id: number;
   title: string;
   description: string;
   cover: string;
@@ -34,7 +35,7 @@ interface RepositoryCardProps {
 }
 
 const RepositoryCard = (props: RepositoryCardProps) => {
-  const { title, cover, techStack, url, live, description } = props;
+  const { id, title, cover, techStack, url, live, description } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClick = () => {
@@ -99,15 +100,15 @@ const RepositoryCard = (props: RepositoryCardProps) => {
           </Flex>
           <Flex justifyContent="space-between" width="100%">
             <Box w="100%">
-              <Flex gap="1" mb="4" wrap={"wrap"}>
-                {techStack!.map((tech, index) => (
-                  <Tag key={index} size="sm" colorScheme="cyan">
+              <Flex gap="1" mb="4" wrap="wrap">
+                {techStack.map((tech) => (
+                  <Tag key={id} size="sm" colorScheme="cyan">
                     <Text fontSize={["0.85rem", "1em"]}>{tech}</Text>
                   </Tag>
                 ))}
               </Flex>
-              <Text align="justify" fontSize={".9em"} noOfLines={[0, 2, 3]}>
-                {description}{" "}
+              <Text align="justify" fontSize=".9em" noOfLines={[0, 2, 3]}>
+                {description}
               </Text>
             </Box>
           </Flex>

@@ -1,4 +1,5 @@
-import { chakra, Divider, Flex, Link, Text } from "@chakra-ui/react";
+import { Divider, Flex, Link, Text, chakra } from "@chakra-ui/react";
+
 import SocialList from "components/PortfolioSection/SocialList";
 
 const Footer = () => {

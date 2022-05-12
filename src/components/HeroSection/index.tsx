@@ -1,20 +1,20 @@
 import {
-  chakra,
+  Box,
+  Button,
+  Flex,
+  Icon,
   Stack,
   Text,
-  Button,
-  Box,
-  Icon,
-  Flex,
+  chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-
-import MotionBox from "components/motion/Box";
-import { FaBolt } from "react-icons/fa";
 import Link from "next/link";
-import WavingHand from "components/WavingHand";
-import LinksAlt from "./LinksAlt";
+import { FaBolt } from "react-icons/fa";
+
 import DottedBox from "components/SVGVectors/DottedBox";
+import WavingHand from "components/WavingHand";
+
+import LinksAlt from "./LinksAlt";
 
 const HeroSection = () => {
   return (
@@ -33,14 +33,14 @@ const HeroSection = () => {
             <WavingHand />
             <br />
             <chakra.div mt="8" data-aos="fade-down" data-aos-delay="2000">
-              I'm{" "}
+              I'm
               <chakra.span color={useColorModeValue("teal.600", "teal.400")}>
                 Ilham Adhim
               </chakra.span>
             </chakra.div>
           </chakra.h2>
           <Text
-            width={"100%"}
+            width="100%"
             p={["4", "0"]}
             fontSize="1.2rem"
             color="gray.500"
@@ -74,8 +74,7 @@ const HeroSection = () => {
                 }}
               >
                 <chakra.span fontSize={[".8em", "unset"]}>
-                  {" "}
-                  See my Projects{" "}
+                  See my Projects
                 </chakra.span>
                 <Icon as={FaBolt} h={4} w={4} ml={1} />
               </Button>
@@ -88,10 +87,7 @@ const HeroSection = () => {
               size="lg"
             >
               <Link href="/About" passHref>
-                <chakra.span fontSize={[".8em", "unset"]}>
-                  {" "}
-                  About me{" "}
-                </chakra.span>
+                <chakra.span fontSize={[".8em", "unset"]}>About me</chakra.span>
               </Link>
             </Button>
           </Flex>

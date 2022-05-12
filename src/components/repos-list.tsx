@@ -3,6 +3,7 @@
 export default function repositoriesList() {
   return [
     {
+      id: 1,
       title: "SQLearn",
       description:
         "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
@@ -13,6 +14,7 @@ export default function repositoriesList() {
       inProgress: true,
     },
     {
+      id: 2,
       title: "Restopedia",
       description:
         "Front-End Expert Dicoding Submission - PWA with Core Web Vitals Metrics, and using Mobile-First Approach",
@@ -23,6 +25,7 @@ export default function repositoriesList() {
       inProgress: false,
     },
     {
+      id: 3,
       title: "Covid Vaccination Rate",
       description:
         "Consume API ML Prediction in Frontend, built with React JS, Antd, CSS custom styling, and Data Visualization with Recharts",
@@ -33,6 +36,7 @@ export default function repositoriesList() {
       inProgress: false,
     },
     {
+      id: 4,
       title: "Sembakoo.id",
       description:
         "Basic Commodities for each province in Indonesia, Warm-up project to learn Vanilla JS for DOM manipulation and ES6 syntax",
@@ -43,6 +47,7 @@ export default function repositoriesList() {
       inProgress: false,
     },
     {
+      id: 5,
       title: "MyLib",
       description:
         "HTML, pure CSS, pure JS. Bookshelf App Project for Dicoding Submission - Frontend Beginner course",
@@ -53,6 +58,7 @@ export default function repositoriesList() {
       inProgress: false,
     },
     {
+      id: 6,
       title: "Serba Kopi",
       description:
         "Serba Kopi, App that with the help of PWA Concepts, it gives native feels when the user open this app on their mobile device.",

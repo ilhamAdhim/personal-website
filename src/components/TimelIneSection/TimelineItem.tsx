@@ -1,15 +1,11 @@
-import React from "react";
-import {
-  Box,
-  BoxProps,
-  Circle,
-  Flex,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import type { BoxProps } from "@chakra-ui/react";
+import { Box, Circle, Flex, useColorModeValue } from "@chakra-ui/react";
+import type React from "react";
+import type { IconType } from "react-icons";
 import { FiCheckCircle } from "react-icons/fi";
 
 export interface TimelineItemProps extends BoxProps {
-  icon?: any;
+  icon?: IconType;
   boxProps?: BoxProps;
   skipTrail?: boolean;
 }

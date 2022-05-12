@@ -1,16 +1,14 @@
-import * as React from "react";
 import { Image } from "@chakra-ui/react";
 
 type LazyImageProps = {
   src: string;
-  size?: string;
   width?: number;
   height?: number;
   rounded?: string;
 };
 
 const LazyImage = (props: LazyImageProps) => {
-  const { src, width, height, size, rounded } = props;
+  const { src, width, height, rounded } = props;
 
   return (
     <Image
@@ -19,7 +17,6 @@ const LazyImage = (props: LazyImageProps) => {
       alt="cover image"
       width={width}
       height={height}
-      // sizes={size}
       rounded={rounded}
       loading="lazy"
     />

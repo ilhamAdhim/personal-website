@@ -1,7 +1,12 @@
-import { chakra, Text } from "@chakra-ui/react";
-import { ISocialIconsProps } from "types/SocialListProps";
+import { Text, chakra } from "@chakra-ui/react";
 
-const TooltipContent = (param: ISocialIconsProps) => {
+import type { ISocialIconsProps } from "types/SocialListProps";
+
+const TooltipContentSocial = ({ email, name, ...param }: ISocialIconsProps) => {
+  return <chakra.span>{"email" in param ? email : name}</chakra.span>;
+};
+
+const TooltipContent = ({ description, ...param }: ISocialIconsProps) => {
   return (
     <chakra.div
       _hover={{
@@ -9,8 +14,8 @@ const TooltipContent = (param: ISocialIconsProps) => {
       }}
     >
       <Text as="div" align="center">
-        {param.description}
-        <Text as="span" align="justify" color="teal" textDecor={"underline"}>
+        {description}
+        <Text as="span" align="justify" color="teal" textDecor="underline">
           {/* {param.type === "social" ? ( */}
           <TooltipContentSocial {...param} />
           {/* ) } */}
@@ -25,11 +30,3 @@ export default TooltipContent;
 // const TooltipContentTechStack = (param: IPopoverTechStackProps) => {
 //   return <Box> Test </Box>;
 // };
-
-const TooltipContentSocial = (param: ISocialIconsProps) => {
-  return (
-    <>
-      {""} {param.hasOwnProperty("email") ? param?.email : param?.name}
-    </>
-  );
-};

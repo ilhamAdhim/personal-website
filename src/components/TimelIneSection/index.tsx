@@ -1,19 +1,14 @@
-import { ReactNode } from "react";
-import {
-  VStack,
-  Heading,
-  Box,
-  Link,
-  LinkProps,
-  SlideFade,
-} from "@chakra-ui/react";
+import type { LinkProps } from "@chakra-ui/react";
+import { Box, Heading, Link, SlideFade, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
+import type { ReactNode } from "react";
 import { FaTools } from "react-icons/fa";
-
 // Here we have used react-icons package for the icons
-import { FiPackage, FiHome, FiUsers, FiBarChart2 } from "react-icons/fi";
+import { FiBarChart2, FiHome, FiPackage, FiUsers } from "react-icons/fi";
+
+import type { ITimelineProps } from "types/TimelineProps";
+
 import TimelineItem from "./TimelineItem";
-import { ITimelineProps } from "types/TimelineProps";
 
 interface ExternalLinkProps extends LinkProps {
   url: string;
@@ -26,7 +21,7 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
   linkProps,
   text,
   ...props
-}) => {
+}: ExternalLinkProps) => {
   return (
     <NextLink href={url} passHref>
       <Link {...linkProps} {...props}>
@@ -58,15 +53,15 @@ const TimelineSection = ({ title }: ITimelineProps) => {
             </Heading>
             <Box>
               <TimelineItem icon={FaTools}>
-                Learnt{" "}
+                Learnt
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
                   url="https://www.typescriptlang.org"
                   text="Typescript"
                   target="_blank"
-                />{" "}
-                and{" "}
+                />
+                and
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
@@ -77,7 +72,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
               </TimelineItem>
               <TimelineItem icon={FiUsers}>loremm</TimelineItem>
               <TimelineItem icon={FiPackage}>
-                Published 3 posts on my portfolio website{" "}
+                Published 3 posts on my portfolio website
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
@@ -87,7 +82,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
                 />
               </TimelineItem>
               <TimelineItem icon={FiPackage}>
-                Published or contributed to{" "}
+                Published or contributed to
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
@@ -97,7 +92,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
                 />
               </TimelineItem>
               <TimelineItem icon={FiBarChart2}>
-                Collected 34k+ posts views and 1.5k+ total reactions on{" "}
+                Collected 34k+ posts views and 1.5k+ total reactions on
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}
@@ -108,7 +103,7 @@ const TimelineSection = ({ title }: ITimelineProps) => {
               </TimelineItem>
               <TimelineItem icon={FiHome} skipTrail>
                 Rebuilt my portfolio website with React, ChakraUI and
-                Framer-motion,{" "}
+                Framer-motion,
                 <ExternalLink
                   color={linkColor}
                   _hover={{ color: linkHoverColor }}

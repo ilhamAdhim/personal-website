@@ -1,3 +1,3 @@
 export interface ITimelineProps {
-    title : string
+  title: string;
 }

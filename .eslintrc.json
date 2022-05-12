@@ -1,7 +1,30 @@
 {
+  "plugins": ["unused-imports"],
   "extends": [
     "sznm/react",
     "plugin:react/jsx-runtime",
     "plugin:@next/next/recommended"
+  ],
+
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/ban-ts-comment" : "off",
+    "react/no-unescaped-entities" : "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
   ]
+  }
 }
