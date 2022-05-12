@@ -1,4 +1,13 @@
-import { chakra, Stack, Text, Button, Box, Icon, Flex } from "@chakra-ui/react";
+import {
+  chakra,
+  Stack,
+  Text,
+  Button,
+  Box,
+  Icon,
+  Flex,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 import MotionBox from "components/motion/Box";
 import { FaBolt } from "react-icons/fa";
@@ -24,7 +33,10 @@ const HeroSection = () => {
             <WavingHand />
             <br />
             <chakra.div mt="8" data-aos="fade-down" data-aos-delay="2000">
-              I'm <chakra.span color="teal">Ilham Adhim</chakra.span>
+              I'm{" "}
+              <chakra.span color={useColorModeValue("teal.600", "teal.400")}>
+                Ilham Adhim
+              </chakra.span>
             </chakra.div>
           </chakra.h2>
           <Text

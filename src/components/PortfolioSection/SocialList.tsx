@@ -7,12 +7,12 @@ import {
   useColorMode,
   useToast,
 } from "@chakra-ui/react";
+import TooltipContent from "components/TooltipContent";
 import { useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import {
   ISocialIconsProps,
   ITooltipPlacementProps,
-  ITooltipSocialContentProps,
 } from "types/SocialListProps";
 
 export const iconStyles = (colorMode: string) => {
@@ -33,34 +33,23 @@ export const socialIcons: ISocialIconsProps[] = [
     name: "Email",
     description: "Click the mail logo to copy",
     email: "ilhamm179@gmail.com",
+    type: "social",
   },
   {
     icon: <FaGithub />,
     name: "Github",
     url: "https://github.com/ilhamAdhim",
     description: "Check out my projects on",
+    type: "social",
   },
   {
     icon: <FaLinkedin />,
     name: "Linkedin",
     url: "https://www.linkedin.com/in/muhammad-ilham-adhim/",
     description: "Find me on",
+    type: "social",
   },
 ];
-
-export const TooltipContent = (param: ITooltipSocialContentProps) => {
-  return (
-    <>
-      <Text as="div" align="center">
-        {param.description}
-        <Text as="span" align="justify" color="teal" textDecor={"underline"}>
-          {" "}
-          {param.hasOwnProperty("email") ? param.email : param.name}
-        </Text>
-      </Text>
-    </>
-  );
-};
 
 const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
   const { colorMode } = useColorMode();

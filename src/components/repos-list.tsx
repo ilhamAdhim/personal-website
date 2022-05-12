@@ -15,9 +15,9 @@ export default function repositoriesList() {
     {
       title: "Restopedia",
       description:
-        "Front-End Expert Dicoding Submission - PWA with Core Web VItals Metrics, and using Mobile-First Approach",
+        "Front-End Expert Dicoding Submission - PWA with Core Web Vitals Metrics, and using Mobile-First Approach",
       cover: "/images/projects/lp-restopedia.png",
-      techStack: ["Webpack", "Cypress", "Sass", "Jasmine", "PWA"],
+      techStack: ["Webpack", "Cypress", "Sass", "PWA"],
       url: "https://github.com/ilhamAdhim/restopedia",
       live: "https://restopedia-demo.netlify.app/",
       inProgress: false,
@@ -35,7 +35,7 @@ export default function repositoriesList() {
     {
       title: "Sembakoo.id",
       description:
-        "Basic Commodities mapped for each province in Indonesia, Warm-up project to learn Vanilla JS for DOM manipulation and ES6 syntax",
+        "Basic Commodities for each province in Indonesia, Warm-up project to learn Vanilla JS for DOM manipulation and ES6 syntax",
       cover: "/images/projects/lp-sembako.png",
       techStack: ["Javascript"],
       url: "https://github.com/ilhamAdhim/sembakoo.id",

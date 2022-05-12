@@ -43,6 +43,8 @@ const RepositoryCard = (props: RepositoryCardProps) => {
 
   return (
     <Box
+      rounded="xl"
+      boxShadow={useColorModeValue("1px 1px 5px gray", "1px 1px 5px skyblue")}
       _hover={{
         transform: "scale(1.05)",
         transition: "all .2s ease-in-out",
@@ -53,10 +55,6 @@ const RepositoryCard = (props: RepositoryCardProps) => {
         borderWidth="1px"
         bg={useColorModeValue("white", "gray.800")}
         borderColor={useColorModeValue("gray.100", "gray.700")}
-        _hover={{
-          shadow: "lg",
-          textDecoration: "none",
-        }}
         overflow="hidden"
         align="start"
         spacing={0}
@@ -108,7 +106,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
                   </Tag>
                 ))}
               </Flex>
-              <Text align="justify" fontSize={".9em"}>
+              <Text align="justify" fontSize={".9em"} noOfLines={[0, 2, 3]}>
                 {description}{" "}
               </Text>
             </Box>

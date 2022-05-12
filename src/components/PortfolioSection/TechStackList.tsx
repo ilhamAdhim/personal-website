@@ -1,56 +1,100 @@
-import { Flex, Icon, Text, Tooltip } from "@chakra-ui/react";
-import { IconType } from "react-icons";
+// @ts-nocheck
+
+import {
+  Flex,
+  chakra,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
+  Text,
+  useColorMode,
+  useColorModeValue,
+  Link,
+} from "@chakra-ui/react";
 import {
   SiChakraui,
   SiJavascript,
   SiNextdotjs,
   SiReact,
-  SiRedux,
   SiSass,
   SiTypescript,
+  SiWebpack,
 } from "react-icons/si";
-
-export interface ITechStackProps {
-  icon: IconType;
-  color?: string;
-  description?: string;
-}
+import { ITechStackProps } from "types/TechStackListProps";
 
 const techStack: ITechStackProps[] = [
   {
-    icon: SiNextdotjs,
+    icon: <SiNextdotjs />,
     color: "teal",
-    description: "Ini Next ",
+    link: "https://nextjs.org/docs/getting-started",
+    description: "After getting React basics, learning",
+    descWithLink: "Next JS",
+    nextDesc:
+      "were seamless to me. Seo optimized, dynamic paths, and high customability are features I love at this moment.",
+    type: "tech",
   },
   {
-    icon: SiJavascript,
+    icon: <SiReact />,
+    color: "cyan",
+    link: "https://reactjs.org/docs/hooks-intro.html",
+    description:
+      "I started learning React in 2019. It enabled me to create a SPA with high interactivity. When",
+    descWithLink: "React Hooks",
+    nextDesc: "comes out, i like it due to its simplicity.",
+    type: "tech",
+  },
+  {
+    icon: <SiJavascript />,
     color: "#F0DB4F",
-    description: "Ini SiJavascript",
+    link: "https://github.com/ilhamAdhim/restopedia",
+    description:
+      "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
+    descWithLink: "PWA + SPA web app with vanilla JS",
+    nextDesc:
+      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
+    type: "tech",
   },
   {
-    icon: SiReact,
+    icon: <SiChakraui />,
     color: "cyan",
-    description: "Ini SiReact",
+    link: "https://chakra-ui.com/",
+    description: "Chakra UI has been my go-to UI library for a while now.",
+    descWithLink: "It's well-documented",
+    nextDesc:
+      "and i can build an app faster without any hassle. Plus, there are lots of open-source components are available too out there.",
+    type: "tech",
   },
   {
-    icon: SiChakraui,
-    color: "cyan",
-    description: "Ini SiChakraui",
+    icon: <SiWebpack />,
+    color: "#1C78C0",
+    link: "https://webpack.js.org/",
+    description: "A",
+    descWithLink: "module bundler",
+    nextDesc:
+      "that i used for Module Analyzer and code splitting. Plus, we can differentiate production and development mode.",
+    type: "tech",
   },
   {
-    icon: SiRedux,
-    color: "#764abc",
-    description: "Ini SiRedux",
-  },
-  {
-    icon: SiSass,
+    icon: <SiSass />,
     color: "pink",
-    description: "Ini SiSass",
+    link: "https://sass-lang.com/documentation",
+    description:
+      "Easier-to-read CSS. It can hold global variables, mixins, and functions. Which are normal CSS are not fully capable of.",
+    descWithLink: "",
+    nextDesc: "",
+    type: "tech",
   },
   {
-    icon: SiTypescript,
+    icon: <SiTypescript />,
     color: "#007acc",
-    description: "Ini SiTypescript",
+    link: "https://www.typescriptlang.org/docs/",
+    description:
+      "Detect error earlier and fix it right away. For me, the usage of ",
+    descWithLink: "Typescript",
+    nextDesc: "is worth its boilerplate problem. Definitely love it.",
+    type: "tech",
   },
 ];
 
@@ -60,27 +104,40 @@ const TechStackList = () => {
       mt="4"
       gap="4"
       w="100%"
-      fontSize="2em"
       justify="center"
       alignItems="center"
       flexWrap={["wrap", "nowrap"]}
     >
       {techStack.map((item, index) => (
-        <Tooltip
-          hasArrow
-          key={index}
-          placement="bottom"
-          label={item.description}
-        >
-          <Text
-            as="span"
-            _hover={{
-              color: item.color,
-            }}
-          >
-            <Icon as={item.icon} />
-          </Text>
-        </Tooltip>
+        <Popover key={index} trigger={"hover"}>
+          <PopoverTrigger>
+            <chakra.a
+              fontSize="2em"
+              _hover={{
+                color: item.color,
+              }}
+            >
+              {item.icon}
+            </chakra.a>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverBody>
+              <Text align="justify" fontSize=".8em">
+                <chakra.span>{item.description}</chakra.span>
+                <chakra.span
+                  padding="2"
+                  color={useColorModeValue("teal", "teal.200")}
+                >
+                  <Link isExternal href={item?.link}>
+                    {item?.descWithLink}
+                  </Link>
+                </chakra.span>
+                <chakra.span>{item?.nextDesc}</chakra.span>
+              </Text>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
       ))}
     </Flex>
   );
