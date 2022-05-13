@@ -1,4 +1,4 @@
-import { Box, Flex, Text, chakra } from "@chakra-ui/react";
+import { Box, Flex, chakra } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
@@ -38,7 +38,7 @@ const Home = () => {
               }}
             >
               <Link href="#nextpart" passHref>
-                <Text
+                <chakra.div
                   fontSize="2em"
                   fontWeight="bold"
                   _hover={{
@@ -46,7 +46,7 @@ const Home = () => {
                   }}
                 >
                   <FaArrowDown />
-                </Text>
+                </chakra.div>
               </Link>
             </MotionBox>
           </Flex>

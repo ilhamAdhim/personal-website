@@ -5,16 +5,16 @@ import {
   chakra,
   useColorModeValue,
   useMediaQuery,
+  Spinner,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import DottedBox from "components/SVGVectors/DottedBox";
 import repositoriesList from "components/repos-list";
 import RepositoryCard from "components/RepositoryCard";
-import DottedBox from "components/SVGVectors/DottedBox";
 
 interface IDataProjectsProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
   cover: string;
@@ -25,11 +25,17 @@ interface IDataProjectsProps {
 }
 
 const ProjectList = () => {
-  const [isSmallViewport] = useMediaQuery("(max-width: 768px)");
+  const [isSmallViewport, setIsSmallViewport] = useState(false);
+  const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
+
+  useEffect(() => {
+    setIsSmallViewport(isSmallScreen);
+  }, []);
+
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
   useEffect(() => {
-    setDataProjects(repositoriesList());
+    setDataProjects(repositoriesList);
   }, []);
 
   return (
@@ -43,13 +49,13 @@ const ProjectList = () => {
           Projects
         </chakra.h1>
         <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
-          Showcase of projects i've done as
+          Showcase of projects i've done on
           <chakra.span
             p="1"
             bgColor={useColorModeValue("teal.200", "transparent")}
             color={useColorModeValue("black.200", "teal.400")}
           >
-            {` Frontend Developer 🧑‍💻`}
+            {` Frontend Development 🧑‍💻`}
           </chakra.span>
         </Text>
 
@@ -62,11 +68,11 @@ const ProjectList = () => {
           data-aos="fade-down"
           data-aos-delay={500}
         >
-          {dataProjects.map((repo) => (
+          {dataProjects.map((repo, index) => (
             <chakra.div
               key={repo.id}
               data-aos="fade-down"
-              data-aos-delay={isSmallViewport ? 0 : repo.id * 150}
+              data-aos-delay={isSmallViewport ? 0 : index * 150}
             >
               <RepositoryCard
                 id={repo.id}

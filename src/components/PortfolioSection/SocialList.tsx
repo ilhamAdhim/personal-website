@@ -6,7 +6,7 @@ import {
   useColorMode,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import TooltipContent from "components/TooltipContent";
@@ -55,6 +55,14 @@ export const socialIcons: ISocialIconsProps[] = [
 ];
 
 const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
+  const [dataSocialIcons, setDataSocialIcons] = useState<ISocialIconsProps[]>(
+    []
+  );
+
+  useEffect(() => {
+    setDataSocialIcons(socialIcons);
+  }, []);
+
   const { colorMode } = useColorMode();
   const toast = useToast();
   const [value] = useState("ilhamm179@gmail.com");
@@ -73,7 +81,7 @@ const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
 
   return (
     <>
-      {socialIcons.map((icon) => (
+      {dataSocialIcons?.map((icon) => (
         <Tooltip
           key={icon.id}
           hasArrow

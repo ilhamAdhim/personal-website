@@ -28,15 +28,15 @@ const Page404 = () => {
           alt="Error 404 not found Illustration"
         />
       </MotionBox>
-      <Text textAlign="center" fontSize="xs">
-        <ChakraLink
-          href="https://stories.freepik.com/web"
-          isExternal
-          rel="noopener noreferrer"
-        >
+      <ChakraLink
+        href="https://stories.freepik.com/web"
+        isExternal
+        rel="noopener noreferrer"
+      >
+        <Text textAlign="center" fontSize="xs">
           Illustration by Freepik Stories
-        </ChakraLink>
-      </Text>
+        </Text>
+      </ChakraLink>
 
       <Box marginY={4}>
         <Heading textAlign="center">Page not Found.</Heading>

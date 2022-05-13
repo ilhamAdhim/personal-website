@@ -12,6 +12,7 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import {
   SiChakraui,
   SiJavascript,
@@ -106,7 +107,12 @@ const techStack: ITechStackProps[] = [
 ];
 
 const TechStackList = () => {
+  const [dataTechStack, setDataTechStack] = useState([]);
   const colorLink = useColorModeValue("teal", "teal.200");
+
+  useEffect(() => {
+    setDataTechStack(techStack);
+  }, []);
 
   return (
     <Flex
@@ -117,7 +123,7 @@ const TechStackList = () => {
       alignItems="center"
       flexWrap={["wrap", "nowrap"]}
     >
-      {techStack.map((item) => (
+      {dataTechStack?.map((item) => (
         <Popover key={item.id} trigger="hover">
           <PopoverTrigger>
             <chakra.a

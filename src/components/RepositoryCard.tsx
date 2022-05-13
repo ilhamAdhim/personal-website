@@ -25,7 +25,7 @@ import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
 import LazyImage from "./LazyImage";
 
 interface RepositoryCardProps {
-  id: number;
+  id: string;
   title: string;
   description: string;
   cover: string;
@@ -81,7 +81,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
           h={["unset", "230", "230", "230", "unset"]}
         >
           <Flex justifyContent="space-between" width="100%">
-            <Tooltip hasArrow label="Github link" placement="top">
+            <Tooltip hasArrow label="Go to Github" placement="top">
               <Link href={url}>
                 <HStack>
                   <Icon as={FiCheckCircle} />

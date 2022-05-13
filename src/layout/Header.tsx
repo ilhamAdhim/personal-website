@@ -13,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import type { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 
 import ThemeToggle from "./ThemeToggle";
 
 interface IHeaderProps {
-  id: number;
+  id: string;
   text: string;
   link: string;
   icon?: ReactElement;
@@ -27,25 +27,25 @@ interface IHeaderProps {
 
 const navList: IHeaderProps[] = [
   {
-    id: 1,
+    id: "nav-1",
     text: "Home",
     link: "/",
     icon: <FaHome />,
   },
   {
-    id: 2,
+    id: "nav-2",
     text: "Projects",
     link: "/Projects",
     icon: <FaCode />,
   },
   {
-    id: 3,
+    id: "nav-3",
     text: "Blog",
     link: "/Blog",
     icon: <FaPen />,
   },
   {
-    id: 4,
+    id: "nav-4",
     text: "About",
     link: "/About",
     icon: <FaUser />,
@@ -108,7 +108,13 @@ const HeaderLargeScreen = () => {
 };
 
 const Header = () => {
+  const [isSmallViewport, setIsSmallViewport] = useState(false);
   const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
+
+  useEffect(() => {
+    setIsSmallViewport(isSmallScreen);
+  }, []);
+
   const fontColorNav = useColorModeValue("gray.900", "gray.100");
   const bgColorNav = useColorModeValue("gray.100", "gray.900");
 
@@ -125,7 +131,7 @@ const Header = () => {
       bgColor={bgColorNav}
       color={fontColorNav}
     >
-      {isSmallScreen ? <HeaderSmallScreen /> : <HeaderLargeScreen />}
+      {isSmallViewport ? <HeaderSmallScreen /> : <HeaderLargeScreen />}
 
       <Box>
         <ThemeToggle />

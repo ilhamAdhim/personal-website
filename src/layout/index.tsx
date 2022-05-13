@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import type { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import Footer from "./Footer";
 import Header from "./Header";
