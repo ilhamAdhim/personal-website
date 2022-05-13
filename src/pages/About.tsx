@@ -13,8 +13,8 @@ import PortfolioAbout from "components/PortfolioSection";
 import DottedBox from "components/SVGVectors/DottedBox";
 import TimelineSection from "components/TimelIneSection";
 import workExperience from "data/experienceList";
-import type { IExperienceProps } from "types/ExperienceProps";
 import useSmallViewport from "hooks/useViewport";
+import type { IExperienceProps } from "types/ExperienceProps";
 
 const AboutPage = () => {
   const { isSmallViewport } = useSmallViewport();

@@ -21,7 +21,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
-import { IDataProjectsProps } from "types/ProjectProps";
+
+import type { IDataProjectsProps } from "types/ProjectProps";
 
 import LazyImage from "./LazyImage";
 

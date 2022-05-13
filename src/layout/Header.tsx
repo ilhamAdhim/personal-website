@@ -10,11 +10,12 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-import useSmallViewport from "hooks/useViewport";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
 import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
+
+import useSmallViewport from "hooks/useViewport";
 
 import ThemeToggle from "./ThemeToggle";
 

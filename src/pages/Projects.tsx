@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import RepositoryCard from "components/RepositoryCard";
 import DottedBox from "components/SVGVectors/DottedBox";
 import repositoriesList from "data/repositoryList";
-import type { IDataProjectsProps } from "types/ProjectProps";
 import useSmallViewport from "hooks/useViewport";
+import type { IDataProjectsProps } from "types/ProjectProps";
 
 const ProjectList = () => {
   const { isSmallViewport } = useSmallViewport();

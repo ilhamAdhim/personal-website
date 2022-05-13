@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import {
-  chakra,
   Flex,
   Link,
   Popover,
@@ -10,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
+  chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
