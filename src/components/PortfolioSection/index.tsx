@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   Divider,
-  Flex,
   Heading,
   Text,
   VStack,
@@ -51,9 +50,7 @@ const PortfolioAbout = () => {
       <Text fontSize="1.2em" align="center">
         Let's Collaborate ! 🙌
       </Text>
-      <Flex alignItems="center" justify="center" w="100%" gap="4">
-        <SocialList placementCaption="bottom" />
-      </Flex>
+      <SocialList placementCaption="bottom" />
     </VStack>
   );
 };

@@ -1,4 +1,5 @@
 import {
+  Flex,
   Link,
   Text,
   Tooltip,
@@ -80,7 +81,7 @@ const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
   };
 
   return (
-    <>
+    <Flex alignItems="center" justify="center" w="100%" gap="4">
       {dataSocialIcons?.map((icon) => (
         <Tooltip
           key={icon.id}
@@ -101,7 +102,7 @@ const SocialList = ({ placementCaption = "top" }: ITooltipPlacementProps) => {
           )}
         </Tooltip>
       ))}
-    </>
+    </Flex>
   );
 };
 

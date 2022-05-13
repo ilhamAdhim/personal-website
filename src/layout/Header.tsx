@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ReactElement, useEffect, useState } from "react";
+import type { ReactElement } from "react";
+import { useEffect, useState } from "react";
 import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 
 import ThemeToggle from "./ThemeToggle";
@@ -113,7 +114,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsSmallViewport(isSmallScreen);
-  }, []);
+  }, [isSmallScreen]);
 
   const fontColorNav = useColorModeValue("gray.900", "gray.100");
   const bgColorNav = useColorModeValue("gray.100", "gray.900");

@@ -5,24 +5,14 @@ import {
   chakra,
   useColorModeValue,
   useMediaQuery,
-  Spinner,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import React, { useEffect, useState } from "react";
-import DottedBox from "components/SVGVectors/DottedBox";
-import repositoriesList from "components/repos-list";
-import RepositoryCard from "components/RepositoryCard";
+import { useEffect, useState } from "react";
 
-interface IDataProjectsProps {
-  id: string;
-  title: string;
-  description: string;
-  cover: string;
-  techStack: string[];
-  url: string;
-  live: string;
-  inProgress: boolean;
-}
+import RepositoryCard from "components/RepositoryCard";
+import DottedBox from "components/SVGVectors/DottedBox";
+import repositoriesList from "data/repositoryList";
+import type { IDataProjectsProps } from "types/ProjectProps";
 
 const ProjectList = () => {
   const [isSmallViewport, setIsSmallViewport] = useState(false);
@@ -30,7 +20,7 @@ const ProjectList = () => {
 
   useEffect(() => {
     setIsSmallViewport(isSmallScreen);
-  }, []);
+  }, [isSmallScreen]);
 
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 

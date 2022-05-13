@@ -93,17 +93,10 @@ const SkillSection = () => {
           </chakra.h1>
           <Box>
             <Content>
-              Building products is hard. We've built our fair share and we've
-              noticed the problems you always run into.
-            </Content>
-            <Content mt={4}>
-              TemplatesKart provides the best ChakraUI templates. Now you can
-              focus on your business, not on the boilerplate.
-            </Content>
-            <Content mt={4}>
-              You want to build a product and we want to help you. Building
-              products has changed our lives in ways we couldn't imagine and we
-              want to help you achieve that success too.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
+              quisquam aperiam maiores corporis adipisci libero! Deserunt autem
+              neque quos ipsa possimus corrupti veritatis eveniet, consequatur
+              repellendus animi exercitationem fuga cum.
             </Content>
           </Box>
           {/* <Link href="#" fontSize="sm" color="blue.400">

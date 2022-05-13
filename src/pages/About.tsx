@@ -7,12 +7,22 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
 
 import PortfolioAbout from "components/PortfolioSection";
 import DottedBox from "components/SVGVectors/DottedBox";
 import TimelineSection from "components/TimelIneSection";
+import workExperience from "data/experienceList";
+import type { IExperienceProps } from "types/ExperienceProps";
 
 const AboutPage = () => {
+  const colorHighlightLink = useColorModeValue("teal.600", "cyan");
+  const [dataWorkExp, setDataWorkExp] = useState<IExperienceProps[]>([]);
+
+  useEffect(() => {
+    setDataWorkExp(workExperience);
+  }, []);
+
   const colorName = useColorModeValue("teal.600", "teal.400");
   return (
     <>
@@ -39,22 +49,23 @@ const AboutPage = () => {
             </Text>
 
             <Box mt="4">
-              {/* {`I started learning web development in May 2020,
-            which is the start of the pandemic. I have nothing much to do so I
-            decided to learn web development from a udemy course, then started
-            watching a bunch of youtube videos to explore more about web
-            development especially frontend development.`} */}
               <Text mt="10" align="justify">
                 {`Currently, i'm a final year student majoring in Information
-                Technology at State Polytechnic of Malang (Polinema). And having
-                a good time doing my Frontend Engineering Bootcamp in `}
+                Technology at State Polytechnic of Malang (Polinema). And doing my Frontend Engineering Bootcamp in `}
                 <chakra.span
                   fontWeight="bold"
                   className="link-external"
                   _after={{
-                    borderBottom: "1px solid cyan",
+                    padding: 0,
+                    margin: 0,
+                    borderBottom: "3px solid",
+                    borderBottomColor: colorHighlightLink,
                   }}
-                  borderBottom="1px dashed cyan"
+                  _hover={{
+                    border: "none",
+                  }}
+                  borderBottom="3px dashed"
+                  borderBottomColor={colorHighlightLink}
                 >
                   <Link
                     isExternal
@@ -81,22 +92,24 @@ const AboutPage = () => {
                 used by the client.
               </Text> */}
               <Text mt="10" align="justify">
-                In this website, i'll be active on adding collection to my
-                handful projects and writing blogs . With writing, I'll be able
-                to document my journey of exploration, experiences, as well as
+                In this website, i'll actively adding collection to my handful
+                projects and writing blogs. With writing, I'll be able to
+                document my journey of exploration, experiences, as well as
                 learnings. Besides, I'd like to share my findings and
-                exploration on IT-related stuffs or anything else. This way, i
-                can share my insights along the way.
+                exploration on IT-related stuffs along the way.
               </Text>
               <Text mt="10" align="justify">
                 I'm open to working on paid project too if there is an
                 opportunity. Feel free to reach out 👌
               </Text>
+
+              <Box mt="4">
+                <TimelineSection
+                  title="Experience"
+                  pointCollection={dataWorkExp}
+                />
+              </Box>
             </Box>
-            {/* <WIPComponent /> */}
-            <TimelineSection title="Work Experience" />
-            <TimelineSection title="Academic Background" />
-            <TimelineSection title="Others" />
           </Box>
         </Flex>
       </Box>

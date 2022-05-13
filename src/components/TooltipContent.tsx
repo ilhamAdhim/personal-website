@@ -3,7 +3,9 @@ import { Text, chakra } from "@chakra-ui/react";
 import type { ISocialIconsProps } from "types/SocialListProps";
 
 const TooltipContentSocial = ({ email, name, ...param }: ISocialIconsProps) => {
-  return <chakra.span>{"email" in param ? email : name}</chakra.span>;
+  return (
+    <chakra.span>{"email" in param ? ` ${email}` : ` ${name}`}</chakra.span>
+  );
 };
 
 const TooltipContent = ({ description, ...param }: ISocialIconsProps) => {
@@ -16,9 +18,7 @@ const TooltipContent = ({ description, ...param }: ISocialIconsProps) => {
       <Text as="div" align="center">
         {description}
         <Text as="span" align="justify" color="teal" textDecor="underline">
-          {/* {param.type === "social" ? ( */}
           <TooltipContentSocial {...param} />
-          {/* ) } */}
         </Text>
       </Text>
     </chakra.div>
