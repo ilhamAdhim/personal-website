@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 import {
+  chakra,
   Flex,
   Link,
   Popover,
@@ -9,7 +10,6 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
-  chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -34,32 +34,38 @@ const TechStackList = () => {
       flexWrap={["wrap", "nowrap"]}
     >
       {dataTechStack?.map((item) => (
-        <Popover key={item.id} trigger="hover">
-          <PopoverTrigger>
-            <chakra.a
-              fontSize="2em"
-              _hover={{
-                color: item.color,
-              }}
-            >
-              {item.icon}
-            </chakra.a>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverArrow />
-            <PopoverBody>
-              <Text align="justify" fontSize=".8em">
-                <chakra.span>{item.description}</chakra.span>
-                <chakra.span padding="2" color={colorLink}>
-                  <Link isExternal href={item?.link}>
-                    {item?.descWithLink}
-                  </Link>
-                </chakra.span>
-                <chakra.span>{item?.nextDesc}</chakra.span>
-              </Text>
-            </PopoverBody>
-          </PopoverContent>
-        </Popover>
+        <chakra.div
+          key={item.id}
+          data-aos="fade-left"
+          data-aos-delay={1000 + item.id * 150}
+        >
+          <Popover trigger="hover">
+            <PopoverTrigger>
+              <chakra.a
+                fontSize="2em"
+                _hover={{
+                  color: item.color,
+                }}
+              >
+                {item.icon}
+              </chakra.a>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverBody>
+                <Text align="justify" fontSize=".8em">
+                  <chakra.span>{item.description}</chakra.span>
+                  <chakra.span padding="2" color={colorLink}>
+                    <Link isExternal href={item?.link}>
+                      {item?.descWithLink}
+                    </Link>
+                  </chakra.span>
+                  <chakra.span>{item?.nextDesc}</chakra.span>
+                </Text>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </chakra.div>
       ))}
     </Flex>
   );

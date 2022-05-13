@@ -4,7 +4,6 @@ import {
   Text,
   chakra,
   useColorModeValue,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
@@ -13,14 +12,10 @@ import RepositoryCard from "components/RepositoryCard";
 import DottedBox from "components/SVGVectors/DottedBox";
 import repositoriesList from "data/repositoryList";
 import type { IDataProjectsProps } from "types/ProjectProps";
+import useSmallViewport from "hooks/useViewport";
 
 const ProjectList = () => {
-  const [isSmallViewport, setIsSmallViewport] = useState(false);
-  const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
-
-  useEffect(() => {
-    setIsSmallViewport(isSmallScreen);
-  }, [isSmallScreen]);
+  const { isSmallViewport } = useSmallViewport();
 
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
@@ -52,9 +47,9 @@ const ProjectList = () => {
         <DottedBox />
 
         <SimpleGrid
-          columns={[1, 2, 3]}
-          spacing={6}
           mt={8}
+          spacing={6}
+          columns={[1, 2, 3]}
           data-aos="fade-down"
           data-aos-delay={500}
         >
@@ -66,12 +61,12 @@ const ProjectList = () => {
             >
               <RepositoryCard
                 id={repo.id}
-                title={repo.title}
-                description={repo.description}
-                cover={repo.cover}
-                techStack={repo.techStack}
                 url={repo.url}
                 live={repo.live}
+                title={repo.title}
+                cover={repo.cover}
+                techStack={repo.techStack}
+                description={repo.description}
               />
             </chakra.div>
           ))}

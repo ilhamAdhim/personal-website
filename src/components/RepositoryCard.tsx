@@ -21,21 +21,12 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
+import { IDataProjectsProps } from "types/ProjectProps";
 
 import LazyImage from "./LazyImage";
 
-interface RepositoryCardProps {
-  id: string;
-  title: string;
-  description: string;
-  cover: string;
-  techStack: string[];
-  url: string;
-  live: string;
-}
-
-const RepositoryCard = (props: RepositoryCardProps) => {
-  const { id, title, cover, techStack, url, live, description } = props;
+const RepositoryCard = (props: IDataProjectsProps) => {
+  const { title, cover, techStack, url, live, description } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClick = () => {
@@ -101,9 +92,9 @@ const RepositoryCard = (props: RepositoryCardProps) => {
           <Flex justifyContent="space-between" width="100%">
             <Box w="100%">
               <Flex gap="1" mb="4" wrap="wrap">
-                {techStack.map((tech) => (
-                  <Tag key={id} size="sm" colorScheme="cyan">
-                    <Text fontSize={["0.85rem", "1em"]}>{tech}</Text>
+                {techStack.map((item) => (
+                  <Tag key={item.id} size="sm" colorScheme="cyan">
+                    <Text fontSize={["0.85rem", "1em"]}>{item.name}</Text>
                   </Tag>
                 ))}
               </Flex>

@@ -3,8 +3,13 @@ export interface IDataProjectsProps {
   title: string;
   description: string;
   cover: string;
-  techStack: string[];
+  techStack: ITechProjectProps[];
   url: string;
   live: string;
-  inProgress: boolean;
+  inProgress?: boolean;
+}
+
+export interface ITechProjectProps {
+  id: string;
+  name: string;
 }

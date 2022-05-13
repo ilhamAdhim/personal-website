@@ -9,12 +9,11 @@ import {
   Spacer,
   chakra,
   useColorModeValue,
-  useMediaQuery,
 } from "@chakra-ui/react";
+import useSmallViewport from "hooks/useViewport";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
-import { useEffect, useState } from "react";
 import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 
 import ThemeToggle from "./ThemeToggle";
@@ -54,8 +53,11 @@ const navList: IHeaderProps[] = [
 ];
 
 const HeaderSmallScreen = () => {
+  const router = useRouter();
+  const navActiveColor = useColorModeValue("teal.600", "teal.400");
+
   return (
-    <Menu>
+    <Menu isLazy>
       <MenuButton
         as={IconButton}
         aria-label="Options"
@@ -66,7 +68,16 @@ const HeaderSmallScreen = () => {
         {navList.map((nav) => (
           <chakra.div key={nav.id}>
             <Link href={nav.link} passHref>
-              <MenuItem icon={nav.icon}>{nav.text}</MenuItem>
+              <MenuItem icon={nav.icon}>
+                <chakra.div
+                  color={
+                    router?.pathname === nav.link ? navActiveColor : "unset"
+                  }
+                  fontWeight={router?.pathname === nav.link ? "bold" : "normal"}
+                >
+                  {nav.text}
+                </chakra.div>
+              </MenuItem>
             </Link>
           </chakra.div>
         ))}
@@ -109,15 +120,9 @@ const HeaderLargeScreen = () => {
 };
 
 const Header = () => {
-  const [isSmallViewport, setIsSmallViewport] = useState(false);
-  const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
-
-  useEffect(() => {
-    setIsSmallViewport(isSmallScreen);
-  }, [isSmallScreen]);
-
-  const fontColorNav = useColorModeValue("gray.900", "gray.100");
+  const { isSmallViewport } = useSmallViewport();
   const bgColorNav = useColorModeValue("gray.100", "gray.900");
+  const fontColorNav = useColorModeValue("gray.900", "gray.100");
 
   return (
     <Flex

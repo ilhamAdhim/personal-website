@@ -6,7 +6,20 @@ const repositoriesList = [
     description:
       "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
     cover: "/images/projects/lp-sqlearn.png",
-    techStack: ["Next JS", "Ant Design", "react-dnd"],
+    techStack: [
+      {
+        id: "project-1-1",
+        name: "Next JS",
+      },
+      {
+        id: "project-1-2",
+        name: "Ant Design",
+      },
+      {
+        id: "project-1-3",
+        name: "react-dnd",
+      },
+    ],
     url: "https://github.com/ilhamAdhim",
     live: "https://deploy-fe-sqlearn.vercel.app/",
     inProgress: true,
@@ -17,7 +30,24 @@ const repositoriesList = [
     description:
       "Front-End Expert Dicoding Submission - PWA with Core Web Vitals Metrics, and using Mobile-First Approach",
     cover: "/images/projects/lp-restopedia.png",
-    techStack: ["Webpack", "Cypress", "Sass", "PWA"],
+    techStack: [
+      {
+        id: "project-2-1",
+        name: "Webpack",
+      },
+      {
+        id: "project-2-2",
+        name: "Cypress",
+      },
+      {
+        id: "project-2-3",
+        name: "Sass",
+      },
+      {
+        id: "project-2-4",
+        name: "PWA",
+      },
+    ],
     url: "https://github.com/ilhamAdhim/restopedia",
     live: "https://restopedia-demo.netlify.app/",
     inProgress: false,
@@ -28,7 +58,20 @@ const repositoriesList = [
     description:
       "Consume API ML Prediction in Frontend, built with React JS, Antd, CSS custom styling, and Data Visualization with Recharts",
     cover: "/images/projects/lp-monitor-covid-19.jpg",
-    techStack: ["React JS", "Ant Design", "Recharts"],
+    techStack: [
+      {
+        id: "project-3-1",
+        name: "React JS",
+      },
+      {
+        id: "project-3-2",
+        name: "Ant Design",
+      },
+      {
+        id: "project-3-3",
+        name: "Recharts",
+      },
+    ],
     url: "https://github.com/ilhamAdhim/covid-vaccination-rate",
     live: "https://pantau-covid-19.netlify.app/",
     inProgress: false,
@@ -39,7 +82,13 @@ const repositoriesList = [
     description:
       "Basic Commodities for each province in Indonesia, Warm-up project to learn Vanilla JS for DOM manipulation and ES6 syntax",
     cover: "/images/projects/lp-sembako.png",
-    techStack: ["Javascript"],
+
+    techStack: [
+      {
+        id: "project-4-1",
+        name: "Javascript",
+      },
+    ],
     url: "https://github.com/ilhamAdhim/sembakoo.id",
     live: "https://sembakoo-id.netlify.app/",
     inProgress: false,
@@ -50,7 +99,12 @@ const repositoriesList = [
     description:
       "HTML, pure CSS, pure JS. Bookshelf App Project for Dicoding Submission - Frontend Beginner course",
     cover: "/images/projects/lp-mylib.png",
-    techStack: ["Javascript"],
+    techStack: [
+      {
+        id: "project-5-1",
+        name: "Javascript",
+      },
+    ],
     url: "https://github.com/ilhamAdhim/MyLib",
     live: "https://mylibrr.netlify.app/",
     inProgress: false,
@@ -61,7 +115,20 @@ const repositoriesList = [
     description:
       "Serba Kopi, App that with the help of PWA Concepts, it gives native feels when the user open this app on their mobile device.",
     cover: "/images/projects/lp-serbakopi.png",
-    techStack: ["Webpack", "Javascript", "PWA"],
+    techStack: [
+      {
+        id: "project-6-1",
+        name: "Webpack",
+      },
+      {
+        id: "project-6-2",
+        name: "Javascript",
+      },
+      {
+        id: "project-6-3",
+        name: "PWA",
+      },
+    ],
     url: "https://github.com/ilhamAdhim/serba-kopi",
     live: "https://serba-kopi.netlify.app/",
     inProgress: false,

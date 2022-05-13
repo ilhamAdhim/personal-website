@@ -5,7 +5,6 @@ export interface IPopoverTechStackProps {
   type: string;
   overview?: string;
 }
-
 export interface ITechStackProps {
   id: number;
   icon: ReactNode;

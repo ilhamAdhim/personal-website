@@ -14,8 +14,10 @@ import DottedBox from "components/SVGVectors/DottedBox";
 import TimelineSection from "components/TimelIneSection";
 import workExperience from "data/experienceList";
 import type { IExperienceProps } from "types/ExperienceProps";
+import useSmallViewport from "hooks/useViewport";
 
 const AboutPage = () => {
+  const { isSmallViewport } = useSmallViewport();
   const colorHighlightLink = useColorModeValue("teal.600", "cyan");
   const [dataWorkExp, setDataWorkExp] = useState<IExperienceProps[]>([]);
 
@@ -24,6 +26,7 @@ const AboutPage = () => {
   }, []);
 
   const colorName = useColorModeValue("teal.600", "teal.400");
+
   return (
     <>
       <NextSeo
@@ -36,20 +39,35 @@ const AboutPage = () => {
           flexDirection={["column", "column", "row-reverse"]}
           justifyContent="space-evenly"
         >
-          <Box>
+          <Box
+            data-aos="flip-up"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+          >
             <PortfolioAbout />
             <DottedBox />
           </Box>
           <Box>
-            <Text as="h1" fontSize="4xl">
+            <Text as="h1" fontSize="4xl" data-aos="fade-up">
               About
             </Text>
-            <Text as="h2" fontSize="xl" color={colorName}>
+            <Text
+              as="h2"
+              fontSize="xl"
+              color={colorName}
+              data-aos="fade-up"
+              data-aos-delay={isSmallViewport ? "0" : "100"}
+            >
               Muhammad Ilham Adhim
             </Text>
 
             <Box mt="4">
-              <Text mt="10" align="justify">
+              <Text
+                mt="10"
+                align="justify"
+                data-aos="fade-up"
+                data-aos-delay={isSmallViewport ? "0" : "200"}
+              >
                 {`Currently, i'm a final year student majoring in Information
                 Technology at State Polytechnic of Malang (Polinema). And doing my Frontend Engineering Bootcamp in `}
                 <chakra.span
@@ -78,7 +96,12 @@ const AboutPage = () => {
                   </Link>
                 </chakra.span>
               </Text>
-              <Text mt="10" align="justify">
+              <Text
+                mt="10"
+                align="justify"
+                data-aos="fade-up"
+                data-aos-delay={isSmallViewport ? "0" : "300"}
+              >
                 Lots of modern technologies are being pumped out these days, and
                 Frontend Technology is no exception. The urge to learn and try
                 these trending technologies is huge. Even so, after having some
@@ -91,14 +114,24 @@ const AboutPage = () => {
                 to ensure the app built has integrated smoothly and ready to be
                 used by the client.
               </Text> */}
-              <Text mt="10" align="justify">
+              <Text
+                mt="10"
+                align="justify"
+                data-aos="fade-up"
+                data-aos-delay={isSmallViewport ? "0" : "400"}
+              >
                 In this website, i'll actively adding collection to my handful
                 projects and writing blogs. With writing, I'll be able to
                 document my journey of exploration, experiences, as well as
                 learnings. Besides, I'd like to share my findings and
                 exploration on IT-related stuffs along the way.
               </Text>
-              <Text mt="10" align="justify">
+              <Text
+                mt="10"
+                align="justify"
+                data-aos="fade-up"
+                data-aos-delay={isSmallViewport ? "0" : "500"}
+              >
                 I'm open to working on paid project too if there is an
                 opportunity. Feel free to reach out 👌
               </Text>
