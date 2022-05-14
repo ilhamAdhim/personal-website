@@ -6,17 +6,14 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 
-import RepositoryCard from "components/RepositoryCard";
 import DottedBox from "components/SVGVectors/DottedBox";
 import repositoriesList from "data/repositoryList";
-import useSmallViewport from "hooks/useViewport";
 import type { IDataProjectsProps } from "types/ProjectProps";
+import ProjectList from "components/ProjectSection/ProjectList";
 
-const ProjectList = () => {
-  const { isSmallViewport } = useSmallViewport();
-
+const ProjectPage = () => {
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
   useEffect(() => {
@@ -46,34 +43,10 @@ const ProjectList = () => {
 
         <DottedBox />
 
-        <SimpleGrid
-          mt={8}
-          spacing={6}
-          columns={[1, 2, 3]}
-          data-aos="fade-down"
-          data-aos-delay={500}
-        >
-          {dataProjects.map((repo, index) => (
-            <chakra.div
-              key={repo.id}
-              data-aos="fade-down"
-              data-aos-delay={isSmallViewport ? 0 : index * 150}
-            >
-              <RepositoryCard
-                id={repo.id}
-                url={repo.url}
-                live={repo.live}
-                title={repo.title}
-                cover={repo.cover}
-                techStack={repo.techStack}
-                description={repo.description}
-              />
-            </chakra.div>
-          ))}
-        </SimpleGrid>
+        <ProjectList dataProjects={dataProjects} />
       </Box>
     </>
   );
 };
 
-export default ProjectList;
+export default ProjectPage;

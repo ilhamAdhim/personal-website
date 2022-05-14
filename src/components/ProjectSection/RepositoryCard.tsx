@@ -20,11 +20,10 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import LazyImage from "components/LazyImage";
 import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
 
 import type { IDataProjectsProps } from "types/ProjectProps";
-
-import LazyImage from "./LazyImage";
 
 const RepositoryCard = (props: IDataProjectsProps) => {
   const { title, cover, techStack, url, live, description } = props;
@@ -64,12 +63,11 @@ const RepositoryCard = (props: IDataProjectsProps) => {
         </Box>
 
         <VStack
-          py={2}
+          p="4"
+          w="100%"
           px={[2, 4]}
           spacing={1}
           align="start"
-          w="100%"
-          p="4"
           h={["unset", "230", "230", "230", "unset"]}
         >
           <Flex justifyContent="space-between" width="100%">
@@ -83,12 +81,6 @@ const RepositoryCard = (props: IDataProjectsProps) => {
                 </HStack>
               </Link>
             </Tooltip>
-            {/* <Flex alignItems="center" gap="2">
-              <Icon as={AiOutlineStar} boxSize="0.9em" mt="1px" />
-              <Box as="span" ml="1" fontSize="sm">
-                {stargazers_count}
-              </Box>
-            </Flex> */}
           </Flex>
           <Flex justifyContent="space-between" width="100%">
             <Box w="100%">

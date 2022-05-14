@@ -32,7 +32,7 @@ const HeroSection = () => {
             Hey!
             <WavingHand />
             <br />
-            <chakra.div mt="8" data-aos="fade-down" data-aos-delay="2000">
+            <chakra.div mt="8" data-aos="fade-right" data-aos-delay="2000">
               I'm
               <chakra.span color={useColorModeValue("teal.600", "teal.400")}>
                 {` Ilham Adhim`}
@@ -47,7 +47,7 @@ const HeroSection = () => {
             lineHeight="1.375"
             fontWeight="400"
             textAlign="justify"
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-delay="2000"
           >
             Frontend Developer who likes to build web app through clean UI and

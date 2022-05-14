@@ -27,8 +27,6 @@ const PortfolioAbout = () => {
       <motion.div whileHover={{ y: -5, scale: 1.1 }}>
         <Box boxShadow="xl" _hover={{ boxShadow: "lg" }} borderRadius="full">
           <Avatar
-            data-aos="fade-down"
-            data-aos-delay="1100"
             size="xl"
             _groupHover={{ width: "5rem", height: "5rem" }}
             src="https://avatars2.githubusercontent.com/u/37842853?v=4"

@@ -31,7 +31,7 @@ const AboutPage = () => {
     <>
       <NextSeo
         title="About"
-        description="Ilham Adhim is a Frontend Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
+        description="Muhammad Ilham Adhim is a Frontend Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
       />
       <Box w="full" p="5" mx="auto">
         <Flex

@@ -1,4 +1,4 @@
-import type { TextProps } from "@chakra-ui/react";
+import { Flex, TextProps } from "@chakra-ui/react";
 import {
   Box,
   Container,
@@ -9,6 +9,9 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+import TimelineSection from "components/TimelIneSection";
+import workExperience from "data/experienceList";
+import useSmallViewport from "hooks/useViewport";
 import type { PropsWithChildren } from "react";
 
 function DottedBox() {
@@ -65,9 +68,10 @@ const Content = ({ children, ...props }: PropsWithChildren<TextProps>) => {
 };
 
 const SkillSection = () => {
+  const { isSmallViewport } = useSmallViewport();
   return (
     <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
-      <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
+      {/* <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
         <Box mr={{ base: 0, md: 5 }} pos="relative">
           <DottedBox />
           <Image
@@ -99,11 +103,46 @@ const SkillSection = () => {
               repellendus animi exercitationem fuga cum.
             </Content>
           </Box>
-          {/* <Link href="#" fontSize="sm" color="blue.400">
-            See how people are using our components →
-          </Link> */}
         </Stack>
-      </Stack>
+      </Stack> */}
+      <Flex
+        justifyContent="space-evenly"
+        gap="2"
+        mt="2"
+        direction={["column", "row"]}
+      >
+        <Flex direction="column" gap="4">
+          <Image
+            boxShadow="lg"
+            w="100%"
+            h="100%"
+            minW={{ base: "auto", md: "30rem" }}
+            maxH="20rem"
+            objectFit="cover"
+            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
+            rounded="md"
+            fallback={<Skeleton />}
+          />
+          <Image
+            boxShadow="lg"
+            w="100%"
+            h="100%"
+            minW={{ base: "auto", md: "30rem" }}
+            maxH="20rem"
+            objectFit="cover"
+            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
+            rounded="md"
+            fallback={<Skeleton />}
+          />
+        </Flex>
+
+        <Box>
+          <TimelineSection
+            title="My Learning Roadmap"
+            pointCollection={workExperience}
+          />
+        </Box>
+      </Flex>
     </Container>
   );
 };

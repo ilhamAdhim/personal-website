@@ -35,14 +35,13 @@ const techStack: ITechStackProps[] = [
   },
   {
     id: 3,
-    icon: <SiJavascript />,
-    color: "#F0DB4F",
-    link: "https://github.com/ilhamAdhim/restopedia",
+    icon: <SiTypescript />,
+    color: "#007acc",
+    link: "https://www.typescriptlang.org/docs/",
     description:
-      "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
-    descWithLink: "PWA + SPA web app with vanilla JS",
-    nextDesc:
-      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
+      "Detect error earlier and fix it right away. For me, the usage of",
+    descWithLink: "Typescript",
+    nextDesc: "is worth its boilerplate problem. Definitely love it.",
     type: "tech",
   },
   {
@@ -78,15 +77,17 @@ const techStack: ITechStackProps[] = [
       "can hold global variables, mixins, and functions. Which are normal CSS are not fully capable of.",
     type: "tech",
   },
+
   {
     id: 7,
-    icon: <SiTypescript />,
-    color: "#007acc",
-    link: "https://www.typescriptlang.org/docs/",
+    icon: <SiJavascript />,
+    color: "#F0DB4F",
+    link: "https://github.com/ilhamAdhim/restopedia",
     description:
-      "Detect error earlier and fix it right away. For me, the usage of",
-    descWithLink: "Typescript",
-    nextDesc: "is worth its boilerplate problem. Definitely love it.",
+      "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
+    descWithLink: "PWA + SPA web app with vanilla JS",
+    nextDesc:
+      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
     type: "tech",
   },
 ];

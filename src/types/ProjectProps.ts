@@ -1,3 +1,11 @@
+export interface IProjectCollectionProps {
+  dataProjects?: IDataProjectsProps[];
+}
+export interface ITechProjectProps {
+  id: string;
+  name: string;
+}
+
 export interface IDataProjectsProps {
   id: string;
   title: string;
@@ -7,9 +15,4 @@ export interface IDataProjectsProps {
   url: string;
   live: string;
   inProgress?: boolean;
-}
-
-export interface ITechProjectProps {
-  id: string;
-  name: string;
 }

@@ -3,6 +3,10 @@
   scroll-behavior: smooth;
 }
 
+body { 
+  overflow-x:  hidden;
+}
+
 /* Aktifkan ini untuk memberi border bottom gradient di navbar */
 .header {
   border: 0px;

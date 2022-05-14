@@ -1,26 +1,45 @@
-import { Box, Flex, chakra } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  chakra,
+  Button,
+  Link as ChakraLink,
+  Text,
+} from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
-
+import Link from "next/link";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import SkillSection from "components/SkillSection";
+import { useEffect, useState } from "react";
+import { IDataProjectsProps } from "types/ProjectProps";
+import repositoriesList from "data/repositoryList";
+import ProjectList from "components/ProjectSection/ProjectList";
+import HeadingAccent from "components/HeadingAccent";
 
 const Home = () => {
+  const [featuredProjects, setFeaturedProjects] = useState<
+    IDataProjectsProps[]
+  >([]);
+
+  useEffect(() => {
+    setFeaturedProjects(repositoriesList.slice(0, 3));
+  }, []);
+
   return (
     <>
       <NextSeo
         title="Home"
-        description="Frontend Developer from Indonesia. Uses React, Typescript, and Next JS as my main tech stack. Read more..."
+        description="Muhammad Ilham Adhim is a Frontend Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
       <Box
+        mb={8}
+        gap={8}
+        w="full"
         display={{ md: "flex" }}
         alignItems="center"
         minHeight="70vh"
-        gap={8}
-        mb={8}
-        w="full"
       >
         <Box>
           <HeroSection />
@@ -53,16 +72,20 @@ const Home = () => {
         </Box>
       </Box>
 
-      <chakra.div>
+      <Box>
         <SkillSection />
-      </chakra.div>
+      </Box>
 
-      <chakra.div h="70vh">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-        asperiores doloribus quae nam corrupti voluptates iusto cumque vel!
-        Blanditiis pariatur porro ducimus provident numquam magnam nulla ab quae
-        velit atque.
-      </chakra.div>
+      <Box>
+        <HeadingAccent text="Featured Projects" />
+        <Text color="gray.500">Some projects i developed recently.</Text>
+        <ProjectList dataProjects={featuredProjects} />
+        <Flex justifyContent="center">
+          <Button mt="12" as={ChakraLink} href="/Projects">
+            See More . . .
+          </Button>
+        </Flex>
+      </Box>
     </>
   );
 };
