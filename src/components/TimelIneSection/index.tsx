@@ -1,14 +1,9 @@
-import { Box, Heading, SlideFade, VStack, chakra } from "@chakra-ui/react";
-import type { ReactNode } from "react";
+import { Box, Heading, VStack, chakra } from "@chakra-ui/react";
 
 // Here we have used react-icons package for the icons
 import type { ITimelineProps } from "types/ExperienceProps";
 
 import TimelineItem from "./TimelineItem";
-
-interface Props {
-  children: ReactNode;
-}
 
 const TimelineSection = ({ title, pointCollection }: ITimelineProps) => {
   return (

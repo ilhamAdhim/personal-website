@@ -1,10 +1,10 @@
-import { chakra, Text, useColorModeValue } from "@chakra-ui/react";
+import { Text, chakra, useColorModeValue } from "@chakra-ui/react";
 
 interface IHeaderAccentProps {
   text: string;
 }
 
-const HeadingAccent: React.FC<IHeaderAccentProps> = ({ text, ...props }) => {
+const HeadingAccent = ({ text }: IHeaderAccentProps) => {
   return (
     <chakra.div>
       <Text

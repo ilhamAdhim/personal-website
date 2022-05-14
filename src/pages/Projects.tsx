@@ -1,17 +1,11 @@
-import {
-  Box,
-  SimpleGrid,
-  Text,
-  chakra,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
+import ProjectList from "components/ProjectSection/ProjectList";
 import DottedBox from "components/SVGVectors/DottedBox";
 import repositoriesList from "data/repositoryList";
 import type { IDataProjectsProps } from "types/ProjectProps";
-import ProjectList from "components/ProjectSection/ProjectList";
 
 const ProjectPage = () => {
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);

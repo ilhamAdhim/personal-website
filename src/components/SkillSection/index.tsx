@@ -1,18 +1,14 @@
-import { Flex, TextProps } from "@chakra-ui/react";
 import {
   Box,
   Container,
+  Flex,
   Image,
   Skeleton,
-  Stack,
-  Text,
-  chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import TimelineSection from "components/TimelIneSection";
 import workExperience from "data/experienceList";
-import useSmallViewport from "hooks/useViewport";
-import type { PropsWithChildren } from "react";
 
 function DottedBox() {
   return (
@@ -52,23 +48,22 @@ function DottedBox() {
   );
 }
 
-const Content = ({ children, ...props }: PropsWithChildren<TextProps>) => {
-  return (
-    <Text
-      fontSize="md"
-      textAlign="left"
-      lineHeight="1.375"
-      fontWeight="400"
-      color="gray.500"
-      {...props}
-    >
-      {children}
-    </Text>
-  );
-};
+// const Content = ({ children, ...props }: PropsWithChildren<TextProps>) => {
+//   return (
+//     <Text
+//       fontSize="md"
+//       textAlign="left"
+//       lineHeight="1.375"
+//       fontWeight="400"
+//       color="gray.500"
+//       {...props}
+//     >
+//       {children}
+//     </Text>
+//   );
+// };
 
 const SkillSection = () => {
-  const { isSmallViewport } = useSmallViewport();
   return (
     <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
       {/* <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
@@ -111,6 +106,8 @@ const SkillSection = () => {
         mt="2"
         direction={["column", "row"]}
       >
+        <DottedBox />
+
         <Flex direction="column" gap="4">
           <Image
             boxShadow="lg"

@@ -1,22 +1,23 @@
 import {
   Box,
-  Flex,
-  chakra,
   Button,
   Link as ChakraLink,
+  Flex,
   Text,
+  chakra,
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
-import { FaArrowDown } from "react-icons/fa";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { FaArrowDown } from "react-icons/fa";
+
+import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
-import SkillSection from "components/SkillSection";
-import { useEffect, useState } from "react";
-import { IDataProjectsProps } from "types/ProjectProps";
-import repositoriesList from "data/repositoryList";
 import ProjectList from "components/ProjectSection/ProjectList";
-import HeadingAccent from "components/HeadingAccent";
+import SkillSection from "components/SkillSection";
+import repositoriesList from "data/repositoryList";
+import type { IDataProjectsProps } from "types/ProjectProps";
 
 const Home = () => {
   const [featuredProjects, setFeaturedProjects] = useState<
