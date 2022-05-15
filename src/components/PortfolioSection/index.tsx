@@ -18,9 +18,9 @@ const PortfolioAbout = () => {
 
   return (
     <VStack
-      p="10"
-      top="40"
-      spacing={5}
+      p={10}
+      top={[0, 0, 0, 10, 10, 40]}
+      spacing={[4, 4, 4, 4, 3, 5]}
       rounded="lg"
       position="sticky"
       bgColor={useColorModeValue("white", "#1a202c")}
@@ -29,10 +29,9 @@ const PortfolioAbout = () => {
     >
       <Box
         boxShadow="xl"
+        borderRadius="full"
         data-aos={isSmallViewport ? "fade-down" : ""}
         data-aos-delay={isSmallViewport ? "1100" : 0}
-        // data-aos-once="true"
-        borderRadius="full"
       >
         <Avatar width={200} height={200} src="/images/my-profile.jpg" />
       </Box>
@@ -45,7 +44,7 @@ const PortfolioAbout = () => {
       </Heading>
       <Text
         color="gray.500"
-        fontSize="lg"
+        fontSize={["md", "lg"]}
         display="block"
         data-aos={isSmallViewport ? "fade-down" : ""}
         data-aos-delay={isSmallViewport ? "1300" : 0}
