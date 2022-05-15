@@ -15,5 +15,6 @@ export interface IExperienceProps {
 
 export interface ITimelineProps {
   title: string;
+  subTitle?: string;
   pointCollection: IExperienceProps[];
 }

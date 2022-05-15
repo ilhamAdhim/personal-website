@@ -1,16 +1,6 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Image,
-  Skeleton,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Container, Flex, useColorModeValue } from "@chakra-ui/react";
 
-import TimelineSection from "components/TimelIneSection";
-import workExperience from "data/experienceList";
-
-function DottedBox() {
+export function DottedBox() {
   return (
     <Box
       position="absolute"
@@ -48,97 +38,72 @@ function DottedBox() {
   );
 }
 
-// const Content = ({ children, ...props }: PropsWithChildren<TextProps>) => {
+// const SkillSectionAlt = () => {
 //   return (
-//     <Text
-//       fontSize="md"
-//       textAlign="left"
-//       lineHeight="1.375"
-//       fontWeight="400"
-//       color="gray.500"
-//       {...props}
-//     >
-//       {children}
-//     </Text>
+//     <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
+//       <Flex
+//         mt="2"
+//         gap="2"
+//         pos="relative"
+//         justifyContent="space-evenly"
+//         direction={["column", "row"]}
+//       >
+//         <DottedBox />
+
+//         <Flex direction="column" gap="4">
+//           <Image
+//             boxShadow="lg"
+//             w="100%"
+//             h="100%"
+//             minW={{ base: "auto", md: "30rem" }}
+//             maxH="20rem"
+//             objectFit="cover"
+//             src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
+//             rounded="md"
+//             fallback={<Skeleton />}
+//           />
+//           <Image
+//             boxShadow="lg"
+//             w="100%"
+//             h="100%"
+//             minW={{ base: "auto", md: "30rem" }}
+//             maxH="20rem"
+//             objectFit="cover"
+//             src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
+//             rounded="md"
+//             fallback={<Skeleton />}
+//           />
+//         </Flex>
+
+//         <Box>
+//           <TimelineSection
+//             title="My Frontend Development Tools"
+//             subTitle="With fast-paced updates from technology. I found myself comfortable with"
+//             pointCollection={workExperience}
+//           />
+//         </Box>
+//       </Flex>
+//     </Container>
 //   );
 // };
 
 const SkillSection = () => {
   return (
     <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
-      {/* <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
-        <Box mr={{ base: 0, md: 5 }} pos="relative">
-          <DottedBox />
-          <Image
-            boxShadow="lg"
-            w="100%"
-            h="100%"
-            minW={{ base: "auto", md: "30rem" }}
-            maxH="20rem"
-            objectFit="cover"
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
-            rounded="md"
-            fallback={<Skeleton />}
-          />
-        </Box>
-        <Stack direction="column" spacing={6} justifyContent="center">
-          <chakra.h1
-            fontSize="5xl"
-            lineHeight={1}
-            fontWeight="bold"
-            textAlign="left"
-          >
-            On a mission to empower Front end developers
-          </chakra.h1>
-          <Box>
-            <Content>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-              quisquam aperiam maiores corporis adipisci libero! Deserunt autem
-              neque quos ipsa possimus corrupti veritatis eveniet, consequatur
-              repellendus animi exercitationem fuga cum.
-            </Content>
-          </Box>
-        </Stack>
-      </Stack> */}
       <Flex
-        justifyContent="space-evenly"
-        gap="2"
         mt="2"
+        gap="2"
+        pos="relative"
+        justifyContent="space-evenly"
         direction={["column", "row"]}
       >
-        <DottedBox />
-
+        <Box>apa</Box>
+        <Box>lala</Box>
         <Flex direction="column" gap="4">
-          <Image
-            boxShadow="lg"
-            w="100%"
-            h="100%"
-            minW={{ base: "auto", md: "30rem" }}
-            maxH="20rem"
-            objectFit="cover"
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
-            rounded="md"
-            fallback={<Skeleton />}
-          />
-          <Image
-            boxShadow="lg"
-            w="100%"
-            h="100%"
-            minW={{ base: "auto", md: "30rem" }}
-            maxH="20rem"
-            objectFit="cover"
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80"
-            rounded="md"
-            fallback={<Skeleton />}
-          />
+          <Box />
+          <Box>lorem</Box>
         </Flex>
-
-        <Box>
-          <TimelineSection
-            title="My Learning Roadmap"
-            pointCollection={workExperience}
-          />
-        </Box>
+        <DottedBox />
       </Flex>
     </Container>
   );

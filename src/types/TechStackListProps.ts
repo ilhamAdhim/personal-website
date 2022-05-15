@@ -14,4 +14,5 @@ export interface ITechStackProps {
   descWithLink: string;
   nextDesc: string;
   link: string;
+  hideInSmallView?: boolean;
 }

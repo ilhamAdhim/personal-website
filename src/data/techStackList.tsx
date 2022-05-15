@@ -55,8 +55,21 @@ const techStack: ITechStackProps[] = [
       "and i can build an app faster without any hassle. Plus, there are lots of open-source components are available too out there.",
     type: "tech",
   },
+
   {
     id: 5,
+    icon: <SiJavascript />,
+    color: "#F0DB4F",
+    link: "https://github.com/ilhamAdhim/restopedia",
+    description:
+      "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
+    descWithLink: "PWA + SPA web app with vanilla JS",
+    nextDesc:
+      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
+    type: "tech",
+  },
+  {
+    id: 6,
     icon: <SiWebpack />,
     color: "#1C78C0",
     link: "https://webpack.js.org/",
@@ -67,7 +80,7 @@ const techStack: ITechStackProps[] = [
     type: "tech",
   },
   {
-    id: 6,
+    id: 7,
     icon: <SiSass />,
     color: "pink",
     link: "https://sass-lang.com/documentation",
@@ -75,19 +88,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "Sass",
     nextDesc:
       "can hold global variables, mixins, and functions. Which are normal CSS are not fully capable of.",
-    type: "tech",
-  },
-
-  {
-    id: 7,
-    icon: <SiJavascript />,
-    color: "#F0DB4F",
-    link: "https://github.com/ilhamAdhim/restopedia",
-    description:
-      "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
-    descWithLink: "PWA + SPA web app with vanilla JS",
-    nextDesc:
-      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
     type: "tech",
   },
 ];

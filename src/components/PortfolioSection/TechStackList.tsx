@@ -15,14 +15,18 @@ import {
 import { useEffect, useState } from "react";
 
 import techStack from "data/techStackList";
+import useSmallViewport from "hooks/useViewport";
 
 const TechStackList = () => {
+  const { isSmallViewport } = useSmallViewport();
   const [dataTechStack, setDataTechStack] = useState([]);
+
   const colorLink = useColorModeValue("teal", "teal.200");
 
   useEffect(() => {
-    setDataTechStack(techStack);
-  }, []);
+    if (isSmallViewport) setDataTechStack(techStack.slice(0, 5));
+    else setDataTechStack(techStack);
+  }, [isSmallViewport]);
 
   return (
     <Flex
@@ -36,8 +40,8 @@ const TechStackList = () => {
       {dataTechStack?.map((item) => (
         <chakra.div
           key={item.id}
-          data-aos="fade-left"
-          data-aos-delay={1000 + item.id * 150}
+          data-aos={isSmallViewport ? "fade-left" : ""}
+          data-aos-delay={isSmallViewport ? 1000 + item.id * 150 : 0}
         >
           <Popover trigger="hover">
             <PopoverTrigger>

@@ -43,7 +43,7 @@ const workExperience: IExperienceProps[] = [
       },
       {
         id: "exp-2-4",
-        job: "Develop Machine Learning Algorithm with Python, Keras, and Tensorflow",
+        job: "Integrate Machine Learning Algorithms to projects with Python, Keras, and Tensorflow",
       },
     ],
     icon: <FiPackage />,

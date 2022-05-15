@@ -7,12 +7,15 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+
+import useSmallViewport from "hooks/useViewport";
 
 import SocialList from "./SocialList";
 import TechStackList from "./TechStackList";
 
 const PortfolioAbout = () => {
+  const { isSmallViewport } = useSmallViewport();
+
   return (
     <VStack
       p="10"
@@ -24,19 +27,19 @@ const PortfolioAbout = () => {
       borderColor={useColorModeValue("gray.700", "blue.200")}
       boxShadow={useColorModeValue("1px 1px 8px gray", "1px 1px 8px skyblue")}
     >
-      <motion.div whileHover={{ y: -5, scale: 1.1 }}>
-        <Box boxShadow="xl" _hover={{ boxShadow: "lg" }} borderRadius="full">
-          <Avatar
-            size="xl"
-            _groupHover={{ width: "5rem", height: "5rem" }}
-            src="https://avatars2.githubusercontent.com/u/37842853?v=4"
-          />
-        </Box>
-      </motion.div>
+      <Box
+        boxShadow="xl"
+        data-aos={isSmallViewport ? "fade-down" : ""}
+        data-aos-delay={isSmallViewport ? "1100" : 0}
+        // data-aos-once="true"
+        borderRadius="full"
+      >
+        <Avatar width={200} height={200} src="/images/my-profile.jpg" />
+      </Box>
       <Heading
         fontSize={["lg", "xl"]}
-        data-aos="fade-down"
-        data-aos-delay="1200"
+        data-aos={isSmallViewport ? "fade-down" : ""}
+        data-aos-delay={isSmallViewport ? "1200" : 0}
       >
         Muhammad Ilham Adhim
       </Heading>
@@ -44,15 +47,19 @@ const PortfolioAbout = () => {
         color="gray.500"
         fontSize="lg"
         display="block"
-        data-aos="fade-down"
-        data-aos-delay="1300"
+        data-aos={isSmallViewport ? "fade-down" : ""}
+        data-aos-delay={isSmallViewport ? "1300" : 0}
       >
         Front-End Developer
       </Text>
 
       <Divider />
       <Box>
-        <Text align="center" data-aos="fade-down" data-aos-delay="1300">
+        <Text
+          align="center"
+          data-aos={isSmallViewport ? "fade-down" : ""}
+          data-aos-delay={isSmallViewport ? "1300" : 0}
+        >
           {" "}
           Current Favorite Tech Stack ⚡
         </Text>
@@ -60,7 +67,7 @@ const PortfolioAbout = () => {
       </Box>
 
       <Divider />
-      <Box data-aos="fade-up" data-aos-delay="2000">
+      <Box>
         <Text fontSize="1.2em" align="center" mb="4">
           Let's Collaborate ! 🙌
         </Text>

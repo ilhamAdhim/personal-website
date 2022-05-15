@@ -1,25 +1,19 @@
-import {
-  Box,
-  Button,
-  Link as ChakraLink,
-  Flex,
-  Text,
-  chakra,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
 import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
-import SkillSection from "components/SkillSection";
 import repositoriesList from "data/repositoryList";
+import useSmallViewport from "hooks/useViewport";
 import type { IDataProjectsProps } from "types/ProjectProps";
 
 const Home = () => {
+  const { isSmallViewport } = useSmallViewport();
   const [featuredProjects, setFeaturedProjects] = useState<
     IDataProjectsProps[]
   >([]);
@@ -34,14 +28,7 @@ const Home = () => {
         title="Home"
         description="Muhammad Ilham Adhim is a Frontend Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
-      <Box
-        mb={8}
-        gap={8}
-        w="full"
-        display={{ md: "flex" }}
-        alignItems="center"
-        minHeight="70vh"
-      >
+      <Box mb={8} display={{ md: "flex" }} alignItems="center" minHeight="70vh">
         <Box>
           <HeroSection />
           <Flex justifyContent="center" marginTop={["3em", "8em"]}>
@@ -73,18 +60,33 @@ const Home = () => {
         </Box>
       </Box>
 
-      <Box>
-        <SkillSection />
-      </Box>
+      {/* <Box
+        mx={isSmallViewport ? 6 : 0}
+        textAlign={isSmallViewport ? "center" : "justify"}
+      >
+        <HeadingAccent text="My Frontend Development Tools " />
 
-      <Box>
-        <HeadingAccent text="Featured Projects" />
-        <Text color="gray.500">Some projects i developed recently.</Text>
+         <SkillSection />
+        My Frontend Development Tools 
+      </Box> */}
+
+      <Box
+        id="nextpart"
+        textAlign={isSmallViewport ? "center" : "justify"}
+        mx={isSmallViewport ? 6 : 0}
+      >
+        <HeadingAccent text="Featured Projects" withUnderline={false} />
+        <Text color="gray.500">Some projects I developed recently.</Text>
         <ProjectList dataProjects={featuredProjects} />
         <Flex justifyContent="center">
-          <Button mt="12" as={ChakraLink} href="/Projects">
-            See More . . .
-          </Button>
+          <Link href="/Projects" passHref>
+            <Button mt="12">
+              See More
+              <chakra.span ml="2">
+                <FaArrowRight />
+              </chakra.span>
+            </Button>
+          </Link>
         </Flex>
       </Box>
     </>
