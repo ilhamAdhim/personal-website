@@ -124,7 +124,7 @@ const Content = ({ children, ...props }: PropsWithChildren<TextProps>) => {
 
 export function HeroAltSection() {
   return (
-    <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
+    <Container maxW="full" px={{ base: 6, md: 3 }} py={28}>
       <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
         <Box mr={{ base: 0, md: 5 }} pos="relative">
           <DottedBox />

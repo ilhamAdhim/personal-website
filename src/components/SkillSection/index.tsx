@@ -89,7 +89,7 @@ export function DottedBox() {
 
 const SkillSection = () => {
   return (
-    <Container maxW="full" px={{ base: 6, md: 3 }} py={28} id="nextpart">
+    <Container maxW="full" px={{ base: 6, md: 3 }} py={28}>
       <Flex
         mt="2"
         gap="2"

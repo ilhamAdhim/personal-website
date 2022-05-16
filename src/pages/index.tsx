@@ -72,8 +72,9 @@ const Home = () => {
 
       <Box
         id="nextpart"
-        textAlign={isSmallViewport ? "center" : "justify"}
+        pt={["24", "0"]}
         mx={isSmallViewport ? 6 : 0}
+        textAlign={isSmallViewport ? "center" : "justify"}
       >
         <HeadingAccent text="Featured Projects" withUnderline={false} />
         <Text color="gray.500">Some projects I developed recently.</Text>
