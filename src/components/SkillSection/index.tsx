@@ -77,7 +77,7 @@ export function DottedBox() {
 
 //         <Box>
 //           <TimelineSection
-//             title="My Frontend Development Tools"
+//             title="My Front-End Development Tools"
 //             subTitle="With fast-paced updates from technology. I found myself comfortable with"
 //             pointCollection={workExperience}
 //           />

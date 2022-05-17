@@ -56,7 +56,7 @@ const repositoriesList = [
     id: "project-3",
     title: "Covid Vaccination Rate",
     description:
-      "Consume API ML Prediction in Frontend, built with React JS, Antd, CSS custom styling, and Data Visualization with Recharts",
+      "Consume API ML Prediction in Front-End, built with React JS, Antd, CSS custom styling, and Data Visualization with Recharts",
     cover: "/images/projects/lp-monitor-covid-19.jpg",
     techStack: [
       {
@@ -97,7 +97,7 @@ const repositoriesList = [
     id: "project-5",
     title: "MyLib",
     description:
-      "HTML, pure CSS, pure JS. Bookshelf App Project for Dicoding Submission - Frontend Beginner course",
+      "HTML, pure CSS, pure JS. Bookshelf App Project for Dicoding Submission - Front-End Beginner course",
     cover: "/images/projects/lp-mylib.png",
     techStack: [
       {

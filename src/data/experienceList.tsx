@@ -11,22 +11,22 @@ const workExperience: IExperienceProps[] = [
     description: [
       {
         id: "exp-1-1",
-        job: "Uses Jira for project communication",
+        job: "Used Jira for project communication",
       },
       {
         id: "exp-1-2",
-        job: "Optimize Git workflow and Github Actions for CI/CD",
+        job: "Optimized Git workflow and Github Actions for CI/CD",
       },
       {
         id: "exp-1-3",
-        job: "Develop Web application with React JS, Next JS, Zustand, and Chakra UI",
+        job: "Developed Web application with React JS, Next JS, Zustand, and Chakra UI",
       },
     ],
     icon: <FaTools />,
   },
   {
     id: "exp-2",
-    pointTitle: "Studi Independen Machine Learning & Frontend Developer",
+    pointTitle: "Studi Independen Machine Learning & Front-End Developer",
     subDesc: "Dicoding | Aug '21 - Jan '22 ",
     description: [
       {
@@ -35,15 +35,15 @@ const workExperience: IExperienceProps[] = [
       },
       {
         id: "exp-2-2",
-        job: "Ensure the quality of the code with ESLint and Prettier",
+        job: "Ensured the quality of the code with ESLint and Prettier",
       },
       {
         id: "exp-2-3",
-        job: "Ensure the website's performance with Metric Web Vitals and E2E Testing with Puppeteer",
+        job: "Ensured the website's performance with Metric Web Vitals and E2E Testing with Puppeteer",
       },
       {
         id: "exp-2-4",
-        job: "Integrate Machine Learning Algorithms to projects with Python, Keras, and Tensorflow",
+        job: "Integrated Machine Learning Algorithms to projects with Python, Keras, and Tensorflow",
       },
     ],
     icon: <FiPackage />,
@@ -55,15 +55,15 @@ const workExperience: IExperienceProps[] = [
     description: [
       {
         id: "exp-3-1",
-        job: "Integrate API from Backend",
+        job: "Integrated API from Backend",
       },
       {
         id: "exp-3-2",
-        job: "Test web application with Cypress E2E Testing Library",
+        job: "Tested web application with Cypress E2E Testing Library",
       },
       {
         id: "exp-3-3",
-        job: "Work collaboratively with other team members to build SaaS web application | SIPAS Web App",
+        job: "Worked collaboratively with other team members to build SaaS web application | SIPAS Web App",
       },
     ],
     icon: <FiPackage />,

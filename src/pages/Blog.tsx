@@ -7,7 +7,7 @@ const BlogPage = () => {
     <>
       <NextSeo
         title="Blog"
-        description="Ilham Adhim writes articles to document his learning on Frontend Technologies. Feel fre to visit his website"
+        description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel fre to visit his website"
       />
       <WIPComponent />
     </>

@@ -31,7 +31,7 @@ const AboutPage = () => {
     <>
       <NextSeo
         title="About"
-        description="Muhammad Ilham Adhim is a Frontend Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
+        description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
       />
       <Box w="full" p="5" mx="auto">
         <Flex
@@ -69,7 +69,7 @@ const AboutPage = () => {
                 data-aos-delay={isSmallViewport ? "0" : "200"}
               >
                 {`Currently, i'm a final year student majoring in Information
-                Technology at State Polytechnic of Malang (Polinema). And doing my Frontend Engineering Bootcamp in `}
+                Technology at State Polytechnic of Malang (Polinema). And doing my Front-End Engineering Bootcamp in `}
                 <chakra.span
                   fontWeight="bold"
                   className="link-external"
@@ -103,7 +103,7 @@ const AboutPage = () => {
                 data-aos-delay={isSmallViewport ? "0" : "300"}
               >
                 Lots of modern technologies are being pumped out these days, and
-                Frontend Technology is no exception. The urge to learn and try
+                Front-End Technology is no exception. The urge to learn and try
                 these trending technologies is huge. Even so, after having some
                 trials on various IT field, I had my focus on learning Front-End
                 Development on 2020 and have been learning it ever since.

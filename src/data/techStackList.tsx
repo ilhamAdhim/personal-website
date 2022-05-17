@@ -19,7 +19,7 @@ const techStack: ITechStackProps[] = [
     description: "After getting React basics, learning",
     descWithLink: "Next JS",
     nextDesc:
-      "were seamless to me. Seo optimized, dynamic paths, and high customability are features I love at this moment.",
+      "was seamless to me. SEO optimized, dynamic paths, and high customability are features I love at this moment.",
     type: "tech",
   },
   {
@@ -28,7 +28,7 @@ const techStack: ITechStackProps[] = [
     color: "cyan",
     link: "https://reactjs.org/docs/hooks-intro.html",
     description:
-      "I started learning React in 2019. It enabled me to create a SPA with high interactivity. When",
+      "I started learning React in 2019. It enabled me to create a SPA (Single Page Application) with high interactivity. When",
     descWithLink: "React Hooks",
     nextDesc: "comes out, i like it due to its simplicity.",
     type: "tech",
@@ -52,7 +52,7 @@ const techStack: ITechStackProps[] = [
     description: "Chakra UI has been my go-to UI library for a while now.",
     descWithLink: "It's well-documented",
     nextDesc:
-      "and i can build an app faster without any hassle. Plus, there are lots of open-source components are available too out there.",
+      "and i can build an app faster without any hassle. Plus, there are lots of open-source components are available out there.",
     type: "tech",
   },
 
@@ -63,9 +63,9 @@ const techStack: ITechStackProps[] = [
     link: "https://github.com/ilhamAdhim/restopedia",
     description:
       "JS Basics are essential for learning and implementing React. To enforce that idea, I developed",
-    descWithLink: "PWA + SPA web app with vanilla JS",
+    descWithLink: "PWA + SPA web app with vanilla JS.",
     nextDesc:
-      "and it is possible. With these hassle, i can appreciate more of library and frameworks existence.",
+      "With these hassle, i can appreciate more of library and frameworks existence.",
     type: "tech",
   },
   {
@@ -76,7 +76,7 @@ const techStack: ITechStackProps[] = [
     description: "",
     descWithLink: "Webpack",
     nextDesc:
-      "is module bundler that i used for Module Analyzer and code splitting. Plus, we can differentiate production and development mode.",
+      "is a module bundler that i used for Module Analyzer and code splitting. Plus, we can differentiate production and development mode.",
     type: "tech",
   },
   {
@@ -84,10 +84,10 @@ const techStack: ITechStackProps[] = [
     icon: <SiSass />,
     color: "pink",
     link: "https://sass-lang.com/documentation",
-    description: "Easier-to-read CSS.",
+    description: "While CSS is easy to use.",
     descWithLink: "Sass",
     nextDesc:
-      "can hold global variables, mixins, and functions. Which are normal CSS are not fully capable of.",
+      "can do a lot better compared to normal CSS. Some features i've been using are global variables, mixins, and functions",
     type: "tech",
   },
 ];

@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <NextSeo
         title="Home"
-        description="Muhammad Ilham Adhim is a Frontend Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
+        description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
       <Box mb={8} display={{ md: "flex" }} alignItems="center" minHeight="70vh">
         <Box>
@@ -64,10 +64,10 @@ const Home = () => {
         mx={isSmallViewport ? 6 : 0}
         textAlign={isSmallViewport ? "center" : "justify"}
       >
-        <HeadingAccent text="My Frontend Development Tools " />
+        <HeadingAccent text="My Front-End Development Tools " />
 
          <SkillSection />
-        My Frontend Development Tools 
+        My Front-End Development Tools 
       </Box> */}
 
       <Box

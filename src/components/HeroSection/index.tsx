@@ -55,7 +55,7 @@ const HeroSection = () => {
             data-aos="fade-right"
             data-aos-delay="2000"
           >
-            Frontend Developer who likes to build web app through clean UI and
+            Front-End Developer who likes to build web app through clean UI and
             optimized performance. I uses React ecosystem to build things.
             Long-life learner and loves to collaborate with others.
           </Text>
