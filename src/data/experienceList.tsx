@@ -7,7 +7,7 @@ const workExperience: IExperienceProps[] = [
   {
     id: "exp-1",
     pointTitle: "External Code Reviewer",
-    subDesc: "Dicoding Indonesia | Jun '22 - Now",
+    subDesc: "Dicoding Indonesia | Jun '22 - Present",
     description: [
       {
         id: "exp-1-1",
@@ -15,7 +15,7 @@ const workExperience: IExperienceProps[] = [
       },
       {
         id: "exp-1-2",
-        job: "Giving feedbacks and advices on how students can improve more on their submission",
+        job: "Giving feedbacks and advices on how students can improve more on their codes",
       },
     ],
     icon: <FiPackage />,
