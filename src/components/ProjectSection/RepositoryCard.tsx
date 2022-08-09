@@ -53,8 +53,8 @@ const RepositoryCard = (props: IDataProjectsProps) => {
       >
         <Box position="relative" w="100%" onClick={handleClick}>
           <AspectRatio
-            ratio={1.85 / 1}
             w="100%"
+            ratio={1.85 / 1}
             borderBottomWidth="1px"
             borderColor={useColorModeValue("gray.100", "gray.700")}
           >

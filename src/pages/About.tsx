@@ -69,7 +69,7 @@ const AboutPage = () => {
                 data-aos-delay={isSmallViewport ? "0" : "200"}
               >
                 {`Currently, i'm a final year student majoring in Information
-                Technology at State Polytechnic of Malang (Polinema). And doing my Front-End Engineering Bootcamp in `}
+                Technology at State Polytechnic of Malang (Polinema). And doing my part-time as  `}
                 <chakra.span
                   fontWeight="bold"
                   className="link-external"
@@ -90,9 +90,8 @@ const AboutPage = () => {
                     _hover={{
                       textDecoration: "none",
                     }}
-                    href="https://kampusmerdeka.kemdikbud.go.id/program/studi-independen/browse/d3ff9ffd-0c26-4515-a13b-20bd6609229b/920c3018-41d2-11ec-a047-5674369c12f7"
                   >
-                    {` MSIB Kampus Merdeka by Ruangguru`}
+                    {` External Code Reviewer in Dicoding Indonesia. `}
                   </Link>
                 </chakra.span>
               </Text>

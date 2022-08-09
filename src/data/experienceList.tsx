@@ -23,7 +23,7 @@ const workExperience: IExperienceProps[] = [
   {
     id: "exp-2",
     pointTitle: "Studi Independen Front-End Engineer Bootcamp ",
-    subDesc: "Ruangguru | Feb '22 - Present ",
+    subDesc: "Ruangguru | Feb '22 - Jul '22 ",
     description: [
       {
         id: "exp-2-1",
