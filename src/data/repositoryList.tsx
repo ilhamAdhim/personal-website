@@ -4,7 +4,7 @@ const repositoriesList = [
     id: "project-1",
     title: "Cashflow App",
     description:
-      "React-Native Project with Expo. Cashflow App helps visualize incme and outcome of its user with line charts.",
+      "React-Native Project with Expo. Cashflow App helps visualize income and outcome of its user with line charts.",
     cover: "/images/projects/cashflow-app/cashflowapp-home.jpg",
     techStack: [
       {
@@ -49,7 +49,7 @@ const repositoriesList = [
     inProgress: false,
   },
   {
-    id: "project-2",
+    id: "project-3",
     title: "SQLearn",
     description:
       "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
@@ -92,7 +92,7 @@ const repositoriesList = [
         name: "Sass",
       },
       {
-        id: "project-2-4",
+        id: "project-4-4",
         name: "PWA",
       },
     ],
@@ -158,7 +158,7 @@ const repositoriesList = [
     inProgress: false,
   },
   {
-    id: "project-6",
+    id: "project-8",
     title: "Serba Kopi",
     description:
       "Serba Kopi, App that with the help of PWA Concepts, it gives native feels when the user open this app on their mobile device.",

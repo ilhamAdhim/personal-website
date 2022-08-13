@@ -1,12 +1,12 @@
 import Image from "next/image";
 import {
   Box,
-  Center,
   Heading,
   Text,
   Stack,
   Avatar,
   useColorModeValue,
+  Flex,
 } from "@chakra-ui/react";
 
 interface BlogPostProps {
@@ -14,7 +14,8 @@ interface BlogPostProps {
   date: string;
   description: string;
   thumbnailUrl: string;
-  tags: string;
+  tags: string[];
+  timeEstimation: string;
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({
@@ -23,9 +24,10 @@ const BlogPost: React.FC<BlogPostProps> = ({
   description,
   thumbnailUrl,
   tags,
+  timeEstimation,
 }) => {
   return (
-    <Center py={6}>
+    <>
       <Box
         _hover={{
           transform: "scale(1.05)",
@@ -51,15 +53,20 @@ const BlogPost: React.FC<BlogPostProps> = ({
           <Image src={thumbnailUrl} layout={"fill"} />
         </Box>
         <Stack>
-          <Text
-            color={"green.500"}
-            textTransform={"uppercase"}
-            fontWeight={800}
-            fontSize={"sm"}
-            letterSpacing={1.1}
-          >
-            Blog
-          </Text>
+          <Flex gap="1em">
+            {tags.map((item, id) => (
+              <Text
+                key={id}
+                color={"green.500"}
+                textTransform={"uppercase"}
+                fontWeight={700}
+                fontSize={"sm"}
+                letterSpacing={1.1}
+              >
+                {item}
+              </Text>
+            ))}
+          </Flex>
           <Heading
             color={useColorModeValue("gray.700", "white")}
             fontSize={"2xl"}
@@ -72,16 +79,17 @@ const BlogPost: React.FC<BlogPostProps> = ({
           </Text>
         </Stack>
         <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-          />
+          <Avatar src="/images/my-profile.jpg" />
+
           <Stack direction={"column"} spacing={0} fontSize={"sm"}>
             <Text fontWeight={600}> ilhamadhim </Text>
-            <Text color={"gray.500"}>{date}· 6min read</Text>
+            <Text color={"gray.500"}>
+              {date} · {timeEstimation} read
+            </Text>
           </Stack>
         </Stack>
       </Box>
-    </Center>
+    </>
   );
 };
 export default BlogPost;

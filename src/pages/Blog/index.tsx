@@ -1,33 +1,45 @@
-import { NextSeo } from "next-seo";
+import { CollectionPageJsonLd, NextSeo } from "next-seo";
 
-import WIPComponent from "components/WIP";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import Image from "next/image";
 import BlogPost from "components/BlogPost";
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text, chakra } from "@chakra-ui/react";
+import { DottedBox } from "components/SkillSection";
+import WIPComponent from "components/WIP";
 
 const BlogPage = ({ posts }: any) => {
-  console.log(posts, "ini posts");
+  let sortByDate = posts.sort(
+    (a: any, b: any) =>
+      +new Date(b.frontMatter.date) - +new Date(a.frontMatter.date)
+  );
+
   return (
     <>
       <NextSeo
         title="Blog"
-        description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel fre to visit his website"
+        description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel free to visit his website"
       />
-      {/* <WIPComponent /> */}
-      <Box mt="5">
+      <Box w="full" p="5" mx="auto">
+        {/* <WIPComponent /> */}
+        <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
+          Blogs
+        </chakra.h1>
+        <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
+          Some blogs i've written to document my learning on Front-End
+        </Text>
+
+        <DottedBox />
+
         <SimpleGrid
-          px={4}
           mt={8}
           spacing={6}
           columns={[1, 2, 3]}
           data-aos="fade-down"
           data-aos-delay={500}
         >
-          {posts.map((post: any, index: number) => (
+          {sortByDate.map((post: any, index: number) => (
             <Link href={"/Blog/" + post.slug} key={index} passHref>
               <a>
                 <BlogPost
@@ -36,6 +48,7 @@ const BlogPage = ({ posts }: any) => {
                   date={post.frontMatter.date}
                   thumbnailUrl={post.frontMatter.thumbnailUrl}
                   tags={post.frontMatter.tags}
+                  timeEstimation={post.frontMatter.timeEstimation}
                 />
               </a>
             </Link>

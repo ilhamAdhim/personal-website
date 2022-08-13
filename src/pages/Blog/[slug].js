@@ -4,16 +4,32 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Button, Container } from "@chakra-ui/react";
+import { Box, Button, Heading, useColorModeValue } from "@chakra-ui/react";
+import { FaArrowLeft } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const components = { Button, SyntaxHighlighter };
 
 const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
+  const router = useRouter();
   return (
-    <Container>
-      <h1>{title}</h1>
+    <Box w="full" p="5" mx="auto">
+      <Box display="flex">
+        <Button my="12" onClick={() => router.back()}>
+          <FaArrowLeft />
+        </Button>
+        <Heading
+          m="auto"
+          fontSize={"2xl"}
+          color={useColorModeValue("gray.700", "white")}
+          textAlign="center"
+        >
+          {title}
+        </Heading>
+      </Box>
+
       <MDXRemote {...mdxSource} components={components} />
-    </Container>
+    </Box>
   );
 };
 

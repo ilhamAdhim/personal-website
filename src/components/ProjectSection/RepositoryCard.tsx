@@ -56,6 +56,9 @@ const RepositoryCard = (props: IDataProjectsProps) => {
             w="100%"
             ratio={1.85 / 1}
             borderBottomWidth="1px"
+            style={{
+              cursor: "pointer",
+            }}
             borderColor={useColorModeValue("gray.100", "gray.700")}
           >
             <LazyImage src={cover} />

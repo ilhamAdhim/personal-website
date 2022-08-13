@@ -60,16 +60,6 @@ const Home = () => {
         </Box>
       </Box>
 
-      {/* <Box
-        mx={isSmallViewport ? 6 : 0}
-        textAlign={isSmallViewport ? "center" : "justify"}
-      >
-        <HeadingAccent text="My Front-End Development Tools " />
-
-         <SkillSection />
-        My Front-End Development Tools 
-      </Box> */}
-
       <Box
         id="nextpart"
         pt={["24", "0"]}
