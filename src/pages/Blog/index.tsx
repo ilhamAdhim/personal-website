@@ -22,8 +22,8 @@ const BlogPage = ({ posts }: any) => {
         description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel free to visit his website"
       />
       <Box w="full" p="5" mx="auto">
-        {/* <WIPComponent /> */}
-        <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
+        <WIPComponent />
+        {/* <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
           Blogs
         </chakra.h1>
         <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
@@ -53,7 +53,7 @@ const BlogPage = ({ posts }: any) => {
               </a>
             </Link>
           ))}
-        </SimpleGrid>
+        </SimpleGrid> */}
       </Box>
     </>
   );
