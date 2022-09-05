@@ -125,15 +125,6 @@ const AboutPage = () => {
                 learnings. Besides, I'd like to share my findings and
                 exploration on IT-related stuffs along the way.
               </Text>
-              <Text
-                mt="10"
-                align="justify"
-                data-aos="fade-up"
-                data-aos-delay={isSmallViewport ? "0" : "500"}
-              >
-                I'm open to working on paid project too if there is an
-                opportunity. Feel free to reach out 👌
-              </Text>
 
               <Box mt="4">
                 <TimelineSection
