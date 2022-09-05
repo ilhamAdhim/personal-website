@@ -30,7 +30,7 @@ const workExperience: IExperienceProps[] = [
   },
   {
     id: "exp-2",
-    pointTitle: "External Code Reviewer",
+    pointTitle: "Freelance External Code Reviewer",
     subDesc: "Dicoding Indonesia | Jun '22 - Present",
     description: [
       {
