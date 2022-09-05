@@ -68,8 +68,8 @@ const AboutPage = () => {
                 data-aos="fade-up"
                 data-aos-delay={isSmallViewport ? "0" : "200"}
               >
-                {`Currently, i'm a final year student majoring in Information
-                Technology at State Polytechnic of Malang (Polinema). And doing my part-time as  `}
+                {`Currently, i'm a fresh-graduate majoring in Information
+                Technology at State Polytechnic of Malang (Polinema). And doing my full-time as  `}
                 <chakra.span
                   fontWeight="bold"
                   className="link-external"
@@ -91,7 +91,7 @@ const AboutPage = () => {
                       textDecoration: "none",
                     }}
                   >
-                    {` External Code Reviewer in Dicoding Indonesia. `}
+                    {` Front-End Engineer in Prosa AI. `}
                   </Link>
                 </chakra.span>
               </Text>
