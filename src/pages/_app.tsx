@@ -1,16 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ChakraProvider } from "@chakra-ui/react";
 import AOS from "aos";
-import { DefaultSeo } from "next-seo";
-import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useEffect } from "react";
-
 import defaultSEOConfig from "../../next-seo.config";
 import Layout from "layout";
+import customTheme from "lib/styles/customTheme";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import "lib/styles/globals.css";
-import customTheme from "lib/styles/customTheme";
+
+import { ChakraProvider } from "@chakra-ui/react";
+import { DefaultSeo } from "next-seo";
+import { useEffect } from "react";
+import type { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -32,4 +33,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp);

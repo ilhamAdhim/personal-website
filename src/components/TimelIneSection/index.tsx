@@ -1,15 +1,16 @@
-import { Box, Heading, Text, VStack, chakra } from "@chakra-ui/react";
-
-// Here we have used react-icons package for the icons
-import type { ITimelineProps } from "types/ExperienceProps";
-
 import TimelineItem from "./TimelineItem";
+
+import { Box, Heading, Text, VStack, chakra } from "@chakra-ui/react";
+import type { ITimelineProps } from "types/ExperienceProps";
+import { useTranslation } from "next-i18next";
 
 const TimelineSection = ({
   title,
   pointCollection,
   ...props
 }: ITimelineProps) => {
+  const { t } = useTranslation("about");
+
   return (
     <Box>
       <VStack textAlign="start" align="start" mb={5}>

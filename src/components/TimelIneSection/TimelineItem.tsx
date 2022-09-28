@@ -41,7 +41,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
           sx={{}}
         />
         <Text
-          size="1.25rem"
+          fontSize="1.25rem"
           color={color}
           pos="absolute"
           left="0.875rem"

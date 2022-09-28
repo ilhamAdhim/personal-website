@@ -1,18 +1,26 @@
-import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-
 import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
 import repositoriesList from "data/repositoryList";
 import useSmallViewport from "hooks/useViewport";
-import type { IDataProjectsProps } from "types/ProjectProps";
 
-const Home = () => {
+import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
+import { FaArrowDown, FaArrowRight } from "react-icons/fa";
+import type { IDataProjectsProps } from "types/ProjectProps";
+import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: { ...(await serverSideTranslations(locale, ["default"])) },
+  };
+}
+
+const Home = ({ locale }: any) => {
   const { isSmallViewport } = useSmallViewport();
   const [featuredProjects, setFeaturedProjects] = useState<
     IDataProjectsProps[]
@@ -28,6 +36,7 @@ const Home = () => {
         title="Home"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
+      <h2>{locale}</h2>
       <Box mb={8} display={{ md: "flex" }} alignItems="center" minHeight="70vh">
         <Box>
           <HeroSection />

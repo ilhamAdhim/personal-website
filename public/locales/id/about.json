@@ -1,0 +1,102 @@
+{"experienceTitle":"Pengalaman saya","firstParagraph":"Saat ini saya adalah seorang fresh-graduate jurusan Teknologi Informasi di Politeknik Negeri Malang (Polinema). Dan melakukan pekerjaan penuh waktu saya sebagai","secondParagraph":"Banyak teknologi modern sedang dipompa keluar hari ini, dan Teknologi Front-End tidak terkecuali. Dorongan untuk belajar dan mencoba teknologi yang sedang tren ini sangat besar. Meski begitu, setelah melakukan beberapa uji coba di berbagai bidang IT, saya fokus mempelajari Front-End Development pada tahun 2020 dan terus mempelajarinya sejak saat itu.","thirdParagraph":"Di situs web ini, saya akan secara aktif menambahkan koleksi ke beberapa proyek saya dan menulis blog. Dengan menulis, saya bisa mendokumentasikan perjalanan eksplorasi, pengalaman, sekaligus pembelajaran saya. Selain itu, saya ingin berbagi temuan dan eksplorasi saya tentang hal-hal yang berhubungan dengan IT selama ini.","title":"Tentang saya",
+"data": [
+    {
+      "id": "exp-1",
+      "pointTitle": "Front-End Engineer",
+      "subDesc": "Prosa AI | Sept '22 - Present",
+      "description": [
+        {
+          "id": "exp-1-1",
+          "job": "Mengembangkan arsitektur Front-End website"
+        },
+        {
+          "id": "exp-1-2",
+          "job": "Mengembangkan komponen Front-End"
+        },
+        {
+          "id": "exp-1-3",
+          "job": "Mendesain interaksi pengguna di halaman web."
+        },
+        {
+          "id": "exp-1-4",
+          "job": "Memastikan segi skalabilitas aplikasi yang responsif "
+        }
+      ]
+    },
+    {
+      "id": "exp-2",
+      "pointTitle": "Freelance External Code Reviewer",
+      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
+      "description": [
+        {
+          "id": "exp-2-1",
+          "job": "Mengulas submission siswa di alur pembelajaran Front-End"
+        },
+        {
+          "id": "exp-2-2",
+          "job": "Memberikan masukan dan saran kepada siswa untuk lebih mengembangkan kode program mereka"
+        }
+      ]
+    },
+    {
+      "id": "exp-3",
+      "pointTitle": "Studi Independen Front-End Engineer Bootcamp",
+      "subDesc": "Ruangguru | Feb '22 - Jul '22 ",
+      "description": [
+        {
+          "id": "exp-3-1",
+          "job": "Menggunakan Jira untuk manajemen proyek"
+        },
+        {
+          "id": "exp-3-2",
+          "job": "Optimasi Git workflow dan Github Actions untuk CI/CD"
+        },
+        {
+          "id": "exp-3-3",
+          "job": "Mengembangkan aplikasi web dengan React JS, Next JS, Zustand, dan Chakra UI"
+        }
+      ]
+    },
+    {
+      "id": "exp-4",
+      "pointTitle": "Studi Independen Machine Learning & Front-End Developer",
+      "subDesc": "Dicoding | Aug '21 - Jan '22 ",
+      "description": [
+        {
+          "id": "exp-4-1",
+          "job": "Membangun Progressive Web App dengan Vanilla JS dan Webpack"
+        },
+        {
+          "id": "exp-4-2",
+          "job": "Memastikan kualitas kode dengan ESLint dan Prettier"
+        },
+        {
+          "id": "exp-4-3",
+          "job": "Memastikan performa website dengan Metric Web Vitals dan pengujian E2E menggunakan Puppeteer"
+        },
+        {
+          "id": "exp-4-4",
+          "job": "Mengintegrasikan Machine Learning ke proyek dengan Python, Keras,dan Tensorflow"
+        }
+      ]
+    },
+    {
+      "id": "exp-5",
+      "pointTitle": "React JS Developer Intern",
+      "subDesc": "PT. Sekawan Media | Jul '21 - Oct '21 ",
+      "description": [
+        {
+          "id": "exp-5-1",
+          "job": "Mengintegrasiakn API dari Backend"
+        },
+        {
+          "id": "exp-5-2",
+          "job": "Menguji aplikasi web dengan Cypress E2E Testing Library"
+        },
+        {
+          "id": "exp-5-3",
+          "job": "Bekerja secara kolaboratif dengan tim lain untuk membangun Aplikasi Web SaaS | SIPAS Web App"
+        }
+      ]
+    }
+  ]}

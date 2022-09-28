@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { JSXElementConstructor, ReactElement } from "react";
 
 export interface IJobDescProps {
   id: string;
@@ -6,10 +6,10 @@ export interface IJobDescProps {
 }
 
 export interface IExperienceProps {
+  icon: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
   id: string;
   subDesc: string;
   description: IJobDescProps[];
-  icon: ReactElement;
   pointTitle: string;
 }
 

@@ -1,3 +1,5 @@
+const { i18n } = require("./next-i18next.config");
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPWA = require("next-pwa");
 
@@ -15,6 +17,7 @@ module.exports = withPWA({
     register: true,
   },
   reactStrictMode: true,
+  i18n,
   eslint: {
     dirs: ["src"],
   },

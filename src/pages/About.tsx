@@ -1,3 +1,8 @@
+import PortfolioAbout from "components/PortfolioSection";
+import DottedBox from "components/SVGVectors/DottedBox";
+import TimelineSection from "components/TimelIneSection";
+import useSmallViewport from "hooks/useViewport";
+
 import {
   Box,
   Flex,
@@ -8,21 +13,48 @@ import {
 } from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
-
-import PortfolioAbout from "components/PortfolioSection";
-import DottedBox from "components/SVGVectors/DottedBox";
-import TimelineSection from "components/TimelIneSection";
-import workExperience from "data/experienceList";
-import useSmallViewport from "hooks/useViewport";
 import type { IExperienceProps } from "types/ExperienceProps";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
-const AboutPage = () => {
+import type {
+  GetStaticPropsContext,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
+import { FiPackage } from "react-icons/fi";
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ? locale : "en", ["about"])),
+      language: locale,
+    },
+  };
+}
+
+const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+  props
+) => {
+  const { t } = useTranslation("about");
+
   const { isSmallViewport } = useSmallViewport();
   const colorHighlightLink = useColorModeValue("teal.600", "cyan");
   const [dataWorkExp, setDataWorkExp] = useState<IExperienceProps[]>([]);
 
   useEffect(() => {
-    setDataWorkExp(workExperience);
+    let translated = props._nextI18Next.initialI18nStore;
+
+    setDataWorkExp(
+      translated[props.language as keyof typeof translated].about.data.map(
+        (item: IExperienceProps) => {
+          return {
+            ...item,
+            icon: <FiPackage />,
+          };
+        }
+      )
+    );
   }, []);
 
   const colorName = useColorModeValue("teal.600", "teal.400");
@@ -68,8 +100,7 @@ const AboutPage = () => {
                 data-aos="fade-up"
                 data-aos-delay={isSmallViewport ? "0" : "200"}
               >
-                {`Currently, i'm a fresh-graduate majoring in Information
-                Technology at State Polytechnic of Malang (Polinema). And doing my full-time as  `}
+                {t("firstParagraph")}
                 <chakra.span
                   fontWeight="bold"
                   className="link-external"
@@ -91,7 +122,9 @@ const AboutPage = () => {
                       textDecoration: "none",
                     }}
                   >
-                    {` Front-End Engineer in Prosa AI. `}
+                    {` Front-End Engineer ${
+                      props.language === "en" ? "in" : "di"
+                    } Prosa AI. `}
                   </Link>
                 </chakra.span>
               </Text>
@@ -101,34 +134,21 @@ const AboutPage = () => {
                 data-aos="fade-up"
                 data-aos-delay={isSmallViewport ? "0" : "300"}
               >
-                Lots of modern technologies are being pumped out these days, and
-                Front-End Technology is no exception. The urge to learn and try
-                these trending technologies is huge. Even so, after having some
-                trials on various IT field, I had my focus on learning Front-End
-                Development on 2020 and have been learning it ever since.
+                {t("secondParagraph")}
               </Text>
-              {/* <Text mt="10" align="justify">
-                Mainly, i utilizes Next, React, Chakra UI for building web
-                applications. I also get the grasp of E2E Testing with Cypress
-                to ensure the app built has integrated smoothly and ready to be
-                used by the client.
-              </Text> */}
+
               <Text
                 mt="10"
                 align="justify"
                 data-aos="fade-up"
                 data-aos-delay={isSmallViewport ? "0" : "400"}
               >
-                In this website, i'll actively adding collection to my handful
-                projects and writing blogs. With writing, I'll be able to
-                document my journey of exploration, experiences, as well as
-                learnings. Besides, I'd like to share my findings and
-                exploration on IT-related stuffs along the way.
+                {t("thirdParagraph")}
               </Text>
 
               <Box mt="4">
                 <TimelineSection
-                  title="Experience"
+                  title={t("experienceTitle")}
                   pointCollection={dataWorkExp}
                 />
               </Box>
