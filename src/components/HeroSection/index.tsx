@@ -1,4 +1,8 @@
-import type { TextProps } from "@chakra-ui/react";
+import Link from "next/link";
+import DottedBox from "components/SVGVectors/DottedBox";
+import WavingHand from "components/WavingHand";
+import LinksAlt from "./LinksAlt";
+
 import {
   Box,
   Button,
@@ -12,16 +16,15 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Link from "next/link";
-import type { PropsWithChildren } from "react";
+import { useTranslation } from "next-i18next";
 import { FaBolt } from "react-icons/fa";
 
-import DottedBox from "components/SVGVectors/DottedBox";
-import WavingHand from "components/WavingHand";
-
-import LinksAlt from "./LinksAlt";
+import type { PropsWithChildren } from "react";
+import type { TextProps } from "@chakra-ui/react";
 
 const HeroSection = () => {
+  const { t } = useTranslation("landingPage");
+
   return (
     <Box mt="20" width={["full", "80%"]}>
       <Stack direction={{ base: "column", md: "row" }} justifyContent="center">
@@ -34,11 +37,11 @@ const HeroSection = () => {
             data-aos="fade-down"
             data-aos-duration="1000"
           >
-            Hey!
+            {t("greet")}
             <WavingHand />
             <br />
             <chakra.div mt="8" data-aos="fade-right" data-aos-delay="2000">
-              I'm
+              {t("subject")}
               <chakra.span color={useColorModeValue("teal.600", "teal.400")}>
                 {` Ilham Adhim`}
               </chakra.span>
@@ -55,9 +58,7 @@ const HeroSection = () => {
             data-aos="fade-right"
             data-aos-delay="2000"
           >
-            Front-End Developer who likes to build web app through clean UI and
-            optimized performance. I uses React ecosystem to build things.
-            Long-life learner and loves to collaborate with others.
+            {t("selfIntroduction")}
           </Text>
           <Flex
             justifyContent={["center", "flex-start"]}
@@ -79,7 +80,7 @@ const HeroSection = () => {
                 }}
               >
                 <chakra.span fontSize={[".8em", "unset"]}>
-                  See my Projects
+                  {t("buttons.primary")}
                 </chakra.span>
                 <Icon as={FaBolt} h={4} w={4} ml={1} />
               </Button>
@@ -92,7 +93,9 @@ const HeroSection = () => {
               size="lg"
             >
               <Link href="/About" passHref>
-                <chakra.span fontSize={[".8em", "unset"]}>About me</chakra.span>
+                <chakra.span fontSize={[".8em", "unset"]}>
+                  {t("buttons.secondary")}
+                </chakra.span>
               </Link>
             </Button>
           </Flex>

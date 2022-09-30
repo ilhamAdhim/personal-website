@@ -11,6 +11,7 @@ import type {
 const ProjectList: React.FC<IProjectCollectionProps> = ({
   dataProjects,
 }: IProjectCollectionProps) => {
+  console.log(dataProjects);
   const { isSmallViewport } = useSmallViewport();
 
   return (

@@ -1,0 +1,88 @@
+{
+  "greet" : "Halo!",
+  "subject" : "Saya",
+  "selfIntroduction":"Saya adalah Front-End Developer yang berfokus kepada membuat aplikasi web dengan React untuk membuat UI yang minimalis dengan memperhatikan sisi performa aplikasi. \nSenang berkolaborasi dan mengembangkan produk bersama",
+    "buttons" : {
+        "primary" : "Koleksi Project saya",
+        "secondary" : "Tentang Saya"
+    },
+    "FeaturedProjects" : {
+        "title" : "Project Pilihan",
+        "subTitle" : "Beberapa project yang saya kembangkan",
+        "projects" : [
+            {
+                "id": "project-1",
+                "title": "Cashflow App",
+                "description":
+                  "Proyek React Native dengan Expo. Cashflow App membantu manajemen cashflow penggunanya dengan visual grafik pemasukan dan pengeluaran.",
+                "cover": "/images/projects/cashflow-app/cashflowapp-home.jpg",
+                "techStack": [
+                  {
+                    "id": "project-1-1",
+                    "name": "React Native"
+                  },
+                  {
+                    "id": "project-1-2",
+                    "name": "Expo"
+                  },
+                  {
+                    "id": "project-1-3",
+                    "name": "SQLite"
+                  }
+                ],
+                "url": "https://github.com/ilhamAdhim/cashflow-app",
+                "live": "https://expo.dev/@ilhamadhim/buku-kas-app?serviceType=classic&distribution=expo-go",
+                "inProgress": false
+              },
+              {
+                "id": "project-2",
+                "title": "Sembakoo Remake",
+                "description":
+                  "Refactor project Sembakoo.id menggunakan Typescript dan React. Implementasi SVG dark mode dapat dilakukan dengan mudah menggunakan Chakra UI",
+                "cover": "/images/projects/lp-sembako-remake.png",
+                "techStack": [
+                  {
+                    "id": "project-2-1",
+                    "name": "React"
+                  },
+                  {
+                    "id": "project-2-2",
+                    "name": "Chakra UI"
+                  },
+                  {
+                    "id": "project-2-3",
+                    "name": "Typescript"
+                  }
+                ],
+                "url": "https://github.com/ilhamAdhim/sembakoo-remake",
+                "live": "http://sembakoo-remake.vercel.app/",
+                "inProgress": false
+              },
+              {
+                "id": "project-3",
+                "title": "SQLearn",
+                "description":
+                  "Pengajar Database dapat membuat quiz untuk murid. Setelah itu, murid dapat melakukan latihan SQL Syntax dengan fitur drag-and-drop.",
+                "cover": "/images/projects/lp-sqlearn.png",
+                "techStack": [
+                  {
+                    "id": "project-3-1",
+                    "name": "Next JS"
+                  },
+                  {
+                    "id": "project-3-2",
+                    "name": "Ant Design"
+                  },
+                  {
+                    "id": "project-3-3",
+                    "name": "react-dnd"
+                  }
+                ],
+                "url": "https://github.com/ilhamAdhim",
+                "live": "https://deploy-fe-sqlearn.vercel.app/",
+                "inProgress": false
+              }
+        ]
+    },
+    "CTA" : "Lihat lebih banyak"
+}

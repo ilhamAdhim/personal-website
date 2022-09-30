@@ -9,26 +9,49 @@ import useSmallViewport from "hooks/useViewport";
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-import type { IDataProjectsProps } from "types/ProjectProps";
 import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
+import type { IDataProjectsProps } from "types/ProjectProps";
+
+import type {
+  GetStaticPropsContext,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
+
 export async function getStaticProps({ locale }: any) {
   return {
-    props: { ...(await serverSideTranslations(locale, ["default"])) },
+    props: {
+      ...(await serverSideTranslations(locale, ["landingPage"])),
+      language: locale,
+    },
   };
 }
 
-const Home = ({ locale }: any) => {
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+  props
+) => {
   const { isSmallViewport } = useSmallViewport();
+
+  const { t } = useTranslation("landingPage");
+
   const [featuredProjects, setFeaturedProjects] = useState<
     IDataProjectsProps[]
   >([]);
 
   useEffect(() => {
-    setFeaturedProjects(repositoriesList.slice(0, 3));
+    let translated = props._nextI18Next.initialI18nStore;
+    setFeaturedProjects(
+      translated[props.language as keyof typeof translated].landingPage
+        .FeaturedProjects.projects
+    );
   }, []);
+
+  useEffect(() => {
+    console.log(featuredProjects);
+  }, [featuredProjects]);
 
   return (
     <>
@@ -36,7 +59,6 @@ const Home = ({ locale }: any) => {
         title="Home"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
-      <h2>{locale}</h2>
       <Box mb={8} display={{ md: "flex" }} alignItems="center" minHeight="70vh">
         <Box>
           <HeroSection />
@@ -75,13 +97,16 @@ const Home = ({ locale }: any) => {
         mx={isSmallViewport ? 6 : 0}
         textAlign={isSmallViewport ? "center" : "justify"}
       >
-        <HeadingAccent text="Featured Projects" withUnderline={false} />
-        <Text color="gray.500">Some projects I developed recently.</Text>
+        <HeadingAccent
+          text={t("FeaturedProjects.title")}
+          withUnderline={false}
+        />
+        <Text color="gray.500">{t("FeaturedProjects.subTitle")}.</Text>
         <ProjectList dataProjects={featuredProjects} />
         <Flex justifyContent="center">
           <Link href="/Projects" passHref>
             <Button mt="12">
-              See More
+              {t("CTA")}
               <chakra.span ml="2">
                 <FaArrowRight />
               </chakra.span>

@@ -94,7 +94,7 @@ const RepositoryCard = (props: IDataProjectsProps) => {
                   </Tag>
                 ))}
               </Flex>
-              <Text align="justify" fontSize=".9em" noOfLines={[0, 2, 3]}>
+              <Text align="justify" fontSize=".9em" noOfLines={[0, 2, 4]}>
                 {description}
               </Text>
             </Box>
