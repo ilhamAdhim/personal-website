@@ -49,10 +49,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
     );
   }, []);
 
-  useEffect(() => {
-    console.log(featuredProjects);
-  }, [featuredProjects]);
-
   return (
     <>
       <NextSeo
