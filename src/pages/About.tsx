@@ -86,11 +86,10 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
             <Text
               as="h2"
               fontSize="xl"
-              color={colorName}
               data-aos="fade-up"
               data-aos-delay={isSmallViewport ? "0" : "100"}
             >
-              Muhammad Ilham Adhim
+              <chakra.span color={colorName}>Muhammad Ilham Adhim</chakra.span>
             </Text>
 
             <Box mt="4">

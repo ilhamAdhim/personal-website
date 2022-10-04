@@ -3,7 +3,6 @@ import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
-import repositoriesList from "data/repositoryList";
 import useSmallViewport from "hooks/useViewport";
 
 import { NextSeo } from "next-seo";
@@ -14,12 +13,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
 import type { IDataProjectsProps } from "types/ProjectProps";
-
-import type {
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
+import type { InferGetStaticPropsType, NextPage } from "next";
 
 export async function getStaticProps({ locale }: any) {
   return {

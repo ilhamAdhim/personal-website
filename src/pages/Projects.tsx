@@ -1,17 +1,35 @@
-import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
-import { useEffect, useState } from "react";
-
 import ProjectList from "components/ProjectSection/ProjectList";
 import DottedBox from "components/SVGVectors/DottedBox";
-import repositoriesList from "data/repositoryList";
+
+import { i18n, useTranslation } from "next-i18next";
+import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
+import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+import type { InferGetStaticPropsType, NextPage } from "next";
 import type { IDataProjectsProps } from "types/ProjectProps";
 
-const ProjectPage = () => {
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["projects"])),
+      language: locale,
+    },
+  };
+}
+
+const ProjectPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+  props
+) => {
+  const { t } = useTranslation("projects");
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
   useEffect(() => {
-    setDataProjects(repositoriesList);
+    let translated = props._nextI18Next.initialI18nStore;
+    setDataProjects(
+      translated[props.language as keyof typeof translated].projects.data
+    );
   }, []);
 
   return (
@@ -25,13 +43,13 @@ const ProjectPage = () => {
           Projects
         </chakra.h1>
         <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
-          Showcase of projects i've done on{" "}
+          {t("subTitle")}
           <chakra.span
             p="1"
             bgColor={useColorModeValue("teal.200", "transparent")}
             color={useColorModeValue("black.200", "teal.400")}
           >
-            Front-End Development 🧑‍💻
+            {i18n?.language === "en" ? `Front-End Development ` : `Front-End`}🧑‍💻
           </chakra.span>
         </Text>
 

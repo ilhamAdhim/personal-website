@@ -2,7 +2,6 @@ import { SimpleGrid, chakra } from "@chakra-ui/react";
 
 import RepositoryCard from "components/ProjectSection/RepositoryCard";
 import useSmallViewport from "hooks/useViewport";
-import { useEffect } from "react";
 import type {
   IDataProjectsProps,
   IProjectCollectionProps,

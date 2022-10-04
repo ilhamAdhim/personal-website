@@ -87,7 +87,7 @@
       "description": [
         {
           "id": "exp-5-1",
-          "job": "Mengintegrasiakn API dari Backend"
+          "job": "Mengintegrasikan API dari Backend"
         },
         {
           "id": "exp-5-2",
@@ -99,4 +99,5 @@
         }
       ]
     }
-  ]}
+  ]
+}
