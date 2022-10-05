@@ -16,7 +16,7 @@ const ProjectList: React.FC<IProjectCollectionProps> = ({
     <SimpleGrid
       mt={8}
       spacing={6}
-      columns={[1, 2, 3]}
+      columns={[1, 1, 2, 2, 3]}
       data-aos="fade-down"
       data-aos-delay={500}
     >
@@ -26,15 +26,7 @@ const ProjectList: React.FC<IProjectCollectionProps> = ({
           data-aos="fade-down"
           data-aos-delay={isSmallViewport ? 0 : index * 50}
         >
-          <RepositoryCard
-            id={repo.id}
-            url={repo.url}
-            live={repo.live}
-            title={repo.title}
-            cover={repo.cover}
-            techStack={repo.techStack}
-            description={repo.description}
-          />
+          <RepositoryCard {...repo} />
         </chakra.div>
       ))}
     </SimpleGrid>
