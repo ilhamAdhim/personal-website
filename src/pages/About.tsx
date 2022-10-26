@@ -121,9 +121,9 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                       textDecoration: "none",
                     }}
                   >
-                    {` Front-End Engineer ${
+                    {` External Code Reviewer ${
                       props.language === "en" ? "in" : "di"
-                    } Prosa AI. `}
+                    } Dicoding`}
                   </Link>
                 </chakra.span>
               </Text>

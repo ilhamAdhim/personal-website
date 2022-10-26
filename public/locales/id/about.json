@@ -1,9 +1,14 @@
-{"experienceTitle":"Pengalaman saya","firstParagraph":"Saat ini saya adalah seorang fresh-graduate jurusan Teknologi Informasi di Politeknik Negeri Malang (Polinema). Dan melakukan pekerjaan penuh waktu saya sebagai","secondParagraph":"Banyak teknologi modern sedang dipompa keluar hari ini, dan Teknologi Front-End tidak terkecuali. Dorongan untuk belajar dan mencoba teknologi yang sedang tren ini sangat besar. Meski begitu, setelah melakukan beberapa uji coba di berbagai bidang IT, saya fokus mempelajari Front-End Development pada tahun 2020 dan terus mempelajarinya sejak saat itu.","thirdParagraph":"Di situs web ini, saya akan secara aktif menambahkan koleksi ke beberapa proyek saya dan menulis blog. Dengan menulis, saya bisa mendokumentasikan perjalanan eksplorasi, pengalaman, sekaligus pembelajaran saya. Selain itu, saya ingin berbagi temuan dan eksplorasi saya tentang hal-hal yang berhubungan dengan IT selama ini.","title":"Tentang saya",
-"data": [
+{
+  "experienceTitle": "Pengalaman saya",
+  "firstParagraph": "Saat ini saya adalah seorang fresh-graduate jurusan Teknologi Informasi di Politeknik Negeri Malang (Polinema). Dan melakukan pekerjaan freelance saya sebagai",
+  "secondParagraph": "Banyak teknologi modern sedang dipompa keluar hari ini, dan Teknologi Front-End tidak terkecuali. Dorongan untuk belajar dan mencoba teknologi yang sedang tren ini sangat besar. Meski begitu, setelah melakukan beberapa uji coba di berbagai bidang IT, saya fokus mempelajari Front-End Development pada tahun 2020 dan terus mempelajarinya sejak saat itu.",
+  "thirdParagraph": "Di situs web ini, saya akan secara aktif menambahkan koleksi ke beberapa proyek saya dan menulis blog. Dengan menulis, saya bisa mendokumentasikan perjalanan eksplorasi, pengalaman, sekaligus pembelajaran saya. Selain itu, saya ingin berbagi temuan dan eksplorasi saya tentang hal-hal yang berhubungan dengan IT selama ini.",
+  "title": "Tentang saya",
+  "data": [
     {
       "id": "exp-1",
       "pointTitle": "Front-End Engineer",
-      "subDesc": "Prosa AI | Sept '22 - Present",
+      "subDesc": "Prosa AI | Sept '22 - Okt' 22",
       "description": [
         {
           "id": "exp-1-1",
