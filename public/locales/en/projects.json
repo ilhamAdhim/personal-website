@@ -27,7 +27,7 @@
         {
             "id": "project-2",
             "title": "Sembakoo Remake",
-            "description": "Sembakoo.id migrated to Typescript and React. Thanks to Chakra UI, dark mode was easier than ever, especially with the SVGs.",
+            "description": "Migrated to Typescript & React. Thanks to Chakra UI, dark mode was easier than ever, especially with the SVGs.",
             "cover": "/images/projects/lp-sembako-remake.png",
             "techStack": [
                 {
@@ -82,7 +82,7 @@
                 },
                 {
                     "id": "project-4-2",
-                    "name": "Cypress"
+                    "name": "Jasmine"
                 },
                 {
                     "id": "project-4-3",
@@ -100,7 +100,7 @@
         {
             "id": "project-5",
             "title": "Covid Vaccination Rate",
-            "description": "Consume API ML Prediction in Front-End, built with React JS, Antd, CSS custom styling, and Data Visualization with Recharts.",
+            "description": "Consume API ML Prediction in Front-End, built with React JS, Antd, and Data Visualization with Recharts.",
             "cover": "/images/projects/lp-monitor-covid-19.jpg",
             "techStack": [
                 {
@@ -123,7 +123,7 @@
         {
             "id": "project-6",
             "title": "Sembakoo.id",
-            "description": "Basic Commodities for each province in Indonesia, Warm-up project to learn Vanilla JS for DOM manipulation and ES6 syntax.",
+            "description": "Basic Commodities for each province in Indonesia, Warm-up project to learn DOM manipulation and ES6.",
             "cover": "/images/projects/lp-sembako.png",
             "techStack": [
                 {
@@ -153,7 +153,7 @@
         {
             "id": "project-8",
             "title": "Serba Kopi",
-            "description": "Serba Kopi, App that with the help of PWA Concepts, it gives native feels when the user open this app on their mobile device.",
+            "description": "Web app that uses PWA Concepts, it gives native feels when the user open this app on their mobile device.",
             "cover": "/images/projects/lp-serbakopi.png",
             "techStack": [
                 {

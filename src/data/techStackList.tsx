@@ -20,7 +20,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "Next JS",
     nextDesc:
       "was seamless to me. SEO optimized, dynamic paths, and high customability are features I love at this moment.",
-    type: "tech",
   },
   {
     id: 2,
@@ -31,7 +30,6 @@ const techStack: ITechStackProps[] = [
       "I started learning React in 2019. It enabled me to create a SPA (Single Page Application) with high interactivity. When",
     descWithLink: "React Hooks",
     nextDesc: "comes out, i like it due to its simplicity.",
-    type: "tech",
   },
   {
     id: 3,
@@ -42,7 +40,6 @@ const techStack: ITechStackProps[] = [
       "Detect error earlier and fix it right away. For me, the usage of",
     descWithLink: "Typescript",
     nextDesc: "is worth its boilerplate problem. Definitely love it.",
-    type: "tech",
   },
   {
     id: 4,
@@ -53,7 +50,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "It's well-documented",
     nextDesc:
       "and i can build an app faster without any hassle. Plus, there are lots of open-source components are available out there.",
-    type: "tech",
   },
 
   {
@@ -66,7 +62,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "PWA + SPA web app with vanilla JS.",
     nextDesc:
       "With these hassle, i can appreciate more of library and frameworks existence.",
-    type: "tech",
   },
   {
     id: 6,
@@ -77,7 +72,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "Webpack",
     nextDesc:
       "is a module bundler that i used for Module Analyzer and code splitting. Plus, we can differentiate production and development mode.",
-    type: "tech",
   },
   {
     id: 7,
@@ -88,7 +82,6 @@ const techStack: ITechStackProps[] = [
     descWithLink: "Sass",
     nextDesc:
       "can do a lot better compared to normal CSS. Some features i've been using are global variables, mixins, and functions",
-    type: "tech",
   },
 ];
 

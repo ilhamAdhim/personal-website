@@ -26,7 +26,3 @@ const TooltipContent = ({ description, ...param }: ISocialIconsProps) => {
 };
 
 export default TooltipContent;
-
-// const TooltipContentTechStack = (param: IPopoverTechStackProps) => {
-//   return <Box> Test </Box>;
-// };
