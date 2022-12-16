@@ -7,39 +7,39 @@
   "data": [
     {
       "id": "exp-1",
-      "pointTitle": "Front-End Engineer",
-      "subDesc": "Prosa AI | Sept '22 - Okt' 22",
+      "pointTitle": "Freelance External Code Reviewer",
+      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Mengembangkan arsitektur Front-End website"
+          "job": "Mengulas submission siswa di alur pembelajaran Front-End"
         },
         {
           "id": "exp-1-2",
-          "job": "Mengembangkan komponen Front-End"
-        },
-        {
-          "id": "exp-1-3",
-          "job": "Mendesain interaksi pengguna di halaman web."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Memastikan segi skalabilitas aplikasi yang responsif "
+          "job": "Memberikan masukan dan saran kepada siswa untuk lebih mengembangkan kode program mereka"
         }
       ]
     },
     {
       "id": "exp-2",
-      "pointTitle": "Freelance External Code Reviewer",
-      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
+      "pointTitle": "Front-End Engineer",
+      "subDesc": "Prosa AI | Sept '22 - Okt' 22",
       "description": [
         {
           "id": "exp-2-1",
-          "job": "Mengulas submission siswa di alur pembelajaran Front-End"
+          "job": "Mengembangkan arsitektur Front-End website"
         },
         {
           "id": "exp-2-2",
-          "job": "Memberikan masukan dan saran kepada siswa untuk lebih mengembangkan kode program mereka"
+          "job": "Mengembangkan komponen Front-End"
+        },
+        {
+          "id": "exp-2-3",
+          "job": "Mendesain interaksi pengguna di halaman web."
+        },
+        {
+          "id": "exp-2-4",
+          "job": "Memastikan segi skalabilitas aplikasi yang responsif "
         }
       ]
     },

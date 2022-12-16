@@ -7,39 +7,39 @@
   "data": [
     {
       "id": "exp-1",
-      "pointTitle": "Front-End Engineer",
-      "subDesc": "Prosa AI | Sept '22 - Oct '22",
+      "pointTitle": "Freelance External Code Reviewer",
+      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Developing front-end web site architecture"
+          "job": "Reviewing student's submission in Front-End Learning Path"
         },
         {
           "id": "exp-1-2",
-          "job": "Developing/extending front-end components"
-        },
-        {
-          "id": "exp-1-3",
-          "job": "Designing user interactions on web pages."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Ensuring responsiveness and scalability of applications"
+          "job": "Giving feedbacks and advices on how students can improve more on their codes"
         }
       ]
     },
     {
       "id": "exp-2",
-      "pointTitle": "Freelance External Code Reviewer",
-      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
+      "pointTitle": "Front-End Engineer",
+      "subDesc": "Prosa AI | Sept '22 - Oct '22",
       "description": [
         {
           "id": "exp-2-1",
-          "job": "Reviewing student's submission in Front-End Learning Path"
+          "job": "Developing front-end web site architecture"
         },
         {
           "id": "exp-2-2",
-          "job": "Giving feedbacks and advices on how students can improve more on their codes"
+          "job": "Developing/extending front-end components"
+        },
+        {
+          "id": "exp-2-3",
+          "job": "Designing user interactions on web pages."
+        },
+        {
+          "id": "exp-2-4",
+          "job": "Ensuring responsiveness and scalability of applications"
         }
       ]
     },
