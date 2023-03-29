@@ -13,7 +13,7 @@
           {
             "id": "project-1",
             "title": "Teruna Translate",
-            "description": "Teruna Translate menyediakan servis penerjemahan maupun proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube",
+            "description": "Servis penerjemahan dan proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube.",
             "cover": "/images/projects/lp-teruna.jpg",
             "techStack": [
                 {
@@ -81,31 +81,8 @@
                 "url": "https://github.com/ilhamAdhim/sembakoo-remake",
                 "live": "http://sembakoo-remake.vercel.app/",
                 "inProgress": false
-              },
-              {
-                "id": "project-4",
-                "title": "SQLearn",
-                "description":
-                  "Pengajar Database dapat membuat quiz untuk murid. Setelah itu, murid dapat melakukan latihan SQL Syntax dengan fitur drag-and-drop.",
-                "cover": "/images/projects/lp-sqlearn.png",
-                "techStack": [
-                  {
-                    "id": "project-4-1",
-                    "name": "Next JS"
-                  },
-                  {
-                    "id": "project-4-2",
-                    "name": "Ant Design"
-                  },
-                  {
-                    "id": "project-4-3",
-                    "name": "react-dnd"
-                  }
-                ],
-                "url": "https://github.com/ilhamAdhim",
-                "live": "https://deploy-fe-sqlearn.vercel.app/",
-                "inProgress": false
               }
+              
         ]
     },
     "CTA" : "Lihat lebih banyak"

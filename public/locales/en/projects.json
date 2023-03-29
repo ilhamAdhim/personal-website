@@ -4,7 +4,7 @@
          {
             "id": "project-1",
             "title": "Teruna Translate",
-            "description": "Teruna Translate provide translation service and proofreading for English <-> Indonesian for documents, journal, and youtube captions ",
+            "description": "Translation service for English <-> Indonesian for documents, journal, and youtube captions. ",
             "cover": "/images/projects/lp-teruna.jpg",
             "techStack": [
                 {

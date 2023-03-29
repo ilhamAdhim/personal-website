@@ -4,7 +4,7 @@
         {
             "id": "project-1",
             "title": "Teruna Translate",
-            "description": "Teruna Translate menyediakan servis penerjemahan maupun proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube",
+            "description": "Servis penerjemahan dan proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube.",
             "cover": "/images/projects/lp-teruna.jpg",
             "techStack": [
                 {

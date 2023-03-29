@@ -13,7 +13,7 @@
       {
         "id": "project-1",
         "title": "Teruna Translate",
-        "description": "Teruna Translate provide translation service and proofreading for English <-> Indonesian for documents, journal, and youtube captions ",
+        "description": "Translation service and proofreading for English <-> Indonesian for documents, journal, and youtube captions. ",
         "cover": "/images/projects/lp-teruna.jpg",
         "techStack": [
             {
@@ -77,29 +77,6 @@
         ],
         "url": "https://github.com/ilhamAdhim/sembakoo-remake",
         "live": "http://sembakoo-remake.vercel.app/",
-        "inProgress": false
-      },
-      {
-        "id": "project-4",
-        "title": "SQLearn",
-        "description": "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
-        "cover": "/images/projects/lp-sqlearn.png",
-        "techStack": [
-          {
-            "id": "project-4-1",
-            "name": "Next JS"
-          },
-          {
-            "id": "project-4-2",
-            "name": "Ant Design"
-          },
-          {
-            "id": "project-4-3",
-            "name": "react-dnd"
-          }
-        ],
-        "url": "https://github.com/ilhamAdhim",
-        "live": "https://deploy-fe-sqlearn.vercel.app/",
         "inProgress": false
       }
     ]
