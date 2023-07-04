@@ -6,6 +6,7 @@ import Layout from "layout";
 import customTheme from "lib/styles/customTheme";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import "lib/styles/globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { DefaultSeo } from "next-seo";
@@ -28,6 +29,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <DefaultSeo {...defaultSEOConfig} />
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </ChakraProvider>
   );
