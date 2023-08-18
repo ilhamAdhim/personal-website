@@ -1,16 +1,15 @@
-import { CollectionPageJsonLd, NextSeo } from "next-seo";
-
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Link from "next/link";
-import BlogPost from "components/BlogPost";
 import { Box, SimpleGrid, Text, chakra } from "@chakra-ui/react";
+import fs from "fs";
+import matter from "gray-matter";
+import { NextSeo } from "next-seo";
+import Link from "next/link";
+import path from "path";
+
+import BlogPost from "components/BlogPost";
 import { DottedBox } from "components/SkillSection";
-import WIPComponent from "components/WIP";
 
 const BlogPage = ({ posts }: any) => {
-  let sortByDate = posts.sort(
+  const sortByDate = posts.sort(
     (a: any, b: any) =>
       +new Date(b.frontMatter.date) - +new Date(a.frontMatter.date)
   );
@@ -22,12 +21,13 @@ const BlogPage = ({ posts }: any) => {
         description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel free to visit his website"
       />
       <Box w="full" p="5" mx="auto">
-        <WIPComponent />
-        {/* <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
+        {/* <WIPComponent /> */}
+        <chakra.h1 fontSize="4xl" fontWeight="bold" data-aos="fade-down">
           Blogs
         </chakra.h1>
         <Text fontSize="xl" data-aos="fade-down" data-aos-delay={200}>
-          Some blogs i've written to document my learning on Front-End
+          Some writings to document my thoughts and my learning journey in
+          Front-End Development
         </Text>
 
         <DottedBox />
@@ -39,8 +39,8 @@ const BlogPage = ({ posts }: any) => {
           data-aos="fade-down"
           data-aos-delay={500}
         >
-          {sortByDate.map((post: any, index: number) => (
-            <Link href={"/Blog/" + post.slug} key={index} passHref>
+          {sortByDate.map((post: any) => (
+            <Link href={`/Blog/${post.slug}`} key={post.id} passHref>
               <a>
                 <BlogPost
                   title={post.frontMatter.title}
@@ -53,7 +53,7 @@ const BlogPage = ({ posts }: any) => {
               </a>
             </Link>
           ))}
-        </SimpleGrid> */}
+        </SimpleGrid>
       </Box>
     </>
   );

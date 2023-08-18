@@ -4,29 +4,40 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Button, Heading, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Heading, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from 'uuid';
+import { dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-const components = { Button, SyntaxHighlighter };
+const SyntaxHighlighterWithVariant = ({children}) => {
+  const { colorMode } = useColorMode();
+
+  return (
+    <>
+    {colorMode === 'dark' 
+    ? <SyntaxHighlighter showLineNumbers language="javascript" style={dark} children={children} /> 
+    : <SyntaxHighlighter showLineNumbers language="javascript" children={children} /> }
+    </>
+  )
+}
+
+const components = { Button, SyntaxHighlighterWithVariant, Box };
 
 const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
   const router = useRouter();
   return (
     <Box w="full" p="5" mx="auto">
-      <Box display="flex">
-        <Button my="12" onClick={() => router.back()}>
-          <FaArrowLeft />
-        </Button>
+      <Flex flexDir="column" gap={2} my={4}>
         <Heading
-          m="auto"
           fontSize={"2xl"}
           color={useColorModeValue("gray.700", "white")}
-          textAlign="center"
         >
           {title}
         </Heading>
-      </Box>
+        <Text>{date}</Text>
+      </Flex>
+      <Divider my={4} />
 
       <MDXRemote {...mdxSource} components={components} />
     </Box>
@@ -39,6 +50,7 @@ const getStaticPaths = async () => {
   const paths = files.map((filename) => ({
     params: {
       slug: filename.replace(".mdx", ""),
+      id : uuidv4()
     },
   }));
 

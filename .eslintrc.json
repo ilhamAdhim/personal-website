@@ -7,6 +7,10 @@
   ],
 
   "rules": {
+    "prettier/prettier": [
+      "error",
+      { "endOfLine": "auto" }
+    ],
     "no-unused-vars": "off",
     "@typescript-eslint/ban-ts-comment" : "off",
     "react/no-unescaped-entities" : "off",

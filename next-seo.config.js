@@ -1,6 +1,6 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "Web Portfolio",
+  title: "Personal Website",
   titleTemplate: "Ilham Adhim | %s",
   defaultTitle: "Ilham Adhim",
   openGraph: {
