@@ -1,6 +1,3 @@
-import Link from "next/link";
-import useSmallViewport from "hooks/useViewport";
-
 import {
   Box,
   Flex,
@@ -13,12 +10,15 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 import type { ReactElement } from "react";
+import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 
-import ThemeToggle from "./ThemeToggle";
+import useSmallViewport from "hooks/useViewport";
+
 import LanguageChange from "./LanguageChange";
+import ThemeToggle from "./ThemeToggle";
 
 interface IHeaderProps {
   id: string;
@@ -37,19 +37,19 @@ const navList: IHeaderProps[] = [
   {
     id: "nav-2",
     text: "Projects",
-    link: "/Projects",
+    link: "/projects",
     icon: <FaCode />,
   },
   {
     id: "nav-3",
     text: "Blog",
-    link: "/Blog",
+    link: "/blog",
     icon: <FaPen />,
   },
   {
     id: "nav-4",
     text: "About",
-    link: "/About",
+    link: "/about",
     icon: <FaUser />,
   },
 ];
@@ -122,6 +122,7 @@ const HeaderLargeScreen = () => {
 };
 
 const Header = () => {
+  const router = useRouter();
   const { isSmallViewport } = useSmallViewport();
   const bgColorNav = useColorModeValue("gray.100", "gray.900");
   const fontColorNav = useColorModeValue("gray.900", "gray.100");
@@ -142,7 +143,7 @@ const Header = () => {
       {isSmallViewport ? <HeaderSmallScreen /> : <HeaderLargeScreen />}
 
       <Box display="flex" justifyContent="space-evenly" gap="1em">
-        <LanguageChange />
+        {!router.pathname.includes("blog") && <LanguageChange />}
         <ThemeToggle />
       </Box>
     </Flex>

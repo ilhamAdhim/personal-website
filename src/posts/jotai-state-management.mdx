@@ -7,21 +7,136 @@ tags: ["Data Handling", "Javascript"]
 timeEstimation: 8 mins
 ---
 
-<img width="100%" height="300" src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Jumbotron image by unsplash" />
+<img style={{ width:'100%' , height : 250, objectFit : 'cover', backgroundPosition: "center" }} src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Jumbotron image by unsplash" />
 <div style={{margin: '1em 0'}}> Photos from <u> [Unsplash](https://unsplash.com/photos/RflgrtzU3Cw) </u> </div>
 
 # Introduction
 <div>
   In my early stage of learning web development, i used React Redux to handle my state management. It made me believed that state management has to be complicated and has lots of boilerplate to share data across the entire application. 
   When i explored React hooks, the idea of React context amazes me. It can be used on various kind and scope of the project, easy-to-maintain, and less complex than Redux.
+
+  <br />
+  It gives some sense of scalability without needing us to install another libraries. Until we see something like this:
+
+  <br />
+  <SyntaxHighlighterWithVariant>
+{`// Wrappers everywhere! 
+function App() {
+  return (
+    <AuthProvider>
+      <UserProvider>
+        <RouteProvider>
+          <Routes />
+        </RouteProvider>
+      </UserProvider>
+    </AuthProvider>
+  )
+}`}
+  </SyntaxHighlighterWithVariant>
+  <br />
+
 </div>
 <br />
 
 # Atoms Everywhere
-<div>
-  Quite similar to component-based approach in React, we use <b>atoms</b> as the simplest form of state. Lorem ipsum
-</div>
+  
+  When we want to lift up the state, we can use atoms that are sharable across the entire web component.  we use <b>atoms</b> as the simplest form of state. 
+  This is contrast to Redux and Zustand, which use a huge state that consist of lots of smaller states as its attribute.
+
+  By having atoms, we don't need to stress about updating subscribers and reducer logics as the app scales. 
+  <Flex gap={10} my={4}>
+    <Box w="full">
+    <SyntaxHighlighterWithVariant children={`// React Context Usage
+
+// CounterContext.js
+import React, { createContext, useContext, useState } from 'react';
+
+const CounterContext = createContext();
+
+export function useCounter() {
+  return useContext(CounterContext);
+}
+
+export function CounterProvider({ children }) {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(prevCount => prevCount + 1);
+  const decrement = () => setCount(prevCount => prevCount - 1);
+
+  const value = {
+    count,
+    increment,
+    decrement,
+  };
+
+  return (
+    <CounterContext.Provider value={value}>
+      {children}
+    </CounterContext.Provider>
+  );
+}
+    `} />
+
 <br />
+    <SyntaxHighlighterWithVariant>
+      {`// Then, use it in the respective component
+// AnyComponent.js
+import React from 'react';
+import { useCounter } from './CounterContext';
+
+function AnyComponent() {
+  const { count, increment, decrement } = useCounter();
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default AnyComponent;
+`}
+      </SyntaxHighlighterWithVariant>
+    
+    </Box>
+    <Box w="full">
+      <SyntaxHighlighterWithVariant>
+        {`// Jotai usage
+
+// CounterAtom.js
+import { atom, useAtom } from 'jotai';
+
+export const counterAtom = atom(0);
+
+// anyComponent.js
+import counterAtom from 'path/to/atoms/CounterAtom.js'
+
+// We can directly use it with special hooks from jotai. 
+// More on Getters and Setters (next section)!
+export function AnyComponent {
+  const [count, setCount] = useAtom(counterAtom)
+  //...
+}
+        `}
+      </SyntaxHighlighterWithVariant>
+    </Box>
+  </Flex>
+<br />
+
+Basically the atoms are written just like that. That's why i'd like to put all the atoms inside a file called `store.js`. For example, we could change the wrapper hell in react context as follows:
+
+<br />
+<SyntaxHighlighterWithVariant>
+{`// store.js
+
+// The value inside atom() is atom's default value
+export const authAtom = atom({})
+export const userAtom = atom({})
+export const routeAtom = atom({})
+`}
+</SyntaxHighlighterWithVariant>
 
 # Getters and Setters
 lorem ipsum
@@ -31,21 +146,13 @@ lorem ipsum
 lorem ipsum
 <br />
 
+# Integrate with Local Storage
+
 
 # Alternatives
 lorem ipsum
 <br />
 
 
-# Summary
+# Conclusion
 In summary, consider using Jotai over React Context if you value simplicity, performance optimization, fine-grained reactivity, and predictable updates. React Context can be suitable for smaller applications or cases where complex state management is not a primary concern. However, for more advanced state management needs, alternatives like Jotai or Redux might provide more robust solutions.
-
-<br />
-<SyntaxHighlighterWithVariant>
-  {`
-    const doStuff = () => {
-      return console.log('hey')
-    }
-  `}
-</SyntaxHighlighterWithVariant>
-<br />

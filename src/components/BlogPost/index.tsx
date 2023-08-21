@@ -54,12 +54,12 @@ const BlogPost = ({
         </Flex>
         <Heading
           color={useColorModeValue("gray.700", "white")}
-          fontSize="2xl"
+          fontSize="xl"
           fontFamily="body"
         >
           {title}
         </Heading>
-        <Text color="gray.500" textOverflow="clip">
+        <Text fontSize={14} color="gray.500" textOverflow="clip">
           {description}
         </Text>
       </Stack>

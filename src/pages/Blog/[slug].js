@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { Box, Button, Divider, Flex, Heading, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Heading, Text, useColorMode, useColorModeValue, Container } from "@chakra-ui/react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { v4 as uuidv4 } from 'uuid';
@@ -22,13 +22,13 @@ const SyntaxHighlighterWithVariant = ({children}) => {
   )
 }
 
-const components = { Button, SyntaxHighlighterWithVariant, Box };
+const components = { Button, SyntaxHighlighterWithVariant, Box, Flex, Text };
 
 const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
   const router = useRouter();
   return (
-    <Box w="full" p="5" mx="auto">
-      <Flex flexDir="column" gap={2} my={4}>
+    <Box w="full" mx="auto">
+      <Flex flexDir="column" gap={2} my={2}>
         <Heading
           fontSize={"2xl"}
           color={useColorModeValue("gray.700", "white")}
