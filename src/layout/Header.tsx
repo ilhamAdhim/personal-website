@@ -37,19 +37,19 @@ const navList: IHeaderProps[] = [
   {
     id: "nav-2",
     text: "Projects",
-    link: "/projects",
+    link: "/Projects",
     icon: <FaCode />,
   },
   {
     id: "nav-3",
     text: "Blog",
-    link: "/blog",
+    link: "/Blog",
     icon: <FaPen />,
   },
   {
     id: "nav-4",
     text: "About",
-    link: "/about",
+    link: "/About",
     icon: <FaUser />,
   },
 ];
@@ -143,7 +143,7 @@ const Header = () => {
       {isSmallViewport ? <HeaderSmallScreen /> : <HeaderLargeScreen />}
 
       <Box display="flex" justifyContent="space-evenly" gap="1em">
-        {!router.pathname.includes("blog") && <LanguageChange />}
+        {!router.pathname.includes("Blog") && <LanguageChange />}
         <ThemeToggle />
       </Box>
     </Flex>

@@ -67,7 +67,7 @@ const HeroSection = () => {
             data-aos-delay="3000"
             data-aos-duration="2000"
           >
-            <Link href="/projects" passHref>
+            <Link href="/Projects" passHref>
               <Button
                 color="white"
                 variant="solid"
@@ -92,7 +92,7 @@ const HeroSection = () => {
               boxShadow="md"
               size="lg"
             >
-              <Link href="/about" passHref>
+              <Link href="/About" passHref>
                 <chakra.span fontSize={[".8em", "unset"]}>
                   {t("buttons.secondary")}
                 </chakra.span>
