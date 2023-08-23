@@ -1,18 +1,19 @@
-import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
-import type { InferGetStaticPropsType, NextPage } from "next";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { NextSeo } from "next-seo";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-
 import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
 import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
 import useSmallViewport from "hooks/useViewport";
+
+import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
+import { FaArrowDown, FaArrowRight } from "react-icons/fa";
+import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
 import type { IDataProjectsProps } from "types/ProjectProps";
+import type { InferGetStaticPropsType, NextPage } from "next";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -35,7 +36,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   >([]);
 
   useEffect(() => {
-    const translated = props._nextI18Next.initialI18nStore;
+    let translated = props._nextI18Next.initialI18nStore;
     setFeaturedProjects(
       translated[props.language as keyof typeof translated].landingPage
         .FeaturedProjects.projects
@@ -93,7 +94,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
         <Text color="gray.500">{t("FeaturedProjects.subTitle")}.</Text>
         <ProjectList dataProjects={featuredProjects} />
         <Flex justifyContent="center">
-          <Link href="/projects" passHref>
+          <Link href="/Projects" passHref>
             <Button mt="12">
               {t("CTA")}
               <chakra.span ml="2">
