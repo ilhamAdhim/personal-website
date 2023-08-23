@@ -1,8 +1,3 @@
-import Link from "next/link";
-import DottedBox from "components/SVGVectors/DottedBox";
-import WavingHand from "components/WavingHand";
-import LinksAlt from "./LinksAlt";
-
 import {
   Box,
   Button,
@@ -16,11 +11,16 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
+import type { TextProps } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import type { PropsWithChildren } from "react";
 import { FaBolt } from "react-icons/fa";
 
-import type { PropsWithChildren } from "react";
-import type { TextProps } from "@chakra-ui/react";
+import DottedBox from "components/SVGVectors/DottedBox";
+import WavingHand from "components/WavingHand";
+
+import LinksAlt from "./LinksAlt";
 
 const HeroSection = () => {
   const { t } = useTranslation("landingPage");
@@ -67,7 +67,7 @@ const HeroSection = () => {
             data-aos-delay="3000"
             data-aos-duration="2000"
           >
-            <Link href="/Projects" passHref>
+            <Link href="/projects" passHref>
               <Button
                 color="white"
                 variant="solid"
@@ -92,7 +92,7 @@ const HeroSection = () => {
               boxShadow="md"
               size="lg"
             >
-              <Link href="/About" passHref>
+              <Link href="/about" passHref>
                 <chakra.span fontSize={[".8em", "unset"]}>
                   {t("buttons.secondary")}
                 </chakra.span>
