@@ -1,5 +1,5 @@
 import { Box, Flex, Icon, Link, useColorModeValue } from "@chakra-ui/react";
-import { FaFileArchive, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function LinksAlt() {
   const colorLinkHero = useColorModeValue("gray.600", "gray.400");
@@ -7,7 +7,7 @@ function LinksAlt() {
   return (
     <Flex gap="4" justifyContent={["center", "flex-start"]}>
       {/* Currently disable resume button */}
-      <Box color={colorLinkHero} _hover={{ cursor: "pointer" }}>
+      {/* <Box color={colorLinkHero} _hover={{ cursor: "pointer" }}>
         <Link
           isExternal
           href="https://www.canva.com/design/DAErADbC6-A/mTwUTvggI0Vqzi_8ApN2lA/view?utm_content=DAErADbC6-A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
@@ -17,7 +17,7 @@ function LinksAlt() {
             Resume
           </>
         </Link>
-      </Box>
+      </Box> */}
       <Box color={colorLinkHero} _hover={{ cursor: "pointer" }}>
         <Link
           isExternal
