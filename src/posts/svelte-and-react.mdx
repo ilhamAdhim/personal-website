@@ -1,8 +1,167 @@
 ---
 title: "Svelte with React analogy"
-date: "August 14, 2023"
+date: "September 25, 2023"
 description: "Noticing differences and similarities between the two"
 thumbnailUrl: "/images/blogs/svelte-react.jpg"
 tags: ["Svelte", "React"]
 timeEstimation: 10 mins
 ---
+
+
+<img style={{ width:'100%' , height : 250, objectFit : 'cover', backgroundPosition: "center" }} src="https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2061&q=80" alt="Jumbotron image by unsplash" />
+<Box m="1em 0" textAlign="center" > Photos from <u> [Unsplash](https://unsplash.com/@flowforfrank?utm_source=medium&utm_medium=referral) </u> </Box>
+
+<Text my="2" fontSize="2xl"> Introduction </Text>
+<div>
+The Front-End world never gets tired of innovating something new. Nowadays, we have lots of options to choose from if we want to build a website. In development itself, we have the main players in the field that most fellow developers are keen on. Among those available tools, are Svelte and React.
+<br/>
+
+Although the most common pattern of comparison articles is:
+<br/>
+
+<Alert status='success' variant='left-accent'>
+    It depends.
+</Alert>
+<br/>
+
+We will have a good look at how each performs things in their own playstyle, yet achieves something similar.
+
+<br/>
+<Text my="2" fontSize="2xl"> Write Less Code </Text>
+<br/>
+
+Svelte offers a compelling advantage over React through its concise syntax and code efficiency. Unlike React, which relies on a virtual DOM and JSX (JavaScript XML) to create and update the user interface, Svelte takes a different approach that leads to significantly leaner and more straightforward code.
+<br/>
+
+Let’s take a look at how we would create a simple app that add 2 numbers based on user input in React and Svelte
+<br/>
+<img style={{ width:'100%' , objectFit : 'cover', backgroundPosition: "center" }} src="https://miro.medium.com/v2/resize:fit:786/format:webp/0*5a0G4z2c1tcjzHHQ.png   " alt="Jumbotron image by unsplash" />
+<Box m="1em 0" textAlign="center" > How common components are written in React vs. Svelte </Box>
+<br/>
+
+In this example, we are given example of how `bind:value` in Svelte can replace the usage of `state` and `onChange` event in React JSX. This is one of many simplification that Svelte has to offer.
+
+<br/>
+<Text my="2" fontSize="2xl"> No Virtual DOM </Text>
+<br/>
+
+In the early days of web development, in order to make a website interactive with user inputs, we manipulated DOM directly with JS query selectors or JQuery.
+<br/>
+
+When modern JS Libraries come out, this idea is quite deprecated since the virtual DOM has taken over it. React and Vue became game-changer. The approach is considered to be much faster, and more importantly — for me — we don’t need to select a specific DOM element and manually update it as the data changes.
+<br/>
+
+In React, updating the virtual DOM has some steps. Such as:
+<br/>
+
+<ul>
+    <li>Creating Virtual DOM </li>
+    <li>DOM Diffing </li>
+    <li>Reconciliation / Sync actual DOM with updated virtual DOM </li>
+</ul>
+<br/>
+
+Turns out, this process <b> isn’t resources-free </b> and React will <b> need additional code </b> to make Virtual DOM exist and run properly.
+<br/>
+
+Let’s take a look at how React and Svelte handle renderings:
+<br/>
+
+<img style={{ width:'100%' , objectFit : 'cover', backgroundPosition: "center" }} src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*gX9y5rQRQ52eK4mT6TvMaA.png" alt="Svelte vs React browser DOM" />
+<Box m="1em 0" textAlign="center" > The approach used by React and Svelte to render a dynamic web page </Box>
+
+In Svelte, however, it reverts directly to the DOM without us manually selecting and updating the DOM as the JQuery does.
+<br/>
+
+Svelte is actually a compiler that turns our code into highly optimized Javascript code.
+<br/>
+
+Using its component-based architecture, Svelte tracks dependencies between variables, allowing it to accurately determine when changes to one variable will affect other parts of the component.
+<br/>
+
+Due to this, Svelte won’t need some codes to make Virtual DOM. This is one of the reasons that Svelte’s app has a much smaller build size of the application to React.
+<br/>
+
+I’ve tried to develop a simple library book web app written with Svelte and React. This is how the build size compared:
+<br/>
+
+<img style={{ width:'100%' , objectFit : 'cover', backgroundPosition: "center" }} src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*cdtlWcBEC2Q1YJg_f8_jNQ.png" alt="Svelte vs React browser DOM" />
+<Box m="1em 0" textAlign="center" > Build size comparison with same app and same features for React and Svelte </Box>
+
+<br/>
+<Text my="2" fontSize="2xl"> Performance </Text>
+<br/>
+
+Optimized code from compiled Svelte code automatically ensures the reactivity element in the actual DOM.
+<br/>
+
+This is different from React in which we should care about memoizing values and functions with `useMemo` and `useCallback` to prevent unnecessary re-renders.
+<br/>
+
+I use Lighthouse to check the overall performance of my websites. Here, we can actually see how Svelte and React perform in Lighthouse:
+<br/>
+</div>
+
+<img style={{ width:'100%' , objectFit : 'cover', backgroundPosition: "center" }} src="https://miro.medium.com/v2/resize:fit:786/0*HE2o4_3GyS3wRamZ" alt="Svelte vs React browser DOM" />
+<Box m="1em 0" textAlign="center" > Lighthouse checking — Svelte App </Box>
+
+<br/>
+<img style={{ width:'100%' , objectFit : 'cover', backgroundPosition: "center" }} src="https://miro.medium.com/v2/resize:fit:786/0*3_q_4JG9GWwHYWhm" alt="Svelte vs React browser DOM" />
+<Box m="1em 0" textAlign="center" > Lighthouse checking — React App </Box>
+
+<br/>
+<Alert status='success' variant='left-accent'>
+    Note: The result may vary in different devices and each test. In my case however, it is consistent that Svelte performance is way better than React.
+</Alert>
+<br/>
+
+I didn’t apply any `useCallback()` and `useMemo()` in the React app, and not configuring anything related to performance in the Svelte app. Yet, the Svelte app has higher points compared to the React app.
+
+<br/>
+<Text my="2" fontSize="2xl"> Community Support </Text>
+<br/>
+
+Despite its superior developer experience and built-in performance, the Svelte community is relatively small compared to React. This leads to limited resources, tools, documentation, and a potential talent pool.
+<br/>
+While React has a more established and abundant environment to work with, Svelte has its own thriving community. Below are some references for UI Framework for Svelte:
+<br/>
+
+<ul>
+    <li> <u> [Svelte UI](https://www.svelteui.org/) </u> </li>
+    <li> <u> [Attractions](https://illright.github.io/attractions/?ref=madewithsvelte.com) </u> </li>
+    <li> <u> [Smelte](https://smeltejs.com/) </u> </li>
+    <li> <u> [Svelte Atoms](https://svelte-atoms.web.app/) </u> </li>
+    <li> <u> [Svelma](https://c0bra.github.io/svelma/) </u> </li>
+    <li> <u> [SvelteStrap](https://sveltestrap.js.org/) </u> </li>
+</ul>
+
+<br/>
+<Text my="2" fontSize="2xl"> Summary </Text>
+<br/>
+
+Whether you want to use Svelte or React, ultimately depends on the project’s scale, requirements, and the developers you have.
+<br/>
+
+If you have small to medium size applications like common CMS or CRUD applications, Svelte may be a good choice for beginners too since it has minimal learning curve and fast development time.
+<br/>
+
+However, if you have lots of developers that are proficient in React and working on large-scale projects. Using React is a natural thing to do.
+<br/>
+
+For reference, feel free to take a look at the same app I created with Svelte and React here:
+<br/>
+
+<ul>
+    <li> <u> [Svelte App](https://github.com/ilhamAdhim/mylib-svelte) </u> </li>
+    <li> <u> [React App](https://github.com/ilhamAdhim/mylib-react) </u> </li>
+</ul>
+
+<br/>
+<Text my="2" fontSize="2xl"> What’s Next ? </Text>
+<br/>
+
+We’re just comparing the React and Svelte in its first look. When it comes to Front-End Web things, it’s also important to have full-scale web app that includes SEO Optimization, Rendering Strategies (SSR / CSR / ISR), Routings, and more.
+<br/>   
+
+Next thing we’ll try to cover SvelteKit and Next JS to discuss about it. Stay tune!
+<br/>
