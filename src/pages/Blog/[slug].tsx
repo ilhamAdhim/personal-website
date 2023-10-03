@@ -20,7 +20,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { v4 as uuidv4 } from "uuid";
 
-const SyntaxHighlighterWithVariant = ({ children }) => {
+const SyntaxHighlighterWithVariant = ({ children }: any) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -54,7 +54,7 @@ const components = {
   Link,
 };
 
-const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
+const PostPage = ({ frontMatter: { title, date }, mdxSource }: any) => {
   return (
     <Box w={["90%", "60%"]} mx="auto">
       <Flex flexDir="column" gap={2} my={2}>
@@ -86,7 +86,7 @@ const getStaticPaths = async () => {
   };
 };
 
-const getStaticProps = async ({ params: { slug } }) => {
+const getStaticProps = async ({ params: { slug } }: any) => {
   const markdownWithMeta = fs.readFileSync(
     path.join("src/posts", `${slug}.mdx`),
     "utf-8"
