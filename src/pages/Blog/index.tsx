@@ -1,8 +1,8 @@
 import { Box, SimpleGrid, Text, chakra } from "@chakra-ui/react";
 import fs from "fs";
 import matter from "gray-matter";
-import Link from "next/link";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 import path from "path";
 
 import BlogPost from "components/BlogPost";
