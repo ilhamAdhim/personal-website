@@ -1,16 +1,14 @@
-import TimelineItem from "./TimelineItem";
-
 import { Box, Heading, Text, VStack, chakra } from "@chakra-ui/react";
+
 import type { ITimelineProps } from "types/ExperienceProps";
-import { useTranslation } from "next-i18next";
+
+import TimelineItem from "./TimelineItem";
 
 const TimelineSection = ({
   title,
   pointCollection,
   ...props
 }: ITimelineProps) => {
-  const { t } = useTranslation("about");
-
   return (
     <Box>
       <VStack textAlign="start" align="start" mb={5}>

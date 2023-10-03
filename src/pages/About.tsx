@@ -1,8 +1,3 @@
-import PortfolioAbout from "components/PortfolioSection";
-import DottedBox from "components/SVGVectors/DottedBox";
-import TimelineSection from "components/TimelIneSection";
-import useSmallViewport from "hooks/useViewport";
-
 import {
   Box,
   Flex,
@@ -11,23 +6,27 @@ import {
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { NextSeo } from "next-seo";
-import { useEffect, useState } from "react";
-import type { IExperienceProps } from "types/ExperienceProps";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-
 import type {
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { NextSeo } from "next-seo";
+import { useEffect, useState } from "react";
 import { FiPackage } from "react-icons/fi";
+
+import PortfolioAbout from "components/PortfolioSection";
+import DottedBox from "components/SVGVectors/DottedBox";
+import TimelineSection from "components/TimelIneSection";
+import useSmallViewport from "hooks/useViewport";
+import type { IExperienceProps } from "types/ExperienceProps";
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ? locale : "en", ["about"])),
+      ...(await serverSideTranslations(locale || "en", ["about"])),
       language: locale,
     },
   };
@@ -43,7 +42,7 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const [dataWorkExp, setDataWorkExp] = useState<IExperienceProps[]>([]);
 
   useEffect(() => {
-    let translated = props._nextI18Next.initialI18nStore;
+    const translated = props._nextI18Next.initialI18nStore;
 
     setDataWorkExp(
       translated[props.language as keyof typeof translated].about.data.map(

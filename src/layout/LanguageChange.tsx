@@ -1,22 +1,24 @@
 import {
+  Box,
   IconButton,
+  Image,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Image,
-  Box,
 } from "@chakra-ui/react";
-import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const languageList = [
   {
+    id: 1,
     lang: "en",
     name: "English",
     assets: "https://flagcdn.com/64x48/gb.png",
   },
   {
+    id: 2,
     lang: "id",
     name: "Indonesia",
     assets: "https://flagcdn.com/64x48/id.png",
@@ -33,7 +35,7 @@ const LanguageChange = () => {
         as={IconButton}
         icon={
           <Image
-            rounded={"full"}
+            rounded="full"
             w={8}
             h={8}
             src={`https://flagcdn.com/64x48/${
@@ -48,9 +50,9 @@ const LanguageChange = () => {
           width: "20px",
         }}
       >
-        {languageList.map((item, id) => (
+        {languageList.map((item) => (
           <MenuItem
-            key={id}
+            key={item.id}
             gap={4}
             display="flex"
             justifyContent="start"

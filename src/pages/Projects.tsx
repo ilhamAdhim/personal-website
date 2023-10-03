@@ -1,13 +1,12 @@
-import ProjectList from "components/ProjectSection/ProjectList";
-import DottedBox from "components/SVGVectors/DottedBox";
-
+import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
+import type { InferGetStaticPropsType, NextPage } from "next";
 import { i18n, useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
-import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import type { InferGetStaticPropsType, NextPage } from "next";
+import ProjectList from "components/ProjectSection/ProjectList";
+import DottedBox from "components/SVGVectors/DottedBox";
 import type { IDataProjectsProps } from "types/ProjectProps";
 
 export async function getStaticProps({ locale }: any) {
@@ -26,7 +25,7 @@ const ProjectPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
   useEffect(() => {
-    let translated = props._nextI18Next.initialI18nStore;
+    const translated = props._nextI18Next.initialI18nStore;
     setDataProjects(
       translated[props.language as keyof typeof translated].projects.data
     );

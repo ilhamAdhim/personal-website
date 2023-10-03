@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import {
   Box,
   Flex,
@@ -42,7 +43,7 @@ const BlogPost = ({
       overflow="hidden"
     >
       <Box h="210px" bg="gray.100" mt={-6} mx={-6} mb={6} pos="relative">
-        <Image src={thumbnailUrl} layout="fill" />
+        <Image src={thumbnailUrl} layout="fill" alt="Thumbnail Blog" />
       </Box>
       <Stack>
         <Flex gap="1em">
