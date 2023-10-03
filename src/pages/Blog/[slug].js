@@ -27,7 +27,7 @@ const components = { Button, SyntaxHighlighterWithVariant, Box, Flex, Text, Aler
 const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
   const router = useRouter();
   return (
-    <Box w="60%" mx="auto">
+    <Box w={["90%", "60%"]} mx="auto">
       <Flex flexDir="column" gap={2} my={2}>
         <Heading
           fontSize={"2xl"}
