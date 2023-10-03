@@ -45,6 +45,7 @@
     "@commitlint/cz-commitlint": "^16.2.3",
     "@types/aos": "^3.0.4",
     "@types/react": "^18.0.6",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "commitizen": "^4.2.4",
