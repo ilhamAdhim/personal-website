@@ -1,8 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { ChakraProvider } from "@chakra-ui/react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import AOS from "aos";
-import Head from "next/head";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "next-seo";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import defaultSEOConfig from "../../next-seo.config";
@@ -11,14 +16,14 @@ import customTheme from "lib/styles/customTheme";
 
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import "lib/styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { ChakraProvider } from "@chakra-ui/react";
-import type { AppProps } from "next/app";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+
   useEffect(() => {
     AOS.init();
   }, []);
+
   return (
     <ChakraProvider theme={customTheme}>
       <Head>
@@ -31,6 +36,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
         <Analytics />
+        <SpeedInsights route={router.pathname} />
       </Layout>
     </ChakraProvider>
   );
