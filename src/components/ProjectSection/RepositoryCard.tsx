@@ -26,7 +26,8 @@ import LazyImage from "components/LazyImage";
 import type { IDataProjectsProps } from "types/ProjectProps";
 
 const RepositoryCard = (props: IDataProjectsProps) => {
-  const { title, cover, techStack, url, live, description } = props;
+  const { title, cover, techStack, url, live, description, isOpenSource } =
+    props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClick = () => {
@@ -100,16 +101,14 @@ const RepositoryCard = (props: IDataProjectsProps) => {
             </Box>
           </Flex>
           <Flex justifyContent="space-between" width="100%" pt="4">
-            {live && (
-              <Tooltip hasArrow label="Preview Demo" placement="right">
-                <Link href={live} isExternal>
-                  <Button>
-                    <FiEye />
-                  </Button>
-                </Link>
-              </Tooltip>
-            )}
-            {url && (
+            <Tooltip hasArrow label="Preview Demo" placement="right">
+              <Link href={live} isExternal>
+                <Button>
+                  <FiEye />
+                </Button>
+              </Link>
+            </Tooltip>
+            {url !== "#" && (
               <Tooltip hasArrow label="Preview Source Code" placement="left">
                 <Link href={url} isExternal>
                   <Button>
