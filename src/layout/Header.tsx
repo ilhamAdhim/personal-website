@@ -37,19 +37,19 @@ const navList: IHeaderProps[] = [
   {
     id: "nav-2",
     text: "Projects",
-    link: "/Projects",
+    link: "/projects",
     icon: <FaCode />,
   },
   {
     id: "nav-3",
     text: "Blog",
-    link: "/Blog",
+    link: "/blog",
     icon: <FaPen />,
   },
   {
     id: "nav-4",
     text: "About",
-    link: "/About",
+    link: "/about",
     icon: <FaUser />,
   },
 ];

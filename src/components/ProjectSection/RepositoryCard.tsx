@@ -107,13 +107,15 @@ const RepositoryCard = (props: IDataProjectsProps) => {
                 </Button>
               </Link>
             </Tooltip>
-            <Tooltip hasArrow label="Preview Source Code" placement="left">
-              <Link href={url} isExternal>
-                <Button>
-                  <FiGithub />
-                </Button>
-              </Link>
-            </Tooltip>
+            {url !== "#" && (
+              <Tooltip hasArrow label="Preview Source Code" placement="left">
+                <Link href={url} isExternal>
+                  <Button>
+                    <FiGithub />
+                  </Button>
+                </Link>
+              </Tooltip>
+            )}
           </Flex>
         </VStack>
       </VStack>

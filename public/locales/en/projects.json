@@ -3,9 +3,9 @@
     "data": [
          {
             "id": "project-1",
-            "title": "Teruna Translate",
-            "description": "Translation service for English <-> Indonesian for documents, journal, and youtube captions. ",
-            "cover": "/images/projects/lp-teruna.jpg",
+            "title": "Tumbuhsehat Experience",
+            "description": "E-Medical Record System for healthcare providers and professionals.",
+            "cover": "/images/projects/tumbuhsehat.jpg",
             "techStack": [
                 {
                     "id": "project-1-1",
@@ -13,10 +13,33 @@
                 },
                 {
                     "id": "project-1-2",
-                    "name": "Typescript"
+                    "name": "React Chart JS"
                 },
                 {
                     "id": "project-1-3",
+                    "name": "Chakra UI"
+                }
+            ],
+            "url": "#",
+            "live": "https://www.instagram.com/tumbuhsehat.id/?hl=id",
+            "inProgress": true
+        },
+         {
+            "id": "project-2",
+            "title": "Teruna Translate",
+            "description": "Translation service for English <-> Indonesian for documents, journal, and youtube captions. ",
+            "cover": "/images/projects/lp-teruna.jpg",
+            "techStack": [
+                {
+                    "id": "project-2-1",
+                    "name": "Next JS"
+                },
+                {
+                    "id": "project-2-2",
+                    "name": "Typescript"
+                },
+                {
+                    "id": "project-2-3",
                     "name": "Chakra UI"
                 }
             ],
@@ -25,21 +48,21 @@
             "inProgress": false
         },
         {
-            "id": "project-2",
+            "id": "project-3",
             "title": "Cashflow App",
             "description": "React-Native Project with Expo. Cashflow App helps visualize income and outcome of its user with line charts.",
             "cover": "/images/projects/cashflow-app/cashflowapp-home.jpg",
             "techStack": [
                 {
-                    "id": "project-2-1",
+                    "id": "project-3-1",
                     "name": "React Native"
                 },
                 {
-                    "id": "project-2-2",
+                    "id": "project-3-2",
                     "name": "Expo"
                 },
                 {
-                    "id": "project-2-3",
+                    "id": "project-3-3",
                     "name": "SQLite"
                 }
             ],
@@ -48,21 +71,21 @@
             "inProgress": false
         },
         {
-            "id": "project-3",
+            "id": "project-4",
             "title": "Sembakoo Remake",
             "description": "Migrated to Typescript & React. Thanks to Chakra UI, dark mode was easier than ever, especially with the SVGs.",
             "cover": "/images/projects/lp-sembako-remake.png",
             "techStack": [
                 {
-                    "id": "project-3-1",
+                    "id": "project-4-1",
                     "name": "React"
                 },
                 {
-                    "id": "project-3-2",
+                    "id": "project-4-2",
                     "name": "Chakra UI"
                 },
                 {
-                    "id": "project-3-3",
+                    "id": "project-4-3",
                     "name": "Typescript"
                 }
             ],
@@ -71,21 +94,21 @@
             "inProgress": false
         },
         {
-            "id": "project-4",
+            "id": "project-5",
             "title": "SQLearn",
             "description": "Instructors creates quizzes and students can do the practice of SQL Syntax with drag-and-drop features.",
             "cover": "/images/projects/lp-sqlearn.png",
             "techStack": [
                 {
-                    "id": "project-4-1",
+                    "id": "project-5-1",
                     "name": "Next JS"
                 },
                 {
-                    "id": "project-4-2",
+                    "id": "project-5-2",
                     "name": "Ant Design"
                 },
                 {
-                    "id": "project-4-3",
+                    "id": "project-5-3",
                     "name": "react-dnd"
                 }
             ],
@@ -94,25 +117,25 @@
             "inProgress": false
         },
         {
-            "id": "project-5",
+            "id": "project-6",
             "title": "Restopedia",
             "description": "Front-End Expert Dicoding Submission - PWA with Core Web Vitals Metrics, and using Mobile-First Approach.",
             "cover": "/images/projects/lp-restopedia.png",
             "techStack": [
                 {
-                    "id": "project-5-1",
+                    "id": "project-6-1",
                     "name": "Webpack"
                 },
                 {
-                    "id": "project-5-2",
+                    "id": "project-6-2",
                     "name": "Jasmine"
                 },
                 {
-                    "id": "project-5-3",
+                    "id": "project-6-3",
                     "name": "Sass"
                 },
                 {
-                    "id": "project-5-4",
+                    "id": "project-6-4",
                     "name": "PWA"
                 }
             ],
@@ -121,21 +144,21 @@
             "inProgress": false
         },
         {
-            "id": "project-6",
+            "id": "project-7",
             "title": "Covid Vaccination Rate",
             "description": "Consume API ML Prediction in Front-End, built with React JS, Antd, and Data Visualization with Recharts.",
             "cover": "/images/projects/lp-monitor-covid-19.jpg",
             "techStack": [
                 {
-                    "id": "project-6-1",
+                    "id": "project-7-1",
                     "name": "React JS"
                 },
                 {
-                    "id": "project-6-2",
+                    "id": "project-7-2",
                     "name": "Ant Design"
                 },
                 {
-                    "id": "project-6-3",
+                    "id": "project-7-3",
                     "name": "Recharts"
                 }
             ],
@@ -144,13 +167,13 @@
             "inProgress": false
         },
         {
-            "id": "project-7",
+            "id": "project-8",
             "title": "Sembakoo.id",
             "description": "Basic Commodities for each province in Indonesia, Warm-up project to learn DOM manipulation and ES6.",
             "cover": "/images/projects/lp-sembako.png",
             "techStack": [
                 {
-                    "id": "project-7-1",
+                    "id": "project-8-1",
                     "name": "Javascript"
                 }
             ],
@@ -159,13 +182,13 @@
             "inProgress": false
         },
         {
-            "id": "project-8",
+            "id": "project-9",
             "title": "MyLib",
             "description": "HTML, pure CSS, pure JS. Bookshelf App Project for Dicoding Submission - Front-End Beginner course",
             "cover": "/images/projects/lp-mylib.png",
             "techStack": [
                 {
-                    "id": "project-8-1",
+                    "id": "project-9-1",
                     "name": "Javascript"
                 }
             ],
@@ -174,21 +197,21 @@
             "inProgress": false
         },
         {
-            "id": "project-9",
+            "id": "project-10",
             "title": "Serba Kopi",
             "description": "Web app that uses PWA Concepts, it gives native feels when the user open this app on their mobile device.",
             "cover": "/images/projects/lp-serbakopi.png",
             "techStack": [
                 {
-                    "id": "project-9-1",
+                    "id": "project-10-1",
                     "name": "Webpack"
                 },
                 {
-                    "id": "project-9-2",
+                    "id": "project-10-2",
                     "name": "Javascript"
                 },
                 {
-                    "id": "project-9-3",
+                    "id": "project-10-3",
                     "name": "PWA"
                 }
             ],
