@@ -26,8 +26,7 @@ import LazyImage from "components/LazyImage";
 import type { IDataProjectsProps } from "types/ProjectProps";
 
 const RepositoryCard = (props: IDataProjectsProps) => {
-  const { title, cover, techStack, url, live, description, isOpenSource } =
-    props;
+  const { title, cover, techStack, url, live, description } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClick = () => {
