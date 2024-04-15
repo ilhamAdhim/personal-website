@@ -15,4 +15,5 @@ export interface IDataProjectsProps {
   url: string;
   live: string;
   inProgress?: boolean;
+  isOpenSource? : boolean
 }
