@@ -40,17 +40,15 @@ const BlogPage = ({ posts }: any) => {
           data-aos-delay={500}
         >
           {sortByDate.map((post: any) => (
-            <Link href={`/Blog/${post.slug}`} key={post.id}>
-              <a>
-                <BlogPost
-                  title={post.frontMatter.title}
-                  description={post.frontMatter.description}
-                  date={post.frontMatter.date}
-                  thumbnailUrl={post.frontMatter.thumbnailUrl}
-                  tags={post.frontMatter.tags}
-                  timeEstimation={post.frontMatter.timeEstimation}
-                />
-              </a>
+            <Link href={`/blog/${post.slug}`} key={post.id} passHref>
+              <BlogPost
+                title={post.frontMatter.title}
+                description={post.frontMatter.description}
+                date={post.frontMatter.date}
+                thumbnailUrl={post.frontMatter.thumbnailUrl}
+                tags={post.frontMatter.tags}
+                timeEstimation={post.frontMatter.timeEstimation}
+              />
             </Link>
           ))}
         </SimpleGrid>
