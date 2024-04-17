@@ -143,7 +143,7 @@ const Header = () => {
       {isSmallViewport ? <HeaderSmallScreen /> : <HeaderLargeScreen />}
 
       <Box display="flex" justifyContent="space-evenly" gap="1em">
-        {!router.pathname.includes("Blog") && <LanguageChange />}
+        {!router.pathname.includes("blog") && <LanguageChange />}
         <ThemeToggle />
       </Box>
     </Flex>
