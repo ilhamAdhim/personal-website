@@ -15,6 +15,11 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   swcMinify: true,
   reactStrictMode: true,
+  images: {
+    domains: ["miro.medium.com"],
+    minimumCacheTTL: 60,
+    formats: ["image/webp"],
+  },
   i18n,
   eslint: {
     dirs: ["src"],
