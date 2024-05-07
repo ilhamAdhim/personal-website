@@ -43,7 +43,12 @@ const BlogPost = ({
       overflow="hidden"
     >
       <Box h="210px" bg="gray.100" mt={-6} mx={-6} mb={6} pos="relative">
-        <Image src={thumbnailUrl} layout="fill" alt="Thumbnail Blog" />
+        <Image
+          src={thumbnailUrl}
+          objectFit="cover" // Ensures image covers the entire area
+          layout="fill"
+          alt="Thumbnail Blog"
+        />
       </Box>
       <Stack>
         <Flex gap="1em">
