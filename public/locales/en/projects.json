@@ -50,7 +50,7 @@
         {
             "id": "project-3",
             "title": "Cashflow App",
-            "description": "React-Native Project with Expo. Cashflow App helps visualize income and outcome of its user with line charts.",
+            "description": "React-Native Project with Expo. Helps visualize income and outcome with line charts.",
             "cover": "/images/projects/cashflow-app/cashflowapp-home.jpg",
             "techStack": [
                 {

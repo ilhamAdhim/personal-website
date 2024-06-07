@@ -36,6 +36,7 @@ const RepositoryCard = (props: IDataProjectsProps) => {
   return (
     <Box
       rounded="xl"
+      minH={350}
       boxShadow={useColorModeValue("1px 1px 5px gray", "1px 1px 5px skyblue")}
       _hover={{
         transform: "scale(1.05)",
