@@ -5,7 +5,6 @@ import {
   Center,
   Flex,
   HStack,
-  Icon,
   Image,
   Link,
   Modal,
