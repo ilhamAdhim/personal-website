@@ -93,7 +93,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
         <Text color="gray.500">{t("FeaturedProjects.subTitle")}.</Text>
         <ProjectList dataProjects={featuredProjects} />
         <Flex justifyContent="center">
-          <Link href="/Projects" passHref>
+          <Link href="/projects" passHref>
             <Button mt="12">
               {t("CTA")}
               <chakra.span ml="2">

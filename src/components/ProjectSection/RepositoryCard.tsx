@@ -36,7 +36,7 @@ const RepositoryCard = (props: IDataProjectsProps) => {
   return (
     <Box
       rounded="xl"
-      minH={350}
+      minH={30}
       boxShadow={useColorModeValue("1px 1px 5px gray", "1px 1px 5px skyblue")}
       _hover={{
         transform: "scale(1.05)",
@@ -66,19 +66,20 @@ const RepositoryCard = (props: IDataProjectsProps) => {
           </AspectRatio>
         </Box>
 
-        <VStack
+        <Flex
           p="4"
           w="100%"
+          flexDir="column"
           px={[2, 4]}
-          spacing={1}
-          align="start"
+          justify="space-between"
           h={["unset", "230", "230", "230", "unset"]}
+          minH={["unset", "230", "230", "230", "250"]}
         >
           <Flex justifyContent="space-between" width="100%">
             <Tooltip hasArrow label="Go to Github" placement="top">
               <Link href={url}>
                 <HStack>
-                  <Icon as={FiCheckCircle} />
+                  <div> 🚀 </div>
                   <chakra.span fontSize="sm" noOfLines={1} fontWeight="600">
                     {title}
                   </chakra.span>
@@ -118,7 +119,7 @@ const RepositoryCard = (props: IDataProjectsProps) => {
               </Tooltip>
             )}
           </Flex>
-        </VStack>
+        </Flex>
       </VStack>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered allowPinchZoom>

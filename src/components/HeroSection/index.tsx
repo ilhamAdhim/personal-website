@@ -67,7 +67,7 @@ const HeroSection = () => {
             data-aos-delay="3000"
             data-aos-duration="2000"
           >
-            <Link href="/Projects" passHref>
+            <Link href="/projects" passHref>
               <Button
                 color="white"
                 variant="solid"

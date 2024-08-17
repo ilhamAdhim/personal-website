@@ -43,3 +43,6 @@ sitemap*.xml
 
 # TS
 *.tsbuildinfo
+
+# Package lock
+package-lock.json

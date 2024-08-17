@@ -12,73 +12,77 @@
     "projects": [
       {
         "id": "project-1",
+        "title": "Eraspace",
+        "description": "Eraspace dominates the Indonesian market as the premier online destination for lifestyle and smart tech products.",
+        "cover": "/images/projects/lp-eraspace.jpg",
+        "techStack": [
+          {
+            "id": "project-1-1",
+            "name": "Next JS"
+          },
+          {
+            "id": "project-1-2",
+            "name": "React Query"
+          },
+          {
+            "id": "project-1-3",
+            "name": "Jotai"
+          },
+          {
+            "id": "project-1-4",
+            "name": "Tailwind CSS"
+          }
+        ],
+        "url": "#",
+        "live": "eraspace.com",
+        "inProgress": true
+      },
+      {
+        "id": "project-2",
+        "title": "iBox",
+        "description": "iBox is an official reseller of Apple Premium Product in Indonesia.",
+        "cover": "/images/projects/lp-ibox.png",
+        "techStack": [
+          {
+            "id": "project-2-1",
+            "name": "Next JS"
+          },
+          {
+            "id": "project-2-2",
+            "name": "React Query"
+          },
+          {
+            "id": "project-2-3",
+            "name": "Tailwind CSS"
+          }
+        ],
+        "url": "#",
+        "live": "ibox.co.id",
+        "inProgress": true
+      },
+      {
+        "id": "project-3",
         "title": "Tumbuhsehat Experience",
         "description": "E-Medical Record System for healthcare providers and professionals.",
-        "cover": "/images/projects/tumbuhsehat.jpg",
+        "cover": "/images/projects/lp-tumbuhsehat.png",
         "techStack": [
-            {
-                "id": "project-1-1",
-                "name": "Next JS"
-            },
-            {
-                "id": "project-1-2",
-                "name": "React Chart JS"
-            },
-            {
-                "id": "project-1-3",
-                "name": "Chakra UI"
-            }
+          {
+            "id": "project-3-1",
+            "name": "Next JS"
+          },
+          {
+            "id": "project-3-2",
+            "name": "React Chart JS"
+          },
+          {
+            "id": "project-3-3",
+            "name": "Chakra UI"
+          }
         ],
         "url": "#",
-        "live": "https://www.instagram.com/tumbuhsehat.id/?hl=id",
+        "live": "tumbuhsehat.id",
         "inProgress": true
-    },
-     {
-        "id": "project-2",
-        "title": "Teruna Translate",
-        "description": "Translation service for English <-> Indonesian for documents, journal, and youtube captions. ",
-        "cover": "/images/projects/lp-teruna.jpg",
-        "techStack": [
-            {
-                "id": "project-2-1",
-                "name": "Next JS"
-            },
-            {
-                "id": "project-2-2",
-                "name": "Typescript"
-            },
-            {
-                "id": "project-2-3",
-                "name": "Chakra UI"
-            }
-        ],
-        "url": "#",
-        "live": "https://teruna-translate.com",
-        "inProgress": false
-    },
-    {
-        "id": "project-3",
-        "title": "Cashflow App",
-        "description": "React-Native Project with Expo. Helps visualize income and outcome with line charts.",
-        "cover": "/images/projects/cashflow-app/cashflowapp-home.jpg",
-        "techStack": [
-            {
-                "id": "project-3-1",
-                "name": "React Native"
-            },
-            {
-                "id": "project-3-2",
-                "name": "Expo"
-            },
-            {
-                "id": "project-3-3",
-                "name": "SQLite"
-            }
-        ],
-        "url": "https://github.com/ilhamAdhim/cashflow-app",
-        "live": "https://expo.dev/@ilhamadhim/buku-kas-app?serviceType=classic&distribution=expo-go",
-        "inProgress": false
-    }
+      }
     ]
   },
   "CTA": "See More"
