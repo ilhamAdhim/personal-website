@@ -19,7 +19,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { FiCheckCircle, FiEye, FiGithub } from "react-icons/fi";
+import { FiEye, FiGithub } from "react-icons/fi";
 
 import LazyImage from "components/LazyImage";
 import type { IDataProjectsProps } from "types/ProjectProps";
