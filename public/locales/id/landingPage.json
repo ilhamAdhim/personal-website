@@ -34,7 +34,7 @@
           }
         ],
         "url": "#",
-        "live": "eraspace.com",
+        "live": "https://eraspace.com",
         "inProgress": true
       },
       {
@@ -57,7 +57,7 @@
           }
         ],
         "url": "#",
-        "live": "ibox.co.id",
+        "live": "https://ibox.co.id",
         "inProgress": true
       },
       {
@@ -80,7 +80,7 @@
           }
         ],
         "url": "#",
-        "live": "tumbuhsehat.id",
+        "live": "https://tumbuhsehat.id",
         "inProgress": true
       }
     ]

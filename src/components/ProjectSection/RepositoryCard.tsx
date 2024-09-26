@@ -75,8 +75,12 @@ const RepositoryCard = (props: IDataProjectsProps) => {
           minH={["unset", "230", "230", "230", "250"]}
         >
           <Flex justifyContent="space-between" width="100%">
-            <Tooltip hasArrow label="Go to Github" placement="top">
-              <Link href={url}>
+            <Tooltip
+              hasArrow
+              label={`Go to ${url === "#" ? live : "Github"}`}
+              placement="top"
+            >
+              <Link href={url === "#" ? live : url}>
                 <HStack>
                   <div> 🚀 </div>
                   <chakra.span fontSize="sm" noOfLines={1} fontWeight="600">

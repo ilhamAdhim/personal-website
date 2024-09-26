@@ -76,9 +76,9 @@
     },
     {
       "id": "project-4",
-      "title": "Teruna Translate",
-      "description": "Servis penerjemahan dan proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube.",
-      "cover": "/images/projects/lp-teruna.jpg",
+      "title": "MoneytorQ",
+      "description": "Aplikasi pengaturan budget dengan visualisasi data yang jelas untuk membantu lebih memahami keuanganmu",
+      "cover": "/images/projects/lp-moneytorq.png",
       "techStack": [
         {
           "id": "project-4-1",
@@ -86,10 +86,33 @@
         },
         {
           "id": "project-4-2",
-          "name": "Typescript"
+          "name": "Shadcn UI"
         },
         {
           "id": "project-4-3",
+          "name": "Supabase"
+        }
+      ],
+      "url": "#",
+      "live": "https://moneytorq.vercel.app",
+      "inProgress": true
+    },
+    {
+      "id": "project-5",
+      "title": "Teruna Translate",
+      "description": "Servis penerjemahan dan proofreading untuk Bahasa Inggris <-> Indonesia untuk makalah, jurnal, dan Caption Youtube.",
+      "cover": "/images/projects/lp-teruna.jpg",
+      "techStack": [
+        {
+          "id": "project-5-1",
+          "name": "Next JS"
+        },
+        {
+          "id": "project-5-2",
+          "name": "Typescript"
+        },
+        {
+          "id": "project-5-3",
           "name": "Chakra UI"
         }
       ],
@@ -98,21 +121,21 @@
       "inProgress": false
     },
     {
-      "id": "project-5",
+      "id": "project-6",
       "title": "Cashflow App",
       "description": "Proyek React Native dengan Expo. Cashflow App membantu manajemen cashflow penggunanya dengan visual grafik pemasukan dan pengeluaran.",
       "cover": "/images/projects/cashflow-app/cashflowapp-home.jpg",
       "techStack": [
         {
-          "id": "project-5-1",
+          "id": "project-6-1",
           "name": "React Native"
         },
         {
-          "id": "project-5-2",
+          "id": "project-6-2",
           "name": "Expo"
         },
         {
-          "id": "project-5-3",
+          "id": "project-6-3",
           "name": "SQLite"
         }
       ],
@@ -121,21 +144,21 @@
       "inProgress": false
     },
     {
-      "id": "project-6",
+      "id": "project-7",
       "title": "Sembakoo Remake",
       "description": "Refactor project Sembakoo.id menggunakan Typescript dan React. Implementasi SVG dark mode dengan menggunakan Chakra UI",
       "cover": "/images/projects/lp-sembako-remake.png",
       "techStack": [
         {
-          "id": "project-6-1",
+          "id": "project-7-1",
           "name": "React"
         },
         {
-          "id": "project-6-2",
+          "id": "project-7-2",
           "name": "Chakra UI"
         },
         {
-          "id": "project-6-3",
+          "id": "project-7-3",
           "name": "Typescript"
         }
       ],
@@ -144,21 +167,21 @@
       "inProgress": false
     },
     {
-      "id": "project-7",
+      "id": "project-8",
       "title": "SQLearn",
       "description": "Pengajar Database dapat membuat quiz untuk murid. Setelah itu, murid dapat melakukan latihan SQL Syntax dengan fitur drag-and-drop.",
       "cover": "/images/projects/lp-sqlearn.png",
       "techStack": [
         {
-          "id": "project-7-1",
+          "id": "project-8-1",
           "name": "Next JS"
         },
         {
-          "id": "project-7-2",
+          "id": "project-8-2",
           "name": "Ant Design"
         },
         {
-          "id": "project-7-3",
+          "id": "project-8-3",
           "name": "react-dnd"
         }
       ],
@@ -167,25 +190,25 @@
       "inProgress": false
     },
     {
-      "id": "project-8",
+      "id": "project-9",
       "title": "Restopedia",
       "description": "Membuat PWA dengan memperhatikan Core Web Vitals Metrics. Proyek akhir submission kelas Front-End Expert Dicoding",
       "cover": "/images/projects/lp-restopedia.png",
       "techStack": [
         {
-          "id": "project-8-1",
+          "id": "project-9-1",
           "name": "Webpack"
         },
         {
-          "id": "project-8-2",
+          "id": "project-9-2",
           "name": "Cypress"
         },
         {
-          "id": "project-8-3",
+          "id": "project-9-3",
           "name": "Sass"
         },
         {
-          "id": "project-8-4",
+          "id": "project-9-4",
           "name": "PWA"
         }
       ],
@@ -194,21 +217,21 @@
       "inProgress": false
     },
     {
-      "id": "project-9",
+      "id": "project-10",
       "title": "Covid Vaccination Rate",
       "description": "Konsumsi data API untuk prediksi Machine Learning di Front-End, Dibuat dengan React JS, CSS custom styling, dan visualisasi data.",
       "cover": "/images/projects/lp-monitor-covid-19.jpg",
       "techStack": [
         {
-          "id": "project-9-1",
+          "id": "project-10-1",
           "name": "React JS"
         },
         {
-          "id": "project-9-2",
+          "id": "project-10-2",
           "name": "Ant Design"
         },
         {
-          "id": "project-9-3",
+          "id": "project-10-3",
           "name": "Recharts"
         }
       ],
@@ -217,13 +240,13 @@
       "inProgress": false
     },
     {
-      "id": "project-10",
+      "id": "project-11",
       "title": "Sembakoo.id",
       "description": "Daftar harga sembako di tiap provinsi di Indonesia, Mini-project untuk pembelajaran manipulasi DOM dan sintaks ES6 Vanilla JS.",
       "cover": "/images/projects/lp-sembako.png",
       "techStack": [
         {
-          "id": "project-10-1",
+          "id": "project-11-1",
           "name": "Javascript"
         }
       ],
@@ -232,13 +255,13 @@
       "inProgress": false
     },
     {
-      "id": "project-11",
+      "id": "project-12",
       "title": "MyLib",
       "description": "Project Rak Buku sebagai Submission untuk kelas Dicoding Front-End Pemula. Dibuat dengan HTML, CSS, JS.",
       "cover": "/images/projects/lp-mylib.png",
       "techStack": [
         {
-          "id": "project-11-1",
+          "id": "project-12-1",
           "name": "Javascript"
         }
       ],
@@ -247,21 +270,21 @@
       "inProgress": false
     },
     {
-      "id": "project-12",
+      "id": "project-13",
       "title": "Serba Kopi",
       "description": "Serba Kopi, aplikasi web dengan konsep PWA. Dapat diinstal dan dijalankan di perangkat pengguna.",
       "cover": "/images/projects/lp-serbakopi.png",
       "techStack": [
         {
-          "id": "project-12-1",
+          "id": "project-13-1",
           "name": "Webpack"
         },
         {
-          "id": "project-12-2",
+          "id": "project-13-2",
           "name": "Javascript"
         },
         {
-          "id": "project-12-3",
+          "id": "project-13-3",
           "name": "PWA"
         }
       ],
