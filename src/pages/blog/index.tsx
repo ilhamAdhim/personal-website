@@ -35,7 +35,7 @@ const BlogPage = ({ posts }: any) => {
         <SimpleGrid
           mt={8}
           spacing={6}
-          columns={[1, 2, 3]}
+          columns={[1, 2, 2, 2, 3]}
           data-aos="fade-down"
           data-aos-delay={500}
         >

@@ -36,13 +36,14 @@ const BlogPost = ({
       cursor="pointer"
       maxW="445px"
       w="full"
+      h="full"
       p={6}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow="2xl"
       rounded="md"
       overflow="hidden"
     >
-      <Box h="210px" bg="gray.100" mt={-6} mx={-6} mb={6} pos="relative">
+      <Box minH="210px" bg="gray.100" mt={-6} mx={-6} mb={6} pos="relative">
         <Image
           src={thumbnailUrl}
           objectFit="cover" // Ensures image covers the entire area
