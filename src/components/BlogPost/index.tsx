@@ -36,6 +36,7 @@ const BlogPost = ({
       cursor="pointer"
       maxW="445px"
       w="full"
+      h="full"
       p={6}
       bg={useColorModeValue("white", "gray.900")}
       boxShadow="2xl"
