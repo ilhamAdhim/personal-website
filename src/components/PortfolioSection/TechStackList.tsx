@@ -14,28 +14,35 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-import techStack from "data/techStackList";
+import favTechStack, { techStack } from "data/techStackList";
 import useSmallViewport from "hooks/useViewport";
 
-const TechStackList = () => {
+interface ITechStackList {
+  category: "fav" | "other";
+}
+
+const TechStackList = ({ category }: ITechStackList) => {
   const { isSmallViewport } = useSmallViewport();
   const [dataTechStack, setDataTechStack] = useState([]);
 
   const colorLink = useColorModeValue("teal", "teal.200");
 
   useEffect(() => {
-    if (isSmallViewport) setDataTechStack(techStack.slice(0, 5));
-    else setDataTechStack(techStack);
+    if (isSmallViewport)
+      setDataTechStack(
+        (category === "fav" ? favTechStack : techStack).slice(0, 5)
+      );
+    else setDataTechStack(category === "fav" ? favTechStack : techStack);
   }, [isSmallViewport]);
 
   return (
     <Flex
       mt="4"
       gap="4"
-      w="100%"
+      // w="100%"
       justify="center"
       alignItems="center"
-      flexWrap={["wrap", "nowrap"]}
+      // flexWrap={["wrap", "nowrap"]}
     >
       {dataTechStack?.map((item) => (
         <chakra.div
@@ -46,7 +53,7 @@ const TechStackList = () => {
           <Popover trigger="hover">
             <PopoverTrigger>
               <chakra.a
-                fontSize="2em"
+                fontSize="1.5em"
                 _hover={{
                   color: item.color,
                 }}

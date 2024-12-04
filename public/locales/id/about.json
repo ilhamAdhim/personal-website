@@ -12,15 +12,27 @@
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Mendesain, mengembangkan dan menguji UI untuk mobile dan web"
+          "job": "Gamifikasi inovatif diimplementasikan pada situs web Erafone untuk meningkatkan engagement pelanggan. Fitur ini telah menarik 16.000 pengguna aktif dan memberikan reward berupa poin Eraspace kepada 36% pengguna tersebut."
         },
         {
           "id": "exp-1-2",
-          "job": "Mengembangkan kode dan library untuk penggunaan mendatang"
+          "job": "Desain ulang login dan registrasi Eraspace dengan fokus pada user experience dan responsivitas, menggunakan Tailwind CSS dan React Hook Form."
         },
         {
           "id": "exp-1-3",
-          "job": "Menerjemahkan kebutuhan user dan bisnis ke kode Frontend secara akurat"
+          "job": "Integrasi RESTful API menggunakan Axios dan Tanstack Query, memfasilitasi kolaborasi yang mulus dengan tim backend microservices khusus."
+        },
+        {
+          "id": "exp-1-4",
+          "job": "Peningkatan e-commerce B2C untuk Eraspace.com, iBox.co.id, JDSports, Wellings, dan lainnya, dengan menciptakan pengalaman belanja online yang dinamis menggunakan Next.js dan Typescript."
+        },
+        {
+          "id": "exp-1-5",
+          "job": "Optimalisasi manajemen katalog untuk pemain e-commerce besar dengan migrasi dari Magento ke aplikasi kustom. Hal ini berhasil mengurangi biaya berlangganan untuk saluran B2C dan meningkatkan efisiensi melalui upaya optimalisasi strategis."
+        },
+        {
+          "id": "exp-1-6",
+          "job": "Kerja sama dengan Product Owner, QA, dan vendor untuk mengembangkan aplikasi internal untuk anak perusahaan Erajaya, yang meliputi pengelolaan inventaris, flow online shopping, diskon karyawan dan pengguna, dan lainnya"
         }
       ]
     },
@@ -31,11 +43,11 @@
       "description": [
         {
           "id": "exp-2-1",
-          "job": "Reviewing student's submission in Front-End Learning Path"
+          "job": "Review 400+ submission di Front-End Learning Path. Memberikan feedback dan saran tentang bagaimana siswa dapat meningkatkan kode mereka. Mendapatkan rating 4,9 dari 5 di Front-End Learning Path."
         },
         {
           "id": "exp-2-2",
-          "job": "Giving feedbacks and advices on how students can improve more on their codes"
+          "job": "Sharing dengan reviewer lainnya untuk memberikan umpan balik yang lebih baik kepada siswa serta mendiskusikan tren teknologi terbaru dalam Pengembangan Front-End."
         }
       ]
     },
@@ -46,15 +58,11 @@
       "description": [
         {
           "id": "exp-3-1",
-          "job": "Developing front-end web site architecture"
+          "job": "Menggunakan IntersectionObserver API untuk mendeteksi user scroll pada Landinga Page Salyns. Digunakan untuk menganimasikan statistik pertumbuhan pengguna aktif, total jumlah audio yang ditranskripsi, dan akurasi produk."
         },
         {
           "id": "exp-3-2",
-          "job": "Developing/extending front-end components"
-        },
-        {
-          "id": "exp-3-3",
-          "job": "Designing user interactions on web pages."
+          "job": "Mengimplementasikan SWR (Stale-While-Revalidate) untuk memastikan data yang ditampilkan di dashboard pengguna adalah data real-time saat audio ditranskripsi menjadi teks."
         },
         {
           "id": "exp-3-4",
@@ -88,19 +96,19 @@
       "description": [
         {
           "id": "exp-5-1",
-          "job": "Built Progressive Web App with Vanilla JS and Webpack"
+          "job": "Bekerja sama dengan tim lintas fungsi untuk mengembangkan model prediksi tingkat vaksinasi menggunakan machine learning."
         },
         {
           "id": "exp-5-2",
-          "job": "Ensured the quality of the code with ESLint and Prettier"
+          "job": "Berkontribusi dalam pembersihan dan persiapan data untuk mengoptimalkan kinerja model. Mengimplementasikan Algoritma Machine Learning ke dalam proyek-proyek menggunakan Python, Keras, dan TensorFlow."
         },
         {
           "id": "exp-5-3",
-          "job": "Ensured the website's performance with Metric Web Vitals and E2E Testing with Puppeteer"
+          "job": "Mengembangkan komponen yang dapat digunakan kembali untuk memperlancar pengembangan dan menjaga kualitas kode dengan memanfaatkan React JS secara optimal."
         },
         {
           "id": "exp-5-4",
-          "job": "Integrated Machine Learning Algorithms to projects with Python, Keras, and Tensorflow"
+          "job": "Deploy frontend di Netlify untuk kinerja dan aksesibilitas optimal. Deploy model machine learning di Heroku untuk memastikan skalabilitas dan keandalan."
         }
       ]
     },
@@ -111,15 +119,15 @@
       "description": [
         {
           "id": "exp-6-1",
-          "job": "Integrated API from Backend"
+          "job": "Mengimplementasikan MockAPI untuk memperlancar pengembangan frontend dan mempercepat timeline proyek."
         },
         {
           "id": "exp-6-2",
-          "job": "Tested web application with Cypress E2E Testing Library"
+          "job": "Migrasi kode lama dari CSS ke Sass, meningkatkan keterbacaan dan kemudahan maintenance kode."
         },
         {
           "id": "exp-6-3",
-          "job": "Worked collaboratively with other team members to build SaaS web application | SIPAS Web App"
+          "job": "Mengotomatiskan pengujian end-to-end dengan Cypress untuk mengidentifikasi dan memperbaiki masalah sejak awal proses pengembangan."
         }
       ]
     }

@@ -71,9 +71,10 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
           justifyContent="space-evenly"
         >
           <Box
-            data-aos="flip-up"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"
+          // w={["full", "full", "2/3"]}
+          // data-aos="flip-up"
+          // data-aos-duration="1000"
+          // data-aos-easing="ease-in-out"
           >
             <PortfolioAbout />
             <DottedBox />
