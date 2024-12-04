@@ -12,15 +12,27 @@
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Designing, developing, and testing UI for mobile and web applications"
+          "job": "Enhanced customer engagement and loyalty by implementing innovative gamification features in the Erafone Website, driving 16,000 active users and rewarding 36% with Eraspace points."
         },
         {
           "id": "exp-1-2",
-          "job": "Build reusable code and libraries for future use"
+          "job": "Revamped Eraspace's login and registration screens with a focus on user experience and responsiveness, leveraging Tailwind CSS and React Hook Form."
         },
         {
           "id": "exp-1-3",
-          "job": "Accurately translate user and business needs into functional frontend code"
+          "job": "Elevated B2C e-commerce for Eraspace.com, iBox.co.id, JDSports, Wellings, and more by crafting dynamic online shopping experiences with Next.js and Typescript"
+        },
+        {
+          "id": "exp-1-4",
+          "job": "Integrated RESTful APIs using Axios and Tanstack Query, facilitating seamless collaboration with the dedicated backend microservices team."
+        },
+        {
+          "id": "exp-1-4",
+          "job": "Streamlined catalog management for a major e-commerce player by migrating from Magento to a custom application, reduced subscription costs for B2C channels and boosted efficiency through strategic optimization efforts."
+        },
+        {
+          "id": "exp-1-4",
+          "job": "Partnered with product owners, QA, and vendors to develop and launch internal applications for Erajaya subsidiaries, managing inventory, retail flows, discounts, and more."
         }
       ]
     },
@@ -31,11 +43,11 @@
       "description": [
         {
           "id": "exp-2-1",
-          "job": "Reviewing student's submission in Front-End Learning Path"
+          "job": "Reviewed 400+ submissions in Front-End Learning Path. Gives feedback and advice on how students can improve their codes more. Rated 4.9 out of 5 in Front-End Learning Path."
         },
         {
           "id": "exp-2-2",
-          "job": "Giving feedbacks and advices on how students can improve more on their codes"
+          "job": "Regularly sharing with other reviewer peers to give better feedback to the students as well as discussing latest tech trends in Front-End Development"
         }
       ]
     },
@@ -46,19 +58,11 @@
       "description": [
         {
           "id": "exp-3-1",
-          "job": "Developing front-end web site architecture"
+          "job": "Utilizing IntersectionObserver API to detect user scroll on Salyns Landing Page. Used to animate statistics of active user growth, the overall amount of transcribed audio, and the accuracy of the product."
         },
         {
           "id": "exp-3-2",
-          "job": "Developing/extending front-end components"
-        },
-        {
-          "id": "exp-3-3",
-          "job": "Designing user interactions on web pages."
-        },
-        {
-          "id": "exp-3-4",
-          "job": "Ensuring responsiveness and scalability of applications"
+          "job": "Implemented SWR (Stale-While-Revalidate) to ensure real-time data being rendered in the user dashboard while transcribing the audio to text"
         }
       ]
     },
@@ -88,19 +92,19 @@
       "description": [
         {
           "id": "exp-5-1",
-          "job": "Built Progressive Web App with Vanilla JS and Webpack"
+          "job": "Collaborated with a cross-functional team to develop a predictive vaccination rate model using machine learning."
         },
         {
           "id": "exp-5-2",
-          "job": "Ensured the quality of the code with ESLint and Prettier"
+          "job": "Contributed to data cleaning and preparation to optimize model performance. Integrated Machine Learning Algorithms to projects with Python, Keras, and Tensorflow"
         },
         {
           "id": "exp-5-3",
-          "job": "Ensured the website's performance with Metric Web Vitals and E2E Testing with Puppeteer"
+          "job": "Developed reusable components to streamline development and maintain code quality by leveraging an optimal use of React JS"
         },
         {
           "id": "exp-5-4",
-          "job": "Integrated Machine Learning Algorithms to projects with Python, Keras, and Tensorflow"
+          "job": "Deployed the frontend on Netlify for optimal performance and accessibility. While the machine learning model on Heroku to ensure scalability and reliability."
         }
       ]
     },
@@ -111,15 +115,15 @@
       "description": [
         {
           "id": "exp-6-1",
-          "job": "Integrated API from Backend"
+          "job": "Implemented MockAPI to streamline frontend development and accelerate project timelines."
         },
         {
           "id": "exp-6-2",
-          "job": "Tested web application with Cypress E2E Testing Library"
+          "job": "Upgraded the legacy codebase from CSS to Sass, enhancing code readability and maintainability."
         },
         {
           "id": "exp-6-3",
-          "job": "Worked collaboratively with other team members to build SaaS web application | SIPAS Web App"
+          "job": "Automated end-to-end testing with Cypress to identify and fix issues early in the development process."
         }
       ]
     }
