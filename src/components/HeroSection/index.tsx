@@ -92,7 +92,7 @@ const HeroSection = () => {
               boxShadow="md"
               size="lg"
             >
-              <Link href="/About" passHref>
+              <Link href="/about" passHref>
                 <chakra.span fontSize={[".8em", "unset"]}>
                   {t("buttons.secondary")}
                 </chakra.span>
