@@ -1,0 +1,469 @@
+---
+title: The Developer’s Edge, Building a Smarter Financial Assistant with Gemini AI
+date: "January 01, 2025"
+description: How i built my first AI app, the backgrounds of how it works, and how you can too.
+thumbnailUrl: "/images/blogs/financial-app-gemini.png"
+tags: ["Gemini", "ShadCN"]
+timeEstimation: 10 mins
+---
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/0*SMKByv7BDxw-aFOQ"
+  alt="Jumbotron image by unsplash"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Photos from Josh Appel on
+  [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)
+</Box>
+
+I put my finance records in Notion. But it could be better.
+
+<br />
+Artificial Intelligence has a rapid adoption rate these days. Even we as common folks
+already use it on a daily basis, hovering from ChatGPT, Gemini, and the latest one
+Meta AI in Instagram and WhatsApp.
+<br />
+Ever wondered how you can integrate these powerful AIs into your own application?
+We’re about to dive into just that with my case — Building a financial assistant
+with AI —.
+<br />
+This article will cover how Artificial Intelligence works for Large Language Models (LLM) such as ChatGPT and Gemini, the Gemini API itself, and how I integrate it into a web application.
+
+<Text my="2" fontSize="2xl">
+  How AI Works
+</Text>
+
+To make the best use of AI, we’ll need to know what part they can help us with and how they operate. I’m trying my best to summarize how they work on the top level.
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/0*EDdytH_dI5L90o-y.jpg"
+  alt="Iterative process of how the model inside AI works. "
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  {" "}
+  Iterative process of how the model inside AI works. Credits to [Source](https://aiceos.com/wp-content/uploads/2022/02/Picture-1.0jpg.jpg){" "}
+</Box>
+
+We humans have been putting and transferring data over the internet for the past years in lots of fields of expertise. This defines the ‘Goal’ part of any field, such as Healthcare, education, e-commerce, property, etc.
+
+<Text my="4" fontSize="xl">
+  Data Gathering
+</Text>
+
+Companies that are perceptive and have the manpower, can gather **lots of data** from their own analytics dashboard, web scraping, or even gathering real user feedback.
+
+<br />
+These data then become the main ‘fuel’ of how AI will be implemented. Knowing this, it is unsurprising that data is the new ‘oil’ and how rapid AI development is.
+
+<br />
+<Text my="4" fontSize="xl">
+  Data Cleaning
+</Text>
+
+More data generally means more noise. These noises could negatively affect your training/testing data either making the model overfit or underfit (more on this later). Below are the lists that should be considered to make your data clean:
+
+<ul
+  style={{
+    margin: "2em",
+    display: "flex",
+    gap: "1em",
+    flexDirection: "column",
+  }}
+>
+  <li>**Remove duplicates** </li>
+  <li>**Convert data type (e.g. number, decimals)** </li>
+  <li>
+    **Clear and consistent formatting (e.g. capitals, date formats, currencies,
+    etc.)**{" "}
+  </li>
+  <li>**Handle missing values** </li>
+  <li> Language Translation </li>
+  <li> Remove irrelevant data</li>
+  <li> Standardize capitalization </li>
+  <li> Detect and remove Outliers</li>
+</ul>
+
+It’s worth mentioning that handling outliers will require some statistical knowledge (by using box plots and scatter plots). But initially, the bold ones from the list should be in your first nature when doing data cleaning.
+
+<Text my="4" fontSize="xl">
+  Data Splitting
+</Text>
+
+After the data is clean, we need to split those data into training data and testing data. We need to find the sweet spot ratio of both with our cleaned data. There are two conditions if we fail to do so:
+
+<ul
+  style={{
+    margin: "2em",
+    display: "flex",
+    gap: "1em",
+    flexDirection: "column",
+  }}
+>
+  <li>
+    **Overfitting:** If the training set is too large, the model may overfit to
+    the training data, meaning it performs well on the training set but poorly
+    on unseen data.{" "}
+  </li>
+  <li>
+    **Underfitting:** If the training set is too small, the model may not learn
+    enough patterns in the data and perform poorly on both training and testing
+    sets.
+  </li>
+</ul>
+<br />
+Reflecting on my experience and from what I’ve seen on the internet, generally, the split is 80% training data and 20% training data. But do have your time finding the acceptable spot for the desired accuracy of the model. After all, it really depends on your use case, datasets, and model reference if any.
+
+<br />
+<Alert status="info" variant="left-accent">
+  <i>
+    Finding the best balance requires knowledge, and a bunch of trials and
+    errors.
+  </i>
+</Alert>
+
+<Text my="4" fontSize="xl">
+  Model Training
+</Text>
+
+Each machine learning model has a different purpose and approach to how they process ‘learn’. In LLMs (Large Language Model), This process involves:
+
+<br />
+<ol
+  style={{
+    margin: "2em",
+    display: "flex",
+    gap: "1em",
+    flexDirection: "column",
+  }}
+>
+  <li> Breaking down the text into smaller units </li>
+  <li> Feeding it into a transformer neural network </li>
+  <li>
+    {" "}
+    Iteratively adjusting the model’s parameters to minimize prediction errors. This
+    allows the model to learn complex patterns and relationships within human language,
+    enabling it to generate human-like text, translate languages, and perform many
+    other language-related tasks.{" "}
+  </li>
+</ol>
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/0*x218pi8SAcFIrHG1.png"
+  alt="The output is as good as it's input"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  {" "}
+  The model was given a sentence, and each of the neuron network layers (transformer)
+  specifies each word’s role for that sentence context.
+</Box>
+<br />
+I found a great article on how LLMs process learning by _quantifying the weight of each word_ as vectors to determine and predict what the next word is depending on the given context. Greatly explained [Timothy B. Lee](https://substack.com/@timothyblee) and [Sean Trott](https://substack.com/@seantrott) in [Large language models, explained with a minimum of math and jargon](https://www.understandingai.org/p/large-language-models-explained-with).
+
+<br />
+After going through the process of Data Gathering all the way to Model Training. The result will then be reviewed by humans. Flagging which response is acceptable or not based on our acceptance criteria.
+
+<br />
+Advanced models from major players (ChatGPT, Gemini, etc.) have large data pools for training and validating their AI models for various outputs — in our case, text generation —, and have lots of researchers and Data Scientists to make the model give reliable outputs.
+
+<Text my="4" fontSize="xl">
+  Data Security
+</Text>
+
+Data and user privacy are also concerns when utilizing AI for daily use. One thing that we can control is how much data we give to them to still function and give the expected result we need.
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*-9cUBrwNZFplT9uMQiINnQ.png"
+  alt=" What we give to the chat, will be used to train the model"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  {" "}
+  What we give to the chat, will be used to train the model.{" "}
+</Box>
+<br />
+As we use this technology, bear in mind that our inputs will be used to train the AI model and might be reviewed by humans iteratively.
+
+<br />
+<Text my="4" fontSize="2xl">
+  Gemini API
+</Text>
+
+You still read until this point? Awesome.
+
+<br />
+I can’t stress more how we’re fortunate enough to have these ready-to-use models, considering their complexity.
+
+<br />
+Now that we know how those work behind the scenes, We’re gonna use one of the widely-used models out there with ease.
+
+<br />
+I’m using Gemini for this project because the barrier is relatively lower than using models from [OpenAI as they no longer provide a free tier](https://community.openai.com/t/api-access-using-free-tier/710656). Let’s see how we use this for our benefit:
+
+<br />
+The first thing we will need is the API Key for Gemini API. This key will be included in each request we make to the Gemini endpoints later on. We can get our first API key by visiting [aistudio.google.com](http://aistudio.google.com/).
+
+<br />
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*zhxlpiiFLZMUCp9WfsQimw.png"
+  alt="Snapshot of aistudio"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  {" "}
+  Snapshot of <u> [aistudio.google.com](http://aistudio.google.com/) </u> for everytime
+  you visit the website.{" "}
+</Box>
+
+<Text my="4" fontSize="xl">
+  1. Click the ‘Get API Key’ button in the image attached below.
+</Text>
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*QHUXhgfs2RQ0E8uVQdA0fw.gif"
+  alt="Creating API key for your first project in Google AI Studio"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  {" "}
+  Creating API key for your first project in Google AI Studio{" "}
+</Box>
+<br />
+Save the API key inside your .env files. You can always check the API key by accessing the same page.
+
+<br />
+<Text my="4" fontSize="xl">
+  2. See available models and their restrictions
+</Text>
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*m71T5Ciuf_QNopsfAjdMHg.png"
+  alt="Available models to choose from when using Gemini API"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Available models to choose from when using Gemini API. Source: [Model
+  Variants](https://ai.google.dev/gemini-api/docs/models/gemini#model-variations)
+</Box>
+<br />
+There are quite a lot of models we can use. We can choose it depending on each use case. For this enhanced finance tracker app, I’m using Gemini 1.5 Flash as it will be sufficient for giving financial advice.
+
+<br />
+Other than that, we also need to consider the **token and rate limits** as this will have a huge impact on how we design the user flow and experience.
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*N3lWPTYcio7hfxvuWIjnVw.png"
+  alt="What is RPM TPM RPD TPD"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  **_RPM_**_: Requests per minute |_ **_TPM_**_: Tokens per minute |_
+  **_RPD_**_: Requests per day |_ **_TPD_**_: Tokens per day_
+</Box>
+<br />
+If you are keen on building personal projects, pay attention to the free tiers. We are limited to making 15 requests per minute and 1500 Requests each day.
+
+<br />
+Even as a solopreneur, we also need to consider _the pay-as-you-go_ plan. Make sure to design the application to make the cash flow positive, not to overspend it on one feature.
+
+<Text my="4" fontSize="xl">
+  3. Making your first API Call
+</Text>
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*msEAGQNgoGAVlZ8uhqfbPg.png"
+  alt="Snapshot"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  The first thing we’d notice after creating API key is this picture in the
+  dashboard
+</Box>
+<br />
+For a quick check, we can use Postman and copy-paste that cURL Request alongside the API key we’ve just created.
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*SYgCIaOwfqYtbpgZIx3X_g.gif"
+  alt="Input the cURL request and the API Key in the Postman"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Input the cURL request and the API Key in the Postman
+</Box>
+<br />
+The cURL request with fetch API is working. But it’s quite troublesome to form the payload (unless you’re keen on Data Science and Algorithm I guess it’s just another leetcode challenge for you).
+
+<br />
+Not to mention, it’s not that scalable if we want to put more input context into the model.
+
+<br />
+Why do we want more input context? Generally, users expect the AI model to remember their conversation right? We’ll need to put those into the payload too.
+
+<br />
+There should be a better alternative.
+
+<br />
+You can try installing this [google/generative-ai](https://www.npmjs.com/package/@google/generative-ai).
+
+<Text my="4" fontSize="xl">
+  4. Install library
+  [google/generative-ai](https://www.npmjs.com/package/@google/generative-ai)
+</Text>
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:525/1*w84PHDI379cprqp08ZqXig.png"
+  alt="Developers sure are pumping this tech."
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Well yes, the developers sure are pumping this tech. Taken 28/12/2024
+</Box>
+<br />
+This is a quick example of how you can make your API request with this library.
+
+<br />
+<SyntaxHighlighterWithVariant>
+  {`
+const { GoogleGenerativeAI } = require("@google/generative-ai");  
+const genAI = new GoogleGenerativeAI("YOUR_API_KEY");  
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+// Much simpler than hitting the API right ? Just define the prompt.  
+const prompt = "Explain how AI works";  
+const result = await model.generateContent(prompt);  
+console.log(result.response.text());
+`}
+
+</SyntaxHighlighterWithVariant>
+<br />
+Let me show you more about what those mean in my codebase:
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*QgcoUvBNAuvSQovpYVhhZA.png"
+  alt="Well yes, it’s quite a difference"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Well yes, it’s quite a difference
+</Box>
+<br />
+I’ve built the UI to test the latest approach, and it turns out like this:
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*5cR7lN_YjOSwYGkY0Qt-Cg.gif"
+  alt="Request by the google/generative-ai works like a charm"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Request by the google/generative-ai works like a charm
+</Box>
+<br />
+Congratulations! By now, the app is up and running by utilizing Gemini models.
+
+<br />
+But if we remember previously we discussed how each model has its rate limits and token restrictions. Considering if we chose the Pay-as-you-go option, it’s important to **ensure that your API key is not exposed.**
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*m78_YTLQncrwOhtIAA4uyA.png"
+  alt="Look at your Network Tab > Headers. "
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  Look at your Network Tab > Headers. Those API key is visible if we do it this
+  way!
+</Box>
+<br />
+We need a preventive approach to how others couldn’t freely use our API key leading to slow response (because of constantly hitting the rate limit threshold) or the least favourable position: unexpected cash burns.
+
+<Text my="4" fontSize="xl">
+  5. Put the API Key in server environments!
+</Text>
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:782/1*n49U9OKBRDoomNnhqtg6mA.png"
+  alt="You can use Next JS Server Action to wrap API Key"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  You can use Next JS Server Action to wrap it so that users won’t know your
+  _secret 🤫_
+</Box>
+<br />
+There are 3 main things in how I built this function:
+
+<br />
+<ol
+  style={{
+    margin: "2em",
+    display: "flex",
+    gap: "1em",
+    flexDirection: "column",
+  }}
+>
+  <li>
+    {" "}
+    Putting Gemini API Key in server actions. Make sure the API Key is unexposed{" "}
+  </li>
+  <li>
+    {" "}
+    Prompts I put the _ROLE_PROMPT_ like ‘Act as Financial Advisor…’, _DISCLAIMER_AI_
+    to heavily remind users that it’s generated ‘inconsistently’ depending on how
+    the model is trained and the datasets being used therefore they need to take
+    it with a grain of salt. And finally, the question/prompt is based on what the
+    user inputs.{" "}
+  </li>
+  <li>
+    {" "}
+    Returning it into JSON Response for generated content or errors if any{" "}
+  </li>
+</ol>
+
+<Text my="4" fontSize="2xl">
+  The UI/UX
+</Text>
+
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*UOIpRFncxhbWr0dNk0pzBg.gif"
+  alt="The response of Gemini API is in Markdown"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  The response of Gemini API is in Markdown
+</Box>
+
+<br />
+Since the generated content response from Gemini API is in markdowns, we’ll need
+to wrap the output with your preferred library to render it properly. For ease, I’m
+just using React Markdown.
+<br />
+Last thing to consider is how we make the user flow adjusted to our free Gemini API plan. To make such constraint, the application limits the public user to make 3 request per visit and they may try again tomorrow.
+
+<br />
+<img
+  src="https://miro.medium.com/v2/resize:fit:788/1*oFtsfYkzd0Rt7uLn_t6Ojw.gif"
+  alt="3 Requests per day per user"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  3 Requests per day per user, this way the app can tolerably have some
+  constraint to allow others to try as well
+</Box>
+
+<Text my="4" fontSize="2xl">
+  Footnote
+</Text>
+
+I’m developing a personal finance tracker web app. Chat with AI feature is still on the free version of Gemini, so the **Rate Limit from Google API may apply** :)
+
+<br />
+With that said, feel free to check for yourself <u> [here](https://moneytorq.com/suggest).</u>
+
+<br />
+Also, if you wonder how I built the backend and the database for the application, I used Supabase and talked about this in [my other post](https://medium.com/@ilhamm179/from-curiosity-to-code-building-with-supabase-shadcn-d5b0dc7a5d35)!
+
+<br />
+Cheers.

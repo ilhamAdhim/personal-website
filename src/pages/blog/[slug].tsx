@@ -15,10 +15,14 @@ import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import dynamic from "next/dynamic";
 import path from "path";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { v4 as uuidv4 } from "uuid";
+
+const SyntaxHighlighter = dynamic(() => import("react-syntax-highlighter"), {
+  ssr: false,
+});
 
 const SyntaxHighlighterWithVariant = ({ children }: any) => {
   const { colorMode } = useColorMode();
@@ -56,7 +60,7 @@ const components = {
 
 const PostPage = ({ frontMatter: { title, date }, mdxSource }: any) => {
   return (
-    <Box w={["90%", "60%"]} mx="auto">
+    <Box suppressHydrationWarning w={["90%", "60%"]} mx="auto">
       <Flex flexDir="column" gap={2} my={2}>
         <Heading fontSize="2xl" color={useColorModeValue("gray.700", "white")}>
           {title}
