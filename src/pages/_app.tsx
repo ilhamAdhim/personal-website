@@ -4,13 +4,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import AOS from "aos";
 import { appWithTranslation } from "next-i18next";
-import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import defaultSEOConfig from "../../next-seo.config";
 import Layout from "layout";
 import customTheme from "lib/styles/customTheme";
 
@@ -32,7 +30,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <DefaultSeo {...defaultSEOConfig} />
       <Layout>
         <Component {...pageProps} />
         <Analytics />

@@ -70,7 +70,7 @@ const PostPage = ({
         isArticle
         keywords={tags.join(",")}
         title={title}
-        description={`${description}${metaDescription}`}
+        description={`${description} ${metaDescription}`}
       />
       <Box suppressHydrationWarning w={["90%", "60%"]} mx="auto">
         <Flex flexDir="column" gap={2} my={2}>
