@@ -2,9 +2,9 @@ import { Box, Text, chakra, useColorModeValue } from "@chakra-ui/react";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import { i18n, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
+import MetaData from "components/Metadata";
 import ProjectList from "components/ProjectSection/ProjectList";
 import DottedBox from "components/SVGVectors/DottedBox";
 import type { IDataProjectsProps } from "types/ProjectProps";
@@ -33,7 +33,7 @@ const ProjectPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
 
   return (
     <>
-      <NextSeo
+      <MetaData
         title="Projects"
         description="Here are my projects collection that i've done as Front-End Developer. I'm using React, NextJS, ChakraUI, TypeScript and more."
       />

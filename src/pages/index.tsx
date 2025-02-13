@@ -1,14 +1,14 @@
 import { Box, Button, Flex, Text, chakra } from "@chakra-ui/react";
 import type { InferGetStaticPropsType, NextPage } from "next";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { NextSeo } from "next-seo";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
 import HeadingAccent from "components/HeadingAccent";
 import HeroSection from "components/HeroSection";
+import MetaData from "components/Metadata";
 import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
 import useSmallViewport from "hooks/useViewport";
@@ -44,7 +44,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
 
   return (
     <>
-      <NextSeo
+      <MetaData
         title="Home"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />

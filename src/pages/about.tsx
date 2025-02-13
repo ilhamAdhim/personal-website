@@ -13,10 +13,10 @@ import type {
 } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 import { FiPackage } from "react-icons/fi";
 
+import MetaData from "components/Metadata";
 import PortfolioAbout from "components/PortfolioSection";
 import DottedBox from "components/SVGVectors/DottedBox";
 import TimelineSection from "components/TimelIneSection";
@@ -60,7 +60,7 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
 
   return (
     <>
-      <NextSeo
+      <MetaData
         title="About"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
       />

@@ -1,11 +1,11 @@
 import { Box, SimpleGrid, Text, chakra } from "@chakra-ui/react";
 import fs from "fs";
 import matter from "gray-matter";
-import { NextSeo } from "next-seo";
 import Link from "next/link";
 import path from "path";
 
 import BlogPost from "components/BlogPost";
+import MetaData from "components/Metadata";
 import { DottedBox } from "components/SkillSection";
 
 const BlogPage = ({ posts }: any) => {
@@ -16,7 +16,7 @@ const BlogPage = ({ posts }: any) => {
 
   return (
     <>
-      <NextSeo
+      <MetaData
         title="Blog"
         description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel free to visit his website"
       />

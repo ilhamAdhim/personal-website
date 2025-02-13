@@ -5,10 +5,23 @@ description: Getting to know jotai and why it is better alternative to react con
 thumbnailUrl: "/images/blogs/jotai-atoms.png"
 tags: ["Data Handling", "Javascript"]
 timeEstimation: 8 mins
+metaDescription: "Article by Ilham Adhim."
 ---
 
-<img style={{ width:'100%' , height : 250, objectFit : 'cover', backgroundPosition: "center" }} src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Jumbotron image by unsplash" />
-<Box m="1em 0" textAlign="center" > Photos from <u> [Unsplash](https://unsplash.com/photos/RflgrtzU3Cw) </u> </Box>
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+  alt="Jumbotron image by unsplash"
+/>
+<Box m="1em 0" textAlign="center">
+  {" "}
+  Photos from <u> [Unsplash](https://unsplash.com/photos/RflgrtzU3Cw) </u>{" "}
+</Box>
 
 <Text my="2" fontSize="2xl"> Introduction </Text>
 <div>
@@ -16,8 +29,11 @@ timeEstimation: 8 mins
   It made me believed that state management has to be complicated and has lots of boilerplate to share data across the entire application. 
   When i explored React hooks, the idea of React context amazes me. It can be used on various kind and scope of the project, easy-to-maintain, and less complex than Redux.
 
-  <br />
-  Back then, it was an alternative to using state manager with what react itself has to offer. It was quite a game-changer — at least for me — . Main key advantages are:
+{" "}
+<br />
+Back then, it was an alternative to using state manager with what react itself
+has to offer. It was quite a game-changer — at least for me — . Main key
+advantages are:
 
   <ul style={{marginLeft: '2em'}}>
   <li style={{margin: '1em'}}> 
@@ -59,37 +75,54 @@ function App() {
   <br />
 </div>
 
-  <Alert status='success' variant='left-accent'>
-    <i>
-      Okay, but isn't it only happen on one file ? <br /> Is there any technical problem we may encounter ?
-    </i>
-  </Alert>
+{" "}
+<Alert status="success" variant="left-accent">
+  <i>
+    Okay, but isn't it only happen on one file ? <br /> Is there any technical
+    problem we may encounter ?
+  </i>
+</Alert>
 <br />
 
 If we remember, the nature of react rendering strategy is as follows:
+
 <br />
 
 <Box ml="2em">
   <ul>
-    <li> When the props passed from parent to child component has value changes, it re-renders </li>
-    <li> When the parent component re-renders, the child component re-renders as well </li> 
+    <li>
+      {" "}
+      When the props passed from parent to child component has value changes, it
+      re-renders{" "}
+    </li>
+    <li>
+      {" "}
+      When the parent component re-renders, the child component re-renders as well{" "}
+    </li>
   </ul>
 </Box>
 
 <br />
 
 In nature, we can use `useCallback()` and `useMemo()` for handling unnecessary renderings. Turns out, that memoization process has its own cost. I’ve encountered <Link target="blank" href="https://kentcdodds.com/blog/usememo-and-usecallback" style={{textDecoration: 'underline'}}> Kent C Dodds’ findings </Link> related to this issue. Feel free to read his post if you will.
+
 <br />
 
 We will get to know Jotai. a state manager that simplifies data sharing across components, how it has smoother DX to me, and presumably has better performance handling than React Context.
+
 <br />
 
-<Text my="2" fontSize="2xl"> Atoms Everywhere </Text>
-  
-  When we want to lift up the state, we can use atoms that are sharable across the entire web component.  we use <b>atoms</b> as the simplest form of state. 
-  This is contrast to Redux and Zustand, which use a huge state that consist of lots of smaller states as its attribute.
+<Text my="2" fontSize="2xl">
+  {" "}
+  Atoms Everywhere{" "}
+</Text>
+When we want to lift up the state, we can use atoms that are sharable across the
+entire web component. we use <b>atoms</b> as the simplest form of state. This is
+contrast to Redux and Zustand, which use a huge state that consist of lots of smaller
+states as its attribute.
 
-  By having atoms, we don't need to stress about updating subscribers and reducer logics as the app scales. 
+By having atoms, we don't need to stress about updating subscribers and reducer logics as the app scales.
+
   <br />
   Here is an example of how to make a state accessible from any component that it requires for both React Context and Jotai:
   <br />
@@ -108,22 +141,22 @@ export function useCounter() {
 export function CounterProvider({ children }) {
   const [count, setCount] = useState(0);
 
-  const increment = () => setCount(prevCount => prevCount + 1);
-  const decrement = () => setCount(prevCount => prevCount - 1);
+const increment = () => setCount(prevCount => prevCount + 1);
+const decrement = () => setCount(prevCount => prevCount - 1);
 
-  const value = {
-    count,
-    increment,
-    decrement,
-  };
+const value = {
+count,
+increment,
+decrement,
+};
 
-  return (
-    <CounterContext.Provider value={value}>
-      {children}
-    </CounterContext.Provider>
-  );
+return (
+<CounterContext.Provider value={value}>
+{children}
+</CounterContext.Provider>
+);
 }
-    `} />
+`} />
 
 <br />
     <SyntaxHighlighterWithVariant>
@@ -133,15 +166,15 @@ import React from 'react';
 import { useCounter } from './CounterContext';
 
 function AnyComponent() {
-  const { count, increment, decrement } = useCounter();
+const { count, increment, decrement } = useCounter();
 
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
-  );
+return (
+<div>
+<p>Count: {count}</p>
+<button onClick={increment}>Increment</button>
+<button onClick={decrement}>Decrement</button>
+</div>
+);
 }
 
 export default AnyComponent;
@@ -165,15 +198,16 @@ export const counterAtom = atom(0);
 // anyComponent.js
 import counterAtom from 'path/to/atoms/CounterAtom.js'
 
-// We can directly use it with special hooks from jotai. 
+// We can directly use it with special hooks from jotai.
 // More on Getters and Setters (next section)!
 export function AnyComponent {
-  const [count, setCount] = useAtom(counterAtom)
-  // ... value and setters ready to use
+const [count, setCount] = useAtom(counterAtom)
+// ... value and setters ready to use
 }
-        `}
-      </SyntaxHighlighterWithVariant>
-    </Box>
+`}
+</SyntaxHighlighterWithVariant>
+</Box>
+
 <br />
 
 Basically Jotai atoms are written just like that. That's why i'd like to put all the atoms inside a file called `store.js`. For example, we could change the wrapper hell in react context as follows:
@@ -187,31 +221,49 @@ export const authAtom = atom({})
 export const userAtom = atom({})
 export const routeAtom = atom({})
 `}
+
 </SyntaxHighlighterWithVariant>
 
-<Text my="2" fontSize="2xl"> Getters and Setters </Text>
+<Text my="2" fontSize="2xl">
+  {" "}
+  Getters and Setters{" "}
+</Text>
 
 There are multiple ways for us to access and manipulate the atom content.
+
 <br />
 
-<Box sx={{ marginLeft: '2em' }}>
+<Box sx={{ marginLeft: "2em" }}>
   <ul>
-    <li> useAtomValue() — When we need to access atom’s value only in a component </li>
+    <li>
+      {" "}
+      useAtomValue() — When we need to access atom’s value only in a component{" "}
+    </li>
     <li> useSetAtom() — When we need to update atom’s value in a component </li>
-    <li> useAtom() — When we need both access and updating atom’s value in a component </li>
+    <li>
+      {" "}
+      useAtom() — When we need both access and updating atom’s value in a component{" "}
+    </li>
   </ul>
 </Box>
 
 <br />
-You might notice that getters and setters are available in different hooks, this solves the extra re-render issue of React context, and eliminates the need for any memoization.
+You might notice that getters and setters are available in different hooks, this
+solves the extra re-render issue of React context, and eliminates the need for any
+memoization.
 <br />
 
-<Text my="2" fontSize="2xl"> Providers are optional </Text>
+<Text my="2" fontSize="2xl">
+  {" "}
+  Providers are optional{" "}
+</Text>
 
 Jotai atoms serves the global state by default. Moreover, with its simple syntax, i’d like to put all the atoms inside a file called store.js.
+
 <br />
 
 Let’s take a look at wrappers concern in React Context
+
 <br />
 
   <SyntaxHighlighterWithVariant>
@@ -238,14 +290,16 @@ In Jotai, those wrappers can be replaced as follows:
 export const authAtom = atom({})
 export const userAtom = atom({})
 export const routeAtom = atom({})
-`}  
+`}
+
   </SyntaxHighlighterWithVariant>
 
-<Alert my="1em" status='success' variant='left-accent'>
+<Alert my="1em" status="success" variant="left-accent">
   <i> So, when do we use providers ? </i>
 </Alert>
 
 We only use providers when we want to achieve one of these things:
+
 <br />
 
 <Box ml="2em">
@@ -258,7 +312,9 @@ We only use providers when we want to achieve one of these things:
 
 <br />
 
-
-<Text  my="2" fontSize="2xl">  Conclusion </Text>
+<Text my="2" fontSize="2xl">
+  {" "}
+  Conclusion{" "}
+</Text>
 
 In summary, consider using Jotai over React Context if you value simplicity, performance optimization, fine-grained reactivity, and predictable updates. React Context can be suitable for smaller applications or cases where complex state management is not a primary concern. However, for more advanced state management needs, alternatives like Jotai or Redux might provide more robust solutions.
