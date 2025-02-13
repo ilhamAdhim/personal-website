@@ -49,6 +49,7 @@ const BlogPage = ({ posts }: any) => {
                   thumbnailUrl={post.frontMatter.thumbnailUrl}
                   tags={post.frontMatter.tags}
                   timeEstimation={post.frontMatter.timeEstimation}
+                  metaDescription={post.frontMatter.metaDescription}
                 />
               </a>
             </Link>
