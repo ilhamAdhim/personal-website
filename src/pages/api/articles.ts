@@ -13,7 +13,7 @@ export default async function handler(
   const baseUrl = process.env.BASE_URL ?? "https://ilhamadhim.my.id";
 
   try {
-    const files = fs.readdirSync(path.join("src/posts"));
+    const files = fs.readdirSync(path.join(process.cwd(), "src", "posts"));
 
     const paths = files.map((filename) => ({
       slug: filename.replace(".mdx", ""),
