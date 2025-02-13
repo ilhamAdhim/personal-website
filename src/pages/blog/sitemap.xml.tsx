@@ -21,8 +21,6 @@ const generateSitemap = async () => {
     id: uuidv4(),
   }));
 
-  console.log("filename", paths);
-
   const list: XMLContent[] =
     paths.map((article) => {
       const markdownWithMeta = fs.readFileSync(
