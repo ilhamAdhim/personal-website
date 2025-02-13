@@ -61,7 +61,7 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   return (
     <>
       <MetaData
-        title="About"
+        title="Ilham Adhim | About"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more..."
       />
       <Box w="full" p="5" mx="auto">
