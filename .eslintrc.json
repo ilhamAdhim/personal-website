@@ -10,20 +10,18 @@
     "project": "./tsconfig.json" // Path to your tsconfig.json file
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      { "endOfLine": "auto" }
-    ],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "@typescript-eslint/dot-notation": "error",
     "no-unused-vars": "off",
-    "@typescript-eslint/ban-ts-comment" : "off",
-    "react/no-unescaped-entities" : "off",
+    "no-console": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "react/no-unescaped-entities": "off",
     "unused-imports/no-unused-imports": "error",
-    "@typescript-eslint/no-explicit-any" : "warn",
-    "react/prop-types" : "warn",
-    "react/destructuring-assignment" : "warn",
-    "no-underscore-dangle" : "warn",
-    "react-hooks/exhaustive-deps" : "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/prop-types": "warn",
+    "react/destructuring-assignment": "warn",
+    "no-underscore-dangle": "warn",
+    "react-hooks/exhaustive-deps": "warn",
     "unused-imports/no-unused-vars": [
       "warn",
       {
@@ -38,6 +36,6 @@
       {
         "ignoreDeclarationSort": true
       }
-  ]
+    ]
   }
 }
