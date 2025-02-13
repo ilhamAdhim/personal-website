@@ -5,7 +5,7 @@ description: How i built my first AI app, the backgrounds of how it works, and h
 thumbnailUrl: "/images/blogs/financial-app-gemini.png"
 tags: ["Gemini", "ShadCN"]
 timeEstimation: 10 mins
-metaDescription: "Article by Ilham Adhim."
+metaDescription: "Article by Ilham Adhim"
 ---
 
 <img
@@ -28,9 +28,7 @@ Ever wondered how you can integrate these powerful AIs into your own application
 We’re about to dive into just that with my case — Building a financial assistant
 with AI —.
 <br />
-This article will cover how Artificial Intelligence works for Large Language Models
-(LLM) such as ChatGPT and Gemini, the Gemini API itself, and how I integrate it into
-a web application.
+This article will cover how Artificial Intelligence works for Large Language Models (LLM) such as ChatGPT and Gemini, the Gemini API itself, and how I integrate it into a web application.
 
 <Text my="2" fontSize="2xl">
   How AI Works
@@ -57,8 +55,7 @@ We humans have been putting and transferring data over the internet for the past
 Companies that are perceptive and have the manpower, can gather **lots of data** from their own analytics dashboard, web scraping, or even gathering real user feedback.
 
 <br />
-These data then become the main ‘fuel’ of how AI will be implemented. Knowing this,
-it is unsurprising that data is the new ‘oil’ and how rapid AI development is.
+These data then become the main ‘fuel’ of how AI will be implemented. Knowing this, it is unsurprising that data is the new ‘oil’ and how rapid AI development is.
 
 <br />
 <Text my="4" fontSize="xl">
@@ -116,10 +113,7 @@ After the data is clean, we need to split those data into training data and test
   </li>
 </ul>
 <br />
-Reflecting on my experience and from what I’ve seen on the internet, generally,
-the split is 80% training data and 20% training data. But do have your time
-finding the acceptable spot for the desired accuracy of the model. After all, it
-really depends on your use case, datasets, and model reference if any.
+Reflecting on my experience and from what I’ve seen on the internet, generally, the split is 80% training data and 20% training data. But do have your time finding the acceptable spot for the desired accuracy of the model. After all, it really depends on your use case, datasets, and model reference if any.
 
 <br />
 <Alert status="info" variant="left-accent">
@@ -164,22 +158,14 @@ Each machine learning model has a different purpose and approach to how they pro
   The model was given a sentence, and each of the neuron network layers (transformer)
   specifies each word’s role for that sentence context.
 </Box>
-<br />I found a great article on how LLMs process learning by _quantifying the weight
-of each word_ as vectors to determine and predict what the next word is depending
-on the given context. Greatly explained [Timothy B. Lee](https://substack.com/@timothyblee)
-and [Sean Trott](https://substack.com/@seantrott) in [Large language models, explained
-with a minimum of math and jargon](https://www.understandingai.org/p/large-language-models-explained-with).
+<br />
+I found a great article on how LLMs process learning by _quantifying the weight of each word_ as vectors to determine and predict what the next word is depending on the given context. Greatly explained [Timothy B. Lee](https://substack.com/@timothyblee) and [Sean Trott](https://substack.com/@seantrott) in [Large language models, explained with a minimum of math and jargon](https://www.understandingai.org/p/large-language-models-explained-with).
 
 <br />
-After going through the process of Data Gathering all the way to Model Training.
-The result will then be reviewed by humans. Flagging which response is acceptable
-or not based on our acceptance criteria.
+After going through the process of Data Gathering all the way to Model Training. The result will then be reviewed by humans. Flagging which response is acceptable or not based on our acceptance criteria.
 
 <br />
-Advanced models from major players (ChatGPT, Gemini, etc.) have large data pools
-for training and validating their AI models for various outputs — in our case, text
-generation —, and have lots of researchers and Data Scientists to make the model
-give reliable outputs.
+Advanced models from major players (ChatGPT, Gemini, etc.) have large data pools for training and validating their AI models for various outputs — in our case, text generation —, and have lots of researchers and Data Scientists to make the model give reliable outputs.
 
 <Text my="4" fontSize="xl">
   Data Security
@@ -197,8 +183,7 @@ Data and user privacy are also concerns when utilizing AI for daily use. One thi
   What we give to the chat, will be used to train the model.{" "}
 </Box>
 <br />
-As we use this technology, bear in mind that our inputs will be used to train
-the AI model and might be reviewed by humans iteratively.
+As we use this technology, bear in mind that our inputs will be used to train the AI model and might be reviewed by humans iteratively.
 
 <br />
 <Text my="4" fontSize="2xl">
@@ -207,22 +192,17 @@ the AI model and might be reviewed by humans iteratively.
 
 You still read until this point? Awesome.
 
-<br />I can’t stress more how we’re fortunate enough to have these ready-to-use
-models, considering their complexity.
+<br />
+I can’t stress more how we’re fortunate enough to have these ready-to-use models, considering their complexity.
 
 <br />
-Now that we know how those work behind the scenes, We’re gonna use one of the widely-used
-models out there with ease.
+Now that we know how those work behind the scenes, We’re gonna use one of the widely-used models out there with ease.
 
 <br />
-I’m using Gemini for this project because the barrier is relatively lower than using
-models from [OpenAI as they no longer provide a free tier](https://community.openai.com/t/api-access-using-free-tier/710656).
-Let’s see how we use this for our benefit:
+I’m using Gemini for this project because the barrier is relatively lower than using models from [OpenAI as they no longer provide a free tier](https://community.openai.com/t/api-access-using-free-tier/710656). Let’s see how we use this for our benefit:
 
 <br />
-The first thing we will need is the API Key for Gemini API. This key will be included
-in each request we make to the Gemini endpoints later on. We can get our first API
-key by visiting [aistudio.google.com](http://aistudio.google.com/).
+The first thing we will need is the API Key for Gemini API. This key will be included in each request we make to the Gemini endpoints later on. We can get our first API key by visiting [aistudio.google.com](http://aistudio.google.com/).
 
 <br />
 <img
@@ -254,8 +234,7 @@ key by visiting [aistudio.google.com](http://aistudio.google.com/).
   Creating API key for your first project in Google AI Studio{" "}
 </Box>
 <br />
-Save the API key inside your .env files. You can always check the API key by accessing
-the same page.
+Save the API key inside your .env files. You can always check the API key by accessing the same page.
 
 <br />
 <Text my="4" fontSize="xl">
@@ -277,13 +256,10 @@ the same page.
   Variants](https://ai.google.dev/gemini-api/docs/models/gemini#model-variations)
 </Box>
 <br />
-There are quite a lot of models we can use. We can choose it depending on each use
-case. For this enhanced finance tracker app, I’m using Gemini 1.5 Flash as it will
-be sufficient for giving financial advice.
+There are quite a lot of models we can use. We can choose it depending on each use case. For this enhanced finance tracker app, I’m using Gemini 1.5 Flash as it will be sufficient for giving financial advice.
 
 <br />
-Other than that, we also need to consider the **token and rate limits** as this will
-have a huge impact on how we design the user flow and experience.
+Other than that, we also need to consider the **token and rate limits** as this will have a huge impact on how we design the user flow and experience.
 
 <br />
 <img
@@ -295,13 +271,10 @@ have a huge impact on how we design the user flow and experience.
   **_RPD_**_: Requests per day |_ **_TPD_**_: Tokens per day_
 </Box>
 <br />
-If you are keen on building personal projects, pay attention to the free tiers.
-We are limited to making 15 requests per minute and 1500 Requests each day.
+If you are keen on building personal projects, pay attention to the free tiers. We are limited to making 15 requests per minute and 1500 Requests each day.
 
 <br />
-Even as a solopreneur, we also need to consider _the pay-as-you-go_ plan. Make sure
-to design the application to make the cash flow positive, not to overspend it on
-one feature.
+Even as a solopreneur, we also need to consider _the pay-as-you-go_ plan. Make sure to design the application to make the cash flow positive, not to overspend it on one feature.
 
 <Text my="4" fontSize="xl">
   3. Making your first API Call
@@ -316,8 +289,7 @@ one feature.
   dashboard
 </Box>
 <br />
-For a quick check, we can use Postman and copy-paste that cURL Request alongside
-the API key we’ve just created.
+For a quick check, we can use Postman and copy-paste that cURL Request alongside the API key we’ve just created.
 
 <br />
 <img
@@ -328,17 +300,13 @@ the API key we’ve just created.
   Input the cURL request and the API Key in the Postman
 </Box>
 <br />
-The cURL request with fetch API is working. But it’s quite troublesome to form
-the payload (unless you’re keen on Data Science and Algorithm I guess it’s just
-another leetcode challenge for you).
+The cURL request with fetch API is working. But it’s quite troublesome to form the payload (unless you’re keen on Data Science and Algorithm I guess it’s just another leetcode challenge for you).
 
 <br />
-Not to mention, it’s not that scalable if we want to put more input context into
-the model.
+Not to mention, it’s not that scalable if we want to put more input context into the model.
 
 <br />
-Why do we want more input context? Generally, users expect the AI model to remember
-their conversation right? We’ll need to put those into the payload too.
+Why do we want more input context? Generally, users expect the AI model to remember their conversation right? We’ll need to put those into the payload too.
 
 <br />
 There should be a better alternative.
@@ -401,9 +369,7 @@ I’ve built the UI to test the latest approach, and it turns out like this:
 Congratulations! By now, the app is up and running by utilizing Gemini models.
 
 <br />
-But if we remember previously we discussed how each model has its rate limits and
-token restrictions. Considering if we chose the Pay-as-you-go option, it’s important
-to **ensure that your API key is not exposed.**
+But if we remember previously we discussed how each model has its rate limits and token restrictions. Considering if we chose the Pay-as-you-go option, it’s important to **ensure that your API key is not exposed.**
 
 <br />
 <img
@@ -415,9 +381,7 @@ to **ensure that your API key is not exposed.**
   way!
 </Box>
 <br />
-We need a preventive approach to how others couldn’t freely use our API key
-leading to slow response (because of constantly hitting the rate limit
-threshold) or the least favourable position: unexpected cash burns.
+We need a preventive approach to how others couldn’t freely use our API key leading to slow response (because of constantly hitting the rate limit threshold) or the least favourable position: unexpected cash burns.
 
 <Text my="4" fontSize="xl">
   5. Put the API Key in server environments!
@@ -478,9 +442,7 @@ Since the generated content response from Gemini API is in markdowns, we’ll ne
 to wrap the output with your preferred library to render it properly. For ease, I’m
 just using React Markdown.
 <br />
-Last thing to consider is how we make the user flow adjusted to our free Gemini API
-plan. To make such constraint, the application limits the public user to make 3 request
-per visit and they may try again tomorrow.
+Last thing to consider is how we make the user flow adjusted to our free Gemini API plan. To make such constraint, the application limits the public user to make 3 request per visit and they may try again tomorrow.
 
 <br />
 <img
@@ -499,14 +461,10 @@ per visit and they may try again tomorrow.
 I’m developing a personal finance tracker web app. Chat with AI feature is still on the free version of Gemini, so the **Rate Limit from Google API may apply** :)
 
 <br />
-With that said, feel free to check for yourself <u>
-  {" "}
-  [here](https://moneytorq.com/suggest).
-</u>
+With that said, feel free to check for yourself <u> [here](https://moneytorq.com/suggest).</u>
 
 <br />
-Also, if you wonder how I built the backend and the database for the application,
-I used Supabase and talked about this in [my other post](https://medium.com/@ilhamm179/from-curiosity-to-code-building-with-supabase-shadcn-d5b0dc7a5d35)!
+Also, if you wonder how I built the backend and the database for the application, I used Supabase and talked about this in [my other post](https://medium.com/@ilhamm179/from-curiosity-to-code-building-with-supabase-shadcn-d5b0dc7a5d35)!
 
 <br />
 Cheers.
