@@ -1,0 +1,29 @@
+import type { GetServerSideProps } from "next";
+
+import { generateXML } from "helpers/generateXML";
+
+export default function Sitemap() {
+  return null;
+}
+
+const generateSitemap = () => {
+  const currentDateTime = new Date().toISOString();
+  const baseUrl = process.env.NEXT_PUBLIC_HOST_URL;
+
+  const list = [`${baseUrl}/`, `${baseUrl}/projects`, `${baseUrl}/about`];
+
+  return generateXML({
+    type: "sitemapindex",
+    content: list.map((item) => ({ loc: item, lastmod: currentDateTime })),
+  });
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  res.setHeader("Content-Type", "text/xml");
+  res.write(generateSitemap());
+  res.end();
+
+  return {
+    props: {},
+  };
+};
