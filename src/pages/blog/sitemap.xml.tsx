@@ -12,7 +12,7 @@ export default function SitemapBlogs() {
 }
 
 const generateSitemap = async () => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const baseUrl = process.env.BASE_URL || "https://ilhamadhim.my.id";
 
   const files = fs.readdirSync(path.join("src/posts"));
 
