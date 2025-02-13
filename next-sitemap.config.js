@@ -4,4 +4,4 @@ const NextSitemapConfig = {
   generateRobotsTxt: true,
 };
 
-module.exports = NextSitemapConfig;
+module.exports = {};

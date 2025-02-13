@@ -8,7 +8,7 @@ export default function Sitemap() {
 
 const generateSitemap = () => {
   const currentDateTime = new Date().toISOString();
-  const baseUrl = process.env.NEXT_PUBLIC_HOST_URL;
+  const baseUrl = process.env.BASE_URL ?? "https://ilhamadhim.my.id";
 
   const list = [`${baseUrl}/`, `${baseUrl}/projects`, `${baseUrl}/about`];
 

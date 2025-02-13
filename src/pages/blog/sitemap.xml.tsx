@@ -12,7 +12,7 @@ export default function SitemapBlogs() {
 }
 
 const generateSitemap = async () => {
-  const baseUrl = process.env.BASE_URL || "https://ilhamadhim.my.id";
+  const baseUrl = process.env.BASE_URL ?? "https://ilhamadhim.my.id";
 
   const files = fs.readdirSync(path.join("src/posts"));
 
@@ -20,6 +20,8 @@ const generateSitemap = async () => {
     slug: filename.replace(".mdx", ""),
     id: uuidv4(),
   }));
+
+  console.log("filename", paths);
 
   const list: XMLContent[] =
     paths.map((article) => {
