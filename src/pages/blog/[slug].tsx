@@ -20,6 +20,8 @@ import path from "path";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { v4 as uuidv4 } from "uuid";
 
+import Metadata from "components/Metadata";
+
 const SyntaxHighlighter = dynamic(() => import("react-syntax-highlighter"), {
   ssr: false,
 });
@@ -58,19 +60,33 @@ const components = {
   Link,
 };
 
-const PostPage = ({ frontMatter: { title, date }, mdxSource }: any) => {
+const PostPage = ({
+  frontMatter: { title, date, description, metaDescription, tags },
+  mdxSource,
+}: any) => {
   return (
-    <Box suppressHydrationWarning w={["90%", "60%"]} mx="auto">
-      <Flex flexDir="column" gap={2} my={2}>
-        <Heading fontSize="2xl" color={useColorModeValue("gray.700", "white")}>
-          {title}
-        </Heading>
-        <Text>{date}</Text>
-      </Flex>
-      <Divider my={4} />
+    <>
+      <Metadata
+        isArticle
+        keywords={tags.join(",")}
+        title={title}
+        description={`${description}${metaDescription}`}
+      />
+      <Box suppressHydrationWarning w={["90%", "60%"]} mx="auto">
+        <Flex flexDir="column" gap={2} my={2}>
+          <Heading
+            fontSize="2xl"
+            color={useColorModeValue("gray.700", "white")}
+          >
+            {title}
+          </Heading>
+          <Text>{date}</Text>
+        </Flex>
+        <Divider my={4} />
 
-      <MDXRemote {...mdxSource} components={components} />
-    </Box>
+        <MDXRemote {...mdxSource} components={components} />
+      </Box>
+    </>
   );
 };
 
