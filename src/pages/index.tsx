@@ -45,7 +45,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   return (
     <>
       <MetaData
-        title="Home"
+        title="Ilham Adhim | Home"
         description="Muhammad Ilham Adhim is a Front-End Developer from Indonesia. He Uses React, Typescript, and Next JS as main tech stack. Read more..."
       />
       <Box mb={8} display={{ md: "flex" }} alignItems="center" minHeight="70vh">

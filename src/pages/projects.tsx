@@ -34,7 +34,7 @@ const ProjectPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   return (
     <>
       <MetaData
-        title="Projects"
+        title="Ilham Adhim | Projects"
         description="Here are my projects collection that i've done as Front-End Developer. I'm using React, NextJS, ChakraUI, TypeScript and more."
       />
       <Box w="full" p="5" mx="auto">

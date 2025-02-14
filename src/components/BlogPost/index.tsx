@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable react/no-unused-prop-types */
 import {
   Box,
   Flex,
@@ -10,13 +11,14 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 
-interface BlogPostProps {
+export interface BlogPostProps {
   title: string;
   date: string;
   description: string;
   thumbnailUrl: string;
   tags: string[];
   timeEstimation: string;
+  metaDescription?: string;
 }
 
 const BlogPost = ({

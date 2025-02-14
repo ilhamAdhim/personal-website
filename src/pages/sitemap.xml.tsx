@@ -10,10 +10,15 @@ const generateSitemap = () => {
   const currentDateTime = new Date().toISOString();
   const baseUrl = process.env.BASE_URL ?? "https://ilhamadhim.my.id";
 
-  const list = [`${baseUrl}/`, `${baseUrl}/projects`, `${baseUrl}/about`];
+  const list = [
+    `${baseUrl}`,
+    `${baseUrl}/projects`,
+    `${baseUrl}/about`,
+    `${baseUrl}/blog`,
+  ];
 
   return generateXML({
-    type: "sitemapindex",
+    type: "urlset",
     content: list.map((item) => ({ loc: item, lastmod: currentDateTime })),
   });
 };

@@ -17,7 +17,7 @@ const BlogPage = ({ posts }: any) => {
   return (
     <>
       <MetaData
-        title="Blog"
+        title="Ilham Adhim | Blog"
         description="Ilham Adhim writes articles to document his learning on Front-End Technologies. Feel free to visit his website"
       />
       <Box w="full" p="5" mx="auto">
@@ -49,6 +49,7 @@ const BlogPage = ({ posts }: any) => {
                   thumbnailUrl={post.frontMatter.thumbnailUrl}
                   tags={post.frontMatter.tags}
                   timeEstimation={post.frontMatter.timeEstimation}
+                  metaDescription={post.frontMatter.metaDescription}
                 />
               </a>
             </Link>
