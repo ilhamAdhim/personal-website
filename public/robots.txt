@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: https://ilhamadhim.my.id/sitemap.xml
+Sitemap: https://ilhamadhim.my.id/blog/sitemap.xml
