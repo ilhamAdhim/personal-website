@@ -13,12 +13,13 @@ import {
 } from "@chakra-ui/react";
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import path from "path";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { v4 as uuidv4 } from "uuid";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import Metadata from "components/Metadata";
 
@@ -26,11 +27,10 @@ const SyntaxHighlighter = dynamic(() => import("react-syntax-highlighter"), {
   ssr: false,
 });
 
-const SyntaxHighlighterWithVariant = ({ children }: any) => {
+const SyntaxHighlighterWithVariant = ({ children }: { children: string }) => {
   const { colorMode } = useColorMode();
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {colorMode === "dark" ? (
         <SyntaxHighlighter
@@ -60,10 +60,21 @@ const components = {
   Link,
 };
 
+interface PostPageProps {
+  frontMatter: {
+    title: string;
+    date: string;
+    description: string;
+    metaDescription: string;
+    tags: string[];
+  };
+  mdxSource: MDXRemoteSerializeResult;
+}
+
 const PostPage = ({
   frontMatter: { title, date, description, metaDescription, tags },
   mdxSource,
-}: any) => {
+}: PostPageProps) => {
   return (
     <>
       <Metadata
@@ -83,20 +94,18 @@ const PostPage = ({
           <Text>{date}</Text>
         </Flex>
         <Divider my={4} />
-
         <MDXRemote {...mdxSource} components={components} />
       </Box>
     </>
   );
 };
 
-const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join("src/posts"));
 
   const paths = files.map((filename) => ({
     params: {
       slug: filename.replace(".mdx", ""),
-      id: uuidv4(),
     },
   }));
 
@@ -106,7 +115,8 @@ const getStaticPaths = async () => {
   };
 };
 
-const getStaticProps = async ({ params: { slug } }: any) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
   const markdownWithMeta = fs.readFileSync(
     path.join("src/posts", `${slug}.mdx`),
     "utf-8"
@@ -124,5 +134,4 @@ const getStaticProps = async ({ params: { slug } }: any) => {
   };
 };
 
-export { getStaticProps, getStaticPaths };
 export default PostPage;
