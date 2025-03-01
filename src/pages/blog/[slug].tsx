@@ -13,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import path from "path";
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { v4 as uuidv4 } from "uuid";
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 import Metadata from "components/Metadata";
 
@@ -31,22 +31,12 @@ const SyntaxHighlighterWithVariant = ({ children }: { children: string }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <>
-      {colorMode === "dark" ? (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="javascript"
-          style={dark}
-          children={children}
-        />
-      ) : (
-        <SyntaxHighlighter
-          showLineNumbers
-          language="javascript"
-          children={children}
-        />
-      )}
-    </>
+    <SyntaxHighlighter
+      showLineNumbers
+      language="javascript"
+      {...(colorMode === "dark" ? { style: dark } : {})}
+      children={children}
+    />
   );
 };
 
