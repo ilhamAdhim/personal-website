@@ -42,7 +42,7 @@ export default function MetaData(props: MetaDataProps) {
   const jsonLDRenderer = () => {
     let schemaType = "";
     if (isArticle) schemaType = "Blogs";
-    else schemaType = "Personal Website";
+    else schemaType = "WebSite";
 
     return (
       <script

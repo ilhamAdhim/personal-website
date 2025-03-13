@@ -6,6 +6,8 @@ thumbnailUrl: "/images/blogs/supabase-shadcn.png"
 tags: ["Supabase", "ShadCN", "Next JS"]
 timeEstimation: 8 mins
 metaDescription: "Article by Ilham Adhim."
+metaKeywords:
+  ["Supabase", "ShadCN", "Next JS", "Full-Stack Development", "Web Development"]
 ---
 
 <img
@@ -53,6 +55,7 @@ As a developer’s POV, whenever we build a web application from scratch, the ha
 </ol>
 
 There is quite a learning curve for Frontend Devs to build things out. Although it is possible to learn with other programming languages (such as PHP and Golang), Supabase makes it easy for Front-end developers with fair-share knowledge of how Back-end stuff works.
+
 <br />
 
 I’ll share how much Supabase has been helpful for me thus far, if you find my approach lacks in some things, feel free to comment!
@@ -75,6 +78,7 @@ I’ll share how much Supabase has been helpful for me thus far, if you find my 
 </Box>
 
 The user registration and login process can be quite time-consuming. Especially when we want to allow our users to have social login with OAuth like Google, GitHub, Twitter, and such.
+
 <br />
 
 <img
@@ -126,6 +130,7 @@ To register and log in for our users with basic email, we can use `supabase.auth
 </Text>
 
 Under the hood, Supabase uses PostgreSQL to store and fetch data. When choosing whether to use tables or views, I usually take a look into the query complexity.
+
 <br />
 
 <img
@@ -142,6 +147,7 @@ Under the hood, Supabase uses PostgreSQL to store and fetch data. When choosing 
 </Box>
 
 If there are lots of JOIN tables involved, the performance might suffer and make your users frustrated with how slow your web application is. Therefore, for me, it’s better to have the painful and complex SQL Query run once and make it a view, so the loading is significantly faster.
+
 <br />
 
 <Alert status="info" variant="left-accent">
@@ -172,13 +178,17 @@ The approach is quite similar to how you use ORM in the back end side. If you
 are a fellow Front-End developer like me, you may relate to this bunch of codes
 which are usually being put in `/actions` or `/api/` folder. If you play with
 skeleton UI or loaders without lots of useEffects, these functions can be called
-in useQuery() by <span style={{textDecoration: 'underline'}}> [Tanstack Query](https://tanstack.com/query/latest)</span>.
+in useQuery() by <span style={{ textDecoration: "underline" }}>
+  {" "}
+  [Tanstack Query](https://tanstack.com/query/latest)
+</span>.
 
 <Text my="4" fontSize="2xl">
   Row Level Security (RLS)
 </Text>
 
 In my early discovery of Supabase, I got lots of empty data even if I had lots of records in my tables. Also, the functions for create, update, and delete don't work. After an hour of debugging (yes I debugged and had no clue of it) and reading the docs, I figured that Supabase has an additional layer of security which we need to allow the specific tables to be accessed.
+
 <br />
 
 <img
@@ -196,9 +206,11 @@ In my early discovery of Supabase, I got lots of empty data even if I had lots o
 </Box>
 
 Now, we check on our app. The data should be displayed and other create, update, and delete operations should be working.
+
 <br />
 
 If you are keen, you might see that all of the target roles for my RLS policies all set up for the public. This means that even the unauthenticated users in our application can access our API if they know our API Key and Supabase Project. This is fine for the beginning. But once you set the <b>Authentication </b> part (in the first section), we need to set the target roles to <i> authenticated </i>.
+
 <br />
 
 <img
@@ -221,7 +233,8 @@ From above GIF, i want you to take a look at line 7. We can also <b> utilize the
 </Text>
 
 RPC in Supabase is a function defined in PostgreSQL. Like views, we can put an RPC for complex SQL queries so that our Frontend code is much cleaner.
-<br/>
+
+<br />
 <img
   style={{
     width: "100%",
@@ -256,6 +269,7 @@ RPC in Supabase is a function defined in PostgreSQL. Like views, we can put an R
 </Box>
 
 It’s very similar on the surface. Both can apply RLS policies, and both business logic is placed on the Supabase Dashboard. In the above example, we can use both RPC and Views as we like. But from the nature of PostgreSQL, the main distinction is <b> we only can do READ in our views . Whereas the RPCs can do READ, INSERT, DELETE, and UPDATE.</b>
+
 <br />
 
 <Alert status="success" variant="left-accent">
@@ -267,6 +281,7 @@ It’s very similar on the surface. Both can apply RLS policies, and both busine
 <br />
 
 So why not put all of our `/actions/` or `/api/` to RPCs instead of using functions from `supabase-js`? …… Well, you technically can do it. But it’d be counter-productive since we don't have better access to debugging error conditions and not seeing any request made in the Network Tab.
+
 <br />
 
 So, finding the sweet spot of combining both worlds is important.
@@ -275,10 +290,12 @@ So, finding the sweet spot of combining both worlds is important.
   The Reusable UI Components
 </Text>
 
-Now we’re talking on the Frontend side. Do you like how customizable is Tailwind CSS but find yourself in the hassle of recreating the components over and over? Well… you can consider more predefined component blocks like <span style={{textDecoration: 'underline'}}> [Flowbite](https://flowbite.com/) </span> or <span  style={{textDecoration: 'underline'}}> [DaisyUI](https://daisyui.com/) </span>.
+Now we’re talking on the Frontend side. Do you like how customizable is Tailwind CSS but find yourself in the hassle of recreating the components over and over? Well… you can consider more predefined component blocks like <span style={{textDecoration: 'underline'}}> [Flowbite](https://flowbite.com/) </span> or <span style={{textDecoration: 'underline'}}> [DaisyUI](https://daisyui.com/) </span>.
+
 <br />
 
 OR
+
 <br />
 
 If you’re like me and like Vercel design environment (Yes this is very subjective), you can use <span style={{textDecoration: 'underline'}}> [Shadcn](https://ui.shadcn.com/docs). </span>
@@ -298,9 +315,11 @@ If you’re like me and like Vercel design environment (Yes this is very subject
 <br />
 
 Instead of installing the whole component library like Flowbite, Daisy UI, and ChakraUI. ShadCN initialize to configure `components.json`. How?
+
 <br />
 
 After running `npx shadcn@latest init` :
+
 <br />
 
 <img
@@ -346,7 +365,12 @@ Whenever you add a component with your CLI, a new file is generated in your `/co
   alt="Many options to choose from. You might need to copy it from the GitHub Repo though"
 />
 <Box m="1em 0" color="gray" textAlign="center">
-  Many options to choose from. You might need to copy it from the  <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}> [Github Repo](https://github.com/shadcn-ui/ui/tree/main/apps/www/app/(app)/examples) </span> though
+  Many options to choose from. You might need to copy it from the{" "}
+  <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
+    {" "}
+    [Github Repo](https://github.com/shadcn-ui/ui/tree/main/apps/www/app/(app)/examples){" "}
+  </span>{" "}
+  though
 </Box>
 
 <hr style={{ margin: "2em 0" }} />
@@ -356,7 +380,10 @@ Whenever you add a component with your CLI, a new file is generated in your `/co
     target="_blank"
     style={{ textDecoration: "underline" }}
     href="https://medium.com/@ilhamm179/from-curiosity-to-code-building-with-supabase-shadcn-d5b0dc7a5d35"
-  > Medium </a>
+  >
+    {" "}
+    Medium{" "}
+  </a>
 </Box>
 
 <hr style={{ margin: "2em 0" }} />

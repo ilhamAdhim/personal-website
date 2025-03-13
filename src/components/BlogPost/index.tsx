@@ -19,6 +19,7 @@ export interface BlogPostProps {
   tags: string[];
   timeEstimation: string;
   metaDescription?: string;
+  metaKeywords: string[];
 }
 
 const BlogPost = ({
@@ -26,7 +27,7 @@ const BlogPost = ({
   date,
   description,
   thumbnailUrl,
-  tags,
+  tags = [], // Provide a default value for tags
   timeEstimation,
 }: BlogPostProps) => {
   return (

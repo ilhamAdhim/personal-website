@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/no-children-prop */
 import {
   Alert,
@@ -61,16 +62,26 @@ const components = {
 };
 
 const PostPage = ({
-  frontMatter: { title, date, description, metaDescription, tags },
+  frontMatter: { title, date, description, metaDescription, metaKeywords },
   mdxSource,
 }: any) => {
+  let finalMetaDescription = "";
+  if (!metaDescription.includes("Article by Ilham Adhim"))
+    finalMetaDescription = metaDescription;
+  else finalMetaDescription = `${description} ${metaDescription}`;
+
+  // Ensure metaKeywords is a string
+  const keywords = Array.isArray(metaKeywords)
+    ? metaKeywords.join(",")
+    : metaKeywords;
+
   return (
     <>
       <Metadata
         isArticle
-        keywords={tags.join(",")}
+        keywords={keywords}
         title={title}
-        description={`${description} ${metaDescription}`}
+        description={finalMetaDescription}
       />
       <Box suppressHydrationWarning w={["90%", "60%"]} mx="auto">
         <Flex flexDir="column" gap={2} my={2}>

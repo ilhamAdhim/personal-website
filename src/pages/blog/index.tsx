@@ -48,6 +48,7 @@ const BlogPage = ({ posts }: any) => {
                   date={post.frontMatter.date}
                   thumbnailUrl={post.frontMatter.thumbnailUrl}
                   tags={post.frontMatter.tags}
+                  metaKeywords={post.frontMatter.metaKeywords}
                   timeEstimation={post.frontMatter.timeEstimation}
                   metaDescription={post.frontMatter.metaDescription}
                 />

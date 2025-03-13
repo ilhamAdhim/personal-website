@@ -1,0 +1,621 @@
+---
+title: "From Zero to SEO: Beyond Keywords"
+date: "03 March 2025"
+description: "Essentials of technical SEO: crawlability, sitemaps, robots.txt, JSON-LD, and site structure."
+thumbnailUrl: "/images/blogs/from-zero-to-seo.png"
+tags: ["Technical SEO", "Next.js", "Site Structure"]
+metaKeywords:
+  [
+    "SEO",
+    "Technical SEO",
+    "Crawlability",
+    "Sitemaps",
+    "Robots.txt",
+    "JSON-LD",
+    "Site Structure",
+    "Next.js",
+    "SEO Guide",
+  ]
+timeEstimation: 8 mins
+metaDescription: "From zero to SEO! This post explores technical SEO with a case study approach. Discover how to optimize your website using sitemaps, robots.txt, JSON-LD, and Next.js."
+---
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:828/format:webp/0*H1xfKozL7U7svpYe"
+  alt="SEO Image"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Photo by [NisonCo PR and
+  SEO](https://unsplash.com/@nisoncoprseo?utm_source=medium&utm_medium=referral)
+  on [Unsplash](https://unsplash.com/?utm_source=medium&utm_medium=referral)
+</Box>
+
+Lately, I’ve been trying to grow my online presence by contributing to open source projects, being more active on LinkedIn and Medium, and writing on my blog. By writing on LinkedIn and Medium, it’s easy to have a large reach of audience since their system helps us on Google Search Ranking as well.
+
+<br />
+
+This got me intrigued about how SEO works. Is it only related to adjusting Metadata? Keyword research? Building backlinks?
+
+<br />
+As I dove deep into this area, I realized that SEO requires implementation from cross-functional
+fields. For example:
+<br />
+
+1.  Content production team: Keyword Research and creating high-quality, relevant and engaging content.
+2.  People Relations Team: Managing backlinks and deals with other strategic partners to create joint content and shared audiences to boost brand visibility.
+3.  Design + Dev Team: Ensure the websites are mobile-friendly and responsive.
+4.  Core Dev team: Manage Technical SEO aspects, know how Google Crawler works, Site structure for JSON LD, and attaching metadata.
+
+<br />
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/0*QxA2TUez7kl9XZRm"
+  alt="SEO Guide"
+/>
+<br />
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Image taken from
+  [https://moz.com/beginners-guide-to-seo](https://moz.com/beginners-guide-to-seo)
+</Box>
+
+Basic site? Basic SEO. Building something HUGE? Then, you need more than just metadata. News sites, e-commerce giants, online learning platforms, thriving forums — what do they all have in common? They understand the _real_ power of SEO. Let’s find out how!
+
+<br />
+
+In this post, I’ll discuss **how technical SEO works**. With my website as the case study.
+
+<Text my="4" fontSize="xl">
+  # **Crawlability and Indexability**
+</Text>
+
+Technical SEO's main purpose is to make our website visible to Google Crawler and how we present it.
+
+<br />
+
+> But first, we need to show up.
+
+<br />
+
+To do that, we need to know how search engines work. There are 3 steps to how it’s done by them. In this example, it’s Google's search engine and crawler bots:
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*JM5vVNq9cf89wQTYKBvg5A.jpeg"
+  alt="SEO Process"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Image source:
+  [https://www.crazydomains.com.au/learn/what-is-seo-understanding-basics-of-seo/](https://www.crazydomains.com.au/learn/what-is-seo-understanding-basics-of-seo/)
+</Box>
+<br />
+Firstly, make sure that your pages are ready and verified site ownership of your
+website ([Initial Steps for Google Search
+Console](https://developers.google.com/search/docs/monitor-debug/search-console-start));
+only then can we request indexing for each page with URL Inspection in Google
+Search Console.
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*k6mNFVHbXxbUrMEJHCM6wg.png"
+  alt="Google Search Console"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  For new pages and when the content of URL is changed, hit the button ‘Request
+  Indexing’
+</Box>
+<br />
+
+When registering each page with URL Inspection, it took me 1–2 days to be ranked in Google.
+
+<br />
+
+But **as the content of our website grows**, it’s wise to make a scalable move, which is to **insert the sitemaps** for the crawlers. So that every new content is created, we can expect it will be indexed by the **end of the week (Typically 3–4 days if we do it this way)**.
+
+<br />
+
+<Text my="4" fontSize="lg">
+  # **Sitemaps for Crawler Bots**
+</Text>
+
+Ever find yourself in a new area, limited to just one path? If you’re like me, you’d want to explore a bit. So, what’s your go-to? Google Maps, of course. It’s fast, offers a range of choices, and keeps things simple.
+
+<br />
+
+The same goes for web crawlers. There are billions of websites nowadays, and when it reaches our website, they can follow the path (internal links). But for fast, simple, and when there are lots of URLs to cover, web crawlers might need sitemaps.
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*mB6Zikb1M5u6hUZxcft9WA.png"
+  alt="Sitemaps"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  The content of my blog sitemaps. It gives direction for Crawlers to fetch
+  those pages. Get the metadata to index it on the respective search engine.
+</Box>
+
+After creating the sitemaps, don’t forget to **submit the URL Sitemaps to Google Search Console** as well!
+
+<Text my="4" fontSize="lg">
+  # **Setting Boundaries for the Crawler (Robots.txt)**
+</Text>
+
+We can use a robots.txt file to tell search engines which parts of our website they should or shouldn’t crawl. This is useful for blocking duplicate content, pages under development, or auth-guarded pages that contain sensitive client data.
+
+<br />
+
+<SyntaxHighlighterWithVariant>
+  {`
+  // example of robots.txt  
+    
+  // We can specifically choose crawler type e.g. Googlebot, Bingbot, etc  
+  // or just allow all crawlers across the internet to index our website.  
+  User-agent: *  
+    
+  // Give the crawler of what are the URL address available in our website.  
+  Sitemap: https://<your-domain>/sitemap.xml  
+    
+  // (Opt.) The crawler shouldn't index the URL with query params, as it maybe contains sensitive data  
+  disallow: /*?  
+    
+  // The crawler shouldn't index these URL. Depends on your business case. Can be rauth-guarded pages  
+  disallow: /owners/  
+  disallow: /admins/
+`}
+</SyntaxHighlighterWithVariant>
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:560/1*h09HSNTVvzd3SZVqIFjMBg.png"
+  alt="Robots.txt"
+/>
+<Box m="1em 0" color="gray" textAlign="center">
+  In my personal website, the usage of robots.txt is relatively simple
+</Box>
+
+<Text my="4" fontSize="xl">
+  # **Enriched Search Result with JSON-LD**
+</Text>
+
+Ever wondered how to render Google search results for your website? It turns out it’s still within the scope of technical SEO!
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/0*5xUGq9l7oVDG-9it.png"
+  alt="JSON-LD"
+/>
+<br />
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Image Source:
+  [https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
+</Box>
+
+Firstly, let’s see the common attributes of the JSON-LD Schema. Let’s say I have an E-Commerce site that has a product detail page. The JSON-LD Schema should be similar to something like this:
+
+```
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Example Product",
+  "description": "A detailed description of the product.",
+  "image": "https://example.com/image.jpg",
+  "offers": {
+    "@type": "Offer",
+    "price": "29.99",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "120"
+  }
+}
+```
+
+<br />
+
+- `@context` specifies that we're using schema.org vocabulary.
+- `@type` indicates this is a product. It can be `BlogPosting, Articles, Books, Events, Places, Rating` and [more](https://schema.org/docs/schemas.html)!
+- The `name`, `description`, and `image` properties provide information about the product.
+- The `offers` property contains a nested object with offer details.
+- `aggregateRating` shows how many ratings the product received of those `reviewCount` available.
+  <br />
+  <br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*djLRgw0RI6z1lAF_hLPRSQ.gif"
+  alt="Testing JSON-LD"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Testing the JSON-LD Schema with Google Search Tools
+</Box>
+<br />
+
+Testing the JSON-LD codes can give us a better overview of how the rich snippets work. This is quite a game changer because we don’t need to wait for the pages to be crawled by bots and getting indexed, which could take days.
+
+<br />
+
+<Text my="4" fontSize="xl">
+  # **Site Structure**
+</Text>
+
+Alright, here’s where it gets a bit like choosing your adventure.
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*Gpyb4X7MaMVTGPtek3cCOg.png"
+  alt="Site Structure"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  My blog setup with SEO in mind
+</Box>
+<br />
+
+If you’re using an older Next.js setup, you’ve got a choice: you can do it my way or use a library called “next-seo”. But if you’re using the shiny new Next.js (app router), they’ve got this built-in feature <span style={{textDecoration: 'underline'}}> [generateMetadata()](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) </span> that does the job for you.
+
+<br />
+
+<Text my="4" fontSize="lg">
+  ## **Metadata Reusable Component**
+</Text>
+
+<SyntaxHighlighterWithVariant language="tsx">
+  {`
+// FILE: src/components/Metadata.tsx  
+  
+// Default settings for the SEO.   
+const settings = {  
+  title: "Ilham Adhim | Front-End Developer",  
+  description:  
+    "Muhammad Ilham Adhim is a Front-End Developer from Indonesia with React as his main tech stack. He has various experience on both academic backgrounds and projects done. Check more...",  
+  keywords:  
+    "Front End Developer, FE Developer, Indonesia, Next JS, React JS, Typescript, Shadcn UI",  
+  url: process.env.NEXT_PUBLIC_BASE_URL,  
+};  
+export default function MetaData(props: MetaDataProps) {  
+  const {  
+    isArticle,  
+    displayedTitle,  
+    title = settings.title,  
+    description = settings.description,  
+    keywords = settings.keywords,  
+    url = settings.url,  
+    imageUrl = "",  
+  } = props;  
+  const prefixTitle = "";  
+  const suffixTitle = "";  
+  const builtTitle = prefixTitle + title + suffixTitle;
+  const metaImage = imageUrl === "" ? "settings.url/favicon.ico" : imageUrl;  
+  
+// JSONLDRenderer that match with the web page type.   
+  const jsonLDRenderer = () => {  
+    let schemaType = "";  
+    if (isArticle) schemaType = "Blogs";  
+    else schemaType = "Personal Website";  
+    return (  
+      <script  
+        type="application/ld+json"  
+        dangerouslySetInnerHTML={{  
+          __html: JSON.stringify({  
+            "@context": "http://schema.org",  
+            "@type": schemaType,  
+            name: builtTitle,  
+            about: description,  
+            url,  
+          }),  
+        }}  
+      />  
+    );  
+  };  
+  
+  return (  
+    <Head>  
+      <meta charSet="UTF-8" />  
+      <title>  
+        {displayedTitle ? (displayedTitle + suffixTitle) : builtTitle}  
+      </title>  
+      <meta name="title" content={builtTitle} />  
+      <meta name="description" content={description} />  
+      <meta name="keywords" content={keywords} />  
+      <meta property="og:site_name" content="ilhamadhim" />  
+      <meta property="og:title" content={builtTitle} />  
+      <meta property="og:description" content={description} />  
+      <meta property="og:url" content={url} />  
+      <meta property="og:image" content={metaImage} />  
+      <meta property="og:type" content="website" />  
+      {jsonLDRenderer()}  
+    </Head>  
+  );  
+}
+`}
+</SyntaxHighlighterWithVariant>
+
+<br />
+I’m using MDX for my articles, which lets me add fancy UI elements directly into
+my writing. To keep this SEO-focused, we’ll dive into how my `<Metadata />` component
+helps me manage the important SEO information for each blog post.
+<br />
+
+<SyntaxHighlighterWithVariant>
+  {`
+// FILE: /pages/blog/[slug].tsx  
+  
+// PostPageProps are the value that are being returned from getStaticProps
+  
+const PostPage = ({ frontMatter: { title, date, description, metaDescription, tags }, mdxSource }: PostPageProps) => {  
+  return (  
+    <>  
+      <Metadata  
+        isArticle  
+        keywords={tags.join(",")}  
+        title={title}  
+        description={description}
+      />  
+  
+       // Pass the values to MDXRemote to render it. we can call the UI Components allowed to be rendered in MDX with components props
+        <MDXRemote {...mdxSource} components={components} />  
+      </Box>  
+    </>  
+  );  
+};  
+  
+// the rest of the code. Basically just 2 things:  
+// getStaticPaths: Generates the list of paths for dynamic routes.  
+// getStaticProps: Fetches and processes data from the MDX file.
+`}
+</SyntaxHighlighterWithVariant>
+<br />
+
+The blog post has been processed as such and renders properly when we try to access each of them. But how do we expose each articles to form the sitemap?
+
+<br />
+
+It’s time for us to create an API function to handle that:
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*79uBdAVzZ6EsPnuS7XDkcw.png"
+  alt="API Function"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  FILE: /api/articles.ts handles all created articles into a list of object that
+  sitemap would understand
+</Box>
+
+After creating the API, we can quickly check the API Response
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*nT5yAUBvIhLgRjP40u3dow.png"
+  alt="API Response"
+/>
+<br />
+
+By having the API response ready, we can now easily generate the real Sitemap XML. Since my website is still using Next JS v.12.1.5, I can do it by using `getServerSideProps` function.
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*_49JeAzU0V4CSLFSF9U1Jg.png"
+  alt="Sitemap XML"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  This sitemap.xml.tsx will be accessible in
+  [https://ilhamadhim.my.id/blog/sitemap.xml](https://ilhamadhim.my.id/blog/sitemap.xml)
+</Box>
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*mB6Zikb1M5u6hUZxcft9WA.png"
+  alt="Final Sitemap"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  The final result!
+</Box>
+<br />
+
+After the sitemaps are ready, request indexing on the Google Search Console by doing URL Inspection and clicking on the “Request Indexing” button.
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*OdjNX_eIF2CGlx3tu3sA4g.png"
+  alt="Request Indexing"
+/>
+
+<Text my="4" fontSize="xl">
+  # **Technical SEO Tools**
+</Text>
+
+To monitor all those efforts, we need to validate at least 3 things:
+
+<br />
+
+1.  Check if sitemaps.xml is valid with <span style={{textDecoration: 'underline'}}> [Sitemap Validator](https://www.xml-sitemaps.com/validate-xml-sitemap.html) </span>
+2.  Check if robots.txt is valid by accessing directly on your website  
+    `https://<your-domain>/robots.txt`
+3.  Check the page speed and mock how your site visitors might experience it with [https://pagespeed.web.dev](https://pagespeed.web.dev/)
+4.  After ensuring everything is up and running, just give it a few days for the Crawler to gather your data. These data will be displayed in Google Search Console.
+    <br />
+    <br />
+
+<img
+  style={{
+    width: "100%",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*Pff9FDVzMCYsHuN2FUCCsg.png"
+  alt="SEO Tools"
+/>
+
+<Box m="1em 0" fontSize="md" color="gray" textAlign="center">
+  For context, this image is taken at 28 Feb 2025. It took almost 2 weeks for
+  the report to show up.
+</Box>
+
+<Text my="4" fontSize="xl">
+  # **Others**
+</Text>
+
+- Open Graph Meta Tags
+
+Open Graph meta tags are crucial for controlling how your web pages appear when shared on social media platforms like Facebook, Twitter (now X), LinkedIn, and others. They tell these platforms how to display your content.
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    objectFit: "contain",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*wrdQ-TeEicyQn2bdRQaH9w.png"
+  alt="Open Graph Meta Tags"
+/>
+
+<Box m="1em 0" color="gray" textAlign="center">
+  How OpenGraph renders my URL Overview when it is being shared through other
+  platforms (e.g. Discord).
+</Box>
+
+The use case of OpenGraph in my website is simple. For maximum scalability, I put `builtTitle, description, url, metaImage` in parameters that can be adjusted when I call the `<Metadata />` component. The output of my OpenGraph section is as follows:
+
+<br />
+
+<SyntaxHighlighterWithVariant>
+  {`
+  <head>
+    <meta property="og:site_name" content="ilhamadhim" />
+    <meta property="og:title" content={builtTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={metaImage} />
+    <meta property="og:type" content="website" />
+  </head>
+`}
+</SyntaxHighlighterWithVariant>
+<br />
+
+You can check more comprehensive syntax of OpenGraph <span style={{textDecoration: 'underline'}}>[here](https://ogp.me/)</span> .
+
+<br />
+
+- Page Speed and Mobile-Friendliness
+
+A fast server load time will lead to better coverage of search engines. Whereas a mobile-friendly design is just much more common and convenient for people to access your website. The more seamless your website design, the more CTR (click-through rate) that you possibly yield (as long as you pump out high-quality content that is relatable to your audience).
+
+<br />
+
+<img
+  style={{
+    width: "100%",
+    height: 250,
+    objectFit: "cover",
+    backgroundPosition: "center",
+  }}
+  src="https://miro.medium.com/v2/resize:fit:788/1*dVb37W5A9vvXio1lEEAhUA.png"
+  alt="Page Speed"
+/>
+
+<br />
+
+<Box m="1em 0" color="gray" textAlign="center">
+  Quick check for mobile responsiveness of my personal website with Lighthouse.
+</Box>
+
+- HTTPS and Security
+
+Implementing HTTPS and maintaining strong website security are crucial for SEO. They build trust, protect user data, and contribute to a positive user experience. By prioritizing security, you can enhance your website’s visibility, improve its ranking, and protect your brand’s reputation.
+
+<br />
+
+<Text my="4" fontSize="xl">
+  # **Conclusion**
+</Text>
+
+Remember, SEO is a journey, not a destination. By prioritizing crawlability, structure, and user experience, you’re already well on your way. Technical SEO isn’t as daunting as it seems — you’ve got this 😉.
