@@ -174,14 +174,14 @@ If there are lots of JOIN tables involved, the performance might suffer and make
 <Box m="1em 0" color="gray" textAlign="center">
   Basic CRUD for one of my table
 </Box>
+
 The approach is quite similar to how you use ORM in the back end side. If you
 are a fellow Front-End developer like me, you may relate to this bunch of codes
 which are usually being put in `/actions` or `/api/` folder. If you play with
 skeleton UI or loaders without lots of useEffects, these functions can be called
-in useQuery() by <span style={{ textDecoration: "underline" }}>
-  {" "}
-  [Tanstack Query](https://tanstack.com/query/latest)
-</span>.
+in useQuery() by 
+
+<span style={{ textDecoration: "underline" }}>[Tanstack Query](https://tanstack.com/query/latest) </span>.
 
 <Text my="4" fontSize="2xl">
   Row Level Security (RLS)
@@ -226,7 +226,7 @@ If you are keen, you might see that all of the target roles for my RLS policies 
   Well yes… It’s that simple.
 </Box>
 
-From above GIF, i want you to take a look at line 7. We can also <b> utilize the policy so that the operation is destined for the logged in user. </b> This is helpful because we don’t need to put `.where()` conditions in every in every `/actions` or `/api/` files.</span>
+From above GIF, i want you to take a look at line 7. We can also <b> utilize the policy so that the operation is destined for the logged in user. </b> This is helpful because we don’t need to put `.where()` conditions in every in every `/actions` or `/api/` files.
 
 <Text my="4" fontSize="2xl">
   Remote Procedure Calls (RPC)
