@@ -85,5 +85,70 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "Testimonials",
+    "list": [
+      {
+        "name": "[Back-End Dev Name]",
+        "role": "Back-End Developer",
+        "text": "Ilham's frontend implementations are consistently clean and perfectly integrated with our APIs. This seamless connection saves us significant backend development time."
+      },
+      {
+        "name": "[Back-End Dev Name]",
+        "role": "Back-End Developer",
+        "text": "Working with Ilham is a breeze. He deeply understands how frontend apps consume our services, anticipating issues and delivering intuitive UIs from complex data."
+      },
+      {
+        "name": "[Back-End Dev Name]",
+        "role": "Back-End Developer",
+        "text": "Ilham builds more than UIs; he builds a cohesive system with the backend in mind. His thoughtful approach to data flow makes our joint development incredibly smooth."
+      },
+      {
+        "name": "Ilyas Adiyasa",
+        "role": "Frontend Developer",
+        "text": "Ilham is an amazing teammate. His code is top-notch – clean, readable, and adheres to best practices. He's always sharing knowledge and elevating our team."
+      },
+      {
+        "name": "[Peer Front-End Dev Name]",
+        "role": "Frontend Developer",
+        "text": "Collaborating with Ilham is rewarding. He brings creativity and technical precision, tackling complex UI challenges with elegant solutions. A great team player."
+      },
+      {
+        "name": "[Peer Front-End Dev Name]",
+        "role": "Frontend Developer",
+        "text": "Ilham consistently impresses with his dedication to new frontend tech. He masters new tools quickly, crafting exceptional user experiences in every detail."
+      },
+      {
+        "name": "[QA Tester Name]",
+        "role": "QA Tester",
+        "text": "Testing Ilham's work is easy. His attention to detail means fewer bugs and smoother testing cycles. He delivers stable, responsive UIs and quickly addresses feedback."
+      },
+      {
+        "name": "[QA Tester Name]",
+        "role": "QA Tester",
+        "text": "Ilham's builds are always high quality. I rarely find critical issues, thanks to his understanding of edge cases and accessibility. He aims for a polished product."
+      },
+      {
+        "name": "[QA Tester Name]",
+        "role": "QA Tester",
+        "text": "I appreciate Ilham's thoroughness. He's proactive in his own testing, often catching issues before they reach us. His clear communication streamlines our process."
+      },
+      {
+        "name": "[Product Owner/Project Manager Name]",
+        "role": "Product Owner / Project Manager",
+        "text": "Ilham is an exceptional Frontend Developer, consistently delivering high-quality, user-centric interfaces on time and within scope. A true asset to our product features."
+      },
+      {
+        "name": "[Product Owner/Project Manager Name]",
+        "role": "Product Owner / Project Manager",
+        "text": "Ilham is highly communicative and collaborative. He provides clear updates, identifies roadblocks, and offers creative solutions. He translates requirements into engaging UIs seamlessly."
+      },
+      {
+        "name": "[Product Owner/Project Manager Name]",
+        "role": "Product Owner / Project Manager",
+        "text": "Working with Ilham is fantastic. He builds beautiful UIs and deeply understands our product vision. He's a proactive problem-solver who takes ownership, always aiming for the best user experience."
+      }
+    ]
+  },
   "CTA": "See More"
 }

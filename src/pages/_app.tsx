@@ -10,10 +10,10 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import Layout from "layout";
-import customTheme from "lib/styles/customTheme";
 
 import "aos/dist/aos.css"; // You can also use <link> for styles
 import "lib/styles/globals.css";
+import customTheme from "lib/styles/customTheme";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();

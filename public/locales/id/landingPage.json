@@ -85,5 +85,70 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "Testimoni",
+    "list": [
+      {
+        "name": "[Nama Back-End Dev]",
+        "role": "Back-End Developer",
+        "text": "Implementasi frontend Ilham selalu rapi dan terintegrasi sempurna dengan API kami. Koneksi yang mulus ini menghemat banyak waktu pengembangan backend."
+      },
+      {
+        "name": "[Nama Back-End Dev]",
+        "role": "Back-End Developer",
+        "text": "Bekerja dengan Ilham sangat menyenangkan. Ia sangat memahami bagaimana aplikasi frontend mengonsumsi layanan kami, mengantisipasi masalah, dan menghasilkan UI intuitif dari data yang kompleks."
+      },
+      {
+        "name": "[Nama Back-End Dev]",
+        "role": "Back-End Developer",
+        "text": "Ilham tidak hanya membangun UI, tapi juga sistem yang menyatu dengan backend. Pendekatannya terhadap alur data membuat pengembangan bersama berjalan sangat lancar."
+      },
+      {
+        "name": "Ilyas Adiyasa",
+        "role": "Frontend Developer",
+        "text": "Ilham adalah rekan tim yang luar biasa. Kodenya selalu bersih, mudah dibaca, dan mengikuti best practice. Ia senang berbagi ilmu dan meningkatkan kualitas tim."
+      },
+      {
+        "name": "[Nama Front-End Dev Rekan]",
+        "role": "Frontend Developer",
+        "text": "Kolaborasi dengan Ilham sangat memuaskan. Ia membawa kreativitas dan ketelitian teknis, menyelesaikan tantangan UI kompleks dengan solusi elegan. Pemain tim yang hebat."
+      },
+      {
+        "name": "[Nama Front-End Dev Rekan]",
+        "role": "Frontend Developer",
+        "text": "Ilham selalu mengesankan dengan dedikasinya pada teknologi frontend terbaru. Ia cepat menguasai tools baru dan menciptakan pengalaman pengguna yang luar biasa di setiap detail."
+      },
+      {
+        "name": "[Nama QA Tester]",
+        "role": "QA Tester",
+        "text": "Menguji hasil kerja Ilham sangat mudah. Perhatiannya pada detail membuat bug lebih sedikit dan proses testing lebih lancar. Ia selalu memberikan UI yang stabil dan responsif serta cepat menanggapi feedback."
+      },
+      {
+        "name": "[Nama QA Tester]",
+        "role": "QA Tester",
+        "text": "Build dari Ilham selalu berkualitas tinggi. Saya jarang menemukan isu kritis berkat pemahamannya terhadap edge case dan aksesibilitas. Ia selalu berusaha menghasilkan produk yang sempurna."
+      },
+      {
+        "name": "[Nama QA Tester]",
+        "role": "QA Tester",
+        "text": "Saya menghargai ketelitian Ilham. Ia proaktif dalam testing sendiri dan sering menemukan masalah sebelum sampai ke tim QA. Komunikasinya yang jelas mempercepat proses kami."
+      },
+      {
+        "name": "[Nama Product Owner/Project Manager]",
+        "role": "Product Owner / Project Manager",
+        "text": "Ilham adalah Frontend Developer yang luar biasa, selalu memberikan antarmuka berkualitas tinggi, berorientasi pada pengguna, tepat waktu, dan sesuai kebutuhan. Aset berharga untuk fitur produk kami."
+      },
+      {
+        "name": "[Nama Product Owner/Project Manager]",
+        "role": "Product Owner / Project Manager",
+        "text": "Ilham sangat komunikatif dan kolaboratif. Ia selalu memberikan update yang jelas, mengidentifikasi hambatan, dan menawarkan solusi kreatif. Ia menerjemahkan kebutuhan menjadi UI yang menarik dengan mulus."
+      },
+      {
+        "name": "[Nama Product Owner/Project Manager]",
+        "role": "Product Owner / Project Manager",
+        "text": "Bekerja dengan Ilham sangat menyenangkan. Ia membangun UI yang indah dan memahami visi produk kami secara mendalam. Ia proaktif dalam menyelesaikan masalah dan selalu berusaha memberikan pengalaman pengguna terbaik."
+      }
+    ]
+  },
   "CTA": "Lihat lebih banyak"
 }

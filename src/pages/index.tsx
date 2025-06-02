@@ -13,6 +13,20 @@ import MotionBox from "components/motion/Box";
 import ProjectList from "components/ProjectSection/ProjectList";
 import useSmallViewport from "hooks/useViewport";
 import type { IDataProjectsProps } from "types/ProjectProps";
+import TestimonialsSection from "components/TestimonialSection";
+
+const CARDS_PER_SLIDE = 4;
+
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  if (!Array.isArray(arr) || size <= 0) {
+    return [];
+  }
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -34,12 +48,25 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
     IDataProjectsProps[]
   >([]);
 
+  const [dataTestimonial, setDataTestimonial] = useState<any[]>([]);
+
   useEffect(() => {
     const translated = props._nextI18Next.initialI18nStore;
     setFeaturedProjects(
       translated[props.language as keyof typeof translated].landingPage
         .FeaturedProjects.projects
     );
+
+    const testimonials =
+      translated[props.language as keyof typeof translated].landingPage
+        .testimonials.list;
+
+    const chunkedTestimonials = chunkArray(
+      testimonials,
+      isSmallViewport ? testimonials.length : CARDS_PER_SLIDE
+    );
+
+    setDataTestimonial(chunkedTestimonials);
   }, []);
 
   return (
@@ -102,6 +129,13 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
             </Button>
           </Link>
         </Flex>
+      </Box>
+
+      <Box pt={[8, 24]} mx={isSmallViewport ? 6 : 0}>
+        <HeadingAccent text="Testimonial" withUnderline />
+        <Box mt={8} mb={16}>
+          <TestimonialsSection testimonial={dataTestimonial} />
+        </Box>
       </Box>
     </>
   );
