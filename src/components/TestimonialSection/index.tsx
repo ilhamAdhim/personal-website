@@ -11,7 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import useSmallViewport from "hooks/useViewport";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 type TestimonialType = {
@@ -46,21 +46,28 @@ const TestimonialsSection = ({ testimonial }: TestimonialProps) => {
   const handleNext = () =>
     handleChange(current === testimonial.length - 1 ? 0 : current + 1, "left");
 
+  // Auto-start carousel: advances every 5 seconds.
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      if (show && !isSmallViewport) {
+        handleNext();
+      }
+    }, 6000);
+    return () => clearInterval(autoSlide);
+  }, [show, current, testimonial.length]);
+
   return (
     <VStack spacing={6} align="stretch">
-      <SlideFade
-        in={show}
-        key={current}
-        offsetX={slideDirection === "left" ? -100 : 100}
-      >
+      <SlideFade in={show} key={current}>
         {Array.isArray(testimonial[current]) && (
           <SimpleGrid columns={{ base: 1, sm: 2, md: 2 }} spacing={6}>
             {testimonial[current].map((item: TestimonialType, idx: number) => (
               <Flex
+                minH={250}
+                p={6}
                 direction="column"
                 justify="space-between"
                 key={idx}
-                p={6}
                 borderWidth={1}
                 borderRadius="md"
                 boxShadow="md"

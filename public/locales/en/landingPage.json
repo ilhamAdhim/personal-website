@@ -94,7 +94,7 @@
         "text": "Ilham's frontend implementations are consistently clean and perfectly integrated with our APIs. This seamless connection saves us significant backend development time."
       },
       {
-        "name": "[Back-End Dev Name]",
+        "name": "Kelvin Hartanto",
         "role": "Back-End Developer",
         "text": "Working with Ilham is a breeze. He deeply understands how frontend apps consume our services, anticipating issues and delivering intuitive UIs from complex data."
       },
@@ -109,7 +109,7 @@
         "text": "Ilham is an amazing teammate. His code is top-notch – clean, readable, and adheres to best practices. He's always sharing knowledge and elevating our team."
       },
       {
-        "name": "[Peer Front-End Dev Name]",
+        "name": "Leonardo Kurniawan",
         "role": "Frontend Developer",
         "text": "Collaborating with Ilham is rewarding. He brings creativity and technical precision, tackling complex UI challenges with elegant solutions. A great team player."
       },
@@ -135,17 +135,17 @@
       },
       {
         "name": "[Product Owner/Project Manager Name]",
-        "role": "Product Owner / Project Manager",
+        "role": "Product Owner",
         "text": "Ilham is an exceptional Frontend Developer, consistently delivering high-quality, user-centric interfaces on time and within scope. A true asset to our product features."
       },
       {
-        "name": "[Product Owner/Project Manager Name]",
-        "role": "Product Owner / Project Manager",
+        "name": "Rinaldi Safrizal",
+        "role": "Product Owner",
         "text": "Ilham is highly communicative and collaborative. He provides clear updates, identifies roadblocks, and offers creative solutions. He translates requirements into engaging UIs seamlessly."
       },
       {
         "name": "[Product Owner/Project Manager Name]",
-        "role": "Product Owner / Project Manager",
+        "role": "Product Owner",
         "text": "Working with Ilham is fantastic. He builds beautiful UIs and deeply understands our product vision. He's a proactive problem-solver who takes ownership, always aiming for the best user experience."
       }
     ]

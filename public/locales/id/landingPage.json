@@ -94,7 +94,7 @@
         "text": "Implementasi frontend Ilham selalu rapi dan terintegrasi sempurna dengan API kami. Koneksi yang mulus ini menghemat banyak waktu pengembangan backend."
       },
       {
-        "name": "[Nama Back-End Dev]",
+        "name": "Kelvin Hartanto",
         "role": "Back-End Developer",
         "text": "Bekerja dengan Ilham sangat menyenangkan. Ia sangat memahami bagaimana aplikasi frontend mengonsumsi layanan kami, mengantisipasi masalah, dan menghasilkan UI intuitif dari data yang kompleks."
       },
@@ -109,7 +109,7 @@
         "text": "Ilham adalah rekan tim yang luar biasa. Kodenya selalu bersih, mudah dibaca, dan mengikuti best practice. Ia senang berbagi ilmu dan meningkatkan kualitas tim."
       },
       {
-        "name": "[Nama Front-End Dev Rekan]",
+        "name": "Leonardo Kurniawan",
         "role": "Frontend Developer",
         "text": "Kolaborasi dengan Ilham sangat memuaskan. Ia membawa kreativitas dan ketelitian teknis, menyelesaikan tantangan UI kompleks dengan solusi elegan. Pemain tim yang hebat."
       },
@@ -135,17 +135,17 @@
       },
       {
         "name": "[Nama Product Owner/Project Manager]",
-        "role": "Product Owner / Project Manager",
+        "role": "Product Owner",
         "text": "Ilham adalah Frontend Developer yang luar biasa, selalu memberikan antarmuka berkualitas tinggi, berorientasi pada pengguna, tepat waktu, dan sesuai kebutuhan. Aset berharga untuk fitur produk kami."
       },
       {
-        "name": "[Nama Product Owner/Project Manager]",
-        "role": "Product Owner / Project Manager",
+        "name": "Rinaldi Safrizal",
+        "role": "Product Owner",
         "text": "Ilham sangat komunikatif dan kolaboratif. Ia selalu memberikan update yang jelas, mengidentifikasi hambatan, dan menawarkan solusi kreatif. Ia menerjemahkan kebutuhan menjadi UI yang menarik dengan mulus."
       },
       {
         "name": "[Nama Product Owner/Project Manager]",
-        "role": "Product Owner / Project Manager",
+        "role": "Product Owner",
         "text": "Bekerja dengan Ilham sangat menyenangkan. Ia membangun UI yang indah dan memahami visi produk kami secara mendalam. Ia proaktif dalam menyelesaikan masalah dan selalu berusaha memberikan pengalaman pengguna terbaik."
       }
     ]
