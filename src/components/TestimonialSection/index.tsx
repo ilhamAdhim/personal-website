@@ -11,7 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import useSmallViewport from "hooks/useViewport";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 type TestimonialType = {
@@ -28,12 +28,11 @@ const TestimonialsSection = ({ testimonial }: TestimonialProps) => {
   const { isSmallViewport } = useSmallViewport();
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(true);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
-    "left"
-  );
 
-  const handleChange = (nextIdx: number, direction: "left" | "right") => {
-    setSlideDirection(direction);
+  const handleChange = (
+    nextIdx: number
+    // direction?: "left" | "right"
+  ) => {
     setShow(false);
     setTimeout(() => {
       setCurrent(nextIdx);
@@ -42,9 +41,9 @@ const TestimonialsSection = ({ testimonial }: TestimonialProps) => {
   };
 
   const handlePrev = () =>
-    handleChange(current === 0 ? testimonial.length - 1 : current - 1, "right");
+    handleChange(current === 0 ? testimonial.length - 1 : current - 1);
   const handleNext = () =>
-    handleChange(current === testimonial.length - 1 ? 0 : current + 1, "left");
+    handleChange(current === testimonial.length - 1 ? 0 : current + 1);
 
   // Auto-start carousel: advances every 5 seconds.
   useEffect(() => {
