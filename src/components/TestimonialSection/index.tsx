@@ -68,7 +68,7 @@ const TestimonialsSection = ({ testimonial }: TestimonialProps) => {
         if (show) {
           handleNext();
         }
-      }, 6000);
+      }, 12000);
     }
     return () => clearInterval(autoSlide);
   }, [show, current, isSmallViewport, itemCount]);
