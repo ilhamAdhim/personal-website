@@ -56,20 +56,15 @@ const TestimonialsSection = ({ testimonial }: TestimonialProps) => {
 
   // Auto-slide for both desktop and mobile with different intervals.
   useEffect(() => {
-    let autoSlide: ReturnType<typeof setInterval>;
-    if (isSmallViewport) {
-      autoSlide = setInterval(() => {
-        if (show) {
-          handleNext();
-        }
-      }, 8000);
-    } else {
-      autoSlide = setInterval(() => {
-        if (show) {
-          handleNext();
-        }
-      }, 12000);
-    }
+    const autoSlideCallback = () => {
+      if (show) {
+        handleNext();
+      }
+    };
+    const autoSlide = setInterval(
+      autoSlideCallback,
+      isSmallViewport ? 8000 : 12000
+    );
     return () => clearInterval(autoSlide);
   }, [show, current, isSmallViewport, itemCount]);
 
