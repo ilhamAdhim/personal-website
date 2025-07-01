@@ -8,36 +8,59 @@
     {
       "id": "exp-1",
       "pointTitle": "Front-End Developer",
-      "subDesc": "PT. Erajaya Swasembada | Jan '23 - Present",
+      "subDesc": "Belli AI",
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Enhanced customer engagement and loyalty by implementing innovative gamification features in the Erafone Website, driving 16,000 active users and rewarding 36% with Eraspace points."
+          "job": "Developed and maintained Belli AI's web application, enhancing user experience and performance with React.js, Next.js, and Shadcn UI."
         },
         {
           "id": "exp-1-2",
-          "job": "Revamped Eraspace's login and registration screens with a focus on user experience and responsiveness, leveraging Tailwind CSS and React Hook Form."
+          "job": "Designed and implemented intuitive dashboards for real-time cargo tracking, enabling airline staff and clients to monitor shipments efficiently."
         },
         {
           "id": "exp-1-3",
-          "job": "Elevated B2C e-commerce for Eraspace.com, iBox.co.id, JDSports, Wellings, and more by crafting dynamic online shopping experiences with Next.js and Typescript"
+          "job": "Integrated interactive data visualizations to display cargo load factors, route performance, and shipment statuses using modern charting libraries."
         },
         {
           "id": "exp-1-4",
-          "job": "Integrated RESTful APIs using Axios and Tanstack Query, facilitating seamless collaboration with the dedicated backend microservices team."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Streamlined catalog management for a major e-commerce player by migrating from Magento to a custom application, reduced subscription costs for B2C channels and boosted efficiency through strategic optimization efforts."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Partnered with product owners, QA, and vendors to develop and launch internal applications for Erajaya subsidiaries, managing inventory, retail flows, discounts, and more."
+          "job": "Optimized application performance and responsiveness, resulting in a 30% increase in user engagement and satisfaction."
         }
       ]
     },
     {
       "id": "exp-2",
+      "pointTitle": "Front-End Developer",
+      "subDesc": "PT. Erajaya Swasembada | Jan '23 - Present",
+      "description": [
+        {
+          "id": "exp-2-1",
+          "job": "Enhanced customer engagement and loyalty by implementing innovative gamification features in the Erafone Website, driving 16,000 active users and rewarding 36% with Eraspace points."
+        },
+        {
+          "id": "exp-2-2",
+          "job": "Revamped Eraspace's login and registration screens with a focus on user experience and responsiveness, leveraging Tailwind CSS and React Hook Form."
+        },
+        {
+          "id": "exp-2-3",
+          "job": "Elevated B2C e-commerce for Eraspace.com, iBox.co.id, JDSports, Wellings, and more by crafting dynamic online shopping experiences with Next.js and Typescript"
+        },
+        {
+          "id": "exp-2-4",
+          "job": "Integrated RESTful APIs using Axios and Tanstack Query, facilitating seamless collaboration with the dedicated backend microservices team."
+        },
+        {
+          "id": "exp-2-5",
+          "job": "Streamlined catalog management for a major e-commerce player by migrating from Magento to a custom application, reduced subscription costs for B2C channels and boosted efficiency through strategic optimization efforts."
+        },
+        {
+          "id": "exp-2-6",
+          "job": "Partnered with product owners, QA, and vendors to develop and launch internal applications for Erajaya subsidiaries, managing inventory, retail flows, discounts, and more."
+        }
+      ]
+    },
+    {
+      "id": "exp-3",
       "pointTitle": "Freelance External Code Reviewer",
       "subDesc": "Dicoding Indonesia | Jun '22 - Present",
       "description": [
@@ -52,7 +75,7 @@
       ]
     },
     {
-      "id": "exp-3",
+      "id": "exp-4",
       "pointTitle": "Front-End Engineer",
       "subDesc": "Prosa AI | Sept '22 - Oct '22",
       "description": [
@@ -67,7 +90,7 @@
       ]
     },
     {
-      "id": "exp-4",
+      "id": "exp-5",
       "pointTitle": "Studi Independen Front-End Engineer Bootcamp ",
       "subDesc": "Ruangguru | Feb '22 - Jul '22 ",
       "description": [
@@ -86,7 +109,7 @@
       ]
     },
     {
-      "id": "exp-5",
+      "id": "exp-6",
       "pointTitle": "Studi Independen Machine Learning & Front-End Developer",
       "subDesc": "Dicoding | Aug '21 - Jan '22 ",
       "description": [
@@ -109,7 +132,7 @@
       ]
     },
     {
-      "id": "exp-6",
+      "id": "exp-7",
       "pointTitle": "React JS Developer Intern",
       "subDesc": "PT. Sekawan Media | Jul '21 - Oct '21 ",
       "description": [

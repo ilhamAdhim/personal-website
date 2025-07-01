@@ -1,6 +1,6 @@
 {
   "experienceTitle": "Pengalaman saya",
-  "firstParagraph": "Saya adalah lulusan D4 dari Politeknik Negeri Malang (Polinema) jurusan Teknologi Informasi. Saat ini saya melakukan pekerjaan full-time saya sebagai",
+  "firstParagraph": "Saya adalah lulusan D4 dari Politeknik Negeri Malang (Polinema) jurusan Teknologi Informasi. Saat ini saya bekerja penuh waktu sebagai pengembang Front-End.",
   "secondParagraph": "Banyak teknologi modern semakin bermunculan, khususnya Front-End. Dorongan untuk belajar dan mencoba teknologi yang sedang tren ini sangat besar. Meski begitu, setelah melakukan beberapa uji coba di berbagai bidang IT, saya fokus mempelajari Front-End Development pada tahun 2020 dan terus mempelajarinya sejak saat itu.",
   "thirdParagraph": "Di situs web ini, saya akan secara aktif menambahkan koleksi ke beberapa proyek saya dan menulis blog. Dengan menulis, saya bisa mendokumentasikan perjalanan eksplorasi, pengalaman, sekaligus pembelajaran saya. Selain itu, saya ingin berbagi temuan dan eksplorasi saya tentang hal-hal yang berhubungan dengan IT selama ini.",
   "title": "Tentang saya",
@@ -8,125 +8,148 @@
     {
       "id": "exp-1",
       "pointTitle": "Front-End Developer",
-      "subDesc": "PT. Erajaya Swasembada | Jan '23 - Present",
+      "subDesc": "Belli AI",
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Gamifikasi inovatif diimplementasikan pada situs web Erafone untuk meningkatkan engagement pelanggan. Fitur ini telah menarik 16.000 pengguna aktif dan memberikan reward berupa poin Eraspace kepada 36% pengguna tersebut."
+          "job": "Mengembangkan dan memelihara aplikasi web Belli AI, meningkatkan pengalaman pengguna dan performa dengan React.js, Next.js, dan Shadcn UI."
         },
         {
           "id": "exp-1-2",
-          "job": "Desain ulang login dan registrasi Eraspace dengan fokus pada user experience dan responsivitas, menggunakan Tailwind CSS dan React Hook Form."
+          "job": "Merancang dan mengimplementasikan dashboard intuitif untuk pelacakan kargo secara real-time, memungkinkan staf maskapai dan klien memantau pengiriman secara efisien."
         },
         {
           "id": "exp-1-3",
-          "job": "Integrasi RESTful API menggunakan Axios dan Tanstack Query, memfasilitasi kolaborasi yang mulus dengan tim backend microservices khusus."
+          "job": "Mengintegrasikan visualisasi data interaktif untuk menampilkan faktor muatan kargo, performa rute, dan status pengiriman menggunakan pustaka charting modern."
         },
         {
           "id": "exp-1-4",
-          "job": "Peningkatan e-commerce B2C untuk Eraspace.com, iBox.co.id, JDSports, Wellings, dan lainnya, dengan menciptakan pengalaman belanja online yang dinamis menggunakan Next.js dan Typescript."
-        },
-        {
-          "id": "exp-1-5",
-          "job": "Optimalisasi manajemen katalog untuk pemain e-commerce besar dengan migrasi dari Magento ke aplikasi kustom. Hal ini berhasil mengurangi biaya berlangganan untuk saluran B2C dan meningkatkan efisiensi melalui upaya optimalisasi strategis."
-        },
-        {
-          "id": "exp-1-6",
-          "job": "Kerja sama dengan Product Owner, QA, dan vendor untuk mengembangkan aplikasi internal untuk anak perusahaan Erajaya, yang meliputi pengelolaan inventaris, flow online shopping, diskon karyawan dan pengguna, dan lainnya"
+          "job": "Mengoptimalkan performa dan responsivitas aplikasi, menghasilkan peningkatan keterlibatan dan kepuasan pengguna sebesar 30%."
         }
       ]
     },
     {
       "id": "exp-2",
-      "pointTitle": "Freelance External Code Reviewer",
-      "subDesc": "Dicoding Indonesia | Jun '22 - Present",
+      "pointTitle": "Front-End Developer",
+      "subDesc": "PT. Erajaya Swasembada | Jan '23 - Sekarang",
       "description": [
         {
           "id": "exp-2-1",
-          "job": "Review 400+ submission di Front-End Learning Path. Memberikan feedback dan saran tentang bagaimana siswa dapat meningkatkan kode mereka. Mendapatkan rating 4,9 dari 5 di Front-End Learning Path."
+          "job": "Gamifikasi inovatif diimplementasikan pada situs web Erafone untuk meningkatkan engagement pelanggan. Fitur ini telah menarik 16.000 pengguna aktif dan memberikan reward berupa poin Eraspace kepada 36% pengguna tersebut."
         },
         {
           "id": "exp-2-2",
-          "job": "Sharing dengan reviewer lainnya untuk memberikan umpan balik yang lebih baik kepada siswa serta mendiskusikan tren teknologi terbaru dalam Pengembangan Front-End."
+          "job": "Revamp login dan registrasi Eraspace dengan fokus pada pengalaman pengguna dan responsivitas, menggunakan Tailwind CSS dan React Hook Form."
+        },
+        {
+          "id": "exp-2-3",
+          "job": "Integrasi RESTful API menggunakan Axios dan Tanstack Query, memfasilitasi kolaborasi yang mulus dengan tim backend microservices khusus."
+        },
+        {
+          "id": "exp-2-4",
+          "job": "Peningkatan e-commerce B2C untuk Eraspace.com, iBox.co.id, JDSports, Wellings, dan lainnya, dengan menciptakan pengalaman belanja online yang dinamis menggunakan Next.js dan Typescript."
+        },
+        {
+          "id": "exp-2-5",
+          "job": "Optimalisasi manajemen katalog untuk pemain e-commerce besar dengan migrasi dari Magento ke aplikasi kustom. Hal ini berhasil mengurangi biaya berlangganan untuk saluran B2C dan meningkatkan efisiensi melalui upaya optimalisasi strategis."
+        },
+        {
+          "id": "exp-2-6",
+          "job": "Kerja sama dengan Product Owner, QA, dan vendor untuk mengembangkan aplikasi internal untuk anak perusahaan Erajaya, yang meliputi pengelolaan inventaris, alur belanja online, diskon karyawan dan pengguna, dan lainnya."
         }
       ]
     },
     {
       "id": "exp-3",
-      "pointTitle": "Front-End Engineer",
-      "subDesc": "Prosa AI | Sept '22 - Oct '22",
+      "pointTitle": "Freelance External Code Reviewer",
+      "subDesc": "Dicoding Indonesia | Jun '22 - Sekarang",
       "description": [
         {
           "id": "exp-3-1",
-          "job": "Menggunakan IntersectionObserver API untuk mendeteksi user scroll pada Landinga Page Salyns. Digunakan untuk menganimasikan statistik pertumbuhan pengguna aktif, total jumlah audio yang ditranskripsi, dan akurasi produk."
+          "job": "Mereview lebih dari 400 submission di Front-End Learning Path. Memberikan feedback dan saran tentang bagaimana siswa dapat meningkatkan kode mereka. Mendapatkan rating 4,9 dari 5 di Front-End Learning Path."
         },
         {
           "id": "exp-3-2",
-          "job": "Mengimplementasikan SWR (Stale-While-Revalidate) untuk memastikan data yang ditampilkan di dashboard pengguna adalah data real-time saat audio ditranskripsi menjadi teks."
-        },
-        {
-          "id": "exp-3-4",
-          "job": "Ensuring responsiveness and scalability of applications"
+          "job": "Berbagi dengan reviewer lain untuk memberikan umpan balik yang lebih baik kepada siswa serta mendiskusikan tren teknologi terbaru dalam Pengembangan Front-End."
         }
       ]
     },
     {
       "id": "exp-4",
-      "pointTitle": "Studi Independen Front-End Engineer Bootcamp ",
-      "subDesc": "Ruangguru | Feb '22 - Jul '22 ",
+      "pointTitle": "Front-End Engineer",
+      "subDesc": "Prosa AI | Sep '22 - Okt '22",
       "description": [
         {
           "id": "exp-4-1",
-          "job": "Used Jira for project communication"
+          "job": "Menggunakan IntersectionObserver API untuk mendeteksi scroll pengguna pada Landing Page Salyns. Digunakan untuk menganimasikan statistik pertumbuhan pengguna aktif, total jumlah audio yang ditranskripsi, dan akurasi produk."
         },
         {
           "id": "exp-4-2",
-          "job": "Optimized Git workflow and Github Actions for CI/CD"
+          "job": "Mengimplementasikan SWR (Stale-While-Revalidate) untuk memastikan data yang ditampilkan di dashboard pengguna adalah data real-time saat audio ditranskripsi menjadi teks."
         },
         {
           "id": "exp-4-3",
-          "job": "Developed Web application with React JS, Next JS, Zustand, and Chakra UI"
+          "job": "Memastikan responsivitas dan skalabilitas aplikasi."
         }
       ]
     },
     {
       "id": "exp-5",
-      "pointTitle": "Studi Independen Machine Learning & Front-End Developer",
-      "subDesc": "Dicoding | Aug '21 - Jan '22 ",
+      "pointTitle": "Studi Independen Front-End Engineer Bootcamp",
+      "subDesc": "Ruangguru | Feb '22 - Jul '22",
       "description": [
         {
           "id": "exp-5-1",
-          "job": "Bekerja sama dengan tim lintas fungsi untuk mengembangkan model prediksi tingkat vaksinasi menggunakan machine learning."
+          "job": "Menggunakan Jira untuk manajemen proyek."
         },
         {
           "id": "exp-5-2",
-          "job": "Berkontribusi dalam pembersihan dan persiapan data untuk mengoptimalkan kinerja model. Mengimplementasikan Algoritma Machine Learning ke dalam proyek-proyek menggunakan Python, Keras, dan TensorFlow."
+          "job": "Mengoptimalkan workflow Git dan Github Actions untuk CI/CD."
         },
         {
           "id": "exp-5-3",
-          "job": "Mengembangkan komponen yang dapat digunakan kembali untuk memperlancar pengembangan dan menjaga kualitas kode dengan memanfaatkan React JS secara optimal."
-        },
-        {
-          "id": "exp-5-4",
-          "job": "Deploy frontend di Netlify untuk kinerja dan aksesibilitas optimal. Deploy model machine learning di Heroku untuk memastikan skalabilitas dan keandalan."
+          "job": "Mengembangkan aplikasi web dengan React JS, Next JS, Zustand, dan Chakra UI."
         }
       ]
     },
     {
       "id": "exp-6",
-      "pointTitle": "React JS Developer Intern",
-      "subDesc": "PT. Sekawan Media | Jul '21 - Oct '21 ",
+      "pointTitle": "Studi Independen Machine Learning & Front-End Developer",
+      "subDesc": "Dicoding | Agu '21 - Jan '22",
       "description": [
         {
           "id": "exp-6-1",
-          "job": "Mengimplementasikan MockAPI untuk memperlancar pengembangan frontend dan mempercepat timeline proyek."
+          "job": "Bekerja sama dengan tim lintas fungsi untuk mengembangkan model prediksi tingkat vaksinasi menggunakan machine learning."
         },
         {
           "id": "exp-6-2",
-          "job": "Migrasi kode lama dari CSS ke Sass, meningkatkan keterbacaan dan kemudahan maintenance kode."
+          "job": "Berkontribusi dalam pembersihan dan persiapan data untuk mengoptimalkan kinerja model. Mengimplementasikan algoritma Machine Learning ke dalam proyek-proyek menggunakan Python, Keras, dan TensorFlow."
         },
         {
           "id": "exp-6-3",
+          "job": "Mengembangkan komponen yang dapat digunakan kembali untuk memperlancar pengembangan dan menjaga kualitas kode dengan memanfaatkan React JS secara optimal."
+        },
+        {
+          "id": "exp-6-4",
+          "job": "Deploy frontend di Netlify untuk kinerja dan aksesibilitas optimal. Deploy model machine learning di Heroku untuk memastikan skalabilitas dan keandalan."
+        }
+      ]
+    },
+    {
+      "id": "exp-7",
+      "pointTitle": "React JS Developer Intern",
+      "subDesc": "PT. Sekawan Media | Jul '21 - Okt '21",
+      "description": [
+        {
+          "id": "exp-7-1",
+          "job": "Mengimplementasikan MockAPI untuk memperlancar pengembangan frontend dan mempercepat timeline proyek."
+        },
+        {
+          "id": "exp-7-2",
+          "job": "Migrasi kode lama dari CSS ke Sass, meningkatkan keterbacaan dan kemudahan maintenance kode."
+        },
+        {
+          "id": "exp-7-3",
           "job": "Mengotomatiskan pengujian end-to-end dengan Cypress untuk mengidentifikasi dan memperbaiki masalah sejak awal proses pengembangan."
         }
       ]
