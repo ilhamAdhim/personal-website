@@ -12,9 +12,9 @@
     "projects": [
       {
         "id": "project-1",
-        "title": "Eraspace",
-        "description": "Eraspace dominates the Indonesian market as the premier online destination for lifestyle and smart tech products.",
-        "cover": "/images/projects/lp-eraspace.jpg",
+        "title": "Belli",
+        "description": "Belli builds cargo software for airlines - digitizing every step from booking to build-up, helping reduce empty cargo bellies and cutting processing time by 80%.",
+        "cover": "/images/projects/lp-belli.png",
         "techStack": [
           {
             "id": "project-1-1",
@@ -26,22 +26,18 @@
           },
           {
             "id": "project-1-3",
-            "name": "Jotai"
-          },
-          {
-            "id": "project-1-4",
-            "name": "Tailwind CSS"
+            "name": "Shadcn UI"
           }
         ],
         "url": "#",
-        "live": "https://eraspace.com",
+        "live": "https://belli.ai",
         "inProgress": true
       },
       {
         "id": "project-2",
-        "title": "iBox",
-        "description": "iBox is an official reseller of Apple Premium Product in Indonesia.",
-        "cover": "/images/projects/lp-ibox.png",
+        "title": "Eraspace",
+        "description": "Eraspace dominates the Indonesian market as the premier online destination for lifestyle and smart tech products.",
+        "cover": "/images/projects/lp-eraspace.jpg",
         "techStack": [
           {
             "id": "project-2-1",
@@ -53,18 +49,22 @@
           },
           {
             "id": "project-2-3",
+            "name": "Jotai"
+          },
+          {
+            "id": "project-2-4",
             "name": "Tailwind CSS"
           }
         ],
         "url": "#",
-        "live": "https://ibox.co.id",
+        "live": "https://eraspace.com",
         "inProgress": true
       },
       {
         "id": "project-3",
-        "title": "Tumbuhsehat Experience",
-        "description": "E-Medical Record System for healthcare providers and professionals.",
-        "cover": "/images/projects/lp-tumbuhsehat.png",
+        "title": "iBox",
+        "description": "iBox is an official reseller of Apple Premium Product in Indonesia.",
+        "cover": "/images/projects/lp-ibox.png",
         "techStack": [
           {
             "id": "project-3-1",
@@ -72,15 +72,15 @@
           },
           {
             "id": "project-3-2",
-            "name": "React Chart JS"
+            "name": "React Query"
           },
           {
             "id": "project-3-3",
-            "name": "Chakra UI"
+            "name": "Tailwind CSS"
           }
         ],
         "url": "#",
-        "live": "https://tumbuhsehat.id",
+        "live": "https://ibox.co.id",
         "inProgress": true
       }
     ]
