@@ -103,8 +103,8 @@ const AboutNew: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 <Image
                   src="/images/my-profile.jpg"
                   alt="Ilham Adhim"
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
 
