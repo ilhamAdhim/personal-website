@@ -1,6 +1,6 @@
 const { i18n } = require("./next-i18next.config");
 
-const withPWA = require("next-pwa")({
+const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   disable:
     process.env.NODE_ENV === "development" ||
@@ -13,10 +13,14 @@ const withPWA = require("next-pwa")({
 
 /** @type {import('next').NextConfig} */
 module.exports = withPWA({
-  swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ["miro.medium.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "miro.medium.com",
+      },
+    ],
     minimumCacheTTL: 60,
     formats: ["image/webp"],
   },
