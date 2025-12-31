@@ -42,6 +42,8 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const [dataWorkExp, setDataWorkExp] = useState<IExperienceProps[]>([]);
 
   useEffect(() => {
+    if (!props._nextI18Next?.initialI18nStore) return;
+
     const translated = props._nextI18Next.initialI18nStore;
 
     setDataWorkExp(
@@ -54,7 +56,7 @@ const AboutPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
         }
       )
     );
-  }, []);
+  }, [props._nextI18Next, props.language]);
 
   const colorName = useColorModeValue("teal.600", "teal.400");
 

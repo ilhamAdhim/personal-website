@@ -51,6 +51,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const [dataTestimonial, setDataTestimonial] = useState<any[]>([]);
 
   useEffect(() => {
+    if (!props._nextI18Next?.initialI18nStore) return;
+
     const translated = props._nextI18Next.initialI18nStore;
     setFeaturedProjects(
       translated[props.language as keyof typeof translated].landingPage
@@ -67,7 +69,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
     );
 
     setDataTestimonial(chunkedTestimonials);
-  }, []);
+  }, [props._nextI18Next, props.language, isSmallViewport]);
 
   return (
     <>

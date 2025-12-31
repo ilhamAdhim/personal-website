@@ -15,7 +15,7 @@ const generateSitemap = async () => {
       type: "urlset",
       content: data,
     });
-  } catch (error) {
+  } catch {
     return generateXML({
       type: "urlset",
       content: [],

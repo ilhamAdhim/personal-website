@@ -41,18 +41,16 @@ const BlogPage = ({ posts }: any) => {
         >
           {sortByDate.map((post: any) => (
             <Link href={`/blog/${post.slug}`} key={post.id} passHref>
-              <a>
-                <BlogPost
-                  title={post.frontMatter.title}
-                  description={post.frontMatter.description}
-                  date={post.frontMatter.date}
-                  thumbnailUrl={post.frontMatter.thumbnailUrl}
-                  tags={post.frontMatter.tags}
-                  metaKeywords={post.frontMatter.metaKeywords}
-                  timeEstimation={post.frontMatter.timeEstimation}
-                  metaDescription={post.frontMatter.metaDescription}
-                />
-              </a>
+              <BlogPost
+                title={post.frontMatter.title}
+                description={post.frontMatter.description}
+                date={post.frontMatter.date}
+                thumbnailUrl={post.frontMatter.thumbnailUrl}
+                tags={post.frontMatter.tags}
+                metaKeywords={post.frontMatter.metaKeywords}
+                timeEstimation={post.frontMatter.timeEstimation}
+                metaDescription={post.frontMatter.metaDescription}
+              />
             </Link>
           ))}
         </SimpleGrid>

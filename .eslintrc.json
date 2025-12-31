@@ -22,6 +22,8 @@
     "react/destructuring-assignment": "warn",
     "no-underscore-dangle": "warn",
     "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
     "unused-imports/no-unused-vars": [
       "warn",
       {

@@ -25,11 +25,13 @@ const ProjectPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const [dataProjects, setDataProjects] = useState<IDataProjectsProps[]>([]);
 
   useEffect(() => {
+    if (!props._nextI18Next?.initialI18nStore) return;
+
     const translated = props._nextI18Next.initialI18nStore;
     setDataProjects(
       translated[props.language as keyof typeof translated].projects.data
     );
-  }, []);
+  }, [props._nextI18Next, props.language]);
 
   return (
     <>

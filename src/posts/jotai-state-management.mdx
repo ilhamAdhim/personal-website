@@ -6,7 +6,14 @@ thumbnailUrl: "/images/blogs/jotai-atoms.png"
 tags: ["Data Handling", "Javascript"]
 timeEstimation: 8 mins
 metaDescription: "Article by Ilham Adhim."
-metaKeywords: ["Jotai", "State Management", "React Context", "JavaScript", "Web Development"]
+metaKeywords:
+  [
+    "Jotai",
+    "State Management",
+    "React Context",
+    "JavaScript",
+    "Web Development",
+  ]
 ---
 
 <img
@@ -31,6 +38,7 @@ metaKeywords: ["Jotai", "State Management", "React Context", "JavaScript", "Web 
   When i explored React hooks, the idea of React context amazes me. It can be used on various kind and scope of the project, easy-to-maintain, and less complex than Redux.
 
 {" "}
+
 <br />
 Back then, it was an alternative to using state manager with what react itself
 has to offer. It was quite a game-changer — at least for me — . Main key
@@ -77,6 +85,7 @@ function App() {
 </div>
 
 {" "}
+
 <Alert status="success" variant="left-accent">
   <i>
     Okay, but isn't it only happen on one file ? <br /> Is there any technical
@@ -98,7 +107,8 @@ If we remember, the nature of react rendering strategy is as follows:
     </li>
     <li>
       {" "}
-      When the parent component re-renders, the child component re-renders as well{" "}
+      When the parent component re-renders, the child component re-renders as
+      well{" "}
     </li>
   </ul>
 </Box>
@@ -119,8 +129,8 @@ We will get to know Jotai. a state manager that simplifies data sharing across c
 </Text>
 When we want to lift up the state, we can use atoms that are sharable across the
 entire web component. we use <b>atoms</b> as the simplest form of state. This is
-contrast to Redux and Zustand, which use a huge state that consist of lots of smaller
-states as its attribute.
+contrast to Redux and Zustand, which use a huge state that consist of lots of
+smaller states as its attribute.
 
 By having atoms, we don't need to stress about updating subscribers and reducer logics as the app scales.
 
@@ -152,6 +162,7 @@ decrement,
 };
 
 return (
+
 <CounterContext.Provider value={value}>
 {children}
 </CounterContext.Provider>
@@ -170,6 +181,7 @@ function AnyComponent() {
 const { count, increment, decrement } = useCounter();
 
 return (
+
 <div>
 <p>Count: {count}</p>
 <button onClick={increment}>Increment</button>
@@ -206,6 +218,7 @@ const [count, setCount] = useAtom(counterAtom)
 // ... value and setters ready to use
 }
 `}
+
 </SyntaxHighlighterWithVariant>
 </Box>
 
@@ -238,20 +251,22 @@ There are multiple ways for us to access and manipulate the atom content.
   <ul>
     <li>
       {" "}
-      useAtomValue() — When we need to access atom’s value only in a component{" "}
+      useAtomValue() — When we need to access atom’s value only in a
+      component{" "}
     </li>
     <li> useSetAtom() — When we need to update atom’s value in a component </li>
     <li>
       {" "}
-      useAtom() — When we need both access and updating atom’s value in a component{" "}
+      useAtom() — When we need both access and updating atom’s value in a
+      component{" "}
     </li>
   </ul>
 </Box>
 
 <br />
 You might notice that getters and setters are available in different hooks, this
-solves the extra re-render issue of React context, and eliminates the need for any
-memoization.
+solves the extra re-render issue of React context, and eliminates the need for
+any memoization.
 <br />
 
 <Text my="2" fontSize="2xl">
