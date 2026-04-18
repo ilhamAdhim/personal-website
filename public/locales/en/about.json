@@ -12,19 +12,15 @@
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Developed and maintained Belli AI's web application, enhancing user experience and performance with React.js, Next.js, and Shadcn UI."
+          "job": "Deliver MVPs for the airline's customers and agents for creating shipment requests to deliver their parcels with the airline's approval. Enabling B2B2B schema by creating and maintaining Agent Portal."
         },
         {
           "id": "exp-1-2",
-          "job": "Designed and implemented intuitive dashboards for real-time cargo tracking, enabling airline staff and clients to monitor shipments efficiently."
+          "job": "Digitalised AWB, booking list, manifest build-up, and acceptance receipt for airlines. Integrated to the dashboard, significantly enhancing the work of the operation team."
         },
         {
           "id": "exp-1-3",
-          "job": "Integrated interactive data visualizations to display cargo load factors, route performance, and shipment statuses using modern charting libraries."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Optimized application performance and responsiveness, resulting in a 30% increase in user engagement and satisfaction."
+          "job": "AWB Tracking feature for all agents of the airlines. Displaying split shipments, transit parcels, and direct-flights parcels."
         }
       ]
     },

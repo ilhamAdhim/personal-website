@@ -12,19 +12,15 @@
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Mengembangkan dan memelihara aplikasi web Belli AI, meningkatkan pengalaman pengguna dan performa dengan React.js, Next.js, dan Shadcn UI."
+          "job": "Mengembangkan MVP untuk client dan customer dari maskapai dalam request pengiriman paket dengan approval maskapai. Mengaktifkan skema B2B2B selama proses pembuatan dan maintenance Agent Portal."
         },
         {
           "id": "exp-1-2",
-          "job": "Merancang dan mengimplementasikan dashboard intuitif untuk pelacakan kargo secara real-time, memungkinkan staf maskapai dan klien memantau pengiriman secara efisien."
+          "job": "Digitalisasi AWB, daftar booking, manifest build-up, dan acceptance receipt untuk maskapai. Terintegrasi ke dalam dashboard, secara signifikan meningkatkan efisiensi kerja tim operasional."
         },
         {
           "id": "exp-1-3",
-          "job": "Mengintegrasikan visualisasi data interaktif untuk menampilkan faktor muatan kargo, performa rute, dan status pengiriman menggunakan pustaka charting modern."
-        },
-        {
-          "id": "exp-1-4",
-          "job": "Mengoptimalkan performa dan responsivitas aplikasi, menghasilkan peningkatan keterlibatan dan kepuasan pengguna sebesar 30%."
+          "job": "Fitur pelacakan AWB untuk seluruh agen maskapai. Menampilkan split shipments, transit flights, dan direct flights."
         }
       ]
     },
