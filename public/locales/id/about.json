@@ -12,7 +12,7 @@
       "description": [
         {
           "id": "exp-1-1",
-          "job": "Mengembangkan MVP untuk client dan customer dari maskapai dalam request pengiriman paket dengan approval maskapai. Mengaktifkan skema B2B2B selama proses pembuatan dan maintenance Agent Portal."
+          "job": "Mengaktifkan skema B2B2B dengan develop dan maintain Agent Portal. Sebuah platform bagi agent maskapai untuk request pengiriman paket dengan approval maskapai. DAU 1500 users dalam satu maskapai (dan terus bertambah)."
         },
         {
           "id": "exp-1-2",
