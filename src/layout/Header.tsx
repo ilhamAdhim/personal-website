@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
-import { FaCode, FaHome, FaHeart, FaList, FaPen, FaUser } from "react-icons/fa";
+import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
 
 import useSmallViewport from "hooks/useViewport";
 
@@ -132,7 +132,7 @@ const Header = () => {
       className="header"
       p={["1em", "1em", "1em 10em"]}
       top="0"
-      zIndex="1"
+      zIndex="50"
       as="header"
       align="flex-start"
       position="sticky"

@@ -28,7 +28,8 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
-  const getLayout = Component.getLayout ?? ((page: ReactNode) => <Layout>{page}</Layout>);
+  const getLayout =
+    Component.getLayout ?? ((page: ReactNode) => <Layout>{page}</Layout>);
 
   useEffect(() => {
     AOS.init();

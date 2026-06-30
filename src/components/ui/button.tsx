@@ -13,12 +13,9 @@ const buttonVariants = cva(
           "bg-linear-to-r from-sky-500 to-cyan-500 text-white shadow-md shadow-sky-200/60 hover:opacity-90",
         outline:
           "border border-sky-200 bg-white text-sky-600 hover:bg-sky-50 hover:border-sky-300",
-        ghost:
-          "text-sky-500 hover:bg-sky-50",
-        secondary:
-          "bg-slate-100 text-slate-700 hover:bg-slate-200",
-        destructive:
-          "bg-red-500 text-white hover:bg-red-600",
+        ghost: "text-sky-500 hover:bg-sky-50",
+        secondary: "bg-slate-100 text-slate-700 hover:bg-slate-200",
+        destructive: "bg-red-500 text-white hover:bg-red-600",
       },
       size: {
         default: "px-7 py-3",
@@ -35,8 +32,9 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
