@@ -2,6 +2,24 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
+
+import WeddingLayout from "layout/WeddingLayout";
+import { Button } from "components/ui/button";
+import { Input } from "components/ui/input";
+import { Textarea } from "components/ui/textarea";
+
+// --- Types --------------------------------------------------------------------
+
+interface Comment {
+  id: string;
+  name: string;
+  avatar: string;
+  message: string;
+  time: string;
+  color: string;
+  isNew?: boolean;
+}
 
 // --- Data ----------------------------------------------------------------------
 
@@ -25,6 +43,38 @@ const islamicQuotes = [
     ref: "25:74",
   },
 ];
+
+const SEED_COMMENTS: Comment[] = [
+  { id: "seed-1", name: "Aisyah Ramadhani", avatar: "AR", time: "2 hours ago", message: "MasyaAllah, barakallahu fiikuma! May your marriage be filled with endless love, laughter, and blessings. So happy for you both! 🫦", color: "from-sky-400 to-cyan-400" },
+  { id: "seed-2", name: "Rizky Firmansyah", avatar: "RF", time: "5 hours ago", message: "Selamat menempuh hidup baru, Ilham & Firda! Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah. Aamiin ya Rabb 🌿", color: "from-cyan-400 to-teal-400" },
+  { id: "seed-3", name: "Nur Fadhilah", avatar: "NF", time: "Yesterday", message: "Wishing you both a lifetime of joy and togetherness. You two are absolutely perfect for each other. Congratulations! 💙", color: "from-blue-400 to-sky-400" },
+  { id: "seed-4", name: "Dimas Prasetyo", avatar: "DP", time: "Yesterday", message: "Alhamdulillah, akhirnya sah! Selamat ya Mas Ilham, semoga rumah tangganya langgeng dan penuh keberkahan. Sehat-sehat terus kalian berdua!", color: "from-sky-500 to-blue-400" },
+  { id: "seed-5", name: "Siti Maulida", avatar: "SM", time: "2 days ago", message: "Such a beautiful couple inside and out. May Allah SWT grant you a home full of peace, love, and righteous children. Barakallahu lakuma 🌸", color: "from-teal-400 to-cyan-500" },
+];
+
+const AVATAR_COLORS = [
+  "from-sky-400 to-cyan-400",
+  "from-cyan-500 to-blue-400",
+  "from-blue-400 to-sky-500",
+  "from-teal-400 to-cyan-500",
+  "from-sky-500 to-teal-400",
+];
+
+const LS_KEY = "wedding-wishes";
+
+function getInitials(name: string) {
+  return name.trim().split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? "").join("");
+}
+
+function timeAgo(iso: string) {
+  const diff = Date.now() - new Date(iso).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "Just now";
+  if (mins < 60) return `${mins} min ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs} hour${hrs > 1 ? "s" : ""} ago`;
+  return `${Math.floor(hrs / 24)} day${Math.floor(hrs / 24) > 1 ? "s" : ""} ago`;
+}
 
 const galleryImages = [
   { src: "/images/wedding/prewed-1.jpg", alt: "Prewed 1" },
@@ -128,9 +178,48 @@ const GalleryCard = ({ src, alt, index }: { src: string; alt: string; index: num
   );
 };
 
+// --- Comment card -------------------------------------------------------------
+
+const CommentCard = ({ c, isNew = false }: { c: Comment; isNew?: boolean }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { requestAnimationFrame(() => setMounted(true)); }, []);
+
+  return (
+    <div
+      className={`flex gap-4 rounded-2xl bg-white border p-5 transition-all duration-500 hover:border-sky-200 hover:shadow-md hover:shadow-sky-50
+        ${isNew
+          ? mounted ? "opacity-100 translate-y-0 border-sky-200 shadow-md shadow-sky-100" : "opacity-0 -translate-y-4 border-sky-100"
+          : "opacity-100 border-sky-50"}`}
+      style={{ boxShadow: isNew && mounted ? "0 4px 24px rgba(14,165,233,0.1)" : "0 2px 16px rgba(14,165,233,0.04)" }}
+    >
+      <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold bg-linear-to-br ${c.color}`}>
+        {c.avatar}
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-2 mb-1.5">
+          <span className="text-sm font-semibold text-slate-700">
+            {c.name}
+            {isNew && <span className="ml-2 text-[10px] bg-sky-100 text-sky-500 px-2 py-0.5 rounded-full font-semibold tracking-wide">You</span>}
+          </span>
+          <span className="text-xs text-slate-400 shrink-0">{c.time}</span>
+        </div>
+        <p className="text-sm text-slate-500 leading-relaxed">{c.message}</p>
+        <button type="button" className="mt-2 flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
+          <svg viewBox="0 0 20 20" className="w-3.5 h-3.5 fill-current">
+            <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+          </svg>
+          Amiin
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // --- Page ----------------------------------------------------------------------
 
-const WeddingPage: NextPage = () => {
+type WeddingPageType = NextPage & { getLayout?: (page: ReactNode) => ReactNode };
+
+const WeddingPage: WeddingPageType = () => {
   const { setColorMode } = useColorMode();
 
   // Force light mode on this page, restore on leave
@@ -138,6 +227,54 @@ const WeddingPage: NextPage = () => {
     setColorMode("light");
     return () => setColorMode("dark");
   }, [setColorMode]);
+
+  // --- Comments state ----------------------------------------------------------
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newIds, setNewIds] = useState<Set<string>>(new Set());
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+
+  // Load saved + seed on mount
+  useEffect(() => {
+    const saved: Comment[] = JSON.parse(localStorage.getItem(LS_KEY) ?? "[]");
+    setComments([
+      ...saved.map((c) => ({ ...c, time: timeAgo(c.time) })),
+      ...SEED_COMMENTS,
+    ]);
+  }, []);
+
+  const handleSend = () => {
+    const trimName = name.trim();
+    const trimMsg = message.trim();
+    if (!trimMsg) return;
+
+    setSending(true);
+    const displayName = trimName || "Anonymous";
+    const initials = getInitials(displayName);
+    const colorIdx = Math.floor(Math.random() * AVATAR_COLORS.length);
+
+    const entry: Comment = {
+      id: crypto.randomUUID(),
+      name: displayName,
+      avatar: initials,
+      message: trimMsg,
+      time: "Just now",
+      color: AVATAR_COLORS[colorIdx],
+      isNew: true,
+    };
+
+    // Persist to localStorage
+    const saved: Comment[] = JSON.parse(localStorage.getItem(LS_KEY) ?? "[]");
+    localStorage.setItem(LS_KEY, JSON.stringify([{ ...entry, time: new Date().toISOString() }, ...saved]));
+
+    setComments((prev) => [entry, ...prev]);
+    setNewIds((prev) => new Set([...prev, entry.id]));
+    setName("");
+    setMessage("");
+
+    setTimeout(() => setSending(false), 400);
+  };
 
   return (
     <div style={{ backgroundColor: "#ffffff", color: "#1e293b", fontFamily: "'Lexend', sans-serif" }}>
@@ -148,7 +285,7 @@ const WeddingPage: NextPage = () => {
 
       {/* ===== HERO ===================================================== */}
       <section
-        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 text-center"
+        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center"
         style={{ background: "linear-gradient(160deg,#ffffff 0%,#f0f9ff 50%,#ecfeff 100%)" }}
       >
         {/* Background geometric pattern */}
@@ -327,7 +464,7 @@ const WeddingPage: NextPage = () => {
               Our Moments<br />
               <span style={{ fontStyle: "italic", color: "#0ea5e9" }}>Together</span>
             </h2>
-            <p className="text-slate-400 max-w-xs mx-auto leading-relaxed text-sm">
+            <p className="text-slate-400 py-4 mx-auto leading-relaxed text-sm text-center">
               A glimpse of our story, captured in light and love.
             </p>
           </Reveal>
@@ -376,6 +513,78 @@ const WeddingPage: NextPage = () => {
         </div>
       </section>
 
+      {/* ===== COMMENTS ================================================ */}
+      <section className="py-20 px-6" style={{ background: "linear-gradient(180deg,#f0f9ff,#ffffff)" }}>
+        <div className="max-w-3xl mx-auto">
+          <Reveal className="text-center mb-14">
+            <Chip className="text-sky-500 border-sky-200 bg-sky-50 mb-4">Well Wishes</Chip>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800" style={{ fontFamily: playfair }}>
+              Blessings from Loved Ones
+            </h2>
+          </Reveal>
+
+          {/* Comment form */}
+          <Reveal delay={80} className="mb-10">
+            <div className="rounded-3xl border border-sky-100 bg-white overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(14,165,233,0.08)" }}>
+
+              {/* Header strip */}
+              <div className="px-8 py-5 border-b border-sky-50" style={{ background: "linear-gradient(135deg,#f0f9ff,#ecfeff)" }}>
+                <p className="text-sm font-bold text-slate-600 tracking-wide">Leave a message ✦</p>
+                <p className="text-xs text-slate-400 mt-1">Your kind words mean the world to them</p>
+              </div>
+
+              {/* Form body */}
+              <div className="px-8 py-8 space-y-6">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Your name</label>
+                  <Input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="e.g. Aisyah Ramadhani"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Your message</label>
+                  <Textarea
+                    rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Send your blessings to Ilham & Firda..."
+                    onKeyDown={(e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) handleSend(); }}
+                  />
+                </div>
+              </div>
+
+              {/* Footer strip */}
+              <div className="px-8 py-5 border-t border-sky-50 flex items-center justify-between gap-4">
+                <span className="text-[11px] text-slate-300 select-none">Ctrl + Enter to send</span>
+                <Button
+                  type="button"
+                  onClick={handleSend}
+                  disabled={!message.trim() || sending}
+                  size="lg"
+                >
+                  {sending ? (
+                    <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                    </svg>
+                  ) : "Send Wishes ✦"}
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Comments list */}
+          <div className="space-y-5">
+            {comments.map((c) => (
+              <CommentCard key={c.id} c={c} isNew={newIds.has(c.id)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <style jsx global>{`
         @keyframes fadeIn  { from{opacity:0} to{opacity:1} }
         @keyframes slideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
@@ -385,5 +594,6 @@ const WeddingPage: NextPage = () => {
   );
 };
 
-export default WeddingPage;
-
+export default Object.assign(WeddingPage, {
+  getLayout: (page: ReactNode) => <WeddingLayout>{page}</WeddingLayout>,
+});

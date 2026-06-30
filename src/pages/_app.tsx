@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import AOS from "aos";
 import { appWithTranslation } from "next-i18next";
-import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -15,8 +14,21 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import "lib/styles/globals.css";
 import customTheme from "lib/styles/customTheme";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+import type { NextPage } from "next";
+import type { AppProps } from "next/app";
+import type { ReactNode } from "react";
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactNode) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
+  const getLayout = Component.getLayout ?? ((page: ReactNode) => <Layout>{page}</Layout>);
 
   useEffect(() => {
     AOS.init();
@@ -30,11 +42,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-        <Analytics />
-        <SpeedInsights route={router.pathname} />
-      </Layout>
+      {getLayout(
+        <>
+          <Component {...pageProps} />
+          <Analytics />
+          <SpeedInsights route={router.pathname} />
+        </>
+      )}
     </ChakraProvider>
   );
 };
