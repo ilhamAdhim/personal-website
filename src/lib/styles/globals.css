@@ -1,3 +1,7 @@
+/* Tailwind v4 — theme + utilities only, no preflight to avoid Chakra UI conflicts */
+@import "tailwindcss/theme.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
 /* Global Styling here */
 * {
   scroll-behavior: smooth;

@@ -52,6 +52,12 @@ const navList: IHeaderProps[] = [
     link: "/about",
     icon: <FaUser />,
   },
+  {
+    id: "nav-5",
+    text: "Wedding",
+    link: "/wedding",
+    icon: <FaHeart />,
+  },
 ];
 
 const HeaderSmallScreen = () => {
