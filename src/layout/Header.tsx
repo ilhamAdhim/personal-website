@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
-import { FaCode, FaHome, FaList, FaPen, FaUser } from "react-icons/fa";
+import { FaCode, FaHome, FaHeart, FaList, FaPen, FaUser } from "react-icons/fa";
 
 import useSmallViewport from "hooks/useViewport";
 
