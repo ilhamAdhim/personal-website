@@ -1,5 +1,5 @@
 ﻿import { useColorMode } from "@chakra-ui/react";
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -9,6 +9,7 @@ import WeddingLayout from "layout/WeddingLayout";
 import { Button } from "components/ui/button";
 import Input from "components/ui/input";
 import Textarea from "components/ui/textarea";
+import { isInvitedGuest } from "data/weddingGuests";
 
 // --- Types --------------------------------------------------------------------
 
@@ -331,6 +332,15 @@ const CommentCard = ({ c, isNew = false }: { c: Comment; isNew?: boolean }) => {
 };
 
 // --- Page ----------------------------------------------------------------------
+
+// Unknown guest names in ?to= get a 404 instead of a personal invitation
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const { to } = query;
+  if (typeof to === "string" && to.trim() && !isInvitedGuest(to)) {
+    return { notFound: true };
+  }
+  return { props: {} };
+};
 
 type WeddingPageType = NextPage & {
   getLayout?: (page: ReactNode) => ReactNode;
