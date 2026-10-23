@@ -1,15 +1,43 @@
 ﻿import { useColorMode } from "@chakra-ui/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { GetServerSideProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 import WeddingLayout from "layout/WeddingLayout";
+import WeddingNotFound from "components/wedding-revamp/NotFound";
 import { Button } from "components/ui/button";
 import Input from "components/ui/input";
 import Textarea from "components/ui/textarea";
+import {
+  Arch,
+  Corner,
+  HairlineDivider,
+  Orbits,
+  Rosette,
+} from "components/wedding/Hairline";
 import { isInvitedGuest } from "data/weddingGuests";
+
+// three.js is heavy and browser-only, so it loads after hydration
+const HeroParticles = dynamic(
+  () => import("components/wedding/HeroParticles"),
+  {
+    ssr: false,
+  }
+);
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
+
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // --- Types --------------------------------------------------------------------
 
@@ -137,27 +165,287 @@ const galleryImages = [
   { src: "/images/wedding/prewed-6.jpg", alt: "Prewed 6" },
 ];
 
-// --- Hooks ---------------------------------------------------------------------
+// --- Motion --------------------------------------------------------------------
 
-function useFadeIn(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
+/** Tween hairline strokes (pathLength=1) from hidden to fully drawn */
+const drawIn = (targets: gsap.TweenTarget, vars: gsap.TweenVars = {}) =>
+  gsap.fromTo(
+    targets,
+    { strokeDasharray: "1 1", strokeDashoffset: 1 },
+    { strokeDashoffset: 0, duration: 1.8, ease: "power2.inOut", ...vars }
+  );
+
+/**
+ * All page choreography in one place. Elements opt in through data attributes:
+ *  data-reveal="up|left|right" (+ data-delay ms)  fade/slide in on scroll
+ *  data-draw-group                                draw child [data-draw] strokes on scroll
+ *  data-arabic                                    right-to-left clip reveal
+ *  data-parallax="<px>"                           scrubbed vertical drift
+ *  data-float                                     gentle idle bob
+ *  data-shine                                     light sweep across a banner
+ *  data-gallery-card                              curtain reveal + image parallax
+ *  data-orbit="1|-1"                              scroll-scrubbed rotation
+ */
+function useWeddingMotion(scope: React.RefObject<HTMLElement>) {
+  useIsoLayoutEffect(() => {
+    const root = scope.current;
+    if (!root) return undefined;
+    const q = gsap.utils.selector(root);
+    const mm = gsap.matchMedia(root);
+
+    mm.add(
+      {
+        motion: "(prefers-reduced-motion: no-preference)",
+        reduce: "(prefers-reduced-motion: reduce)",
       },
-      { threshold }
+      (ctx) => {
+        // Hero is hidden in the SSR markup to avoid a flash before the intro
+        gsap.set(q("[data-hero-hide]"), { autoAlpha: 1 });
+        if ((ctx.conditions as { reduce: boolean }).reduce) return;
+
+        // ---- Hero intro ------------------------------------------------------
+        const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+        intro
+          .add(
+            drawIn(q("[data-hero-rosette] [data-draw]"), {
+              duration: 2.6,
+              stagger: 0.04,
+            }),
+            0
+          )
+          .add(
+            drawIn(q("[data-hero-corner] [data-draw]"), {
+              duration: 1.6,
+              stagger: 0.1,
+            }),
+            0.3
+          )
+          .from(
+            q("[data-hero-card]"),
+            { y: 40, autoAlpha: 0, scale: 0.97, duration: 1.1 },
+            0.1
+          )
+          .from(
+            q("[data-hero-chip]"),
+            { y: 16, autoAlpha: 0, duration: 0.8 },
+            0.4
+          )
+          .from(
+            q("[data-hero-word]"),
+            {
+              yPercent: 115,
+              rotate: 3,
+              duration: 1.4,
+              stagger: 0.18,
+              ease: "expo.out",
+            },
+            0.55
+          )
+          .from(
+            q("[data-hero-amp]"),
+            {
+              scale: 0.3,
+              rotate: -40,
+              autoAlpha: 0,
+              duration: 1.1,
+              ease: "back.out(2)",
+            },
+            0.85
+          )
+          .add(
+            drawIn(q("[data-hero-rule] [data-draw]"), { duration: 1.2 }),
+            1.1
+          )
+          .from(
+            q("[data-hero-fade]"),
+            { y: 20, autoAlpha: 0, duration: 1, stagger: 0.15 },
+            1.2
+          );
+
+        // Idle motion in the hero
+        gsap.to(q("[data-hero-rosette]"), {
+          rotate: 360,
+          duration: 160,
+          repeat: -1,
+          ease: "none",
+        });
+        q("[data-blob]").forEach((el, i) =>
+          gsap.to(el, {
+            x: i ? -40 : 40,
+            y: i ? -30 : 30,
+            duration: 9 + i * 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          })
+        );
+        gsap.fromTo(
+          q("[data-scroll-line]"),
+          { scaleY: 0, transformOrigin: "top" },
+          {
+            scaleY: 1,
+            duration: 1.4,
+            repeat: -1,
+            ease: "power2.inOut",
+            yoyo: true,
+          }
+        );
+
+        // Hero drifts away as you scroll past it
+        const heroScrub = {
+          trigger: q("[data-hero]")[0],
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        };
+        gsap.to(q("[data-hero-content]"), {
+          yPercent: -18,
+          opacity: 0.15,
+          ease: "none",
+          scrollTrigger: heroScrub,
+        });
+        gsap.to(q("[data-hero-rosette-wrap]"), {
+          scale: 1.35,
+          opacity: 0.4,
+          ease: "none",
+          scrollTrigger: heroScrub,
+        });
+
+        // ---- Generic scroll reveals -----------------------------------------
+        q("[data-reveal]").forEach((el) => {
+          const dir = el.dataset.reveal;
+          gsap.from(el, {
+            x: dir === "left" ? -60 : dir === "right" ? 60 : 0,
+            y: dir === "left" || dir === "right" ? 0 : 50,
+            autoAlpha: 0,
+            duration: 1.1,
+            delay: Number(el.dataset.delay ?? 0) / 1000,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          });
+        });
+
+        q("[data-draw-group]").forEach((svg) => {
+          drawIn(svg.querySelectorAll("[data-draw]"), {
+            stagger: 0.06,
+            scrollTrigger: { trigger: svg, start: "top 85%", once: true },
+          });
+        });
+
+        q("[data-arabic]").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { clipPath: "inset(0% 0% 0% 100%)", autoAlpha: 0.3 },
+            {
+              clipPath: "inset(0% 0% 0% 0%)",
+              autoAlpha: 1,
+              duration: 1.8,
+              ease: "power2.inOut",
+              scrollTrigger: { trigger: el, start: "top 85%", once: true },
+            }
+          );
+        });
+
+        q("[data-parallax]").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { y: -Number(el.dataset.parallax) },
+            {
+              y: Number(el.dataset.parallax),
+              ease: "none",
+              scrollTrigger: {
+                trigger: el.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
+        });
+
+        q("[data-float]").forEach((el, i) =>
+          gsap.to(el, {
+            y: -8,
+            duration: 2.4 + i * 0.4,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          })
+        );
+
+        q("[data-shine]").forEach((el) =>
+          gsap.fromTo(
+            el,
+            { xPercent: 0 },
+            {
+              xPercent: 420,
+              duration: 2.2,
+              ease: "power2.inOut",
+              repeat: -1,
+              repeatDelay: 3.5,
+            }
+          )
+        );
+
+        // ---- Gallery ---------------------------------------------------------
+        q("[data-gallery-card]").forEach((card, i) => {
+          const img = card.querySelector("img");
+          const tl = gsap.timeline({
+            scrollTrigger: { trigger: card, start: "top 90%", once: true },
+            delay: (i % 3) * 0.12,
+          });
+          tl.fromTo(
+            card,
+            { clipPath: "inset(100% 0% 0% 0% round 16px)" },
+            {
+              clipPath: "inset(0% 0% 0% 0% round 16px)",
+              duration: 1.3,
+              ease: "expo.inOut",
+            }
+          );
+          if (img) {
+            tl.fromTo(
+              img,
+              { scale: 1.45 },
+              { scale: 1.15, duration: 1.6, ease: "expo.out" },
+              0.2
+            );
+            gsap.fromTo(
+              img,
+              { yPercent: -6 },
+              {
+                yPercent: 6,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true,
+                },
+              }
+            );
+          }
+        });
+
+        // ---- Closing orbits --------------------------------------------------
+        q("[data-orbit]").forEach((g) => {
+          gsap.to(g, {
+            rotate: 220 * Number(g.dataset.orbit),
+            svgOrigin: "300 300",
+            ease: "none",
+            scrollTrigger: {
+              trigger: g.closest("section"),
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
+        });
+      }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, visible };
+
+    return () => mm.revert();
+  }, []);
 }
 
 // --- Shared primitives ---------------------------------------------------------
@@ -168,39 +456,20 @@ const Reveal = ({
   children,
   delay = 0,
   className = "",
-  from = "bottom",
+  from = "up",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
-  from?: "bottom" | "left" | "right";
-}) => {
-  const { ref, visible } = useFadeIn();
-  const translateMap = {
-    left: "-translate-x-8",
-    right: "translate-x-8",
-    bottom: "translate-y-8",
-  };
-  const hiddenClass = `opacity-0 ${translateMap[from]}`;
-  return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-x-0 translate-y-0" : hiddenClass} ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
+  from?: "up" | "left" | "right";
+}) => (
+  <div data-reveal={from} data-delay={delay} className={className}>
+    {children}
+  </div>
+);
 
 const Divider = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center gap-3 my-2 ${className}`}>
-    <div className="flex-1 h-px bg-linear-to-r from-transparent via-sky-200 to-transparent" />
-    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-sky-300 shrink-0">
-      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-    </svg>
-    <div className="flex-1 h-px bg-linear-to-r from-transparent via-sky-200 to-transparent" />
-  </div>
+  <HairlineDivider className={`text-sky-300 my-2 ${className}`} />
 );
 
 const Chip = ({
@@ -228,19 +497,14 @@ const GalleryCard = ({
   alt: string;
   index: number;
 }) => {
-  const { ref, visible } = useFadeIn(0.1);
   const [err, setErr] = useState(false);
   const tall = index === 1 || index === 4;
   return (
     <div
-      ref={ref}
-      style={{
-        transitionDelay: `${index * 100}ms`,
-        gridRow: tall ? "span 2" : "span 1",
-      }}
-      className={`group relative overflow-hidden rounded-2xl bg-slate-100 border border-sky-100
-        transition-all duration-700 hover:shadow-2xl hover:shadow-sky-100/50 cursor-pointer
-        ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+      data-gallery-card=""
+      style={{ gridRow: tall ? "span 2" : "span 1" }}
+      className="group relative overflow-hidden rounded-2xl bg-slate-100 border border-sky-100
+        transition-shadow duration-700 hover:shadow-2xl hover:shadow-sky-100/50 cursor-pointer"
     >
       {err ? (
         <div
@@ -256,13 +520,16 @@ const GalleryCard = ({
         </div>
       ) : (
         <>
-          <img
-            src={src}
-            alt={alt}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            style={{ minHeight: tall ? "420px" : "200px" }}
-            onError={() => setErr(true)}
-          />
+          {/* Hover zoom lives on the wrapper; GSAP owns the img transform */}
+          <div className="absolute inset-0 transition-transform duration-1200 ease-out group-hover:scale-105">
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-cover"
+              style={{ transform: "scale(1.15)" }}
+              onError={() => setErr(true)}
+            />
+          </div>
           <div className="absolute inset-0 bg-linear-to-t from-sky-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute bottom-4 left-4 right-4 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
             {alt}
@@ -276,30 +543,54 @@ const GalleryCard = ({
 // --- Comment card -------------------------------------------------------------
 
 const CommentCard = ({ c, isNew = false }: { c: Comment; isNew?: boolean }) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    requestAnimationFrame(() => setMounted(true));
-  }, []);
+  const ref = useRef<HTMLDivElement>(null);
 
-  let stateClass = "opacity-100 border-sky-50";
-  if (isNew) {
-    stateClass = mounted
-      ? "opacity-100 translate-y-0 border-sky-200 shadow-md shadow-sky-100"
-      : "opacity-0 -translate-y-4 border-sky-100";
-  }
+  useIsoLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return undefined;
+    const ctx = gsap.context(() => {
+      if (isNew) {
+        // Freshly sent wish: drop in, then the avatar pops
+        gsap
+          .timeline()
+          .from(el, {
+            y: -28,
+            scale: 0.96,
+            autoAlpha: 0,
+            duration: 0.7,
+            ease: "back.out(1.6)",
+          })
+          .from(
+            "[data-avatar]",
+            { scale: 0, rotate: -90, duration: 0.6, ease: "back.out(2.5)" },
+            0.2
+          );
+      } else {
+        gsap.from(el, {
+          y: 30,
+          autoAlpha: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 92%", once: true },
+        });
+      }
+    }, el);
+    return () => ctx.revert();
+  }, [isNew]);
 
   return (
     <div
-      className={`flex gap-4 rounded-2xl bg-white border p-5 transition-all duration-500 hover:border-sky-200 hover:shadow-md hover:shadow-sky-50
-        ${stateClass}`}
+      ref={ref}
+      className={`flex gap-4 rounded-2xl bg-white border p-5 transition-[border-color,box-shadow] duration-500 hover:border-sky-200 hover:shadow-md hover:shadow-sky-50
+        ${isNew ? "border-sky-200" : "border-sky-50"}`}
       style={{
-        boxShadow:
-          isNew && mounted
-            ? "0 4px 24px rgba(14,165,233,0.1)"
-            : "0 2px 16px rgba(14,165,233,0.04)",
+        boxShadow: isNew
+          ? "0 4px 24px rgba(14,165,233,0.1)"
+          : "0 2px 16px rgba(14,165,233,0.04)",
       }}
     >
       <div
+        data-avatar=""
         className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold bg-linear-to-br ${c.color}`}
       >
         {c.avatar}
@@ -333,11 +624,15 @@ const CommentCard = ({ c, isNew = false }: { c: Comment; isNew?: boolean }) => {
 
 // --- Page ----------------------------------------------------------------------
 
-// Unknown guest names in ?to= get a 404 instead of a personal invitation
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+// Unknown guest names in ?to= get a 404 status and a themed not-found page
+export const getServerSideProps: GetServerSideProps = async ({
+  query,
+  res,
+}) => {
   const { to } = query;
   if (typeof to === "string" && to.trim() && !isInvitedGuest(to)) {
-    return { notFound: true };
+    res.statusCode = 404;
+    return { props: { invalid: true, guest: to.trim() } };
   }
   return { props: {} };
 };
@@ -346,7 +641,7 @@ type WeddingPageType = NextPage & {
   getLayout?: (page: ReactNode) => ReactNode;
 };
 
-const WeddingPage: WeddingPageType = () => {
+const WeddingInvitation = () => {
   const { setColorMode } = useColorMode();
   const router = useRouter();
   const guestName =
@@ -359,6 +654,9 @@ const WeddingPage: WeddingPageType = () => {
     setColorMode("light");
     return () => setColorMode("dark");
   }, [setColorMode]);
+
+  const rootRef = useRef<HTMLDivElement>(null);
+  useWeddingMotion(rootRef);
 
   // --- Comments state ----------------------------------------------------------
   const [comments, setComments] = useState<Comment[]>([]);
@@ -375,6 +673,11 @@ const WeddingPage: WeddingPageType = () => {
       ...SEED_COMMENTS,
     ]);
   }, []);
+
+  // Comments change the page height, so scroll trigger positions need updating
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [comments.length]);
 
   const handleSend = () => {
     const trimName = name.trim();
@@ -413,6 +716,7 @@ const WeddingPage: WeddingPageType = () => {
 
   return (
     <div
+      ref={rootRef}
       style={{
         backgroundColor: "#ffffff",
         color: "#1e293b",
@@ -429,10 +733,14 @@ const WeddingPage: WeddingPageType = () => {
           name="description"
           content="The wedding of Ilham & Firda — a celebration of love, faith, and togetherness."
         />
+        <noscript>
+          <style>{`[data-hero-hide]{visibility:visible!important}`}</style>
+        </noscript>
       </Head>
 
       {/* ===== HERO ===================================================== */}
       <section
+        data-hero=""
         className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center"
         style={{
           background:
@@ -472,6 +780,7 @@ const WeddingPage: WeddingPageType = () => {
 
         {/* Blurred blobs */}
         <div
+          data-blob=""
           className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
           style={{
             background:
@@ -479,6 +788,7 @@ const WeddingPage: WeddingPageType = () => {
           }}
         />
         <div
+          data-blob=""
           className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full pointer-events-none"
           style={{
             background:
@@ -486,17 +796,64 @@ const WeddingPage: WeddingPageType = () => {
           }}
         />
 
-        <div className="relative z-10 flex flex-col items-center gap-6 max-w-3xl mx-auto w-full">
+        {/* Drifting light motes (three.js) */}
+        <HeroParticles />
+
+        {/* Hairline rosette behind the names */}
+        <div
+          data-hero-hide=""
+          data-hero-rosette-wrap=""
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{ visibility: "hidden" }}
+        >
+          <div
+            data-hero-rosette=""
+            className="w-[min(92vw,720px)] aspect-square text-sky-300/70"
+          >
+            <Rosette className="w-full h-full" />
+          </div>
+        </div>
+
+        {/* Hairline corner flourishes */}
+        <div
+          data-hero-hide=""
+          className="absolute inset-0 pointer-events-none text-sky-300"
+          style={{ visibility: "hidden" }}
+        >
+          {(
+            [
+              ["top-24 left-4 md:left-8", ""],
+              ["top-24 right-4 md:right-8", "x"],
+              ["bottom-6 left-4 md:left-8", "y"],
+              ["bottom-6 right-4 md:right-8", "xy"],
+            ] as const
+          ).map(([pos, flip]) => (
+            <div
+              key={pos}
+              data-hero-corner=""
+              className={`absolute w-14 h-14 md:w-24 md:h-24 ${pos}`}
+            >
+              <Corner flip={flip} className="w-full h-full" />
+            </div>
+          ))}
+        </div>
+
+        <div
+          data-hero-hide=""
+          data-hero-content=""
+          className="relative z-10 flex flex-col items-center gap-6 max-w-3xl mx-auto w-full"
+          style={{ visibility: "hidden" }}
+        >
           {/* ── Invitation address card ── shown only when ?to= present */}
           {guestName && (
             <div
+              data-hero-card=""
               className="w-full max-w-lg rounded-3xl border border-sky-200/60 text-center overflow-hidden"
               style={{
                 background: "rgba(255,255,255,0.82)",
                 backdropFilter: "blur(20px)",
                 boxShadow:
                   "0 8px 48px rgba(14,165,233,0.15), 0 1px 0 rgba(255,255,255,0.9) inset",
-                animation: "slideUp 0.9s ease 0.1s both",
               }}
             >
               {/* Top accent bar */}
@@ -560,81 +917,70 @@ const WeddingPage: WeddingPageType = () => {
             </div>
           )}
 
-          <Chip className="text-sky-500 border-sky-200 bg-sky-50 animate-[fadeIn_0.8s_ease_forwards]">
-            Bismillahirrahmanirrahim
-          </Chip>
+          <div data-hero-chip="">
+            <Chip className="text-sky-500 border-sky-200 bg-sky-50">
+              Bismillahirrahmanirrahim
+            </Chip>
+          </div>
 
-          {/* Main names */}
+          {/* Main names: each word rises out of its own mask */}
           <h1
             className="text-[clamp(3rem,10vw,7rem)] font-bold leading-none tracking-tight"
-            style={{
-              fontFamily: playfair,
-              animation: "slideUp 1s ease 0.2s both",
-            }}
+            style={{ fontFamily: playfair }}
           >
-            <span
-              style={{
-                background: "linear-gradient(135deg,#0ea5e9,#06b6d4,#38bdf8)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Ilham
+            <span className="inline-block overflow-hidden align-bottom pb-[0.12em]">
+              <span
+                data-hero-word=""
+                className="inline-block"
+                style={{
+                  background: "linear-gradient(135deg,#0ea5e9,#06b6d4,#38bdf8)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Ilham
+              </span>
             </span>
             <span
+              data-hero-amp=""
+              className="inline-block mx-[0.2em]"
               style={{
                 color: "#94a3b8",
                 fontSize: "0.7em",
                 fontStyle: "italic",
               }}
             >
-              {" "}
-              &{" "}
+              &amp;
             </span>
-            <span
-              style={{
-                background: "linear-gradient(135deg,#38bdf8,#0284c7)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Firda
+            <span className="inline-block overflow-hidden align-bottom pb-[0.12em]">
+              <span
+                data-hero-word=""
+                className="inline-block"
+                style={{
+                  background: "linear-gradient(135deg,#38bdf8,#0284c7)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Firda
+              </span>
             </span>
           </h1>
 
-          {/* Ornamental line */}
-          <div
-            className="flex items-center justify-center gap-4"
-            style={{ animation: "fadeIn 1s ease 0.6s both" }}
-          >
-            <div
-              style={{
-                width: "60px",
-                height: "1px",
-                background: "linear-gradient(to right,transparent,#7dd3fc)",
-              }}
-            />
-            <svg viewBox="0 0 32 32" className="w-6 h-6 fill-sky-300">
-              <path d="M16 2L18.9 10.8H28.2L20.7 16.1L23.6 24.9L16 19.6L8.4 24.9L11.3 16.1L3.8 10.8H13.1Z" />
-            </svg>
-            <div
-              style={{
-                width: "60px",
-                height: "1px",
-                background: "linear-gradient(to left,transparent,#7dd3fc)",
-              }}
-            />
+          {/* Ornamental hairline */}
+          <div data-hero-rule="" className="w-56 text-sky-300">
+            <HairlineDivider drawOnScroll={false} />
           </div>
 
           <p
+            data-hero-fade=""
             className="text-slate-500 text-lg md:text-xl max-w-md mx-auto leading-relaxed"
-            style={{ animation: "slideUp 0.9s ease 0.7s both" }}
           >
             Two souls, one journey — bound by love and blessed by faith.
           </p>
           <p
+            data-hero-fade=""
             className="text-sky-400 text-sm italic tracking-widest"
-            style={{ animation: "fadeIn 1s ease 1s both" }}
           >
             &ldquo;Mawaddah wa Rahmah&rdquo;
           </p>
@@ -642,17 +988,21 @@ const WeddingPage: WeddingPageType = () => {
 
         {/* Scroll cue */}
         <div
+          data-hero-hide=""
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          style={{ animation: "fadeIn 1s ease 1.5s both" }}
+          style={{ visibility: "hidden" }}
         >
-          <span className="text-[10px] tracking-[0.25em] uppercase text-sky-300">
+          <span
+            data-hero-fade=""
+            className="text-[10px] tracking-[0.25em] uppercase text-sky-300"
+          >
             Scroll
           </span>
           <div
+            data-scroll-line=""
             className="w-px h-10 rounded-full"
             style={{
               background: "linear-gradient(to bottom,#7dd3fc,transparent)",
-              animation: "float 2s ease-in-out infinite",
             }}
           />
         </div>
@@ -693,6 +1043,7 @@ const WeddingPage: WeddingPageType = () => {
                 >
                   {/* Number */}
                   <div
+                    data-parallax="24"
                     className="absolute top-6 right-8 text-[80px] font-bold leading-none select-none pointer-events-none"
                     style={{ color: "#e0f2fe", fontFamily: playfair }}
                   >
@@ -702,6 +1053,7 @@ const WeddingPage: WeddingPageType = () => {
                   {/* Arabic */}
                   <p
                     dir="rtl"
+                    data-arabic=""
                     className="text-2xl md:text-3xl text-slate-700 leading-[2.2] text-right mb-8 relative z-10"
                     style={{
                       fontFamily: "'Amiri','Scheherazade New',serif",
@@ -761,15 +1113,19 @@ const WeddingPage: WeddingPageType = () => {
                     background: "radial-gradient(circle,#7dd3fc,transparent)",
                   }}
                 />
-                <div
-                  className="relative w-28 h-28 mx-auto mb-6 rounded-full flex items-center justify-center text-5xl"
-                  style={{
-                    background: "linear-gradient(135deg,#e0f2fe,#f0f9ff)",
-                    boxShadow:
-                      "0 0 0 4px #bae6fd,0 8px 32px rgba(14,165,233,0.15)",
-                  }}
-                >
-                  🤵
+                <div className="relative w-40 h-52 mx-auto mb-4 flex items-end justify-center pb-6">
+                  <Arch className="absolute inset-0 w-full h-full text-sky-300" />
+                  <div
+                    data-float=""
+                    className="relative w-28 h-28 rounded-full flex items-center justify-center text-5xl"
+                    style={{
+                      background: "linear-gradient(135deg,#e0f2fe,#f0f9ff)",
+                      boxShadow:
+                        "0 0 0 4px #bae6fd,0 8px 32px rgba(14,165,233,0.15)",
+                    }}
+                  >
+                    🤵
+                  </div>
                 </div>
                 <Chip className="text-sky-500 border-sky-200 bg-sky-50 mb-4">
                   The Groom
@@ -802,15 +1158,19 @@ const WeddingPage: WeddingPageType = () => {
                     background: "radial-gradient(circle,#67e8f9,transparent)",
                   }}
                 />
-                <div
-                  className="relative w-28 h-28 mx-auto mb-6 rounded-full flex items-center justify-center text-5xl"
-                  style={{
-                    background: "linear-gradient(135deg,#cffafe,#ecfeff)",
-                    boxShadow:
-                      "0 0 0 4px #a5f3fc,0 8px 32px rgba(6,182,212,0.15)",
-                  }}
-                >
-                  👰
+                <div className="relative w-40 h-52 mx-auto mb-4 flex items-end justify-center pb-6">
+                  <Arch className="absolute inset-0 w-full h-full text-cyan-300" />
+                  <div
+                    data-float=""
+                    className="relative w-28 h-28 rounded-full flex items-center justify-center text-5xl"
+                    style={{
+                      background: "linear-gradient(135deg,#cffafe,#ecfeff)",
+                      boxShadow:
+                        "0 0 0 4px #a5f3fc,0 8px 32px rgba(6,182,212,0.15)",
+                    }}
+                  >
+                    👰
+                  </div>
                 </div>
                 <Chip className="text-cyan-500 border-cyan-200 bg-cyan-50 mb-4">
                   The Bride
@@ -837,6 +1197,14 @@ const WeddingPage: WeddingPageType = () => {
                 boxShadow: "0 20px 60px rgba(14,165,233,0.35)",
               }}
             >
+              <div
+                data-shine=""
+                className="absolute inset-y-0 -left-1/3 w-1/3 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(105deg,transparent,rgba(255,255,255,0.28),transparent)",
+                }}
+              />
               <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-44 h-44 rounded-full bg-white/10 pointer-events-none" />
               <p
@@ -898,10 +1266,8 @@ const WeddingPage: WeddingPageType = () => {
 
       {/* ===== CLOSING DUA ============================================= */}
       <section className="relative py-28 px-6 overflow-hidden text-center bg-white">
-        {/* Decorative rings */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full border border-sky-50 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full border border-sky-100 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-50 h-50 rounded-full border border-sky-200 pointer-events-none" />
+        {/* Hairline orbit rings, rotating with scroll */}
+        <Orbits className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 max-w-none text-sky-200 pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto">
           <Reveal>
@@ -919,6 +1285,7 @@ const WeddingPage: WeddingPageType = () => {
             <p
               className="text-3xl md:text-4xl text-slate-700 leading-loose mb-8 font-light"
               dir="rtl"
+              data-arabic=""
               style={{ fontFamily: "'Amiri',serif" }}
             >
               بَارَكَ اللهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا
@@ -1068,6 +1435,15 @@ const WeddingPage: WeddingPageType = () => {
     </div>
   );
 };
+
+// Split in two so the invitation's motion and color-mode changes never run on a 404
+const WeddingPage: WeddingPageType = ({
+  invalid,
+  guest,
+}: {
+  invalid?: boolean;
+  guest?: string;
+}) => (invalid ? <WeddingNotFound guest={guest ?? ""} /> : <WeddingInvitation />);
 
 export default Object.assign(WeddingPage, {
   getLayout: (page: ReactNode) => <WeddingLayout>{page}</WeddingLayout>,

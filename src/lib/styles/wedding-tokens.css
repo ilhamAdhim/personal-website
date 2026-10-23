@@ -1,0 +1,17 @@
+/* Colour tokens for /wedding-revamp, read by wr.module.css.
+   Burgundy velvet and cream paper, after the "burgundy small wedding" Canva template. */
+[data-theme="wedding"] {
+  --c-wine-deep: #440209; /* darkest velvet */
+  --c-wine: #621414; /* velvet field */
+  --c-rose: #992f3a; /* script headings, timeline, accents */
+  --c-blush: #c66161;
+  --c-petal: #e5d3cf; /* form choices */
+  --c-paper: #fdf9ed; /* cream field */
+  --c-paper-warm: #f4e6d8;
+  --c-card: #ebe6df; /* form panel */
+  --c-ink: #42281d; /* body text on paper */
+  --c-muted: #5c5a4d;
+  /* the one cool accent: small touches only, always with cream between it and burgundy */
+  --c-dusk: #9db4c8; /* dusty blue */
+  --c-slate: #6e8ba3; /* darker dusty blue, for thin lines */
+}

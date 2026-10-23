@@ -1,0 +1,477 @@
+/* Burgundy velvet and cream paper, after the "burgundy small wedding" Canva template:
+   script headings, Cinzel caps lines, letter-spaced serif text, everything centred.
+   Colours live in lib/styles/wedding-tokens.css ([data-theme="wedding"]). */
+.root {
+  --f-script: var(--wr-script), "Allura", cursive;
+  --f-caps: var(--wr-caps), "Cinzel", Georgia, serif;
+  --f-serif: var(--wr-serif), "Lora", Georgia, serif;
+  --f-arabic: var(--wr-arabic), "Amiri", serif;
+
+  --t-small: 0.8125rem;
+  --t-body: clamp(0.975rem, 0.93rem + 0.2vw, 1.0625rem);
+  --t-lead: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+  --t-script: clamp(3.25rem, 2.2rem + 4.4vw, 5.5rem);
+  --t-names: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+  --gutter: clamp(1.25rem, 0.6rem + 2.6vw, 2.5rem);
+  --measure: 34rem;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* crumpled velvet and crinkled paper, drawn by SVG lighting over noise */
+  --tex-velvet: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640'><filter id='v' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='0.007 0.011' numOctaves='5' seed='7' stitchTiles='stitch'/><feDiffuseLighting lighting-color='%23a8a8a8' surfaceScale='3'><feDistantLight azimuth='225' elevation='48'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23v)'/></svg>");
+  --tex-paper: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520'><filter id='p' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.018' numOctaves='5' seed='11' stitchTiles='stitch'/><feDiffuseLighting lighting-color='%23b4b4b4' surfaceScale='1.4'><feDistantLight azimuth='235' elevation='62'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>");
+
+  /* each field overrides these */
+  --bg: var(--c-paper);
+  --fg: var(--c-ink);
+  --accent: var(--c-rose);
+
+  position: relative;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-serif);
+  font-size: var(--t-body);
+  line-height: 1.75;
+  letter-spacing: 0.05em;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  caret-color: currentColor;
+  scrollbar-color: var(--c-rose) var(--c-paper);
+}
+
+.root ::selection {
+  background: var(--c-rose);
+  color: var(--c-paper);
+}
+
+/* Fields */
+.velvet {
+  --bg: var(--c-wine);
+  --fg: var(--c-paper);
+  --accent: var(--c-paper);
+  color: var(--fg);
+  background-color: var(--c-wine);
+  background-image:
+    var(--tex-velvet),
+    radial-gradient(
+      ellipse 90% 70% at 50% 35%,
+      color-mix(in oklab, var(--c-rose) 14%, var(--c-wine)) 0%,
+      var(--c-wine) 50%,
+      var(--c-wine-deep) 100%
+    );
+  background-size:
+    640px 640px,
+    100% 100%;
+  background-blend-mode: soft-light, normal;
+}
+
+.paper {
+  --bg: var(--c-paper);
+  --fg: var(--c-ink);
+  --accent: var(--c-rose);
+  color: var(--fg);
+  background-color: var(--c-paper);
+  background-image:
+    var(--tex-paper),
+    radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      var(--c-paper) 0%,
+      var(--c-paper-warm) 100%
+    );
+  background-size:
+    520px 520px,
+    100% 100%;
+  background-blend-mode: soft-light, normal;
+}
+
+.section {
+  position: relative;
+  padding: clamp(5rem, 4rem + 5vw, 8rem) var(--gutter);
+  text-align: center;
+  overflow: hidden;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.wrapWide {
+  composes: wrap;
+  max-width: 64rem;
+}
+
+/* Fixed paper grain, very faint */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.1  0 0 0 0 0.1  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Type */
+.script {
+  font-family: var(--f-script);
+  font-weight: 400;
+  font-size: var(--t-script);
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--accent);
+  text-wrap: balance;
+}
+
+.names {
+  composes: script;
+  font-size: var(--t-names);
+}
+
+.caps {
+  font-family: var(--f-caps);
+  font-weight: 400;
+  font-size: var(--t-small);
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* "You're Invited To The Wedding": small caps with capital initials */
+.smallCaps {
+  font-family: var(--f-caps);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+  letter-spacing: 0.06em;
+  font-variant: small-caps;
+  color: var(--accent);
+}
+
+.lead {
+  font-size: var(--t-lead);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.body {
+  font-size: var(--t-body);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.soft {
+  color: color-mix(in oklab, var(--fg) 72%, var(--bg));
+}
+
+.arabic {
+  font-family: var(--f-arabic);
+  line-height: 2.1;
+  letter-spacing: 0;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Controls */
+
+/* "OPEN THE INVITATION", "< GO BACK": caps words, a hairline grows under on hover */
+.capsLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.25rem;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-family: var(--f-caps);
+  font-size: clamp(0.85rem, 0.8rem + 0.3vw, 1.05rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.capsLink::after {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  bottom: 0.55rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.35);
+  opacity: 0.6;
+  transition:
+    transform 0.35s var(--ease-out),
+    opacity 0.35s var(--ease-out);
+}
+
+.capsLink:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--c-rose) 48%, var(--c-paper));
+  color: #fff;
+  font-family: var(--f-serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 0.25s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.pill:hover {
+  background: color-mix(in oklab, var(--c-rose) 70%, var(--c-paper));
+}
+
+.pill:active {
+  transform: scale(0.98);
+}
+
+.pill:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.root :where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  transition: none;
+}
+
+/* RSVP form, after the template's form panel */
+.formCard {
+  background: var(--c-card);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  text-align: left;
+  letter-spacing: 0.01em;
+  color: var(--c-rose);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.label {
+  display: block;
+  font-family: var(--f-serif);
+  font-size: 0.975rem;
+  line-height: 1.45;
+  margin-bottom: 0.55rem;
+  color: var(--c-rose);
+}
+
+.input {
+  width: 100%;
+  border: 1px solid color-mix(in oklab, var(--c-rose) 55%, var(--c-card)); /* taste-skill-ignore: a real form field */
+  border-radius: 8px;
+  background: color-mix(in oklab, #fff 25%, var(--c-card));
+  padding: 0.7rem 0.85rem;
+  color: var(--c-ink);
+  font-family: var(--f-serif);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  resize: vertical;
+}
+
+.input::placeholder {
+  color: color-mix(in oklab, var(--c-rose) 45%, var(--c-card));
+}
+
+.option {
+  position: relative;
+  display: block;
+}
+
+.option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.option span {
+  display: flex;
+  align-items: center;
+  min-height: 2.9rem;
+  padding: 0 0.9rem;
+  border-radius: 8px;
+  background: var(--c-petal);
+  color: var(--c-rose);
+  font-size: 0.975rem;
+  transition:
+    background-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out);
+}
+
+.option input:hover + span {
+  background: color-mix(in oklab, var(--c-rose) 22%, var(--c-petal));
+}
+
+.option input:checked + span {
+  background: var(--c-rose);
+  color: var(--c-paper);
+}
+
+.option input:focus-visible + span {
+  outline: 2px solid var(--c-rose);
+  outline-offset: 2px;
+}
+
+/* Countdown: rose numerals with caps labels underneath */
+.countNum {
+  font-family: var(--f-caps);
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--c-rose);
+}
+
+.countLabel {
+  font-family: var(--f-caps);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-rose);
+  margin-top: 0.4rem;
+}
+
+/* Timeline: one rose line with a heart at each step */
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--c-slate);
+}
+
+.heart {
+  position: absolute;
+  left: 50%;
+  top: 0.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  transform: translateX(-50%);
+  color: var(--c-rose);
+}
+
+/* Film frames for the story triptych */
+.film {
+  background: #141010;
+  padding: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.7);
+}
+
+/* Polaroid tiles for the gallery */
+.polaroid {
+  background: #fffdf8;
+  padding: 0.6rem 0.6rem 2.4rem;
+  box-shadow:
+    0 1px 1px rgba(66, 40, 29, 0.12),
+    0 14px 28px -12px rgba(66, 40, 29, 0.45);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-4px) !important;
+}
+
+/* The RSVP card: burgundy board with a torn cream sheet on it */
+.deckle {
+  filter: url(#wr-deckle);
+}
+
+/* Embossed laurels: lit from the top left, shadow underneath */
+.emboss {
+  filter: drop-shadow(-0.6px -0.8px 0 rgba(255, 196, 190, 0.35))
+    drop-shadow(1px 2px 1.5px rgba(20, 0, 3, 0.65));
+}
+
+/* The cover flap's shadow on the envelope body */
+.flapShadow {
+  filter: drop-shadow(0 6px 10px rgba(20, 0, 3, 0.55));
+}
+
+.flap {
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Music bars */
+.bar {
+  width: 2px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: bar 1s ease-in-out infinite;
+}
+
+.barPaused {
+  composes: bar;
+  animation-play-state: paused;
+  transform: scaleY(0.3);
+}
+
+@keyframes bar {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* The vinyl pendant spins while the music plays */
+.vinyl {
+  animation: spin 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinylOn {
+  composes: vinyl;
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .vinyl {
+    animation: none;
+  }
+  .capsLink::after,
+  .pill,
+  .option span,
+  .polaroid {
+    transition: none;
+  }
+}
