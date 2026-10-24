@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { HeartSeal, LaurelRule } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -12,6 +12,7 @@ const DUA =
 /** Last section, on velvet: thanks, the dua, the families, and the names sealed */
 const Closing = () => {
   const cfg = useConfig();
+  const couple = coupleOf(cfg);
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
@@ -68,13 +69,24 @@ const Closing = () => {
           </div>
         )}
 
-        <p data-cl-rise="" className={`${s.caps} mt-16! opacity-80`}>
-          {t.signed}
-        </p>
-        <p data-cl-rise="" className={`${s.names} mt-1!`}>
-          {cfg.groom.short} &amp; {cfg.bride.short}
-        </p>
-        <div data-cl-seal="" className="mt-8! mx-auto! w-24!">
+        {!cfg.hideSignature && (
+          <>
+            <p data-cl-rise="" className={`${s.caps} mt-16! opacity-80`}>
+              {t.signed}
+            </p>
+            <p
+              data-cl-rise=""
+              className={`${s.names} mt-1! whitespace-nowrap`}
+              style={{ fontSize: "clamp(2.5rem, 13vw, 5.5rem)" }}
+            >
+              {couple.names}
+            </p>
+          </>
+        )}
+        <div
+          data-cl-seal=""
+          className={`${cfg.hideSignature ? "mt-14!" : "mt-8!"} mx-auto! w-24!`}
+        >
           <HeartSeal className="w-full! h-auto!" />
         </div>
         <p className={`${s.caps} mt-8! opacity-80`}>{cfg.hashtag}</p>

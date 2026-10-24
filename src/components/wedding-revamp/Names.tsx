@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { LangSwitch } from "./Controls";
 import { Laurel, LaurelPair, Sprig } from "./Decor";
 import type { Lang } from "./i18n";
@@ -167,6 +167,7 @@ const Pendant = ({
 /** The opened envelope with the invitation card standing out of it */
 const OpenEnvelope = () => {
   const cfg = useConfig();
+  const couple = coupleOf(cfg);
   const { t, lang } = useLang();
   const d = dateParts(cfg.events[0].start, lang);
   return (
@@ -214,11 +215,11 @@ const OpenEnvelope = () => {
           className={`${s.caps} mt-2! leading-[1.25]! tracking-[0.14em]!`}
           style={{ fontSize: "clamp(1rem, 0.7rem + 1.6vw, 1.5rem)", color: "#5a1a22" }}
         >
-          {cfg.groom.short}
+          {couple.first.short}
           <br />
           <span className="text-[0.7em]!">&amp;</span>
           <br />
-          {cfg.bride.short}
+          {couple.second.short}
         </p>
         <LaurelPair className="mt-1! opacity-80" width={46} />
         <p className={`${s.caps} mt-1! text-[0.5rem]! sm:text-[0.6rem]!`} style={{ color: "#5a1a22" }}>
@@ -267,6 +268,7 @@ const Names = ({
   toggleMusic: (() => void) | null;
 }) => {
   const cfg = useConfig();
+  const couple = coupleOf(cfg);
   const { t, lang } = useLang();
   const ref = useRef<HTMLElement>(null);
   const first = cfg.events[0];
@@ -356,7 +358,7 @@ const Names = ({
             </p>
           )}
           <h1 data-n-rise="" className={`${s.names} mt-2!`}>
-            {cfg.groom.short} &amp; {cfg.bride.short}
+            {couple.names}
           </h1>
           <p data-n-rise="" className={`${s.caps} mt-6!`} style={{ color: "var(--c-rose)" }}>
             {d.weekday}, {d.day} {d.month} {d.year}

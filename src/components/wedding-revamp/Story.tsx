@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
 import SafeImg from "./SafeImg";
@@ -18,7 +18,7 @@ const FilmFrame = ({ src }: { src: string }) => {
       {!failed && (
         <SafeImg
           src={src}
-          alt={`${cfg.groom.short} & ${cfg.bride.short}`}
+          alt={coupleOf(cfg).names}
           width={360}
           height={600}
           loading="lazy"
@@ -84,7 +84,7 @@ const Story = () => {
         </ol>
 
         <p data-s-rise="" className={`${s.script} mt-14! text-[2.75rem]!`}>
-          {cfg.groom.short} &amp; {cfg.bride.short}
+          {coupleOf(cfg).names}
         </p>
       </div>
     </section>

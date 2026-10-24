@@ -93,6 +93,9 @@ const Couple = () => {
   const cfg = useConfig();
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
+  const [first, second] = cfg.brideFirst
+    ? [cfg.bride, cfg.groom]
+    : [cfg.groom, cfg.bride];
 
   useSectionMotion(ref, (q) => {
     q("[data-c-person]").forEach((person) => {
@@ -112,17 +115,19 @@ const Couple = () => {
   return (
     <section ref={ref} className={`${s.section} ${s.paper}`}>
       <div className={s.wrapWide}>
-        <h2 className={s.script}>{t.coupleTitle}</h2>
-        <p className={`${s.body} ${s.soft} mt-5! mx-auto! max-w-[30rem]!`}>
+        {t.coupleTitle && <h2 className={s.script}>{t.coupleTitle}</h2>}
+        <p
+          className={`${s.body} ${s.soft} mx-auto! max-w-[30rem]! ${t.coupleTitle ? "mt-5!" : ""}`}
+        >
           {t.coupleIntro}
         </p>
 
         <div className="mt-14! grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-8 md:gap-6 items-start md:[&>p]:self-center">
-          <PersonBlock person={cfg.groom} />
+          <PersonBlock person={first} />
           <p className={`${s.names} text-[4rem]!`} aria-hidden="true">
             &amp;
           </p>
-          <PersonBlock person={cfg.bride} />
+          <PersonBlock person={second} />
         </div>
       </div>
     </section>

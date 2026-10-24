@@ -6,7 +6,7 @@ import type { WeddingConfig } from "data/weddingConfig";
 import { isInvitedGuest } from "data/weddingGuests";
 
 import Closing from "./Closing";
-import { ConfigProvider } from "./config";
+import { ConfigProvider, coupleOf } from "./config";
 import Controls from "./Controls";
 import Couple from "./Couple";
 import { WrDefs } from "./Decor";
@@ -84,7 +84,7 @@ export const createInvitationPage = ({ config, occasion }: Options) => {
     const audio = useRef<HTMLAudioElement>(null);
     const lenis = useSmoothScroll();
 
-    const coupleName = `${config.groom.short} & ${config.bride.short}`;
+    const coupleName = coupleOf(config).names;
 
     // Field colour behind overscroll / iOS rubber-banding, restored on leave
     useEffect(() => {

@@ -47,14 +47,21 @@ export const ENGAGEMENT: WeddingConfig = {
     },
   ],
 
-  // An empty list hides the "Turut mengundang" section
-  turutMengundang: [],
-
   hashtag: "",
+
+  brideFirst: true,
+  hideSignature: true,
+
+  turutMengundang: [
+    "Keluarga Bapak Agus Setiabudi",
+    "Keluarga Bapak Winoto",
+    "Firda & Ilham",
+  ],
 
   // The sections say "wedding" in a few places; on this page they say engagement
   copy: {
     id: {
+      coupleTitle: "", // no heading above the couple
       invitedTo: "Undangan Lamaran",
       coupleIntro:
         "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara lamaran putra-putri kami:",
@@ -63,6 +70,7 @@ export const ENGAGEMENT: WeddingConfig = {
         "Dengan penuh sukacita kami menantikan kehadiran Anda di hari lamaran kami. Berikut semua yang perlu Anda ketahui.",
     },
     en: {
+      coupleTitle: "",
       invitedTo: "You’re Invited To The Engagement",
       coupleIntro:
         "Seeking the grace and blessing of Allah SWT, we joyfully invite you to the engagement of our children:",

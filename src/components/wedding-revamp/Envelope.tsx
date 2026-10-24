@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { HeartSeal, Laurel } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, prefersReducedMotion, useIsoLayoutEffect } from "./motion";
@@ -85,7 +85,7 @@ const Envelope = ({ guest, onOpenStart, onReveal, onDone }: Props) => {
   const { t } = useLang();
   const root = useRef<HTMLDivElement>(null);
   const [opening, setOpening] = useState(false);
-  const names = `${cfg.groom.short} & ${cfg.bride.short}`;
+  const { names } = coupleOf(cfg);
 
   useIsoLayoutEffect(() => {
     const el = root.current;

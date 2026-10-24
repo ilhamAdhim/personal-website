@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
 import { ENGAGEMENT } from "data/engagementConfig";
+import type { WeddingConfig } from "data/weddingConfig";
 import { WEDDING } from "data/weddingConfig";
 
 // Link-preview card (WhatsApp, Telegram, etc.) personalised with ?to=<guest>
@@ -32,7 +33,7 @@ export default async function handler(req: NextRequest) {
   const params = new URL(req.url).searchParams;
   const guest = (params.get("to") ?? "").slice(0, 60);
   // ?for=engagement shows the engagement's date instead of the wedding's
-  const event = params.get("for") === "engagement" ? ENGAGEMENT : WEDDING;
+  const event: WeddingConfig = params.get("for") === "engagement" ? ENGAGEMENT : WEDDING;
   const [display, text] = await Promise.all([
     loadFont("Yeseva+One", "wght@400"),
     loadFont("Archivo", "wght@500"),
@@ -66,7 +67,7 @@ export default async function handler(req: NextRequest) {
           padding: "0 64px 8px",
         }}
       >
-        <div style={{ ...name, display: "flex" }}>{WEDDING.groom.short}</div>
+        <div style={{ ...name, display: "flex" }}>{(event.brideFirst ? event.bride : event.groom).short}</div>
         <div style={{ ...small, display: "flex", paddingBottom: 28 }}>
           Undangan pernikahan
         </div>
@@ -82,7 +83,7 @@ export default async function handler(req: NextRequest) {
           padding: "0 64px",
         }}
       >
-        <div style={{ ...name, display: "flex" }}>{WEDDING.bride.short}</div>
+        <div style={{ ...name, display: "flex" }}>{(event.brideFirst ? event.groom : event.bride).short}</div>
         <div
           style={{
             ...small,

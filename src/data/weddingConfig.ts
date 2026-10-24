@@ -132,4 +132,10 @@ export const WEDDING = {
 };
 
 /** Everything one invitation page shows. WEDDING is the template; other events copy and override it. */
-export type WeddingConfig = typeof WEDDING & { copy?: CopyOverrides };
+export type WeddingConfig = typeof WEDDING & {
+  copy?: CopyOverrides;
+  /** Show the bride on the left and the groom on the right in the couple section */
+  brideFirst?: boolean;
+  /** Drop the "Kami yang berbahagia" sign-off and the large names at the very end */
+  hideSignature?: boolean;
+};

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 import type { WeddingEvent } from "data/weddingConfig";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { HeartIcon, LaurelRule } from "./Decor";
 import { formatDate, formatTime, useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -127,7 +127,7 @@ const EventBlock = ({ ev }: { ev: WeddingEvent }) => {
             addToCalendar(
               ev,
               ev.title[lang],
-              `${cfg.groom.short} & ${cfg.bride.short}`
+              coupleOf(cfg).names
             )
           }
         >

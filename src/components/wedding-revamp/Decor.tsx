@@ -1,7 +1,7 @@
 import { useId } from "react";
 import type { CSSProperties } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 
 /** Shared SVG defs: the arch for portraits and the torn-paper edge. Render once per page. */
 export const WrDefs = () => (
@@ -163,7 +163,7 @@ export const HeartSeal = ({
   label?: string;
 }) => {
   const cfg = useConfig();
-  const text = label ?? `${cfg.groom.short[0]}&${cfg.bride.short[0]}`;
+  const text = label ?? coupleOf(cfg).initials;
   const id = useId().replace(/:/g, "");
   const HEART =
     "M50 90C21 69 3 50 3 29C3 13 15 3 29 3C39 3 46 9 50 17C54 9 61 3 71 3C85 3 97 13 97 29C97 50 79 69 50 90Z";

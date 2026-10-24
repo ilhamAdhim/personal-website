@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import { useConfig } from "./config";
+import { coupleOf, useConfig } from "./config";
 import { Sprig } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -27,7 +27,7 @@ const Print = ({ src, index }: { src: string; index: number }) => {
         {!failed && (
           <SafeImg
             src={src}
-            alt={`${cfg.groom.short} & ${cfg.bride.short}`}
+            alt={coupleOf(cfg).names}
             width={600}
             height={750}
             loading="lazy"
