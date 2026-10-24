@@ -125,14 +125,21 @@ const LangContext = createContext<{ lang: Lang; t: Copy }>({
   t: COPY.id,
 });
 
+/** A page can replace single strings, e.g. "Undangan Pernikahan" on the engagement page */
+export type CopyOverrides = { id?: Partial<Copy>; en?: Partial<Copy> };
+
 export const LangProvider = ({
   lang,
+  overrides,
   children,
 }: {
   lang: Lang;
+  overrides?: CopyOverrides;
   children: ReactNode;
 }) => (
-  <LangContext.Provider value={{ lang, t: COPY[lang] as Copy }}>
+  <LangContext.Provider
+    value={{ lang, t: { ...(COPY[lang] as Copy), ...overrides?.[lang] } }}
+  >
     {children}
   </LangContext.Provider>
 );

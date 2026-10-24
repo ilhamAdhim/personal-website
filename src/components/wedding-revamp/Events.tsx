@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 
 import type { WeddingEvent } from "data/weddingConfig";
-import { WEDDING } from "data/weddingConfig";
 
+import { useConfig } from "./config";
 import { HeartIcon, LaurelRule } from "./Decor";
 import { formatDate, formatTime, useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -16,8 +16,8 @@ const icsDate = (iso: string) =>
     .replace(/\.\d{3}/, "");
 
 /** iOS opens .ics straight into Calendar; everyone else gets Google Calendar */
-function addToCalendar(ev: WeddingEvent, title: string) {
-  const summary = `${title}: ${WEDDING.groom.short} & ${WEDDING.bride.short}`;
+function addToCalendar(ev: WeddingEvent, title: string, couple: string) {
+  const summary = `${title}: ${couple}`;
   const location = `${ev.venue}, ${ev.address}`;
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   if (isIOS) {
@@ -57,9 +57,10 @@ function addToCalendar(ev: WeddingEvent, title: string) {
 
 /** The burgundy "Wedding Details" board with a polaroid tucked into its side */
 const DetailsBoard = () => {
+  const cfg = useConfig();
   const { t } = useLang();
   const [failed, setFailed] = useState(false);
-  const photo = WEDDING.gallery[0];
+  const photo = cfg.gallery[0];
   return (
     <div className="relative mx-auto w-[min(80vw,22rem)]! mb-16!">
       <div
@@ -95,6 +96,7 @@ const DetailsBoard = () => {
 };
 
 const EventBlock = ({ ev }: { ev: WeddingEvent }) => {
+  const cfg = useConfig();
   const { t, lang } = useLang();
   return (
     <li data-e-rise="">
@@ -121,7 +123,13 @@ const EventBlock = ({ ev }: { ev: WeddingEvent }) => {
           type="button"
           className={`${s.capsLink} text-[0.75rem]!`}
           style={{ color: "var(--c-rose)" }}
-          onClick={() => addToCalendar(ev, ev.title[lang])}
+          onClick={() =>
+            addToCalendar(
+              ev,
+              ev.title[lang],
+              `${cfg.groom.short} & ${cfg.bride.short}`
+            )
+          }
         >
           {t.calendar}
         </button>
@@ -132,6 +140,7 @@ const EventBlock = ({ ev }: { ev: WeddingEvent }) => {
 
 /** Times down one rose line, alternating sides, a heart at each */
 const Timeline = () => {
+  const cfg = useConfig();
   const { t, lang } = useLang();
   return (
     <div data-e-rise="" className="mt-20!">
@@ -139,7 +148,7 @@ const Timeline = () => {
         {t.timelineTitle}
       </h3>
       <ol className={`${s.timeline} mt-8! mx-auto! max-w-[22rem]!`}>
-        {WEDDING.timeline.map((item, i) => (
+        {cfg.timeline.map((item, i) => (
           <li
             key={item.time}
             data-e-step=""
@@ -165,6 +174,7 @@ const Timeline = () => {
 
 /** "Wedding Details": the board, a short note, each event, then the day's timeline */
 const Events = () => {
+  const cfg = useConfig();
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
@@ -197,7 +207,7 @@ const Events = () => {
         </p>
 
         <ul className="mt-14! space-y-14!">
-          {WEDDING.events.map((ev) => (
+          {cfg.events.map((ev) => (
             <EventBlock key={ev.key} ev={ev} />
           ))}
         </ul>

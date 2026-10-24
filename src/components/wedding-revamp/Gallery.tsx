@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 
-import { WEDDING } from "data/weddingConfig";
-
+import { useConfig } from "./config";
 import { Sprig } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -12,6 +11,7 @@ import s from "./wr.module.css";
 const TILT = [-3, 2, -1.5, 3, -2.5, 1.5];
 
 const Print = ({ src, index }: { src: string; index: number }) => {
+  const cfg = useConfig();
   const [failed, setFailed] = useState(false);
   return (
     <li
@@ -27,7 +27,7 @@ const Print = ({ src, index }: { src: string; index: number }) => {
         {!failed && (
           <SafeImg
             src={src}
-            alt={`${WEDDING.groom.short} & ${WEDDING.bride.short}`}
+            alt={`${cfg.groom.short} & ${cfg.bride.short}`}
             width={600}
             height={750}
             loading="lazy"
@@ -42,6 +42,7 @@ const Print = ({ src, index }: { src: string; index: number }) => {
 
 /** The couple's photos as polaroids on cream paper */
 const Gallery = () => {
+  const cfg = useConfig();
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
@@ -64,7 +65,7 @@ const Gallery = () => {
       <div className={s.wrapWide}>
         <h2 className={s.script}>{t.galleryTitle}</h2>
         <ul className="mt-14! grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 px-1!">
-          {WEDDING.gallery.map((src, i) => (
+          {cfg.gallery.map((src, i) => (
             <Print key={src} src={src} index={i} />
           ))}
         </ul>

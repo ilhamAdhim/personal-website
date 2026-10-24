@@ -1,7 +1,6 @@
 import { useRef } from "react";
 
-import { WEDDING } from "data/weddingConfig";
-
+import { useConfig } from "./config";
 import { HeartSeal, LaurelRule } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -12,6 +11,7 @@ const DUA =
 
 /** Last section, on velvet: thanks, the dua, the families, and the names sealed */
 const Closing = () => {
+  const cfg = useConfig();
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
@@ -56,12 +56,12 @@ const Closing = () => {
           </figcaption>
         </figure>
 
-        {WEDDING.turutMengundang.length > 0 && (
+        {cfg.turutMengundang.length > 0 && (
           <div data-cl-rise="" className="mt-14!">
             <LaurelRule />
             <h3 className={`${s.caps} mt-6!`}>{t.alsoInviting}</h3>
             <ul className={`${s.body} mt-3!`}>
-              {WEDDING.turutMengundang.map((n) => (
+              {cfg.turutMengundang.map((n) => (
                 <li key={n}>{n}</li>
               ))}
             </ul>
@@ -72,12 +72,12 @@ const Closing = () => {
           {t.signed}
         </p>
         <p data-cl-rise="" className={`${s.names} mt-1!`}>
-          {WEDDING.groom.short} &amp; {WEDDING.bride.short}
+          {cfg.groom.short} &amp; {cfg.bride.short}
         </p>
         <div data-cl-seal="" className="mt-8! mx-auto! w-24!">
           <HeartSeal className="w-full! h-auto!" />
         </div>
-        <p className={`${s.caps} mt-8! opacity-80`}>{WEDDING.hashtag}</p>
+        <p className={`${s.caps} mt-8! opacity-80`}>{cfg.hashtag}</p>
       </div>
     </footer>
   );

@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 
-import { WEDDING } from "data/weddingConfig";
-
+import { useConfig } from "./config";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
 import SafeImg from "./SafeImg";
 import s from "./wr.module.css";
 
 const FilmFrame = ({ src }: { src: string }) => {
+  const cfg = useConfig();
   const [failed, setFailed] = useState(false);
   return (
     <div
@@ -18,7 +18,7 @@ const FilmFrame = ({ src }: { src: string }) => {
       {!failed && (
         <SafeImg
           src={src}
-          alt={`${WEDDING.groom.short} & ${WEDDING.bride.short}`}
+          alt={`${cfg.groom.short} & ${cfg.bride.short}`}
           width={360}
           height={600}
           loading="lazy"
@@ -32,9 +32,10 @@ const FilmFrame = ({ src }: { src: string }) => {
 
 /** "Our Story" on velvet: three film frames, then each chapter of the story */
 const Story = () => {
+  const cfg = useConfig();
   const { t, lang } = useLang();
   const ref = useRef<HTMLElement>(null);
-  const frames = WEDDING.gallery.slice(1, 4);
+  const frames = cfg.gallery.slice(1, 4);
 
   useSectionMotion(ref, (q) => {
     gsap.from(q("[data-s-film] > *"), {
@@ -72,7 +73,7 @@ const Story = () => {
         )}
 
         <ol className="mt-14! space-y-10!">
-          {WEDDING.story.map((item) => (
+          {cfg.story.map((item) => (
             <li key={item.year} data-s-rise="">
               <p className={`${s.caps} opacity-75 ${s.tabular}`}>
                 {item.year} · {item.title[lang]}
@@ -83,7 +84,7 @@ const Story = () => {
         </ol>
 
         <p data-s-rise="" className={`${s.script} mt-14! text-[2.75rem]!`}>
-          {WEDDING.groom.short} &amp; {WEDDING.bride.short}
+          {cfg.groom.short} &amp; {cfg.bride.short}
         </p>
       </div>
     </section>

@@ -1,6 +1,8 @@
 // Everything a guest sees on /wedding-revamp lives here.
 // Values wrapped in [brackets] are placeholders — replace them before sharing.
 
+import type { CopyOverrides } from "components/wedding-revamp/i18n";
+
 export type WeddingEvent = {
   key: string;
   title: { id: string; en: string };
@@ -21,12 +23,15 @@ export type Person = {
 };
 
 export const WEDDING = {
+  /** localStorage key for this invitation's RSVPs and wishes */
+  wishesKey: "wedding-revamp-wishes",
+
   groom: {
     short: "Ilham",
     full: "Muhammad Ilham Adhim",
     parents: {
-      id: "Putra dari Bapak [Nama Ayah] & Ibu [Nama Ibu]",
-      en: "Son of Mr. [Father's Name] & Mrs. [Mother's Name]",
+      id: "Putra dari Bapak Winoto & Ibu Lia",
+      en: "Son of Mr. Winoto & Mrs. Lia",
     },
     photo: "/images/wedding/groom.jpg",
     instagram: "ilhamadhim",
@@ -34,10 +39,10 @@ export const WEDDING = {
 
   bride: {
     short: "Firda",
-    full: "Firda [Nama Lengkap]",
+    full: "Salsabila Firdausy",
     parents: {
-      id: "Putri dari Bapak [Nama Ayah] & Ibu [Nama Ibu]",
-      en: "Daughter of Mr. [Father's Name] & Mrs. [Mother's Name]",
+      id: "Putri dari Bapak Agus & Ibu Nurul",
+      en: "Daughter of Mr. Agus & Mrs. Nurul",
     },
     photo: "/images/wedding/bride.jpg",
   } satisfies Person,
@@ -125,3 +130,6 @@ export const WEDDING = {
 
   hashtag: "",
 };
+
+/** Everything one invitation page shows. WEDDING is the template; other events copy and override it. */
+export type WeddingConfig = typeof WEDDING & { copy?: CopyOverrides };

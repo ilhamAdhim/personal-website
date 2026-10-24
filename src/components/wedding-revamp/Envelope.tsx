@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 
-import { WEDDING } from "data/weddingConfig";
-
+import { useConfig } from "./config";
 import { HeartSeal, Laurel } from "./Decor";
 import { useLang } from "./i18n";
 import { gsap, prefersReducedMotion, useIsoLayoutEffect } from "./motion";
@@ -82,10 +81,11 @@ const FlapLaurels = () => (
  * seal, swings the flap up and away, and fades into the invitation.
  */
 const Envelope = ({ guest, onOpenStart, onReveal, onDone }: Props) => {
+  const cfg = useConfig();
   const { t } = useLang();
   const root = useRef<HTMLDivElement>(null);
   const [opening, setOpening] = useState(false);
-  const names = `${WEDDING.groom.short} & ${WEDDING.bride.short}`;
+  const names = `${cfg.groom.short} & ${cfg.bride.short}`;
 
   useIsoLayoutEffect(() => {
     const el = root.current;

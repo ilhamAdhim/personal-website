@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { WEDDING } from "data/weddingConfig";
-
+import { useConfig } from "./config";
 import { LangSwitch } from "./Controls";
 import { Laurel, LaurelPair, Sprig } from "./Decor";
 import type { Lang } from "./i18n";
@@ -52,8 +51,9 @@ function useCountdown(iso: string) {
 }
 
 const Countdown = () => {
+  const cfg = useConfig();
   const { t } = useLang();
-  const left = useCountdown(WEDDING.events[0].start);
+  const left = useCountdown(cfg.events[0].start);
   const keys = ["months", "days", "hours", "minutes", "seconds"] as const;
   return (
     <div
@@ -166,8 +166,9 @@ const Pendant = ({
 
 /** The opened envelope with the invitation card standing out of it */
 const OpenEnvelope = () => {
+  const cfg = useConfig();
   const { t, lang } = useLang();
-  const d = dateParts(WEDDING.events[0].start, lang);
+  const d = dateParts(cfg.events[0].start, lang);
   return (
     <div
       data-n-env=""
@@ -213,11 +214,11 @@ const OpenEnvelope = () => {
           className={`${s.caps} mt-2! leading-[1.25]! tracking-[0.14em]!`}
           style={{ fontSize: "clamp(1rem, 0.7rem + 1.6vw, 1.5rem)", color: "#5a1a22" }}
         >
-          {WEDDING.groom.short}
+          {cfg.groom.short}
           <br />
           <span className="text-[0.7em]!">&amp;</span>
           <br />
-          {WEDDING.bride.short}
+          {cfg.bride.short}
         </p>
         <LaurelPair className="mt-1! opacity-80" width={46} />
         <p className={`${s.caps} mt-1! text-[0.5rem]! sm:text-[0.6rem]!`} style={{ color: "#5a1a22" }}>
@@ -265,9 +266,10 @@ const Names = ({
   /** null when no music is configured */
   toggleMusic: (() => void) | null;
 }) => {
+  const cfg = useConfig();
   const { t, lang } = useLang();
   const ref = useRef<HTMLElement>(null);
-  const first = WEDDING.events[0];
+  const first = cfg.events[0];
   const d = dateParts(first.start, lang);
 
   useSectionMotion(
@@ -354,13 +356,13 @@ const Names = ({
             </p>
           )}
           <h1 data-n-rise="" className={`${s.names} mt-2!`}>
-            {WEDDING.groom.short} &amp; {WEDDING.bride.short}
+            {cfg.groom.short} &amp; {cfg.bride.short}
           </h1>
           <p data-n-rise="" className={`${s.caps} mt-6!`} style={{ color: "var(--c-rose)" }}>
             {d.weekday}, {d.day} {d.month} {d.year}
           </p>
           <p data-n-rise="" className={`${s.caps} mt-4! leading-[1.9]!`} style={{ color: "var(--c-rose)" }}>
-            {WEDDING.events.map((ev) => ev.venue).filter((v, i, a) => a.indexOf(v) === i).join(" & ")}
+            {cfg.events.map((ev) => ev.venue).filter((v, i, a) => a.indexOf(v) === i).join(" & ")}
             <br />
             {first.address}
           </p>

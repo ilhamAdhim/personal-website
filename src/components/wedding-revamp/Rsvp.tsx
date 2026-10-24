@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
+import { useConfig } from "./config";
 import { Sprig } from "./Decor";
 import { useLang } from "./i18n";
 import type { Lang } from "./i18n";
@@ -10,7 +11,7 @@ import {
   useIsoLayoutEffect,
 } from "./motion";
 import type { Attendance, Wish } from "./wishesStore";
-import { wishesStore } from "./wishesStore";
+import { createWishesStore } from "./wishesStore";
 import s from "./wr.module.css";
 
 /** A burgundy board with a torn cream sheet on it, the word set in spaced caps */
@@ -80,6 +81,11 @@ const WishNote = ({ wish, fresh }: { wish: Wish; fresh: boolean }) => {
 
 const Rsvp = ({ guest }: { guest: string }) => {
   const { t } = useLang();
+  const cfg = useConfig();
+  const wishesStore = useMemo(
+    () => createWishesStore(cfg.wishesKey),
+    [cfg.wishesKey]
+  );
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [freshId, setFreshId] = useState<string | null>(null);
   const [name, setName] = useState(guest);
@@ -91,7 +97,7 @@ const Rsvp = ({ guest }: { guest: string }) => {
 
   useEffect(() => {
     wishesStore.list().then(setWishes);
-  }, []);
+  }, [wishesStore]);
 
   useEffect(() => {
     ScrollTrigger.refresh();

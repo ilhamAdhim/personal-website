@@ -1,7 +1,7 @@
 import { useId } from "react";
 import type { CSSProperties } from "react";
 
-import { WEDDING } from "data/weddingConfig";
+import { useConfig } from "./config";
 
 /** Shared SVG defs: the arch for portraits and the torn-paper edge. Render once per page. */
 export const WrDefs = () => (
@@ -27,8 +27,6 @@ export const WrDefs = () => (
     </filter>
   </svg>
 );
-
-export const initials = `${WEDDING.groom.short[0]}&${WEDDING.bride.short[0]}`;
 
 // Leaf drawn along +x from its stalk, 17 units long
 const LEAF = "M0 0C4-4.6 12-4.8 17 0C12 4.8 4 4.6 0 0Z";
@@ -159,11 +157,13 @@ export const LaurelRule = ({ className }: { className?: string }) => (
 /** The heart-shaped wax seal with the couple's initials pressed into it */
 export const HeartSeal = ({
   className,
-  label = initials,
+  label,
 }: {
   className?: string;
   label?: string;
 }) => {
+  const cfg = useConfig();
+  const text = label ?? `${cfg.groom.short[0]}&${cfg.bride.short[0]}`;
   const id = useId().replace(/:/g, "");
   const HEART =
     "M50 90C21 69 3 50 3 29C3 13 15 3 29 3C39 3 46 9 50 17C54 9 61 3 71 3C85 3 97 13 97 29C97 50 79 69 50 90Z";
@@ -214,7 +214,7 @@ export const HeartSeal = ({
           filter: "drop-shadow(0.5px 0.8px 0 rgba(30,0,6,0.8))",
         }}
       >
-        {label}
+        {text}
       </text>
       <g style={{ color: "#c87479" }}>
         <Laurel length={20} leaves={5} transform="translate(49 62) rotate(-160)" />
@@ -323,7 +323,11 @@ export const Sprig = ({
     <svg
       viewBox="0 0 200 200"
       className={className}
-      style={{ filter: "drop-shadow(2px 5px 4px rgba(66,40,29,0.28))", ...style }}
+      style={{
+        overflow: "visible",
+        filter: "drop-shadow(2px 5px 4px rgba(66,40,29,0.28))",
+        ...style,
+      }}
       aria-hidden="true"
     >
       <g fill="none" stroke="#7a2630" strokeWidth="1.3" strokeLinecap="round">

@@ -1,5 +1,5 @@
 // Where RSVPs and wishes are kept. Right now: this browser only (localStorage),
-// so guests can't see each other's wishes yet. Swap `wishesStore` for an
+// so guests can't see each other's wishes yet. Swap `createWishesStore` for an
 // API-backed implementation (e.g. Supabase or Vercel KV) to make them shared.
 
 export type Attendance = "yes" | "no" | "maybe";
@@ -20,36 +20,37 @@ export interface WishesStore {
   add(wish: NewWish): Promise<Wish>;
 }
 
-const KEY = "wedding-revamp-wishes";
-
-const read = (): Wish[] => {
-  try {
-    return JSON.parse(localStorage.getItem(KEY) ?? "[]");
-  } catch {
-    return [];
-  }
-};
-
-export const localWishesStore: WishesStore = {
-  async list() {
-    return read();
-  },
-  async add(input) {
-    const wish: Wish = {
-      ...input,
-      id:
-        typeof crypto !== "undefined" && "randomUUID" in crypto
-          ? crypto.randomUUID()
-          : String(Date.now()),
-      createdAt: new Date().toISOString(),
-    };
+/** One store per invitation page, so an engagement RSVP never lands on the wedding list */
+export const createLocalWishesStore = (key: string): WishesStore => {
+  const read = (): Wish[] => {
     try {
-      localStorage.setItem(KEY, JSON.stringify([wish, ...read()]));
+      return JSON.parse(localStorage.getItem(key) ?? "[]");
     } catch {
-      // storage full or blocked: keep it in memory for this visit
+      return [];
     }
-    return wish;
-  },
+  };
+
+  return {
+    async list() {
+      return read();
+    },
+    async add(input) {
+      const wish: Wish = {
+        ...input,
+        id:
+          typeof crypto !== "undefined" && "randomUUID" in crypto
+            ? crypto.randomUUID()
+            : String(Date.now()),
+        createdAt: new Date().toISOString(),
+      };
+      try {
+        localStorage.setItem(key, JSON.stringify([wish, ...read()]));
+      } catch {
+        // storage full or blocked: keep it in memory for this visit
+      }
+      return wish;
+    },
+  };
 };
 
-export const wishesStore: WishesStore = localWishesStore;
+export const createWishesStore = createLocalWishesStore;

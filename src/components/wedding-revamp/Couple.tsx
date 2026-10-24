@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 
 import type { Person } from "data/weddingConfig";
-import { WEDDING } from "data/weddingConfig";
 
+import { useConfig } from "./config";
 import { useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
 import SafeImg from "./SafeImg";
@@ -90,6 +90,7 @@ const PersonBlock = ({ person }: { person: Person }) => {
 };
 
 const Couple = () => {
+  const cfg = useConfig();
   const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
@@ -117,11 +118,11 @@ const Couple = () => {
         </p>
 
         <div className="mt-14! grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-8 md:gap-6 items-start md:[&>p]:self-center">
-          <PersonBlock person={WEDDING.groom} />
+          <PersonBlock person={cfg.groom} />
           <p className={`${s.names} text-[4rem]!`} aria-hidden="true">
             &amp;
           </p>
-          <PersonBlock person={WEDDING.bride} />
+          <PersonBlock person={cfg.bride} />
         </div>
       </div>
     </section>

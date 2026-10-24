@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
+import { ENGAGEMENT } from "data/engagementConfig";
 import { WEDDING } from "data/weddingConfig";
 
 // Link-preview card (WhatsApp, Telegram, etc.) personalised with ?to=<guest>
@@ -28,7 +29,10 @@ async function loadFont(family: string, spec: string) {
 }
 
 export default async function handler(req: NextRequest) {
-  const guest = (new URL(req.url).searchParams.get("to") ?? "").slice(0, 60);
+  const params = new URL(req.url).searchParams;
+  const guest = (params.get("to") ?? "").slice(0, 60);
+  // ?for=engagement shows the engagement's date instead of the wedding's
+  const event = params.get("for") === "engagement" ? ENGAGEMENT : WEDDING;
   const [display, text] = await Promise.all([
     loadFont("Yeseva+One", "wght@400"),
     loadFont("Archivo", "wght@500"),
@@ -44,7 +48,7 @@ export default async function handler(req: NextRequest) {
     month: "long",
     year: "numeric",
     timeZone: "Asia/Jakarta",
-  }).format(new Date(WEDDING.events[0].start));
+  }).format(new Date(event.events[0].start));
 
   const name = { fontFamily: "Yeseva", fontSize: 150, lineHeight: 1 };
   const small = { fontFamily: "Archivo", fontSize: 30 };
