@@ -132,7 +132,7 @@ const Header = () => {
       className="header"
       p={["1em", "1em", "1em 10em"]}
       top="0"
-      zIndex="1"
+      zIndex="50"
       as="header"
       align="flex-start"
       position="sticky"

@@ -20,6 +20,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+            rel="stylesheet"
+          />
 
           <meta name="application-name" content={APP_NAME} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
