@@ -287,10 +287,13 @@ export const Sprig = ({
   className,
   seed = 3,
   style,
+  twig = "#7a2630",
 }: {
   className?: string;
   seed?: number;
   style?: CSSProperties;
+  /** twig colour; lighten it when the sprig lies over velvet */
+  twig?: string;
 }) => {
   const r = rand(seed * 9973 + 17);
   const twigs: string[] = [];
@@ -330,7 +333,7 @@ export const Sprig = ({
       }}
       aria-hidden="true"
     >
-      <g fill="none" stroke="#7a2630" strokeWidth="1.3" strokeLinecap="round">
+      <g fill="none" stroke={twig} strokeWidth="1.3" strokeLinecap="round">
         {twigs.map((d, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <path key={i} d={d} strokeWidth={i === 0 ? 2.2 : 1.1} />

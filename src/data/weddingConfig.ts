@@ -14,6 +14,16 @@ export type WeddingEvent = {
   mapsUrl: string;
 };
 
+/** A map screenshot shown on the invitation. `pin` is where the venue sits, in % of the image. */
+export type MapImage = {
+  src: string;
+  width: number;
+  height: number;
+  pin: { x: number; y: number };
+  /** Places worth recognising on the way, marked differently from the venue (x, y in %) */
+  landmarks?: { name: string; x: number; y: number }[];
+};
+
 export type Person = {
   short: string;
   full: string;
@@ -138,4 +148,8 @@ export type WeddingConfig = typeof WEDDING & {
   brideFirst?: boolean;
   /** Drop the "Kami yang berbahagia" sign-off and the large names at the very end */
   hideSignature?: boolean;
+  /** Show the "Turut mengundang" names joined on a single line */
+  turutOneLine?: boolean;
+  /** Map screenshot for the venue (see MapFigure) */
+  mapImage?: MapImage;
 };

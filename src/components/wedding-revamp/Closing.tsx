@@ -9,6 +9,34 @@ import s from "./wr.module.css";
 const DUA =
   "بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ";
 
+/** "Turut mengundang": a rule, the heading, then the names (one line if `turutOneLine`) */
+export const FamilyList = ({ rule = true }: { rule?: boolean }) => {
+  const cfg = useConfig();
+  const { t } = useLang();
+  if (!cfg.turutMengundang.length) return null;
+  return (
+    <>
+      {rule && <LaurelRule />}
+      <h3 className={`${s.caps} ${rule ? "mt-6!" : ""}`}>{t.alsoInviting}</h3>
+      {cfg.turutOneLine ? (
+        // tracking and size are tuned so the full line fits a 360px phone
+        <p
+          className={`${s.body} mt-3! whitespace-nowrap`}
+          style={{ fontSize: "clamp(0.7rem, 2.9vw, 1.05rem)", letterSpacing: 0 }}
+        >
+          {cfg.turutMengundang.join(" & ")}
+        </p>
+      ) : (
+        <ul className={`${s.body} mt-3!`}>
+          {cfg.turutMengundang.map((n) => (
+            <li key={n}>{n}</li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+};
+
 /** Last section, on velvet: thanks, the dua, the families, and the names sealed */
 const Closing = () => {
   const cfg = useConfig();
@@ -59,13 +87,7 @@ const Closing = () => {
 
         {cfg.turutMengundang.length > 0 && (
           <div data-cl-rise="" className="mt-14!">
-            <LaurelRule />
-            <h3 className={`${s.caps} mt-6!`}>{t.alsoInviting}</h3>
-            <ul className={`${s.body} mt-3!`}>
-              {cfg.turutMengundang.map((n) => (
-                <li key={n}>{n}</li>
-              ))}
-            </ul>
+            <FamilyList />
           </div>
         )}
 

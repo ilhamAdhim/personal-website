@@ -6,7 +6,10 @@ import s from "./wr.module.css";
 export const LangSwitch = ({ setLang }: { setLang: (l: Lang) => void }) => {
   const { lang } = useLang();
   return (
-    <div className="flex items-center" style={{ color: "var(--c-rose)" }}>
+    <div
+      className="flex items-center"
+      style={{ color: "var(--accent, var(--c-rose))" }}
+    >
       {(["id", "en"] as const).map((l, i) => (
         <span key={l} className="flex items-center">
           {i > 0 && <span className="opacity-40" aria-hidden="true">/</span>}

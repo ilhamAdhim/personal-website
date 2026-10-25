@@ -11,7 +11,7 @@ export const script = Allura({
 
 export const caps = Cinzel({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
   variable: "--wr-caps",
   display: "swap",
 });

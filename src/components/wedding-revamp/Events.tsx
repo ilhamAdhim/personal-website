@@ -16,7 +16,7 @@ const icsDate = (iso: string) =>
     .replace(/\.\d{3}/, "");
 
 /** iOS opens .ics straight into Calendar; everyone else gets Google Calendar */
-function addToCalendar(ev: WeddingEvent, title: string, couple: string) {
+export function addToCalendar(ev: WeddingEvent, title: string, couple: string) {
   const summary = `${title}: ${couple}`;
   const location = `${ev.venue}, ${ev.address}`;
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);

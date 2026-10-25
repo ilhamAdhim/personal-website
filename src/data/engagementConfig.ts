@@ -50,13 +50,26 @@ export const ENGAGEMENT: WeddingConfig = {
   hashtag: "",
 
   brideFirst: true,
+
+  // Google Maps screenshot, the venue's pin is at 48.4% / 9.8% of the image
+  mapImage: {
+    src: "/images/lamaran/map.png",
+    width: 1026,
+    height: 767,
+    pin: { x: 48.4, y: 9.8 },
+    landmarks: [
+      { name: "Taman Krida Budaya", x: 60.2, y: 49.9 },
+      { name: "Politeknik Negeri Malang", x: 42.7, y: 65.2 },
+      { name: "Universitas Brawijaya", x: 36.4, y: 85.8 },
+    ],
+  },
   hideSignature: true,
 
   turutMengundang: [
     "Keluarga Bapak Agus Setiabudi",
     "Keluarga Bapak Winoto",
-    "Firda & Ilham",
   ],
+  turutOneLine: true,
 
   // The sections say "wedding" in a few places; on this page they say engagement
   copy: {

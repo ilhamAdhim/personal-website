@@ -13,6 +13,10 @@ export const COPY = {
     invitedTo: "Undangan Pernikahan",
     of: "",
     play: "Putar",
+    mapAlt: "Peta menuju lokasi acara",
+    mapZoom: "Ketuk peta untuk memperbesar dan melihat patokan",
+    mapVenue: "Lokasi acara",
+    close: "Tutup",
     units: {
       months: "Bulan",
       days: "Hari",
@@ -69,6 +73,10 @@ export const COPY = {
     invitedTo: "You’re Invited To The Wedding",
     of: "of",
     play: "Play",
+    mapAlt: "Map to the venue",
+    mapZoom: "Tap the map to enlarge and see landmarks",
+    mapVenue: "Venue",
+    close: "Close",
     units: {
       months: "Months",
       days: "Days",
@@ -113,7 +121,7 @@ export const COPY = {
       "May Allah bless you, shower His blessings upon you, and unite you both in goodness.",
     duaSource: "Abu Dawud",
     signed: "With love",
-    alsoInviting: "Also inviting",
+    alsoInviting: "With love",
     music: { on: "Mute music", off: "Play music" },
   },
 };
