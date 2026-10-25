@@ -103,15 +103,26 @@ function similarity(a: string, b: string) {
   return longest === 0 ? 1 : 1 - levenshtein(a, b) / longest;
 }
 
-// A name matches a guest when every word of it (ignoring honorifics) is
-// close to a word of that guest's name, e.g. "Ibu Lilik", "Edi Widjayanto".
+// Shortest start-of-word that counts, so "Firda" finds "Firdausy" but "Fi" finds nobody
+const MIN_PREFIX_LENGTH = 3;
+
+// A word of the link matches a word of the guest when it is close to it
+// ("Widjayanto" for "Widjajanto") or is the start of it ("Firda" for "Firdausy").
+function tokenMatches(token: string, guestToken: string) {
+  if (token.length >= MIN_PREFIX_LENGTH && guestToken.startsWith(token))
+    return true;
+  return similarity(token, guestToken) >= MIN_TOKEN_SIMILARITY;
+}
+
+// A name matches a guest when every word of it (ignoring honorifics) matches a
+// word of that guest's name, e.g. "Ibu Lilik", "Edi Widjayanto", "Firda".
 export function isInvitedGuest(name: string) {
   const input = toNameTokens(name);
   if (!input.length) return false;
   return WEDDING_GUESTS.some((guest) => {
     const guestTokens = toNameTokens(guest);
     return input.every((token) =>
-      guestTokens.some((g) => similarity(token, g) >= MIN_TOKEN_SIMILARITY)
+      guestTokens.some((g) => tokenMatches(token, g))
     );
   });
 }

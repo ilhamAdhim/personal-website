@@ -37,14 +37,20 @@ export type InvitationProps = {
 const PAPER = "#fdf9ed"; // matches --c-paper
 
 /**
- * Same for every invitation page: unknown names in ?to= get a 404 status and a
- * themed not-found page. `ogFor` picks which event the link-preview card shows.
+ * Same for every invitation page: the ?to= guest is checked first, and unknown
+ * names get a 404 status and a themed not-found page. `ogFor` picks which
+ * event the link-preview card shows. With `requireGuest`, a link with no ?to=
+ * at all is a 404 too, so the page can't be opened without a name on the list.
  */
 export const createGetServerSideProps =
-  (path: string, ogFor?: string): GetServerSideProps<InvitationProps> =>
+  (
+    path: string,
+    ogFor?: string,
+    requireGuest = false
+  ): GetServerSideProps<InvitationProps> =>
   async ({ query, req, res }) => {
     const guest = typeof query.to === "string" ? query.to.trim() : "";
-    if (guest && !isInvitedGuest(guest)) {
+    if ((requireGuest && !guest) || (guest && !isInvitedGuest(guest))) {
       res.statusCode = 404;
       return {
         props: { invalid: true, guest, opened: true, ogImage: "", pageUrl: "" },
