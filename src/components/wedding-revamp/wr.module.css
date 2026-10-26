@@ -435,7 +435,7 @@
   content: "";
   position: absolute;
   inset: 10px;
-  border: 1px solid var(--c-dusk);
+  border: 1px solid var(--frame, var(--c-dusk));
   border-radius: 2px;
   pointer-events: none;
 }
@@ -668,4 +668,10 @@
   .polaroid {
     transition: none;
   }
+}
+
+/* Browser print of /cetak-lamaran: one A5 landscape sheet, no margins */
+@page {
+  size: A5 landscape;
+  margin: 0;
 }

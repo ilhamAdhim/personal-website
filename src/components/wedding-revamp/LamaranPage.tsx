@@ -1,4 +1,5 @@
 import Head from "next/head";
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { ENGAGEMENT } from "data/engagementConfig";
@@ -23,13 +24,13 @@ const couple = coupleOf(cfg);
 const event = cfg.events[0];
 
 /** Sabtu | 21 | November 2026, the way a printed card sets the date */
-const DateLine = () => {
+const DateLine = ({ className = "mt-7!" }: { className?: string }) => {
   const { lang } = useLang();
   const d = dateParts(event.start, lang);
   return (
     <div
       data-l-in=""
-      className="mt-7! flex items-center justify-center"
+      className={`${className} flex items-center justify-center`}
       style={{ color: "var(--c-rose)" }}
     >
       <p
@@ -69,7 +70,7 @@ const Content = ({
   setLang: (l: Lang) => void;
   print: boolean;
 }) => {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const ref = useRef<HTMLElement>(null);
 
   // One sequence: the card rises, its lines settle, the seal is pressed on
@@ -99,7 +100,7 @@ const Content = ({
   return (
     <section
       ref={ref}
-      className={`${s.velvet} relative flex flex-col items-center`}
+      className={`${s.velvet} relative flex flex-col items-center print:p-0! print:min-h-0! print:[background:none]! print:overflow-hidden`}
       style={{
         minHeight: "100svh",
         padding: "5rem var(--gutter) 4rem",
@@ -115,131 +116,197 @@ const Content = ({
 
       {/* A5 portrait, one column. The print page goes landscape with two columns from md up */}
       <div
-        className={`relative w-full max-w-[26rem] ${print ? "md:max-w-[60rem] md:my-auto" : ""}`}
+        className={`relative w-full max-w-[26rem] ${print ? "md:max-w-[68rem] md:my-auto print:w-[68rem] print:max-w-none! print:[zoom:0.73]" : ""}`}
       >
         <div
           data-l-card=""
-          className={`${s.paper} ${s.cardFrame} text-center px-7! pt-14! pb-16! aspect-[148/210] ${
-            print
-              ? "md:px-14! md:pt-12! md:pb-12! md:aspect-[210/148] md:grid md:grid-cols-2 md:items-center md:content-center md:gap-x-14"
+          style={print ? ({ "--frame": "var(--c-gold)" } as CSSProperties) : undefined}
+          className={`${s.paper} ${s.cardFrame} print:shadow-none! print:[print-color-adjust:exact] text-center px-7! pt-14! pb-16! aspect-[148/210] ${print
+              ? "md:px-14! md:pt-8! md:pb-8! md:aspect-[210/148] md:grid md:grid-cols-2 md:items-center md:content-center md:gap-x-14"
               : ""
-          }`}
+            }`}
         >
-          <div>
-          <div data-l-in="">
-            <InvitedTo text={t.invitedTo} />
-          </div>
+          {print ? (
+            <>
+              <div>
+                <div data-l-in="">
+                  <InvitedTo text={t.invitedTo} />
+                </div>
+                <p
+                  data-l-in=""
+                  className={`${s.body} ${s.soft} mt-1! italic`}
+                  style={{ fontSize: "0.85rem" }}
+                >
+                  Assalamu’alaikum Warahmatullahi Wabarakatuh
+                </p>
 
-          {(guest || print) && (
-            <div data-l-in="" className="mt-5!">
-              <p className={`${s.body} ${s.soft} italic text-[0.9rem]!`}>
-                {t.dear}
-              </p>
-              {print ? (
-                // left empty: the recipient is written in by hand
-                <div
-                  className="mx-auto! mt-2! h-9 w-4/5"
-                  style={{
-                    borderBottom:
-                      "1px solid color-mix(in oklab, var(--c-rose) 45%, transparent)",
-                  }}
-                />
-              ) : (
-                <p className={`${s.lead} mt-0.5!`}>{guest}</p>
+                <div data-l-in="" className="mt-4!">
+                  <p className={`${s.body} ${s.soft} italic text-[0.9rem]!`}>
+                    {t.dear}
+                  </p>
+                  {/* left empty: the recipient is written in by hand */}
+                  <div
+                    className="mx-auto! mt-1! h-8 w-4/5"
+                    style={{
+                      borderBottom:
+                        "1px solid color-mix(in oklab, var(--c-rose) 45%, transparent)",
+                    }}
+                  />
+                </div>
+
+                <p
+                  data-l-in=""
+                  className={`${s.body} mt-4!`}
+                  style={{ fontSize: "0.95rem", textWrap: "balance" }}
+                >
+                  Merupakan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i
+                  berkenan hadir pada acara lamaran putra putri kami:
+                </p>
+
+                <div data-l-in="" className="mt-2!">
+                  <p className={s.names} style={{ fontSize: "2.4rem" }}>
+                    {couple.first.full}
+                  </p>
+                  <p className={s.names} style={{ fontSize: "1.6rem" }}>
+                    &amp;
+                  </p>
+                  <p className={s.names} style={{ fontSize: "2.4rem" }}>
+                    {couple.second.full}
+                  </p>
+                </div>
+
+                <p
+                  data-l-in=""
+                  className={`${s.body} mt-3!`}
+                  style={{ fontSize: "0.95rem" }}
+                >
+                  yang insyaAllah akan kami selenggarakan
+                </p>
+
+                <DateLine className="mt-2!" />
+                <p data-l-in="" className={`${s.body} ${s.tabular} mt-2!`}>
+                  {t.timeRange(formatTime(event.start), formatTime(event.end))}
+                </p>
+
+              </div>
+
+              {/* right column on md+, a hairline divides the two */}
+              <div
+                className="md:border-l md:pl-14"
+                style={{ borderColor: "color-mix(in oklab, var(--c-rose) 35%, transparent)" }}
+              >
+                <p data-l-in="" className={`${s.body} ${s.soft} mt-6! md:mt-0! italic`} style={{ fontSize: "0.9rem" }}>
+                  Bertempat di
+                </p>
+                <p
+                  data-l-in=""
+                  className={s.caps}
+                  style={{ color: "var(--c-rose)", fontWeight: 700, textWrap: "balance" }}
+                >
+                  {event.venue}
+                </p>
+                <p
+                  data-l-in=""
+                  className={`${s.body} ${s.soft} mt-1!`}
+                  style={{ textWrap: "balance", fontSize: "0.85rem", lineHeight: 1.5 }}
+                >
+                  {event.address}
+                </p>
+
+                {cfg.mapImage && (
+                  <div data-l-in="">
+                    <MapFigure image={cfg.mapImage} print />
+                  </div>
+                )}
+              </div>
+
+              {/* spans both columns: closing salam, then the families on a single line */}
+              <div data-l-in="" className="mt-7! md:col-span-2 md:mt-4!">
+                <p className={`${s.body} ${s.soft} italic`} style={{ fontSize: "0.85rem" }}>
+                  Wassalamu’alaikum Warahmatullahi Wabarakatuh
+                </p>
+                {cfg.turutMengundang.length > 0 && (
+                  <>
+                    <h3 className={`${s.caps} mt-4!`}>Yang mengundang</h3>
+                    <p
+                      className={`${s.body} mt-2! whitespace-nowrap md:text-[1.05rem]!`}
+                      style={{ fontSize: "clamp(0.7rem, 2.9vw, 1.05rem)", letterSpacing: 0 }}
+                    >
+                      {cfg.turutMengundang.join(" & ")}
+                    </p>
+                  </>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <div data-l-in="">
+                <InvitedTo text={t.invitedTo} />
+              </div>
+
+              {guest && (
+                <div data-l-in="" className="mt-5!">
+                  <p className={`${s.body} ${s.soft} italic text-[0.9rem]!`}>
+                    {t.dear}
+                  </p>
+                  <p className={`${s.lead} mt-0.5!`}>{guest}</p>
+                </div>
               )}
-            </div>
-          )}
 
-          {print && (
-            <p
-              data-l-in=""
-              className={`${s.body} mt-5!`}
-              style={{ fontSize: "0.95rem", textWrap: "balance" }}
-            >
-              {lang === "id"
-                ? "Dengan ini kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara lamaran putra dan putri kami"
-                : "We kindly invite you to join the engagement of our son and daughter"}
-            </p>
-          )}
-
-          <h1
-            data-l-in=""
-            className={`${s.names} mt-4! whitespace-nowrap ${print ? "md:text-[3.5rem]!" : ""}`}
-            style={{ fontSize: "clamp(2.6rem, 12.5vw, 4.25rem)" }}
-          >
-            {couple.names}
-          </h1>
-
-          <DateLine />
-          <p data-l-in="" className={`${s.body} ${s.tabular} mt-2!`}>
-            {t.timeRange(formatTime(event.start), formatTime(event.end))}
-          </p>
-
-          <LaurelPair className={`mx-auto! mt-6! opacity-80 ${print ? "md:hidden!" : ""}`} width={56} />
-          </div>
-
-          {/* print: right column on md+, a hairline divides the two */}
-          <div
-            className={print ? "flex flex-col md:border-l md:pl-14" : ""}
-            style={{ borderColor: "color-mix(in oklab, var(--c-rose) 35%, transparent)" }}
-          >
-          {/* print: the map comes first, then the venue and address under it */}
-          <div className={print ? "order-2 mt-4!" : ""}>
-          <p
-            data-l-in=""
-            className={`${s.caps} mt-3! ${print ? "mt-0!" : ""}`}
-            style={{ color: "var(--c-rose)", fontWeight: 700, textWrap: "balance" }}
-          >
-            {event.venue}
-          </p>
-          <p
-            data-l-in=""
-            className={`${s.body} ${s.soft} mt-1!`}
-            style={{ textWrap: "balance" }}
-          >
-            {event.address}
-          </p>
-          </div>
-
-          {cfg.mapImage && (
-            <div data-l-in="" className={print ? "order-1" : ""}>
-              <MapFigure image={cfg.mapImage} print={print} />
-            </div>
-          )}
-
-          {!print && (
-            <div data-l-in="" className="mt-6! grid gap-3">
-              <a
-                href={event.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className={s.pill}
+              <h1
+                data-l-in=""
+                className={`${s.names} mt-4! whitespace-nowrap`}
+                style={{ fontSize: "clamp(2.6rem, 12.5vw, 4.25rem)" }}
               >
-                {t.map}
-              </a>
-            </div>
-          )}
+                {couple.names}
+              </h1>
 
-          </div>
-
-          {/* print: spans both columns so the families fit on a single line */}
-          {print && cfg.turutMengundang.length > 0 && (
-            <div data-l-in="" className="mt-7! md:col-span-2 md:mt-8!">
-              <h3 className={s.caps}>{t.alsoInviting}</h3>
-              <p
-                className={`${s.body} mt-2! whitespace-nowrap md:text-[1.05rem]!`}
-                style={{ fontSize: "clamp(0.7rem, 2.9vw, 1.05rem)", letterSpacing: 0 }}
-              >
-                {cfg.turutMengundang.join(" & ")}
+              <DateLine />
+              <p data-l-in="" className={`${s.body} ${s.tabular} mt-2!`}>
+                {t.timeRange(formatTime(event.start), formatTime(event.end))}
               </p>
-            </div>
+
+              <LaurelPair className="mx-auto! mt-6! opacity-80" width={56} />
+
+              <p
+                data-l-in=""
+                className={`${s.caps} mt-3!`}
+                style={{ color: "var(--c-rose)", fontWeight: 700, textWrap: "balance" }}
+              >
+                {event.venue}
+              </p>
+              <p
+                data-l-in=""
+                className={`${s.body} ${s.soft} mt-1!`}
+                style={{ textWrap: "balance" }}
+              >
+                {event.address}
+              </p>
+
+              {cfg.mapImage && (
+                <div data-l-in="">
+                  <MapFigure image={cfg.mapImage} />
+                </div>
+              )}
+
+              <div data-l-in="" className="mt-6! grid gap-3">
+                <a
+                  href={event.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={s.pill}
+                >
+                  {t.map}
+                </a>
+              </div>
+            </>
           )}
         </div>
 
         {/* the wax seal, pressed over the card's lower edge */}
         <div
           data-l-seal=""
-          className="absolute left-1/2 -bottom-10 w-[5rem] -translate-x-1/2 z-[2]"
+          className="absolute left-1/2 -bottom-10 w-[5rem] -translate-x-1/2 z-[2] print:hidden"
         >
           <HeartSeal className="w-full! h-auto!" />
         </div>
