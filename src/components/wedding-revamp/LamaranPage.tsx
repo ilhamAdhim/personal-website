@@ -6,7 +6,7 @@ import { ENGAGEMENT } from "data/engagementConfig";
 import { FamilyList } from "./Closing";
 import { ConfigProvider, coupleOf } from "./config";
 import { LangSwitch } from "./Controls";
-import { HeartSeal, LaurelPair } from "./Decor";
+import { HeartSeal, InvitedTo, LaurelPair } from "./Decor";
 import { addToCalendar } from "./Events";
 import { fontVars } from "./fonts";
 import type { Lang } from "./i18n";
@@ -63,9 +63,11 @@ const DateLine = () => {
 const Content = ({
   guest,
   setLang,
+  print,
 }: {
   guest: string;
   setLang: (l: Lang) => void;
+  print: boolean;
 }) => {
   const { t, lang } = useLang();
   const ref = useRef<HTMLElement>(null);
@@ -108,30 +110,61 @@ const Content = ({
         className={`${s.caps} absolute z-[3] right-[var(--gutter)]`}
         style={{ top: "max(0.75rem, env(safe-area-inset-top))" }}
       >
-        <LangSwitch setLang={setLang} />
+        {!print && <LangSwitch setLang={setLang} />}
       </div>
 
-      <div className="relative w-full max-w-[26rem]">
+      {/* A5 portrait, one column. The print page goes landscape with two columns from md up */}
+      <div
+        className={`relative w-full max-w-[26rem] ${print ? "md:max-w-[60rem] md:my-auto" : ""}`}
+      >
         <div
           data-l-card=""
-          className={`${s.paper} ${s.cardFrame} text-center px-7! pt-14! pb-16!`}
+          className={`${s.paper} ${s.cardFrame} text-center px-7! pt-14! pb-16! aspect-[148/210] ${
+            print
+              ? "md:px-14! md:pt-12! md:pb-12! md:aspect-[210/148] md:grid md:grid-cols-2 md:items-center md:content-center md:gap-x-14"
+              : ""
+          }`}
         >
-          <p data-l-in="" className={s.smallCaps}>
-            {t.invitedTo}
-          </p>
+          <div>
+          <div data-l-in="">
+            <InvitedTo text={t.invitedTo} />
+          </div>
 
-          {guest && (
+          {(guest || print) && (
             <div data-l-in="" className="mt-5!">
               <p className={`${s.body} ${s.soft} italic text-[0.9rem]!`}>
                 {t.dear}
               </p>
-              <p className={`${s.lead} mt-0.5!`}>{guest}</p>
+              {print ? (
+                // left empty: the recipient is written in by hand
+                <div
+                  className="mx-auto! mt-2! h-9 w-4/5"
+                  style={{
+                    borderBottom:
+                      "1px solid color-mix(in oklab, var(--c-rose) 45%, transparent)",
+                  }}
+                />
+              ) : (
+                <p className={`${s.lead} mt-0.5!`}>{guest}</p>
+              )}
             </div>
+          )}
+
+          {print && (
+            <p
+              data-l-in=""
+              className={`${s.body} mt-5!`}
+              style={{ fontSize: "0.95rem", textWrap: "balance" }}
+            >
+              {lang === "id"
+                ? "Dengan ini kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara lamaran putra dan putri kami"
+                : "We kindly invite you to join the engagement of our son and daughter"}
+            </p>
           )}
 
           <h1
             data-l-in=""
-            className={`${s.names} mt-4! whitespace-nowrap`}
+            className={`${s.names} mt-4! whitespace-nowrap ${print ? "md:text-[3.5rem]!" : ""}`}
             style={{ fontSize: "clamp(2.6rem, 12.5vw, 4.25rem)" }}
           >
             {couple.names}
@@ -142,11 +175,19 @@ const Content = ({
             {t.timeRange(formatTime(event.start), formatTime(event.end))}
           </p>
 
-          <LaurelPair className="mx-auto! mt-6! opacity-80" width={56} />
+          <LaurelPair className={`mx-auto! mt-6! opacity-80 ${print ? "md:hidden!" : ""}`} width={56} />
+          </div>
 
+          {/* print: right column on md+, a hairline divides the two */}
+          <div
+            className={print ? "flex flex-col md:border-l md:pl-14" : ""}
+            style={{ borderColor: "color-mix(in oklab, var(--c-rose) 35%, transparent)" }}
+          >
+          {/* print: the map comes first, then the venue and address under it */}
+          <div className={print ? "order-2 mt-4!" : ""}>
           <p
             data-l-in=""
-            className={`${s.caps} mt-3!`}
+            className={`${s.caps} mt-3! ${print ? "mt-0!" : ""}`}
             style={{ color: "var(--c-rose)", fontWeight: 700, textWrap: "balance" }}
           >
             {event.venue}
@@ -158,23 +199,41 @@ const Content = ({
           >
             {event.address}
           </p>
+          </div>
 
           {cfg.mapImage && (
-            <div data-l-in="">
-              <MapFigure image={cfg.mapImage} />
+            <div data-l-in="" className={print ? "order-1" : ""}>
+              <MapFigure image={cfg.mapImage} print={print} />
             </div>
           )}
 
-          <div data-l-in="" className="mt-6! grid gap-3">
-            <a
-              href={event.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className={s.pill}
-            >
-              {t.map}
-            </a>
+          {!print && (
+            <div data-l-in="" className="mt-6! grid gap-3">
+              <a
+                href={event.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={s.pill}
+              >
+                {t.map}
+              </a>
+            </div>
+          )}
+
           </div>
+
+          {/* print: spans both columns so the families fit on a single line */}
+          {print && cfg.turutMengundang.length > 0 && (
+            <div data-l-in="" className="mt-7! md:col-span-2 md:mt-8!">
+              <h3 className={s.caps}>{t.alsoInviting}</h3>
+              <p
+                className={`${s.body} mt-2! whitespace-nowrap md:text-[1.05rem]!`}
+                style={{ fontSize: "clamp(0.7rem, 2.9vw, 1.05rem)", letterSpacing: 0 }}
+              >
+                {cfg.turutMengundang.join(" & ")}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* the wax seal, pressed over the card's lower edge */}
@@ -186,7 +245,7 @@ const Content = ({
         </div>
       </div>
 
-      {cfg.turutMengundang.length > 0 && (
+      {!print && cfg.turutMengundang.length > 0 && (
         <div data-l-after="" className="mt-24! text-center w-full">
           <FamilyList rule={false} />
         </div>
@@ -199,7 +258,16 @@ const Content = ({
  * /lamaran: the engagement invitation as a single card on velvet, no envelope
  * or scrolling show. Shares the guest allow list and the 404 with the other pages.
  */
-const LamaranPage = ({ guest, ogImage, pageUrl, invalid }: InvitationProps) => {
+const LamaranPage = ({
+  guest,
+  ogImage,
+  pageUrl,
+  invalid,
+  print = false,
+}: InvitationProps & {
+  /** printable variant: fixed salutation, blank recipient, no map button */
+  print?: boolean;
+}) => {
   const [lang, setLang] = useState<Lang>("id");
 
   // Field colour behind overscroll / iOS rubber-banding, restored on leave
@@ -243,7 +311,7 @@ const LamaranPage = ({ guest, ogImage, pageUrl, invalid }: InvitationProps) => {
         <div className={s.grain} aria-hidden="true" />
         <LangProvider lang={lang} overrides={cfg.copy}>
           <main>
-            <Content guest={guest} setLang={setLang} />
+            <Content guest={guest} setLang={setLang} print={print} />
           </main>
         </LangProvider>
       </div>

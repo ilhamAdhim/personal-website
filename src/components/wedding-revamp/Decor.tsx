@@ -2,6 +2,7 @@ import { useId } from "react";
 import type { CSSProperties } from "react";
 
 import { coupleOf, useConfig } from "./config";
+import s from "./wr.module.css";
 
 /** Shared SVG defs: the arch for portraits and the torn-paper edge. Render once per page. */
 export const WrDefs = () => (
@@ -346,3 +347,28 @@ export const Sprig = ({
     </svg>
   );
 };
+
+const ARABIC = /[؀-ۿ]/;
+
+/**
+ * The line above the couple. Arabic text (the bismillah) is set in the Arabic
+ * face at display size in the accent colour, anything else as the usual small caps.
+ */
+export const InvitedTo = ({ text, className = "" }: { text: string; className?: string }) =>
+  ARABIC.test(text) ? (
+    <p
+      className={`${s.arabic} ${className}`}
+      dir="rtl"
+      lang="ar"
+      style={{
+        color: "var(--accent, var(--c-rose))",
+        fontWeight: 700,
+        fontSize: "clamp(1.35rem, 5.5vw, 1.7rem)",
+        lineHeight: 1.5,
+      }}
+    >
+      {text}
+    </p>
+  ) : (
+    <p className={`${s.smallCaps} ${className}`}>{text}</p>
+  );
