@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { coupleOf, useConfig } from "./config";
 import { LangSwitch } from "./Controls";
-import { Laurel, LaurelPair, Sprig } from "./Decor";
+import { InvitedTo, Laurel, LaurelPair, Sprig } from "./Decor";
 import type { Lang } from "./i18n";
 import { dateParts, useLang } from "./i18n";
 import { gsap, useSectionMotion } from "./motion";
@@ -349,9 +349,9 @@ const Names = ({
       {/* the formal line */}
       <div className={`${s.section} pt-4! z-[1]`}>
         <div className={s.wrap}>
-          <p data-n-rise="" className={s.smallCaps}>
-            {t.invitedTo}
-          </p>
+          <div data-n-rise="">
+            <InvitedTo text={t.invitedTo} />
+          </div>
           {t.of && (
             <p data-n-rise="" className={`${s.script} text-[2.6rem]! mt-1!`}>
               {t.of}

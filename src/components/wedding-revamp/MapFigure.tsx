@@ -36,7 +36,8 @@ const Landmarks = ({ landmarks }: { landmarks: MapImage["landmarks"] }) => (
   </>
 );
 
-const MapFigure = ({ image }: { image: MapImage }) => {
+/** With `print`, the map is a plain picture: no zoom caption, no enlarge dialog */
+const MapFigure = ({ image, print = false }: { image: MapImage; print?: boolean }) => {
   const { t } = useLang();
   // left edge of the window, as a share of the image, kept inside the image
   const left = Math.min(Math.max(image.pin.x / 100 - CROP / 2, 0), 1 - CROP);
@@ -69,6 +70,8 @@ const MapFigure = ({ image }: { image: MapImage }) => {
         onClick={open}
         aria-label={t.mapZoom}
         className={s.mapThumb}
+        disabled={print}
+        style={print ? { cursor: "default" } : undefined}
       >
         {/* a 16:10 window onto the screenshot, zoomed in on the pin */}
         <span className="relative block w-full overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
@@ -93,10 +96,13 @@ const MapFigure = ({ image }: { image: MapImage }) => {
           </span>
         </span>
       </button>
-      <figcaption className={`${s.body} ${s.soft} mt-2! text-[0.8rem]!`}>
-        {t.mapZoom}
-      </figcaption>
+      {!print && (
+        <figcaption className={`${s.body} ${s.soft} mt-2! text-[0.8rem]!`}>
+          {t.mapZoom}
+        </figcaption>
+      )}
 
+      {!print && (
       <dialog
         ref={dialog}
         className={s.mapDialog}
@@ -139,6 +145,7 @@ const MapFigure = ({ image }: { image: MapImage }) => {
           {t.close}
         </button>
       </dialog>
+      )}
     </figure>
   );
 };

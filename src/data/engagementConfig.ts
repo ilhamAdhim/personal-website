@@ -16,7 +16,7 @@ export const ENGAGEMENT: WeddingConfig = {
       key: "lamaran",
       title: { id: "Lamaran", en: "Engagement" },
       start: "2026-11-21T10:00:00+07:00",
-      end: "2026-11-21T13:00:00+07:00",
+      end: "2026-11-21T12:00:00+07:00",
       venue: "Permata Jingga Swimming Pool & Cafe",
       address:
         "Permata Jingga Blok West Area, Jl. Raya Permata Jingga I, Tunggulwulung, Lowokwaru, Kota Malang, Jawa Timur 65149",
@@ -75,7 +75,7 @@ export const ENGAGEMENT: WeddingConfig = {
   copy: {
     id: {
       coupleTitle: "", // no heading above the couple
-      invitedTo: "Undangan Lamaran",
+      invitedTo: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
       coupleIntro:
         "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara lamaran putra-putri kami:",
       detailsTitle: "Detail Lamaran",
@@ -84,7 +84,7 @@ export const ENGAGEMENT: WeddingConfig = {
     },
     en: {
       coupleTitle: "",
-      invitedTo: "You’re Invited To The Engagement",
+      invitedTo: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
       coupleIntro:
         "Seeking the grace and blessing of Allah SWT, we joyfully invite you to the engagement of our children:",
       detailsTitle: "Engagement Details",
