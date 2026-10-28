@@ -373,6 +373,10 @@ const LamaranPage = ({
           <meta property="og:image:height" content="630" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="robots" content="noindex" />
+          {/* Plain global rule: @page inside a CSS module is not reliably honoured */}
+          {print && (
+            <style>{"@page{size:A5 landscape;margin:0}"}</style>
+          )}
         </Head>
 
         <div className={s.grain} aria-hidden="true" />
