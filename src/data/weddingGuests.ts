@@ -7,7 +7,7 @@ export const WEDDING_GUESTS = [
   "Muhammad Azmi Adhim",
   "Bp. Edi Widjajanto",
   "Ibu Lilik Mintartiningsih",
-  "Ibu Leliasri Wida",
+  "Ibu Leliasri Wijayahati",
   "Bp. I Nyoman Sumitra",
   "Bp. Nugroho Ananto",
   "Ibu Bea Rejeki",
