@@ -23,6 +23,7 @@ export const WEDDING_GUESTS = [
   "Lirasati Sadikaningtya",
   "Aditya Wijayanto Putra",
   "I Ketut Arimbawa",
+  "I Gede Agastya",
   "Bayu Satria",
   "Kholiq Subagio",
   "Agus Setiabudi",
